@@ -1,0 +1,2804 @@
+{
+  "model": "gpt-6.1-terra",
+  "context_sections": 15,
+  "results": [
+    {
+      "set": "tuning",
+      "expected": [
+        "trade_marks_act_1999:29",
+        "trade_marks_act_1999:135"
+      ],
+      "seconds": 17.1,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 7,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Someone is selling products with my registered trademark on them. What can I do?",
+        "answer": "Selling products with your registered trade mark may be infringement, but it depends on the facts. For example, use in trade by someone who is not the owner or a permitted user can infringe where the mark and goods meet the conditions in the law. Offering goods for sale under the mark counts as use. [trade_marks_act_1999:29]\n\nA valid registration gives its owner the right to obtain relief for infringement, subject to conditions and limitations. The sources provided do not explain the available remedies or how to pursue them. [trade_marks_act_1999:28]\n\nA sale is not automatically infringement just because it involves your mark. For example, the law provides protection in certain circumstances for resale of lawfully acquired goods put on the market by you or with your consent. That protection does not apply if you have legitimate reasons to oppose further dealings, such as a change or impairment in the goods’ condition. [trade_marks_act_1999:30]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:29",
+            "quote": "who, not being a registered proprietor or a person using by way of permitted use, uses in the course of\ntrade, a mark which is identical with, or deceptively similar to, the trade mark in relation to goods or\nservices in respect of which the trade mark is registered and in such manner as to render the use of the\nmark likely to be taken as being used as a trade mark.",
+            "supports": "Use by someone other than the owner or a permitted user can infringe when the stated conditions are met.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 29, The Trade Marks Act, 1999",
+            "page": 20
+          },
+          {
+            "section_id": "trade_marks_act_1999:29",
+            "quote": "offers or exposes goods for sale, puts them on the market, or stocks them for those purposes\nunder the registered trade mark",
+            "supports": "Offering goods for sale under the mark counts as use.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 29, The Trade Marks Act, 1999",
+            "page": 20
+          },
+          {
+            "section_id": "trade_marks_act_1999:28",
+            "quote": "the registration of a trade mark shall, if valid, give to the registered proprietor of the trade mark the exclusive\nright to the use of the trade mark in relation to the goods or services in respect of which the trade mark is\nregistered and to obtain relief in respect of infringement of the trade mark in t he manner provided by this\nAct.",
+            "supports": "A valid registration gives its owner a right to obtain relief for infringement, subject to the other provisions of the Act.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 28, The Trade Marks Act, 1999",
+            "page": 20
+          },
+          {
+            "section_id": "trade_marks_act_1999:28",
+            "quote": "The exclusive right to the use of a trade mark given under sub -section (1) shall be subject to any\nconditions and limitations to which the registration is subject.",
+            "supports": "The exclusive right is subject to conditions and limitations on the registration.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 28, The Trade Marks Act, 1999",
+            "page": 20
+          },
+          {
+            "section_id": "trade_marks_act_1999:30",
+            "quote": "Where the goods bearing a registered trade mark are lawfully acquired by a person, the sale of the\ngoods in the market or otherwise dealing in those goods by that person or by a person claiming under or\nthrough him is not infringement of a trade mark by reason only of—",
+            "supports": "Certain sales of lawfully acquired goods are not automatically infringement.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 30, The Trade Marks Act, 1999",
+            "page": 21
+          },
+          {
+            "section_id": "trade_marks_act_1999:30",
+            "quote": "the goods having been put on the market under the registered trade mark by the proprietor or\nwith his consent.",
+            "supports": "The resale protection addresses goods put on the market under the mark by the owner or with the owner’s consent.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 30, The Trade Marks Act, 1999",
+            "page": 21
+          },
+          {
+            "section_id": "trade_marks_act_1999:30",
+            "quote": "Sub-section (3) shall not apply where there exists legitimate reasons for the proprietor to oppose\nfurther dealings in the goods in particular, where the condition of the goods , has been changed or\nimpaired after they have been put on the market.",
+            "supports": "The resale protection does not apply where the owner has legitimate reasons to oppose further dealings, including changed or impaired condition.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 30, The Trade Marks Act, 1999",
+            "page": 21
+          }
+        ],
+        "next_steps": [
+          "Keep screenshots of listings and advertisements, seller details, dates, and any purchase receipts. Photograph the products and packaging if available.",
+          "Gather your registration documents and check which goods your registration covers, any limitations, and whether the seller may have permission or be reselling goods you supplied.",
+          "Consult a trade mark lawyer with the evidence to assess the situation and discuss available options. You could also consider reporting the listing to the selling platform."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 29, The Trade Marks Act, 1999",
+          "Section 16, The Trade Marks Act, 1999",
+          "Section 9, The Trade Marks Act, 1999",
+          "Section 30, The Trade Marks Act, 1999",
+          "Section 146, The Trade Marks Act, 1999",
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 107, The Trade Marks Act, 1999",
+          "Section 138, The Trade Marks Act, 1999",
+          "Section 28, The Trade Marks Act, 1999",
+          "Section 2, The Trade Marks Act, 1999",
+          "Section 75, The Trade Marks Act, 1999",
+          "Section 152, The Trade Marks Act, 1999",
+          "Section 104, The Trade Marks Act, 1999",
+          "Section 48, The Patents Act, 1970",
+          "Section 107A, The Patents Act, 1970"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9460,
+        "output_tokens": 1292
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "trade_marks_act_1999:27"
+      ],
+      "seconds": 10.3,
+      "score": {
+        "retrieved_correct": false,
+        "grounded": true,
+        "correct_law": false,
+        "passed": false,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Can I sue someone for using my brand name if I never registered it?",
+        "answer": "Yes, you may be able to sue even if you never registered your brand name. The law recognises a claim called “passing off” for an unregistered trade mark used in business. [trade_marks_act_1999:11]\n\nA passing-off suit can concern another person’s use of a mark that is identical to yours or so similar that it is likely to deceive or cause confusion. Whether you have a viable claim depends on the facts. The suit must be filed in a District Court with jurisdiction, not a lower court. [trade_marks_act_1999:134] [trade_marks_act_1999:2]\n\nIn a passing-off suit, a court may grant an injunction—an order to stop the conduct—and, at your option, damages or an account of profits. Monetary relief is subject to limitations. [trade_marks_act_1999:135]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:11",
+            "quote": "the law of passing off protecting an unregistered trade mark used in the course of trade",
+            "supports": "Passing off can protect an unregistered trade mark used in business.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 11, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:134",
+            "quote": "for passing off arising out of the use by the defendant of any trade mark which is identical\nwith or deceptively similar to the plaintiff’s trade mark, whether registered or unregistered,\nshall be instituted in any court inferior to a District Court having jurisdiction to try the suit.",
+            "supports": "A passing-off suit can concern an identical or deceptively similar unregistered mark and must be brought in a court no lower than a District Court with jurisdiction.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 134, The Trade Marks Act, 1999",
+            "page": 46
+          },
+          {
+            "section_id": "trade_marks_act_1999:2",
+            "quote": "A mark shall be deemed to be deceptively similar to another mark if\nit so nearly resembles that other mark as to be likely to deceive or cause confusion",
+            "supports": "Deceptively similar means so similar that the mark is likely to deceive or cause confusion.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Trade Marks Act, 1999",
+            "page": 8
+          },
+          {
+            "section_id": "trade_marks_act_1999:135",
+            "quote": "includes injunction (subject to such\nterms, if any, as the court thinks fit) and at the option of the plaintiff, either damages or an account of\nprofits",
+            "supports": "A court may grant an injunction and, at the plaintiff’s option, damages or an account of profits.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 135, The Trade Marks Act, 1999",
+            "page": 46
+          },
+          {
+            "section_id": "trade_marks_act_1999:135",
+            "quote": "the court shall not grant relief by way of\ndamages (other than nominal damages) or on account of profits in any case—",
+            "supports": "Monetary relief is subject to limitations.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 135, The Trade Marks Act, 1999",
+            "page": 46
+          }
+        ],
+        "next_steps": [
+          "Collect evidence of your use of the name, such as dated invoices, packaging, advertisements and website records.",
+          "Save examples of the other person’s use, including screenshots and dates, and any evidence of customer confusion.",
+          "Consult an Indian trade mark lawyer about whether a passing-off claim is suitable and which District Court has jurisdiction."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 29, The Trade Marks Act, 1999",
+          "Section 134, The Trade Marks Act, 1999",
+          "Section 135, The Trade Marks Act, 1999",
+          "Section 67, The Trade Marks Act, 1999",
+          "Section 28, The Trade Marks Act, 1999",
+          "Section 46, The Trade Marks Act, 1999",
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 146, The Trade Marks Act, 1999",
+          "Section 35, The Trade Marks Act, 1999",
+          "Section 125, The Trade Marks Act, 1999",
+          "Section 9, The Trade Marks Act, 1999",
+          "Section 159, The Trade Marks Act, 1999",
+          "Section 52, The Trade Marks Act, 1999",
+          "Section 75, The Trade Marks Act, 1999",
+          "Section 2, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9198,
+        "output_tokens": 811
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "trade_marks_act_1999:9",
+        "trade_marks_act_1999:11"
+      ],
+      "seconds": 23.3,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 19,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Why could my trademark application be rejected?",
+        "answer": "Your application could be refused for several reasons. Which ones matter depends on your mark and the goods or services in your application.\n\n• The mark does not distinguish your goods or services from others, or consists only of descriptive or commonly used trade terms. But prior use may have made it distinctive, or it may be a well-known mark. [trade_marks_act_1999:9]\n• It could deceive or confuse the public; hurt religious sentiments; contain scandalous or obscene material; or use a prohibited emblem or name. [trade_marks_act_1999:9]\n• It consists only of a product shape that results from the nature of the goods, is necessary for a technical result, or gives the goods substantial value. [trade_marks_act_1999:9]\n• It is identical or similar to an earlier mark for identical or similar goods or services, and the public is likely to be confused, including by thinking the marks are connected. [trade_marks_act_1999:11]\n• It is identical or similar to an earlier mark that is well known in India, even for different goods or services, if using it without good reason would unfairly benefit from or harm the earlier mark’s distinctiveness or reputation. [trade_marks_act_1999:11]\n• Its use could be stopped under copyright law or the law protecting an unregistered mark used in trade, known as passing off. [trade_marks_act_1999:11]\n\nFor the last two grounds, the earlier mark’s owner must raise the objection in opposition proceedings—a formal challenge to registration. Consent from the owner of an earlier mark or right may also be relevant. [trade_marks_act_1999:11]\n\nThe Registrar may accept an application with changes or conditions rather than refuse it. If the Registrar refuses it or accepts it conditionally, the reasons and materials used must be recorded in writing. [trade_marks_act_1999:18]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "which are devoid of any distinctive character, that is to say, not capable of distinguishing the goods or services of one person from those of another person",
+            "supports": "A mark that does not distinguish the applicant’s goods or services may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "which consist exclusively of marks or indications which may serve in trade to designate the kind, quality, quantity, intended purpose, values, geographical origin or the time of production of the goods or rendering of the service or other characteristics of the goods or service",
+            "supports": "A mark consisting only of descriptive indications may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "which consist exclusively of marks or indications which have become customary in the current language or in the bona fide and established practices of the trade",
+            "supports": "A mark consisting only of customary terms may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "a trade mark shall not be refused registration if before the date of application for registration it has acquired a distinctive character as a result of the use made of it or is a well-known trade mark",
+            "supports": "Prior use that made a mark distinctive, or its status as a well-known mark, can be relevant to those grounds.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "it is of such nature as to deceive the public or cause confusion",
+            "supports": "A deceptive or confusing mark may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "it contains or comprises of any matter likely to hurt the religious susceptibilities of any class or section of the citizens of India",
+            "supports": "A mark containing matter likely to hurt religious sentiments may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "it comprises or contains scandalous or obscene matter",
+            "supports": "A mark containing scandalous or obscene material may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "its use is prohibited under the Emblems and Names (Prevention of Improper Use) Act, 1950",
+            "supports": "A mark whose use is prohibited under the named law may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "the shape of goods which results from the nature of the goods themselves",
+            "supports": "A mark consisting exclusively of a shape resulting from the nature of the goods may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "the shape of goods which is necessary to obtain a technical result",
+            "supports": "A mark consisting exclusively of a shape necessary for a technical result may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:9",
+            "quote": "the shape which gives substantial value to the goods",
+            "supports": "A mark consisting exclusively of a shape giving substantial value to the goods may be refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:11",
+            "quote": "there exists a likelihood of confusion on the part of the public, which includes the likelihood of association with the earlier trade mark",
+            "supports": "A conflict with an earlier mark can lead to refusal where the public is likely to be confused or think the marks are connected.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 11, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:11",
+            "quote": "its similarity to an earlier trade mark and the identity or similarity of the goods or serv ices covered by the trade mark",
+            "supports": "Similarity to an earlier mark and identity or similarity of the goods or services are relevant to this ground.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 11, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:11",
+            "quote": "the earlier trade mark is a well-known trade mark in India and the use of the later mark without due cause would take unfair advantage of or be detrimental to the distinctive character or repute of the earlier trade mark",
+            "supports": "A conflict with a well-known earlier mark can be a ground for refusal even for different goods or services, subject to the stated conditions.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 11, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:11",
+            "quote": "by virtue of any law in particular the law of passing off protecting an unregistered trade mark used in the course of trade; or\n(b) by virtue of law of copyright",
+            "supports": "Refusal can follow where use is liable to be prevented by passing-off or copyright law.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 11, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:11",
+            "quote": "A trade mark shall not be refused registration on the grounds specified in sub -sections (2) and (3), unless objection on any one or more of those grounds is raised in opposition proceedings by the proprietor of the earlier trade mark.",
+            "supports": "The well-known-mark and passing-off or copyright grounds require an objection by the earlier mark’s owner in opposition proceedings.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 11, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:11",
+            "quote": "Nothing in this section shall prevent the registration of a trade mark where the proprietor of the earlier trade mark or other earlier right consents to the registration",
+            "supports": "Consent from the owner of an earlier mark or right may be relevant.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 11, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:18",
+            "quote": "the Registrar may refuse the application or may accept it absolutely or subject to such amendments, modifications, conditions or limitation s",
+            "supports": "The Registrar may accept an application with changes or conditions instead of refusing it.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Trade Marks Act, 1999",
+            "page": 17
+          },
+          {
+            "section_id": "trade_marks_act_1999:18",
+            "quote": "the Registrar shall record in writing the grounds for such refusal or conditional acceptance and the materials used by him in arriving at his decision",
+            "supports": "Reasons and materials must be recorded in writing for refusal or conditional acceptance.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Trade Marks Act, 1999",
+            "page": 17
+          }
+        ],
+        "next_steps": [
+          "Review any notice or written reasons from the Trade Marks Registry to identify the specific objection.",
+          "Keep records of your mark, the goods or services it covers, and any use or promotion before you applied.",
+          "Compare any earlier mark identified in an objection with yours. Consider discussing the objection and your options with a trademark lawyer."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 18, The Trade Marks Act, 1999",
+          "Section 9, The Trade Marks Act, 1999",
+          "Section 74, The Trade Marks Act, 1999",
+          "Section 46, The Trade Marks Act, 1999",
+          "Section 36D, The Trade Marks Act, 1999",
+          "Section 73, The Trade Marks Act, 1999",
+          "Section 45, The Trade Marks Act, 1999",
+          "Section 47, The Trade Marks Act, 1999",
+          "Section 23, The Trade Marks Act, 1999",
+          "Section 21, The Trade Marks Act, 1999",
+          "Section 86, The Patents Act, 1970",
+          "Section 131, The Patents Act, 1970",
+          "Section 59, The Trade Marks Act, 1999",
+          "Section 36E, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 7912,
+        "output_tokens": 1967
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "trade_marks_act_1999:25"
+      ],
+      "seconds": 13.6,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 7,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "How long is a trademark registration valid and how do I renew it?",
+        "answer": "An Indian trade mark registration made after the Act commenced lasts 10 years. It can be renewed for further 10-year periods. Each renewal runs from the expiry of the previous registration period. [trade_marks_act_1999:25]\n\nTo renew, the registered owner must apply in the prescribed manner and within the prescribed period, and pay the prescribed fee. The sources provided do not specify the form, fee amount or ordinary application deadline. [trade_marks_act_1999:25]\n\nIf the registration has expired, the Registrar must renew it if the required application, fee and surcharge are submitted within six months of expiry. If the mark is removed for non-payment, an application for restoration may be made after six months and within one year of expiry; restoration is subject to the Registrar being satisfied that it is just. [trade_marks_act_1999:25]\n\nInternational registrations have separate provisions: they last 10 years and can be renewed for 10 years. A six-month grace period is available, subject to a surcharge. [trade_marks_act_1999:36G]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:25",
+            "quote": "shall be for a period of ten years, but may be renewed from\ntime to time",
+            "supports": "An Indian registration made after the Act commenced lasts 10 years and can be renewed.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Trade Marks Act, 1999",
+            "page": 19
+          },
+          {
+            "section_id": "trade_marks_act_1999:25",
+            "quote": "renew\nthe registration of the trade mark for a period of ten years from the date of expiration of the original\nregistration or of the last renewal of registration",
+            "supports": "Each renewal lasts 10 years from the previous registration's expiry.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Trade Marks Act, 1999",
+            "page": 19
+          },
+          {
+            "section_id": "trade_marks_act_1999:25",
+            "quote": "on application made by the registered proprietor of a trade mark in the\nprescribed manner and within the prescribed period and subject to payment of the prescribed fee",
+            "supports": "The registered owner must apply in the prescribed manner and period and pay the prescribed fee.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Trade Marks Act, 1999",
+            "page": 19
+          },
+          {
+            "section_id": "trade_marks_act_1999:25",
+            "quote": "the Registrar shall not remove the trade mark from the register if an application is made\nin the prescribed form and the prescribed fee and surcharge is paid within six months from the expiration\nof the last registration of the trade mark and shall renew the registration",
+            "supports": "Renewal is available within six months of expiry on the required application and payment of the fee and surcharge.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Trade Marks Act, 1999",
+            "page": 19
+          },
+          {
+            "section_id": "trade_marks_act_1999:25",
+            "quote": "Where a trade mark has been removed from the register for non-payment of the prescribed fee, the\nRegistrar shall, after six months and within one year from the expiration of the last registration of the\ntrade mark, on receipt of an application in the prescribed form and on payment of the prescribed fee, if\nsatisfied that it is just so to do, restore the trade mark",
+            "supports": "A mark removed for non-payment may be restored on application after six months and within one year of expiry, subject to the stated conditions and the Registrar's satisfaction.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Trade Marks Act, 1999",
+            "page": 19
+          },
+          {
+            "section_id": "trade_marks_act_1999:36G",
+            "quote": "the International Bureau shall be for a period of ten  years and may be renewed for a period\nof ten years from the expiry of the preceding period",
+            "supports": "An international registration lasts 10 years and may be renewed for 10 years.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 36G, The Trade Marks Act, 1999",
+            "page": 26
+          },
+          {
+            "section_id": "trade_marks_act_1999:36G",
+            "quote": "Subject to payment of a surcharge prescribed by the rules, a grace period of  six months shall be\nallowed for renewal of the international registration.",
+            "supports": "International registration has a six-month renewal grace period subject to a surcharge.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 36G, The Trade Marks Act, 1999",
+            "page": 26
+          }
+        ],
+        "next_steps": [
+          "Check your registration certificate and latest renewal records for the expiry date and whether the registration is Indian or international.",
+          "Check with the Trade Marks Registry or an IP lawyer for the applicable form, filing period and current fee.",
+          "If the mark has expired or been removed, ask promptly about renewal or restoration."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 36G, The Trade Marks Act, 1999",
+          "Section 25, The Trade Marks Act, 1999",
+          "Section 26, The Trade Marks Act, 1999",
+          "Section 124, The Trade Marks Act, 1999",
+          "Section 31, The Trade Marks Act, 1999",
+          "Section 159, The Trade Marks Act, 1999",
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 49, The Trade Marks Act, 1999",
+          "Section 23, The Trade Marks Act, 1999",
+          "Section 113, The Trade Marks Act, 1999",
+          "Section 141, The Trade Marks Act, 1999",
+          "Section 125, The Trade Marks Act, 1999",
+          "Section 32, The Trade Marks Act, 1999",
+          "Section 152, The Trade Marks Act, 1999",
+          "Section 28, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 6400,
+        "output_tokens": 1077
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "copyright_act_1957:51",
+        "copyright_act_1957:52"
+      ],
+      "seconds": 12.7,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 10,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Can I use a song in my YouTube video without permission?",
+        "answer": "Sometimes, but not automatically. Using a copyrighted song in a YouTube video without permission can infringe copyright unless an exception applies. Copyright includes exclusive rights over making a film using a musical work and communicating a sound recording to the public. [copyright_act_1957:14; copyright_act_1957:51]\n\nOne possible exception is fair dealing for criticism or review, or for reporting current events. Whether your use is fair dealing depends on the circumstances. For criticism or review, the law also requires an acknowledgement identifying the work and, subject to exceptions, its author. [copyright_act_1957:52]\n\nDifferent rights may exist in the song and its recording, so permission for one does not necessarily cover everything. Performer’s rights may also matter. [copyright_act_1957:13; copyright_act_1957:38A]\n\nThis is legal information, not legal advice. The answer for your video depends on the song and how you use it.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "to make any cinematograph film or sound recording in respect of the work",
+            "supports": "Copyright includes the exclusive right to make a film using a musical work.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "to communicate the sound recording to the public",
+            "supports": "Copyright includes the exclusive right to communicate a sound recording to the public.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:51",
+            "quote": "without a licence granted by the owner of the copyright or the Registrar of Copyrights under this Act",
+            "supports": "Doing an act reserved to the copyright owner without a licence can infringe copyright.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 51, The Copyright Act, 1957",
+            "page": 34
+          },
+          {
+            "section_id": "copyright_act_1957:52",
+            "quote": "a fair dealing with any work, not being a computer programme, for the purposes of—",
+            "supports": "Fair dealing is an exception subject to its stated purposes.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 52, The Copyright Act, 1957",
+            "page": 34
+          },
+          {
+            "section_id": "copyright_act_1957:52",
+            "quote": "criticism or review, whether of that work or of any other work",
+            "supports": "Fair dealing for criticism or review is a possible exception.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 52, The Copyright Act, 1957",
+            "page": 34
+          },
+          {
+            "section_id": "copyright_act_1957:52",
+            "quote": "the reporting of current events and current affairs, including the reporting of a lecture\ndelivered in public.",
+            "supports": "Fair dealing for reporting current events is a possible exception.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 52, The Copyright Act, 1957",
+            "page": 34
+          },
+          {
+            "section_id": "copyright_act_1957:52",
+            "quote": "identifying the work by its title or other description;",
+            "supports": "The acknowledgement required for criticism or review must identify the work.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 52, The Copyright Act, 1957",
+            "page": 34
+          },
+          {
+            "section_id": "copyright_act_1957:52",
+            "quote": "unless the work is anonymous or the author of the work has previously agreed or required\nthat no acknowledgment of his name should be made, also identifying the author;",
+            "supports": "The acknowledgement must also identify the author, subject to exceptions.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 52, The Copyright Act, 1957",
+            "page": 34
+          },
+          {
+            "section_id": "copyright_act_1957:13",
+            "quote": "shall not affect the separate\ncopyright in any work",
+            "supports": "Separate copyright may exist in a recording and the work it records.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 13, The Copyright Act, 1957",
+            "page": 12
+          },
+          {
+            "section_id": "copyright_act_1957:38A",
+            "quote": "the\nperformer’s right which is an exclusive right subject to the provisions of this Act",
+            "supports": "Performer’s rights may also matter.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 38A, The Copyright Act, 1957",
+            "page": 29
+          }
+        ],
+        "next_steps": [
+          "Identify the song, recording and how much you want to use, and note the purpose of the video.",
+          "Check who controls the relevant rights and whether an existing licence covers use in your video. Keep copies of permissions and licence terms.",
+          "If you want to rely on an exception, consider consulting an Indian copyright lawyer about your specific video."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 52A, The Copyright Act, 1957",
+          "Section 31D, The Copyright Act, 1957",
+          "Section 2, The Copyright Act, 1957",
+          "Section 38A, The Copyright Act, 1957",
+          "Section 52, The Copyright Act, 1957",
+          "Section 31C, The Copyright Act, 1957",
+          "Section 68A, The Copyright Act, 1957",
+          "Section 18, The Copyright Act, 1957",
+          "Section 13, The Copyright Act, 1957",
+          "Section 14, The Copyright Act, 1957",
+          "Section 32, The Copyright Act, 1957",
+          "Section 39, The Copyright Act, 1957",
+          "Section 51, The Copyright Act, 1957",
+          "Section 19, The Copyright Act, 1957",
+          "Section 33, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 17746,
+        "output_tokens": 1001
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "copyright_act_1957:22"
+      ],
+      "seconds": 11.9,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "How long does copyright last for a book after the author dies?",
+        "answer": "For a book published during the author’s lifetime, copyright generally lasts for 60 years starting on 1 January of the year after the author dies. For example, if the author died in 2020, the period runs from 1 January 2021 to 31 December 2080. [copyright_act_1957:22]\n\nFor a jointly authored book, the period is generally counted from the year after the last author dies. [copyright_act_1957:22]\n\nDifferent rules can apply. For example, if the book and any adaptation were not published before the author’s death, the period may instead be counted from publication. A public performance or sale of sound recordings can also count as publication for this rule. [copyright_act_1957:24] Books published anonymously or under a pen name can also have a different term. [copyright_act_1957:23]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "copyright_act_1957:22",
+            "quote": "published within the lifetime of the author until  7[sixty years] from the beginning of the calendar\nyear next following the year in which the author dies",
+            "supports": "The general 60-year term and the example for a book published during the author's lifetime.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 22, The Copyright Act, 1957",
+            "page": 17
+          },
+          {
+            "section_id": "copyright_act_1957:22",
+            "quote": "the reference to the author shall, in the case of a work of joint\nauthorship, be construed as a reference to the author who dies last",
+            "supports": "For joint authorship, the general period is counted by reference to the last author to die.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 22, The Copyright Act, 1957",
+            "page": 17
+          },
+          {
+            "section_id": "copyright_act_1957:24",
+            "quote": "but which, or any adaptation of which, has not been published before that date, copyright shall  subsist\nuntil  2[sixty years] from the beginning of the calendar year next following the year in which the work is\nfirst published or, where an adaptation of the work is published in any earlier year, from the beginning of\nthe calendar year next following that year",
+            "supports": "A different period based on publication can apply when neither the work nor an adaptation was published before the author's death.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 24, The Copyright Act, 1957",
+            "page": 18
+          },
+          {
+            "section_id": "copyright_act_1957:24",
+            "quote": "shall be deemed to have been published, if it has been performed in public or if any   3[sound\nrecordings] made in respect of the work have been sold to the public or have been offered for sale to the\npublic",
+            "supports": "Public performance and sale or offer for sale of sound recordings can count as publication for this rule.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 24, The Copyright Act, 1957",
+            "page": 18
+          },
+          {
+            "section_id": "copyright_act_1957:23",
+            "quote": "which is published anonymously or\npseudonymously, copyright shall subsist until 7[sixty years] from the beginning of the calendar year next\nfollowing the year in which the work is first published",
+            "supports": "Books published anonymously or under a pen name can have a different term.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 23, The Copyright Act, 1957",
+            "page": 17
+          }
+        ],
+        "next_steps": [
+          "Check the author’s year of death and when the book was first published.",
+          "If the book has multiple authors, was published after death, or uses a pen name, gather the relevant publication and authorship details and consult an intellectual property lawyer if you need certainty."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 22, The Copyright Act, 1957",
+          "Section 24, The Copyright Act, 1957",
+          "Section 23, The Copyright Act, 1957",
+          "Section 18, The Copyright Act, 1957",
+          "Section 52, The Copyright Act, 1957",
+          "Section 28A, The Copyright Act, 1957",
+          "Section 28, The Copyright Act, 1957",
+          "Section 19, The Copyright Act, 1957",
+          "Section 29, The Copyright Act, 1957",
+          "Section 40, The Copyright Act, 1957",
+          "Section 31A, The Copyright Act, 1957",
+          "Section 26, The Copyright Act, 1957",
+          "Section 2, The Copyright Act, 1957",
+          "Section 57, The Copyright Act, 1957",
+          "Section 53A, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 13799,
+        "output_tokens": 942
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "copyright_act_1957:17"
+      ],
+      "seconds": 10.0,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 4,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "My employer says they own the articles I wrote at work. Who owns the copyright?",
+        "answer": "It depends on your employment, the purpose of the articles and any agreement you have. The available information is not enough to decide who owns them.\n\nGenerally, if you wrote the articles in the course of employment under an employment or apprenticeship contract, your employer is the first copyright owner unless you agreed otherwise. This general rule is subject to the exceptions below. [copyright_act_1957:17]\n\nA special rule can apply if you worked for the owner of a newspaper, magazine or similar periodical and wrote the articles for publication in one. Unless you agreed otherwise, the owner is the first owner of rights concerning publication in such periodicals and reproduction for that purpose. You are the first owner in other respects. [copyright_act_1957:17]\n\nCopyright can also be transferred wholly or partly by the owner, so any relevant agreement matters. [copyright_act_1957:18]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "copyright_act_1957:17",
+            "quote": "the employer shall, in the absence of any agreement to the contrary, be the first owner of the copyright therein",
+            "supports": "The general rule for work made in the course of employment is employer ownership, unless there is an agreement to the contrary.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 17, The Copyright Act, 1957",
+            "page": 14
+          },
+          {
+            "section_id": "copyright_act_1957:17",
+            "quote": "employment by the proprietor of a newspaper, magazine or similar periodical under a contract of\nservice or apprentice ship, for the purpose of publication in a newspaper, magazine or similar\nperiodical",
+            "supports": "The special rule applies to qualifying employment and articles written for publication in a newspaper, magazine or similar periodical.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 17, The Copyright Act, 1957",
+            "page": 14
+          },
+          {
+            "section_id": "copyright_act_1957:17",
+            "quote": "the said proprietor shall, in the absence of any agreement to the contrary, be the first\nowner of the copyright in the work in so far as the copyright relates to the publication of the work\nin any news paper, magazine or similar periodical, or to the reproduction of the work for the\npurpose of its being so published, but in all other respects the author shall be the first owner of the\ncopyright in the work",
+            "supports": "Under the special rule, the periodical owner and author are first owners of different rights, unless they agree otherwise.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 17, The Copyright Act, 1957",
+            "page": 14
+          },
+          {
+            "section_id": "copyright_act_1957:18",
+            "quote": "may assign to any person the copyright either wholly or partially",
+            "supports": "A copyright owner can transfer copyright wholly or partly.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Copyright Act, 1957",
+            "page": 15
+          }
+        ],
+        "next_steps": [
+          "Check your employment contract and any separate copyright or ownership agreements.",
+          "Keep copies of the articles and records showing why and when you wrote them, including any instructions from your employer.",
+          "If ownership is disputed, ask an intellectual property lawyer to review the documents and your circumstances."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 17, The Copyright Act, 1957",
+          "Section 52, The Copyright Act, 1957",
+          "Section 54, The Copyright Act, 1957",
+          "Section 18, The Copyright Act, 1957",
+          "Section 55, The Copyright Act, 1957",
+          "Section 23, The Copyright Act, 1957",
+          "Section 56, The Copyright Act, 1957",
+          "Section 34, The Copyright Act, 1957",
+          "Section 28A, The Copyright Act, 1957",
+          "Section 32, The Copyright Act, 1957",
+          "Section 29, The Copyright Act, 1957",
+          "Section 28, The Copyright Act, 1957",
+          "Section 53A, The Copyright Act, 1957",
+          "Section 2, The Copyright Act, 1957",
+          "Section 22, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 15341,
+        "output_tokens": 771
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "copyright_act_1957:55",
+        "copyright_act_1957:63",
+        "copyright_act_1957:51"
+      ],
+      "seconds": 12.7,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 9,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Someone copied my book and is selling it. What legal action can I take?",
+        "answer": "If you own the relevant copyright and the copies are infringing, you may be able to take civil action. Selling infringing copies can be copyright infringement [copyright_act_1957:51]. Whether the copies are infringing depends on the facts, including any licence or applicable exception [copyright_act_1957:51; copyright_act_1957:52].\n\nYou may ask a court for an injunction, meaning an order to stop the infringement, and seek damages or an account of profits [copyright_act_1957:55]. You may also take proceedings to recover possession of infringing copies and equipment used or intended to produce them [copyright_act_1957:58].\n\nIf the defendant proves they did not know and had no reasonable grounds to believe copyright existed in the work, the available remedies are limited: an injunction and potentially some or all of their profits from selling the infringing copies [copyright_act_1957:55].\n\nCheck who owns the relevant rights: copyright can be transferred wholly or partly, for example through an agreement with a publisher [copyright_act_1957:18]. The supplied legal text may not reflect all later amendments, so ask a lawyer to check the current law.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "copyright_act_1957:51",
+            "quote": "makes for sale or hire, or sells or lets for hire",
+            "supports": "Selling infringing copies can be copyright infringement.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 51, The Copyright Act, 1957",
+            "page": 34
+          },
+          {
+            "section_id": "copyright_act_1957:51",
+            "quote": "without a licence granted by the owner of the copyright",
+            "supports": "A licence may be relevant to whether copying infringes copyright.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 51, The Copyright Act, 1957",
+            "page": 34
+          },
+          {
+            "section_id": "copyright_act_1957:52",
+            "quote": "The following acts shall not constitute an infringement of copyright",
+            "supports": "Some acts are exceptions to copyright infringement.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 52, The Copyright Act, 1957",
+            "page": 34
+          },
+          {
+            "section_id": "copyright_act_1957:55",
+            "quote": "remedies by way of injunction, damages, accounts and otherwise",
+            "supports": "A copyright owner may seek an injunction, damages or an account of profits for infringement.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Copyright Act, 1957",
+            "page": 40
+          },
+          {
+            "section_id": "copyright_act_1957:58",
+            "quote": "all plates used or intended to be used for the\nproduction of such infringing copies",
+            "supports": "Proceedings to recover possession can cover equipment used or intended to produce infringing copies.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 58, The Copyright Act, 1957",
+            "page": 41
+          },
+          {
+            "section_id": "copyright_act_1957:58",
+            "quote": "may take proceedings for the recovery of possession thereof",
+            "supports": "The copyright owner may take proceedings to recover possession of infringing copies and production equipment.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 58, The Copyright Act, 1957",
+            "page": 41
+          },
+          {
+            "section_id": "copyright_act_1957:55",
+            "quote": "he was not aware and had no\nreasonable ground for believing that copyright subsisted in the work",
+            "supports": "The limitation on remedies applies if the defendant proves lack of knowledge and reasonable grounds to believe copyright existed.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Copyright Act, 1957",
+            "page": 40
+          },
+          {
+            "section_id": "copyright_act_1957:55",
+            "quote": "any remedy other than an injunction in respect of the infringement and a decree for the whole or part of\nthe profits made by the defendant by the sale of the infringing copies",
+            "supports": "In those circumstances, remedies are limited to an injunction and potentially some or all profits from the sales.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Copyright Act, 1957",
+            "page": 40
+          },
+          {
+            "section_id": "copyright_act_1957:18",
+            "quote": "assign to any person the copyright either wholly or partially",
+            "supports": "Copyright can be transferred wholly or partly.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Copyright Act, 1957",
+            "page": 15
+          }
+        ],
+        "next_steps": [
+          "Keep your book, drafts, publication records and any publisher agreements.",
+          "Save evidence of the copied book and sales, such as listings, screenshots, seller details and receipts.",
+          "Consult an Indian copyright lawyer about ownership, any licence or exception, and the available civil action. Ask them to verify the current law before taking action."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 55, The Copyright Act, 1957",
+          "Section 58, The Copyright Act, 1957",
+          "Section 52, The Copyright Act, 1957",
+          "Section 2, The Copyright Act, 1957",
+          "Section 32B, The Copyright Act, 1957",
+          "Section 53A, The Copyright Act, 1957",
+          "Section 51, The Copyright Act, 1957",
+          "Section 32A, The Copyright Act, 1957",
+          "Section 76, The Copyright Act, 1957",
+          "Section 53, The Copyright Act, 1957",
+          "Section 18, The Copyright Act, 1957",
+          "Section 31C, The Copyright Act, 1957",
+          "Section 61, The Copyright Act, 1957",
+          "Section 60, The Copyright Act, 1957",
+          "Section 57, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 14932,
+        "output_tokens": 1018
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "copyright_act_1957:63"
+      ],
+      "seconds": 16.3,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 10,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "What is the jail punishment for copyright piracy?",
+        "answer": "For knowingly infringing copyright or helping someone else do so, the usual punishment is **six months to three years in jail**, plus a fine of ₹50,000 to ₹2 lakh. [copyright_act_1957:63]\n\nIf the infringement was not for gain in the course of trade or business, the court can impose less than six months’ jail or a fine below ₹50,000. It must give adequate and special reasons in its judgment. [copyright_act_1957:63]\n\nFor a second or later conviction under this offence, the usual punishment is one to three years in jail, plus a fine of ₹1 lakh to ₹2 lakh. A similar exception allows a lower jail term or fine where the infringement was not for gain in the course of trade or business. [copyright_act_1957:63A]\n\nA separate rule applies to knowingly using a pirated computer program on a computer: seven days to three years in jail, plus a fine of ₹50,000 to ₹2 lakh. If it was not used for gain or in the course of trade or business, the court may, for special reasons, impose no jail sentence and a fine of up to ₹50,000. [copyright_act_1957:63B]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "copyright_act_1957:63",
+            "quote": "Any person who knowingly infringes or abets the infringement of",
+            "supports": "The offence covers knowingly infringing copyright or helping someone else infringe it.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63, The Copyright Act, 1957",
+            "page": 42
+          },
+          {
+            "section_id": "copyright_act_1957:63",
+            "quote": "shall be punishable with imprisonment for a term which shall not be less than six months but which may extend to three years and with fine which shall not be less than fifty thousand rupees but which may extend to two lakh rupees",
+            "supports": "The usual jail term is six months to three years, with a fine of ₹50,000 to ₹2 lakh.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63, The Copyright Act, 1957",
+            "page": 42
+          },
+          {
+            "section_id": "copyright_act_1957:63",
+            "quote": "where the infringement has not been made for gain in the course of trade or business",
+            "supports": "The lower-sentence exception applies when infringement was not for gain in the course of trade or business.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63, The Copyright Act, 1957",
+            "page": 42
+          },
+          {
+            "section_id": "copyright_act_1957:63",
+            "quote": "the court may, for adequate and special reasons to be mentioned in the judgment, impose a sentence of imprisonment for a term of less than six months or a fine of less than fifty thousand rupees",
+            "supports": "The court can impose a lower jail term or fine if it gives adequate and special reasons in its judgment.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63, The Copyright Act, 1957",
+            "page": 42
+          },
+          {
+            "section_id": "copyright_act_1957:63A",
+            "quote": "for the second and for every subsequent offence, with imprisonment for a term which shall not be less than one year but which may extend to three years and with fine which shall not be less than one lakh rupees but which may extend to two lakh rupees",
+            "supports": "The usual punishment for a second or later conviction is one to three years in jail and a fine of ₹1 lakh to ₹2 lakh.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63A, The Copyright Act, 1957",
+            "page": 43
+          },
+          {
+            "section_id": "copyright_act_1957:63A",
+            "quote": "where the infringement has not been made for gain in the course of trade or business",
+            "supports": "The repeat-offence exception applies when infringement was not for gain in the course of trade or business.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63A, The Copyright Act, 1957",
+            "page": 43
+          },
+          {
+            "section_id": "copyright_act_1957:63A",
+            "quote": "the court may, for adequate and special reasons to be mentioned  in the judgment, impose a sentence of imprisonment for a term of less than one year or a fine of less than one lakh rupees",
+            "supports": "In those circumstances, the court may impose a lower jail term or fine for a repeat offence, with reasons in its judgment.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63A, The Copyright Act, 1957",
+            "page": 43
+          },
+          {
+            "section_id": "copyright_act_1957:63B",
+            "quote": "Any person who knowingly makes use on a computer of an infringing copy of a computer programme",
+            "supports": "A separate rule applies to knowingly using an infringing computer program on a computer.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63B, The Copyright Act, 1957",
+            "page": 43
+          },
+          {
+            "section_id": "copyright_act_1957:63B",
+            "quote": "imprisonment for a term which shall not be less than seven days but which may extend to three years and with fine which shall not be less than fifty thousand rupees but whic h may extend to two lakh rupees",
+            "supports": "The usual punishment for knowingly using an infringing computer program is seven days to three years in jail and a fine of ₹50,000 to ₹2 lakh.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63B, The Copyright Act, 1957",
+            "page": 43
+          },
+          {
+            "section_id": "copyright_act_1957:63B",
+            "quote": "where the computer programme has not been used for gain or in the course of trade or business, the Court may, for adequate and special reasons to be mentioned in the judgment, not impose any sentence of imprisonment and may impose a fine which may extend to fifty thousand rupees",
+            "supports": "For qualifying non-commercial use, the court may give no jail sentence and impose a fine up to ₹50,000, with reasons in its judgment.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 63B, The Copyright Act, 1957",
+            "page": 43
+          }
+        ],
+        "next_steps": [
+          "Keep copies of relevant files, licences, communications and any notices.",
+          "Consult an Indian copyright lawyer about the specific facts and which provision may apply."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 63, The Copyright Act, 1957",
+          "Section 63A, The Copyright Act, 1957",
+          "Section 68A, The Copyright Act, 1957",
+          "Section 63B, The Copyright Act, 1957",
+          "Section 65, The Copyright Act, 1957",
+          "Section 65B, The Copyright Act, 1957",
+          "Section 65A, The Copyright Act, 1957",
+          "Section 124B, The Patents Act, 1970",
+          "Section 104, The Trade Marks Act, 1999",
+          "Section 66, The Copyright Act, 1957",
+          "Section 64, The Copyright Act, 1957",
+          "Section 69, The Copyright Act, 1957",
+          "Section 55, The Copyright Act, 1957",
+          "Section 112B, The Trade Marks Act, 1999",
+          "Section 51, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 6478,
+        "output_tokens": 1329
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "copyright_act_1957:45"
+      ],
+      "seconds": 13.4,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 4,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "How do I register my copyright?",
+        "answer": "You can apply to the Registrar of Copyrights to enter details of your work in the Register of Copyrights. The author, publisher, copyright owner or another person interested in the copyright may apply using the prescribed form and paying the prescribed fee. [copyright_act_1957:45]\n\nIf your work is artistic and is used, or could be used, in relation to goods or services, the application must say so. It must also include a certificate from the Registrar of Trade Marks addressing whether an identical or deceptively similar trade mark has been registered or applied for by someone else. [copyright_act_1957:45]\n\nThe Registrar of Copyrights may make an inquiry before entering the work’s details in the register. [copyright_act_1957:45]\n\nThe sources do not specify the current form, fee amount or full filing procedure.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "copyright_act_1957:45",
+            "quote": "The author o r publisher of, or the owner of  or other\nperson interested in the copyright in, any work may make an application in the prescribed form\naccompanied by the prescribed fee to the Registrar of Copyrights for entering particulars of the wor k in\nthe Register of Copyrights",
+            "supports": "The listed persons may apply to the Registrar using the prescribed form and paying the prescribed fee.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Copyright Act, 1957",
+            "page": 33
+          },
+          {
+            "section_id": "copyright_act_1957:45",
+            "quote": "in respect of an artistic work which is used or is capable of being used in 4[relation to\nany goods or services], the application shall include a statement to that effect and shall be accompanied\nby a certificate from the Registrar of Trade Marks",
+            "supports": "An application for the described artistic work must include a statement and a certificate from the Registrar of Trade Marks.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Copyright Act, 1957",
+            "page": 33
+          },
+          {
+            "section_id": "copyright_act_1957:45",
+            "quote": "to the effect that no trade mark identical with or deceptively similar to such artistic work\nhas been registered under that Act in the name of, or that no application has been made under that Act for\nsuch registration by, any person other than the applicant.",
+            "supports": "The certificate addresses identical or deceptively similar trade marks registered or applied for by someone other than the applicant.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Copyright Act, 1957",
+            "page": 33
+          },
+          {
+            "section_id": "copyright_act_1957:45",
+            "quote": "the Registrar of\nCopyrights may, after holding such inquiry as he may deem fit, enter the particulars of the work in the\nRegister of Copyrights",
+            "supports": "The Registrar may make an inquiry before entering the work’s details.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Copyright Act, 1957",
+            "page": 33
+          }
+        ],
+        "next_steps": [
+          "Gather the work’s title and details of its author, publisher and copyright owner.",
+          "Check with the Copyright Office for the current form, fee, filing instructions and required documents.",
+          "If the work is artistic and relates to goods or services, ask about obtaining the trade mark certificate.",
+          "Consult an intellectual property lawyer if you are unsure who owns the copyright or whether the artistic-work requirement applies."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 44, The Copyright Act, 1957",
+          "Section 45, The Copyright Act, 1957",
+          "Section 33, The Copyright Act, 1957",
+          "Section 50A, The Copyright Act, 1957",
+          "Section 48, The Copyright Act, 1957",
+          "Section 47, The Copyright Act, 1957",
+          "Section 46, The Copyright Act, 1957",
+          "Section 9, The Copyright Act, 1957",
+          "Section 49, The Copyright Act, 1957",
+          "Section 15, The Copyright Act, 1957",
+          "Section 10, The Copyright Act, 1957",
+          "Section 50, The Copyright Act, 1957",
+          "Section 16, The Copyright Act, 1957",
+          "Section 21, The Copyright Act, 1957",
+          "Section 79, The Patents Act, 1970"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 5546,
+        "output_tokens": 1053
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "patents_act_1970:3"
+      ],
+      "seconds": 2.9,
+      "score": {
+        "retrieved_correct": false,
+        "grounded": false,
+        "correct_law": false,
+        "passed": false,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Is software patentable in India?",
+        "answer": "I cannot say whether software is patentable in India from the laws provided. They do not set out the rules on software patentability.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Document what your software does and how it works.",
+          "Consult an Indian patent lawyer or patent agent about your particular invention."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 120, The Patents Act, 1970",
+          "Section 63B, The Copyright Act, 1957",
+          "Section 49, The Patents Act, 1970",
+          "Section 67, The Patents Act, 1970",
+          "Section 157A, The Patents Act, 1970",
+          "Section 84, The Patents Act, 1970",
+          "Section 33, The Patents Act, 1970",
+          "Section 64, The Patents Act, 1970",
+          "Section 138, The Patents Act, 1970",
+          "Section 46, The Patents Act, 1970",
+          "Section 39, The Patents Act, 1970",
+          "Section 7, The Patents Act, 1970",
+          "Section 8, The Patents Act, 1970",
+          "Section 85, The Patents Act, 1970",
+          "Section 25, The Patents Act, 1970"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9304,
+        "output_tokens": 123
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "patents_act_1970:53"
+      ],
+      "seconds": 6.2,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 3,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "How long does a patent last?",
+        "answer": "A patent generally lasts 20 years from the date the patent application was filed, not from the date it was granted. [patents_act_1970:53]\n\nFor an international application under the Patent Cooperation Treaty that designates India, the 20 years run from the international filing date. [patents_act_1970:53]\n\nA patent can stop being in effect earlier if a renewal fee is not paid within the prescribed period or any prescribed extension. [patents_act_1970:53]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "patents_act_1970:53",
+            "quote": "twenty years from the date of filing of the application for the patent",
+            "supports": "A patent generally lasts 20 years from the application filing date.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 53, The Patents Act, 1970",
+            "page": 32
+          },
+          {
+            "section_id": "patents_act_1970:53",
+            "quote": "shall be twenty years from the international filing date accorded under the Patent Cooperation Treaty",
+            "supports": "For a Patent Cooperation Treaty application designating India, the term runs from the international filing date.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 53, The Patents Act, 1970",
+            "page": 32
+          },
+          {
+            "section_id": "patents_act_1970:53",
+            "quote": "if that fee is not paid within the prescribed period 6[or within such extended period as may be prescribed]",
+            "supports": "A patent can stop being in effect earlier if a renewal fee is not paid within the applicable period.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 53, The Patents Act, 1970",
+            "page": 32
+          }
+        ],
+        "next_steps": [
+          "Check the patent’s filing date and renewal payment records.",
+          "For a specific patent, consult a patent professional if you need to confirm its current status."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 53, The Patents Act, 1970",
+          "Section 84, The Patents Act, 1970",
+          "Section 102, The Patents Act, 1970",
+          "Section 55, The Patents Act, 1970",
+          "Section 142, The Patents Act, 1970",
+          "Section 25, The Trade Marks Act, 1999",
+          "Section 36G, The Trade Marks Act, 1999",
+          "Section 9, The Patents Act, 1970",
+          "Section 22, The Copyright Act, 1957",
+          "Section 124B, The Patents Act, 1970",
+          "Section 24, The Copyright Act, 1957",
+          "Section 45, The Patents Act, 1970",
+          "Section 23, The Copyright Act, 1957",
+          "Section 85, The Patents Act, 1970",
+          "Section 79, The Patents Act, 1970"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 6950,
+        "output_tokens": 444
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "patents_act_1970:6"
+      ],
+      "seconds": 11.3,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Who is allowed to apply for a patent?",
+        "answer": "The following people may apply for a patent for an invention:\n\n- A person who claims to be the true and first inventor. [patents_act_1970:6]\n- A person to whom that inventor has transferred the right to apply. This person is called an assignee. [patents_act_1970:6]\n- The legal representative of a deceased person who was entitled to apply immediately before death. [patents_act_1970:6]\n\nAn eligible person may apply alone or jointly with another person. [patents_act_1970:6]\n\nThere is a restriction for nationals of certain countries notified by the Central Government if those countries do not give Indian citizens the same patent rights as their own nationals. Such nationals cannot apply alone or jointly. [patents_act_1970:134]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "patents_act_1970:6",
+            "quote": "by any person claiming to be the true and first inventor of the invention",
+            "supports": "A person claiming to be the true and first inventor may apply.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 6, The Patents Act, 1970",
+            "page": 12
+          },
+          {
+            "section_id": "patents_act_1970:6",
+            "quote": "by any person being the assignee of the person claiming to be the true and first inventor in\nrespect of the right to make such an application",
+            "supports": "A person to whom the inventor has transferred the right to apply may apply.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 6, The Patents Act, 1970",
+            "page": 12
+          },
+          {
+            "section_id": "patents_act_1970:6",
+            "quote": "by the legal representative of any deceased person who immediately before his death was\nentitled to make such an application",
+            "supports": "The legal representative of a deceased person who was entitled to apply immediately before death may apply.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 6, The Patents Act, 1970",
+            "page": 12
+          },
+          {
+            "section_id": "patents_act_1970:6",
+            "quote": "An application under sub-section (1) may be made by any of the persons referred to therein either\nalone or jointly with any other person.",
+            "supports": "An eligible person may apply alone or jointly with another person.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 6, The Patents Act, 1970",
+            "page": 12
+          },
+          {
+            "section_id": "patents_act_1970:134",
+            "quote": "Where any country specified by\nthe Central Government in this behalf by notification in the Official Gazette does not accord to citizens of\nIndia the same rights in respect of the grant of patents and the protection of patent rights as it accords to\nits own nationals, no national of such country shall be entitled, either solely or jointly with any other\nperson,—\n(a) to apply for the grant of a patent",
+            "supports": "Nationals of countries covered by this notification cannot apply alone or jointly.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 134, The Patents Act, 1970",
+            "page": 61
+          }
+        ],
+        "next_steps": [
+          "Keep records identifying the inventor and any transfer of the right to apply.",
+          "If the applicant is a legal representative, gather documents showing their authority to act.",
+          "Consult a patent professional if you are unsure who should apply or whether the country restriction is relevant."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 6, The Patents Act, 1970",
+          "Section 120, The Patents Act, 1970",
+          "Section 39, The Patents Act, 1970",
+          "Section 111, The Patents Act, 1970",
+          "Section 91, The Patents Act, 1970",
+          "Section 57, The Patents Act, 1970",
+          "Section 129, The Patents Act, 1970",
+          "Section 134, The Patents Act, 1970",
+          "Section 50, The Patents Act, 1970",
+          "Section 58, The Patents Act, 1970",
+          "Section 75, The Patents Act, 1970",
+          "Section 60, The Patents Act, 1970",
+          "Section 132, The Patents Act, 1970",
+          "Section 126, The Patents Act, 1970",
+          "Section 146, The Patents Act, 1970"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 5381,
+        "output_tokens": 886
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "patents_act_1970:39"
+      ],
+      "seconds": 8.8,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 4,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Can I file a patent in the US first if I live in India?",
+        "answer": "Yes, if you are resident in India, you can file in the US first if you obtain a written permit from or on behalf of the Indian Controller of Patents before filing outside India. [patents_act_1970:39]\n\nAlternatively, you can file for the same invention in India first and apply in the US at least six weeks later, provided no relevant direction restricting the Indian application has been given, or any such direction has been revoked. [patents_act_1970:39]\n\nIf the invention is relevant to defence or atomic energy, the Controller cannot grant the permit without the Central Government’s prior consent. The restriction also does not apply to an invention first filed for protection outside India by a person resident outside India. [patents_act_1970:39]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "patents_act_1970:39",
+            "quote": "No person\nresident in India shall, except under the authority of a written permit sought in the manner prescribed and\ngranted by or on behalf of the Controller, make or cause to be made any application outside India for the\ngrant of a patent for an invention",
+            "supports": "An India resident can apply outside India under a written permit granted by or on behalf of the Controller.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 39, The Patents Act, 1970",
+            "page": 28
+          },
+          {
+            "section_id": "patents_act_1970:39",
+            "quote": "an application for a patent for the same invention has been made in India, not less than six\nweeks before the application outside India; and\n(b) either no direction has been given under sub -section ( 1) of section 35 in relation to the\napplication in India, or all such directions have been revoked.",
+            "supports": "Without a permit, an India-first application must have been made at least six weeks earlier and the condition concerning directions must be met.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 39, The Patents Act, 1970",
+            "page": 28
+          },
+          {
+            "section_id": "patents_act_1970:39",
+            "quote": "if the invention is relevant for defence purpose or atomic energy, the Controller shall\nnot grant permit without the prior consent of the Central Government.",
+            "supports": "Central Government consent is required before a permit can be granted for a defence- or atomic-energy-relevant invention.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 39, The Patents Act, 1970",
+            "page": 28
+          },
+          {
+            "section_id": "patents_act_1970:39",
+            "quote": "This section shall not apply in relation to an invention for which an application for protection has\nfirst been filed in a country outside India by a person resident outside India.",
+            "supports": "The restriction does not apply where protection for the invention was first filed outside India by a person resident outside India.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 39, The Patents Act, 1970",
+            "page": 28
+          }
+        ],
+        "next_steps": [
+          "Gather a description of the invention and details of any applications already filed, including who filed them and where.",
+          "Consult a patent agent or lawyer about your filing plans and, if relevant, seeking a written permit from the Indian Controller before filing in the US."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 39, The Patents Act, 1970",
+          "Section 29, The Patents Act, 1970",
+          "Section 138, The Patents Act, 1970",
+          "Section 7, The Patents Act, 1970",
+          "Section 8, The Patents Act, 1970",
+          "Section 33, The Patents Act, 1970",
+          "Section 120, The Patents Act, 1970",
+          "Section 25, The Patents Act, 1970",
+          "Section 5, The Copyright Act, 1957",
+          "Section 18, The Trade Marks Act, 1999",
+          "Section 16, The Patents Act, 1970",
+          "Section 84, The Patents Act, 1970",
+          "Section 135, The Patents Act, 1970",
+          "Section 2, The Patents Act, 1970",
+          "Section 13, The Patents Act, 1970"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10157,
+        "output_tokens": 680
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "patents_act_1970:25"
+      ],
+      "seconds": 15.7,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 8,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Can someone challenge or oppose my patent?",
+        "answer": "Yes. Someone can oppose a patent application or challenge a granted patent, depending on the circumstances.\n\n• Before grant: Once your application is published, any person can submit a written opposition to the Controller, the patent authority, before the patent is granted. [patents_act_1970:25]\n\n• After grant: A “person interested” can give notice of opposition to the Controller after grant but before one year expires from the date the grant was published. This includes someone engaged in or promoting research in the same field. [patents_act_1970:25] [patents_act_1970:2]\n\nPossible grounds include that the claimed invention was published before the relevant priority date, that it is obvious and lacks an inventive step, or that the patent description does not sufficiently and clearly explain the invention or how to perform it. The priority date is the relevant date for assessing a claim. [patents_act_1970:25]\n\nIn a post-grant opposition, the Controller considers recommendations from an Opposition Board and gives both sides an opportunity to be heard. The Controller can then maintain, amend or revoke the patent. [patents_act_1970:25]\n\nA granted patent can also be challenged through a petition for revocation, meaning cancellation, or a counterclaim in an infringement suit, on specified grounds. [patents_act_1970:64]\n\nThis is legal information, not legal advice.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "patents_act_1970:25",
+            "quote": "Where an application for a patent has been published but a\npatent has not been granted, any person may, in writing, represent by way of opposition to the Controller\nagainst the grant of patent",
+            "supports": "Any person may submit a written pre-grant opposition after publication and before grant.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Patents Act, 1970",
+            "page": 22
+          },
+          {
+            "section_id": "patents_act_1970:25",
+            "quote": "At any time after the grant of patent but before the expiry of a period of one year from the date of\npublication of grant of a patent, any person interested may give notice of opposition to the Controller",
+            "supports": "An interested person may give notice of post-grant opposition within the stated period.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Patents Act, 1970",
+            "page": 22
+          },
+          {
+            "section_id": "patents_act_1970:2",
+            "quote": "“person interested” includes a person engaged in, or in promoting, research in the same field\nas that to which the invention relates",
+            "supports": "An interested person includes someone engaged in or promoting research in the same field.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Patents Act, 1970",
+            "page": 9
+          },
+          {
+            "section_id": "patents_act_1970:25",
+            "quote": "the invention so far as claimed in any claim of the complete specification has been\npublished before the priority date of the claim",
+            "supports": "Earlier publication can be a ground of opposition.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Patents Act, 1970",
+            "page": 22
+          },
+          {
+            "section_id": "patents_act_1970:25",
+            "quote": "the invention so far as claimed in any claim of the complete specification is obvious and\nclearly does not involve any inventive step",
+            "supports": "Obviousness and lack of an inventive step can be grounds of opposition.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Patents Act, 1970",
+            "page": 22
+          },
+          {
+            "section_id": "patents_act_1970:25",
+            "quote": "the complete specification does not sufficiently and clearly describe the invention or the\nmethod by which it is to be performed",
+            "supports": "An insufficient or unclear description can be a ground of opposition.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Patents Act, 1970",
+            "page": 22
+          },
+          {
+            "section_id": "patents_act_1970:25",
+            "quote": "On receipt of the recommendation of the Opposition Board and after giving the patentee and the\nopponent an opportunity of being heard, the Controller shall order either to maintain or to amend or to\nrevoke the patent.",
+            "supports": "The post-grant opposition process provides an opportunity to be heard and can result in the patent being maintained, amended or revoked.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 25, The Patents Act, 1970",
+            "page": 22
+          },
+          {
+            "section_id": "patents_act_1970:64",
+            "quote": "be revoked on a petition of any\nperson interested or of the Central Government 5*** or on a counter -claim in a suit for infringement of\nthe patent by the High Court",
+            "supports": "A patent may also be challenged by a revocation petition or by a counterclaim in an infringement suit.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 64, The Patents Act, 1970",
+            "page": 36
+          }
+        ],
+        "next_steps": [
+          "Check whether your application has been published or your patent has been granted, and note the date the grant was published.",
+          "Keep your application, patent documents, publication details and any opposition notice together.",
+          "If you receive a challenge, consider consulting a patent lawyer or registered patent agent promptly."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 25, The Patents Act, 1970",
+          "Section 26, The Patents Act, 1970",
+          "Section 21, The Trade Marks Act, 1999",
+          "Section 84, The Patents Act, 1970",
+          "Section 140, The Patents Act, 1970",
+          "Section 2, The Patents Act, 1970",
+          "Section 87, The Patents Act, 1970",
+          "Section 23, The Trade Marks Act, 1999",
+          "Section 109, The Patents Act, 1970",
+          "Section 73, The Trade Marks Act, 1999",
+          "Section 53, The Patents Act, 1970",
+          "Section 61, The Patents Act, 1970",
+          "Section 120, The Patents Act, 1970",
+          "Section 64, The Patents Act, 1970",
+          "Section 150, The Patents Act, 1970"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10916,
+        "output_tokens": 1231
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "copyright_act_1957:14"
+      ],
+      "seconds": 15.5,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 11,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "What exclusive rights does copyright give me over my novel?",
+        "answer": "If you own the copyright in your novel, you have the exclusive right to do the following, or to give others permission to do them, in relation to the whole novel or any substantial part of it. These rights are subject to the provisions of the Act. [copyright_act_1957:14]\n\n• Make copies, including storing the novel electronically. [copyright_act_1957:14]\n• Issue copies to the public, other than copies already in circulation. A copy sold once counts as already in circulation. [copyright_act_1957:14]\n• Perform the novel in public or communicate it to the public. [copyright_act_1957:14]\n• Make a film or sound recording based on it. [copyright_act_1957:14]\n• Make a translation or adaptation, such as a version in another form. [copyright_act_1957:14]\n• Exercise the listed rights in relation to a translation or adaptation too. [copyright_act_1957:14]\n\nThe rights you personally hold may depend on whether you have assigned any of them to someone else. An assignment is a transfer of copyright rights. [copyright_act_1957:18]\n\nSeparately, as the author, you have the right to claim authorship. You may also restrain or claim damages for changes to the work that harm your honour or reputation, even if you have assigned the copyright. [copyright_act_1957:57]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "the exclusive right\nsubject to the provisions of this Act, to do or authorise the doing of any of the following acts in respect of\na work or any substantial part thereof",
+            "supports": "The listed exclusive rights cover the work or any substantial part and are subject to the Act.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "to reproduce the work in any material form including the storing of it in any medium by\nelectronic means",
+            "supports": "The right to make copies includes electronic storage.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "to issue copies of the work to the public not being copies already in circulation",
+            "supports": "The right to issue copies to the public excludes copies already in circulation.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "a copy which has been sold once shall be deemed\nto be a copy already in circulation",
+            "supports": "A copy sold once counts as already in circulation.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "to perform the work in public, or communicate it to the public",
+            "supports": "The rights include public performance and communication to the public.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "to make any cinematograph film or sound recording in respect of the work",
+            "supports": "The rights include making a film or sound recording based on the work.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "to make any translation of the work;\n(vi) to make any adaptation of the work",
+            "supports": "The rights include making translations and adaptations.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:14",
+            "quote": "to do, in relation to a translation or an adaptation of the work, any of the acts specified in\nrelation to the work in sub-clauses (i) to (vi)",
+            "supports": "The listed rights also apply in relation to translations and adaptations.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Copyright Act, 1957",
+            "page": 13
+          },
+          {
+            "section_id": "copyright_act_1957:18",
+            "quote": "may assign to any person the copyright either wholly or partially",
+            "supports": "Copyright rights can be transferred in whole or in part.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Copyright Act, 1957",
+            "page": 15
+          },
+          {
+            "section_id": "copyright_act_1957:57",
+            "quote": "Independently of the author ’s copyright and even after the\nassignment either wholly or partially of the said copyright, the author of a work shall have the right—\n(a) to claim authorship of the work",
+            "supports": "The author can claim authorship even after assigning copyright.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 57, The Copyright Act, 1957",
+            "page": 41
+          },
+          {
+            "section_id": "copyright_act_1957:57",
+            "quote": "to restrain or claim damages in respect of any distortion, mutilation, modi fication or other act\nin relation to the said work 3*** if such distortion, mutilation, modi fication or other act would be\nprejudicial to his honour or reputation",
+            "supports": "The author may restrain or claim damages for changes that harm their honour or reputation.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 57, The Copyright Act, 1957",
+            "page": 41
+          }
+        ],
+        "next_steps": [
+          "Keep dated drafts and records showing how you created the novel.",
+          "Review any publishing or other agreements to see which rights you may have transferred.",
+          "If an agreement or someone’s use of your novel concerns you, consult an Indian copyright lawyer."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 38A, The Copyright Act, 1957",
+          "Section 35, The Copyright Act, 1957",
+          "Section 14, The Copyright Act, 1957",
+          "Section 7, The Copyright Act, 1957",
+          "Section 61, The Copyright Act, 1957",
+          "Section 16, The Copyright Act, 1957",
+          "Section 21, The Copyright Act, 1957",
+          "Section 34, The Copyright Act, 1957",
+          "Section 109, The Patents Act, 1970",
+          "Section 18, The Copyright Act, 1957",
+          "Section 42, The Copyright Act, 1957",
+          "Section 51, The Copyright Act, 1957",
+          "Section 54, The Copyright Act, 1957",
+          "Section 57, The Copyright Act, 1957",
+          "Section 62, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 7518,
+        "output_tokens": 1274
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "copyright_act_1957:57"
+      ],
+      "seconds": 9.8,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 3,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Can I stop someone from distorting or mutilating my painting even after I sold it?",
+        "answer": "Yes, potentially. If you created the painting, you may seek to stop someone from distorting or mutilating it, or claim damages, if the change would harm your honour or reputation. This special right exists independently of copyright, even if you have transferred the copyright. Selling the painting does not by itself end the right. [copyright_act_1957:57]\n\nThe right does not cover every change: harm to your honour or reputation matters. Also, simply not displaying the painting, or displaying it in a way you dislike, does not infringe this special right. [copyright_act_1957:57]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "copyright_act_1957:57",
+            "quote": "Independently of the author ’s copyright and even after the\nassignment either wholly or partially of the said copyright, the author of a work shall have the right",
+            "supports": "The author's special right exists independently of copyright, even after copyright has been transferred.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 57, The Copyright Act, 1957",
+            "page": 41
+          },
+          {
+            "section_id": "copyright_act_1957:57",
+            "quote": "to restrain or claim damages in respect of any distortion, mutilation, modi fication or other act\nin relation to the said work 3*** if such distortion, mutilation, modi fication or other act would be\nprejudicial to his honour or reputation",
+            "supports": "The author may seek to stop a distortion or mutilation, or claim damages, if it would harm their honour or reputation.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 57, The Copyright Act, 1957",
+            "page": 41
+          },
+          {
+            "section_id": "copyright_act_1957:57",
+            "quote": "Failure to display a work or to display it to the satisfaction of the author shall not be\ndeemed to be an infringement of the rights conferred by this section.",
+            "supports": "Not displaying the painting, or displaying it in a way the artist dislikes, does not infringe this special right.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 57, The Copyright Act, 1957",
+            "page": 41
+          }
+        ],
+        "next_steps": [
+          "Keep photographs of the original painting and evidence of the actual or proposed changes.",
+          "Gather the sale agreement and any communications about the painting, including evidence of potential harm to your reputation.",
+          "Consult an intellectual property lawyer about the facts and the options for seeking to stop the changes or claiming damages."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 57, The Copyright Act, 1957",
+          "Section 53A, The Copyright Act, 1957",
+          "Section 55, The Copyright Act, 1957",
+          "Section 2, The Copyright Act, 1957",
+          "Section 52, The Copyright Act, 1957",
+          "Section 13, The Copyright Act, 1957",
+          "Section 51, The Copyright Act, 1957",
+          "Section 38B, The Copyright Act, 1957",
+          "Section 22, The Copyright Act, 1957",
+          "Section 53, The Copyright Act, 1957",
+          "Section 45, The Copyright Act, 1957",
+          "Section 32B, The Copyright Act, 1957",
+          "Section 58, The Copyright Act, 1957",
+          "Section 30, The Trade Marks Act, 1999",
+          "Section 65, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 14042,
+        "output_tokens": 744
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "copyright_act_1957:18",
+        "copyright_act_1957:19"
+      ],
+      "seconds": 9.8,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "How can I transfer the copyright of my book to a publisher?",
+        "answer": "If you own the copyright, you can transfer it to the publisher by an **assignment**. You can assign all or only part of the copyright, with limitations, and for the whole copyright term or part of it [copyright_act_1957:18]. The publisher becomes the owner of the rights assigned; you remain the owner of rights not assigned [copyright_act_1957:18].\n\nThe author is generally the first copyright owner, but there are exceptions, including for some works created during employment [copyright_act_1957:17]. Check who owns the rights before arranging a transfer.\n\nThe available sources do not explain all the formal steps needed to complete an assignment, so I cannot confirm the required form or signing requirements from them.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "copyright_act_1957:18",
+            "quote": "may assign to any person the copyright either wholly or partially",
+            "supports": "A copyright owner can assign all or part of the copyright to a publisher.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Copyright Act, 1957",
+            "page": 15
+          },
+          {
+            "section_id": "copyright_act_1957:18",
+            "quote": "and either generally or subject to limitations and either for the whole term of th e copyright or any part thereof",
+            "supports": "An assignment can have limitations and can last for the whole copyright term or part of it.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Copyright Act, 1957",
+            "page": 15
+          },
+          {
+            "section_id": "copyright_act_1957:18",
+            "quote": "the assignee as respects the rights so assigned, and the assignor as respects the rights not assigned, shall be",
+            "supports": "The publisher is treated as owner of assigned rights and the person transferring them remains owner of unassigned rights.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Copyright Act, 1957",
+            "page": 15
+          },
+          {
+            "section_id": "copyright_act_1957:17",
+            "quote": "Subject to the provisions of this Act, the author of a work shall be the first owner of the copyright therein",
+            "supports": "The author is generally the first owner, subject to exceptions.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 17, The Copyright Act, 1957",
+            "page": 14
+          },
+          {
+            "section_id": "copyright_act_1957:17",
+            "quote": "the employer shall, in the absence of any agreement to the contrary, be the first owner of the copyright therein",
+            "supports": "There is an exception for some works created during employment.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 17, The Copyright Act, 1957",
+            "page": 14
+          }
+        ],
+        "next_steps": [
+          "Gather any existing contracts concerning the book, including employment or earlier publishing agreements.",
+          "Discuss with the publisher which rights, formats, territories, duration and payment terms you want included.",
+          "Ask an Indian copyright lawyer to check ownership and review the proposed agreement and its formal requirements."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 52, The Copyright Act, 1957",
+          "Section 22, The Copyright Act, 1957",
+          "Section 55, The Copyright Act, 1957",
+          "Section 32, The Copyright Act, 1957",
+          "Section 20, The Copyright Act, 1957",
+          "Section 32A, The Copyright Act, 1957",
+          "Section 31D, The Copyright Act, 1957",
+          "Section 31A, The Copyright Act, 1957",
+          "Section 23, The Copyright Act, 1957",
+          "Section 24, The Copyright Act, 1957",
+          "Section 54, The Copyright Act, 1957",
+          "Section 53A, The Copyright Act, 1957",
+          "Section 18, The Copyright Act, 1957",
+          "Section 17, The Copyright Act, 1957",
+          "Section 2, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 17447,
+        "output_tokens": 719
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "trade_marks_act_1999:34"
+      ],
+      "seconds": 13.3,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 3,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Someone registered a brand name that I had been using for many years before them. Am I protected?",
+        "answer": "You may be protected, but using the name for many years does not by itself settle the question.\n\nThe registered owner cannot stop your use under the Trade Marks Act if you have continuously used an identical or nearly identical mark for the relevant goods or services since before the earlier of: (1) the owner’s or their predecessor’s use of the mark for those goods or services, or (2) the mark’s registration date. [trade_marks_act_1999:34]\n\nThe available law also recognises that an unregistered mark used in trade can have protection under the law of “passing off”. Whether that applies depends on your circumstances. [trade_marks_act_1999:11]\n\nThe fact that you may be protected does not, from these sources alone, establish that the other person’s registration will automatically be cancelled. A lawyer can help assess your evidence and options.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:34",
+            "quote": "Nothing in this Act shall entitle the proprietor or a registered user of\nregistered trade mark to interfere with or restrain the use by any person of a trade mark identical with or\nnearly resembling it in relation to goods or services in relation to which that person or a predecessor in\ntitle of his has continuously used that trade mark from a date prior—",
+            "supports": "The registered owner cannot restrain qualifying continuous prior use of an identical or nearly identical mark for the relevant goods or services.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 34, The Trade Marks Act, 1999",
+            "page": 22
+          },
+          {
+            "section_id": "trade_marks_act_1999:34",
+            "quote": "(a) to the use of the first -mentioned trade mark in relation to those goods or services b e the\nproprietor or a predecessor in title of his; or\n(b) to the da te of registration of the first -mentioned trade mark in respect of those goods or\nservices in the name of the proprietor of a predecessor in title of his;\nwhichever is the earlier",
+            "supports": "The continuous use must date from before the earlier of the registered owner's or predecessor's use and the registration date.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 34, The Trade Marks Act, 1999",
+            "page": 22
+          },
+          {
+            "section_id": "trade_marks_act_1999:11",
+            "quote": "the law of passing off protecting an unregistered trade mark\nused in the course of trade",
+            "supports": "Passing off law can protect an unregistered mark used in trade.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 11, The Trade Marks Act, 1999",
+            "page": 13
+          }
+        ],
+        "next_steps": [
+          "Gather dated invoices, packaging, advertisements, website records and other evidence showing when and where you used the name and for which goods or services.",
+          "Obtain the other registration details, including its registration date, covered goods or services, and any information about when its owner started using the name.",
+          "Consult a trade mark lawyer with these records to assess your protection and options."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 29, The Trade Marks Act, 1999",
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 36, The Trade Marks Act, 1999",
+          "Section 159, The Trade Marks Act, 1999",
+          "Section 32, The Trade Marks Act, 1999",
+          "Section 47, The Trade Marks Act, 1999",
+          "Section 36E, The Trade Marks Act, 1999",
+          "Section 14, The Trade Marks Act, 1999",
+          "Section 26, The Trade Marks Act, 1999",
+          "Section 36D, The Trade Marks Act, 1999",
+          "Section 146, The Trade Marks Act, 1999",
+          "Section 46, The Trade Marks Act, 1999",
+          "Section 2, The Trade Marks Act, 1999",
+          "Section 25, The Trade Marks Act, 1999",
+          "Section 34, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10737,
+        "output_tokens": 939
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "trade_marks_act_1999:47"
+      ],
+      "seconds": 12.7,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 6,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Can my trademark be cancelled if I stop using it?",
+        "answer": "Yes. A registered trademark can be removed for non-use, but removal is not automatic. An affected person must apply to the Registrar or the High Court. Removal can concern particular goods or services covered by the registration. [trade_marks_act_1999:47]\n\nOne ground is that there has been no genuine use of the mark for those goods or services for a continuous period of at least five years, counted from when the mark was actually entered in the register. That period must have elapsed by a date three months before the removal application. [trade_marks_act_1999:47]\n\nThere is another possible ground if, when registration was sought, there was no genuine intention to use the mark and there was no genuine use up to three months before the removal application. [trade_marks_act_1999:47]\n\nSpecial circumstances in the trade may protect against reliance on the five-year non-use ground, if they caused the non-use and there was no intention to abandon or stop using the mark. Use for goods or services of the same description, or associated registered goods or services, may also matter. [trade_marks_act_1999:47]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:47",
+            "quote": "A registered trade mark may be taken off the register in respect  of  the  goods  or  services  in   respect  of  which it   is registered on application made in the prescribed manner to the Registrar or the 1[High Court ] by any person aggrieved",
+            "supports": "Removal is possible on an affected person's application and may concern particular registered goods or services.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Trade Marks Act, 1999",
+            "page": 29
+          },
+          {
+            "section_id": "trade_marks_act_1999:47",
+            "quote": "up to a date three months before the date of the application, a continuous period of five years from the date on which the trade mark is actually entered in the register or longer  had elapsed during which the trade mark was registered and during which there was no bona fide use thereof in relation to those goods or services by any proprietor thereof for the time being",
+            "supports": "The five-year non-use ground and its timing.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Trade Marks Act, 1999",
+            "page": 29
+          },
+          {
+            "section_id": "trade_marks_act_1999:47",
+            "quote": "the trade mark was registered without any bona fide intention on the part of the applicant for registration that it should be used in relation to those goods or services",
+            "supports": "Lack of a genuine intention to use the mark can be part of another ground for removal.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Trade Marks Act, 1999",
+            "page": 29
+          },
+          {
+            "section_id": "trade_marks_act_1999:47",
+            "quote": "there has, in fact, been no bona fide use of the trade mark in relation to those goods or services by any proprietor thereof for the time being up to a date three months before the date of the application",
+            "supports": "The other ground also requires the stated absence of genuine use up to three months before the application.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Trade Marks Act, 1999",
+            "page": 29
+          },
+          {
+            "section_id": "trade_marks_act_1999:47",
+            "quote": "any non -use of a trade mark which is shown to have been due to special circumstances in the trade, which includes restrictions on the use of the trade mark in India imposed by any law or regulation and not to any intention to abandon or not to use the trade mark",
+            "supports": "Special trade circumstances can prevent reliance on the five-year non-use ground.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Trade Marks Act, 1999",
+            "page": 29
+          },
+          {
+            "section_id": "trade_marks_act_1999:47",
+            "quote": "may refuse an application under clause (a) or clause ( b) in relation to any goods or services, if it is shown that there has been, before the relevant date or during the relevant period, as the case may be, bona fide use of the trade mark by any proprietor thereof for the time being in relation to—\n(i) goods or services of the same description; or\n(ii) goods or services associated with those goods or services of that description being goods or services, as the case may be, in respect of which the trade mark is registered.",
+            "supports": "Use for goods or services of the same description or associated registered goods or services may matter.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Trade Marks Act, 1999",
+            "page": 29
+          }
+        ],
+        "next_steps": [
+          "Keep records of use, such as dated invoices, packaging and advertisements, for each relevant product or service.",
+          "Document when use stopped and why, including any restrictions or unusual trade circumstances.",
+          "If you receive a removal application, consult a trademark lawyer with your registration and use records."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 50, The Trade Marks Act, 1999",
+          "Section 57, The Trade Marks Act, 1999",
+          "Section 36D, The Trade Marks Act, 1999",
+          "Section 29, The Trade Marks Act, 1999",
+          "Section 77, The Trade Marks Act, 1999",
+          "Section 135, The Trade Marks Act, 1999",
+          "Section 30, The Trade Marks Act, 1999",
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 26, The Trade Marks Act, 1999",
+          "Section 47, The Trade Marks Act, 1999",
+          "Section 75, The Trade Marks Act, 1999",
+          "Section 36, The Trade Marks Act, 1999",
+          "Section 34, The Trade Marks Act, 1999",
+          "Section 9, The Trade Marks Act, 1999",
+          "Section 46, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9098,
+        "output_tokens": 1049
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "trade_marks_act_1999:103",
+        "trade_marks_act_1999:104"
+      ],
+      "seconds": 12.0,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 6,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Is it a crime to sell fake branded goods?",
+        "answer": "Yes. Selling goods with a false trade mark or false trade description can be a crime. Even offering them for sale or keeping them for sale can be covered [trade_marks_act_1999:104].\n\nA false trade mark can include a brand mark, or a confusingly similar mark, applied without the brand owner’s consent [trade_marks_act_1999:102].\n\nThe seller may avoid punishment by proving one of the following: they took all reasonable precautions and had no reason to suspect a problem; they gave the prosecutor all the information they had about their supplier when asked; or they otherwise acted innocently [trade_marks_act_1999:104].\n\nThe punishment is generally six months to three years in prison and a fine of ₹50,000 to ₹2 lakh. A court may impose a lower prison term or fine for adequate and special reasons recorded in its judgment [trade_marks_act_1999:104].",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:104",
+            "quote": "Any person who sells, lets for hire or exposes for sale, or hires or has in his\npossession for sale, goods or things, or provides or hires services, to which any false trade mark or false\ntrade description is applied",
+            "supports": "Selling, offering for sale or possessing for sale goods with a false trade mark or trade description can be a crime.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 104, The Trade Marks Act, 1999",
+            "page": 39
+          },
+          {
+            "section_id": "trade_marks_act_1999:102",
+            "quote": "without the\nassent of the proprietor of the trade mark,—\n(a) applies such trade mark or a deceptively similar mark to goods or services or any package\ncontaining goods",
+            "supports": "A mark applied without the owner's consent can be false, including a deceptively similar mark.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 102, The Trade Marks Act, 1999",
+            "page": 39
+          },
+          {
+            "section_id": "trade_marks_act_1999:102",
+            "quote": "Any trade mark falsified as mentioned in sub -section ( 1) or falsely applied as mentioned in\nsub-section (2), is in this Act referred to as a false trade mark.",
+            "supports": "A falsely applied trade mark is a false trade mark.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 102, The Trade Marks Act, 1999",
+            "page": 39
+          },
+          {
+            "section_id": "trade_marks_act_1999:104",
+            "quote": "that, having taken all reasonable precautions against committing an offence against this\nsection, he had at the time of commission of the alleged offence no reason to suspect the genuineness\n\nof the trade mark or trade description or that any offence had been committed in respect of the goods\nor services; or\n(b) that, on demand by or on behalf of the prosecutor, he gave all the information in his power\nwith respect to the person from whom he obtained such goods or things or services; or\n(c) that otherwise he had acted innocently",
+            "supports": "The seller may avoid punishment by proving any one of the listed matters.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 104, The Trade Marks Act, 1999",
+            "page": 39
+          },
+          {
+            "section_id": "trade_marks_act_1999:104",
+            "quote": "be punishable with imprisonment for a term which shall not be less than six months but which may\nextend to three years and with fine which shall not be less than fifty thousand rupees but which may\nextend to two lakh rupees",
+            "supports": "The usual punishment ranges from six months to three years in prison and a fine of ₹50,000 to ₹2 lakh.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 104, The Trade Marks Act, 1999",
+            "page": 39
+          },
+          {
+            "section_id": "trade_marks_act_1999:104",
+            "quote": "the court may, for adequate and special reasons to be mentioned in th e judg ment,\nimpose a sentence of imprisonment for a term of less than six months or a fine of less than fifty thousand\nrupees",
+            "supports": "A court may impose a lower prison term or fine for adequate and special reasons recorded in its judgment.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 104, The Trade Marks Act, 1999",
+            "page": 39
+          }
+        ],
+        "next_steps": [
+          "Keep invoices, supplier details, product photographs and any communications about the goods’ authenticity.",
+          "If you are involved in a dispute or investigation, consult an Indian trade mark lawyer with those records."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 104, The Trade Marks Act, 1999",
+          "Section 140, The Trade Marks Act, 1999",
+          "Section 126, The Trade Marks Act, 1999",
+          "Section 29, The Trade Marks Act, 1999",
+          "Section 103, The Trade Marks Act, 1999",
+          "Section 102, The Trade Marks Act, 1999",
+          "Section 2, The Trade Marks Act, 1999",
+          "Section 30, The Trade Marks Act, 1999",
+          "Section 107, The Trade Marks Act, 1999",
+          "Section 76, The Trade Marks Act, 1999",
+          "Section 9, The Trade Marks Act, 1999",
+          "Section 75, The Trade Marks Act, 1999",
+          "Section 53, The Copyright Act, 1957",
+          "Section 101, The Trade Marks Act, 1999",
+          "Section 111, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9752,
+        "output_tokens": 982
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "trade_marks_act_1999:18"
+      ],
+      "seconds": 11.7,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "How do I apply to register my logo as a trademark?",
+        "answer": "To apply to register your logo as a trade mark:\n\n1. If you claim to own the mark and use it or propose to use it, apply in writing to the Registrar in the prescribed manner. You do not have to be using it already. [trade_marks_act_1999:18]\n2. Identify the goods or services for which you want registration. One application can cover different classes of goods or services, but a fee is payable for each class. [trade_marks_act_1999:18]\n3. File at the Trade Marks Registry office for the area where your principal place of business in India is located. If you do not carry on business in India, the office is determined by the Indian address for service given in your application. [trade_marks_act_1999:18]\n4. The Registrar may refuse the application, accept it, or accept it with changes or conditions. [trade_marks_act_1999:18]\n\nThe supplied sources do not specify the application form, fee amounts or complete filing procedure.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:18",
+            "quote": "Any person claiming to be the proprietor of a trade mark used\nor proposed to be used by him, who is desirous of registering it, shall apply in writing to the Registrar in\nthe prescribed manner for the registration of his trade mark.",
+            "supports": "A person claiming ownership of a mark already used or proposed to be used may apply in writing to the Registrar in the prescribed manner.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Trade Marks Act, 1999",
+            "page": 17
+          },
+          {
+            "section_id": "trade_marks_act_1999:18",
+            "quote": "A single application may be made for registration of a trade mark for different classes of goods\nand services and fee payable therefor shall be in respect of each such class of goods or services.",
+            "supports": "One application may cover different classes, with a fee for each class.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Trade Marks Act, 1999",
+            "page": 17
+          },
+          {
+            "section_id": "trade_marks_act_1999:18",
+            "quote": "shall be filed in the office of the Trade Marks Registry\nwithin whose territorial limits the principal place of business in India of the applicant",
+            "supports": "The Registry office is generally determined by the applicant's principal place of business in India.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Trade Marks Act, 1999",
+            "page": 17
+          },
+          {
+            "section_id": "trade_marks_act_1999:18",
+            "quote": "where the applicant or any of the joint applicants does not carry on business in India,\nthe application shall be filed in the office of the Trade Marks Registry within whose territorial limits the\nplace mentioned in the address for service in India as disclosed in the application, is situate.",
+            "supports": "If the applicant does not carry on business in India, the office is determined by the Indian address for service in the application.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Trade Marks Act, 1999",
+            "page": 17
+          },
+          {
+            "section_id": "trade_marks_act_1999:18",
+            "quote": "the Registrar may refuse the application or may accept it\nabsolutely or subject to such amendments, modifications, conditions or limitation s, if any, as he may\nthink fit.",
+            "supports": "The Registrar may refuse, accept, or conditionally accept the application.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 18, The Trade Marks Act, 1999",
+            "page": 17
+          }
+        ],
+        "next_steps": [
+          "Keep a clear copy of your logo and list the goods or services for which you use or plan to use it.",
+          "Check for similar marks and consult the Trade Marks Registry or a trade mark lawyer about the current form, classes, fees and filing procedure."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 16, The Trade Marks Act, 1999",
+          "Section 71, The Trade Marks Act, 1999",
+          "Section 15, The Trade Marks Act, 1999",
+          "Section 46, The Trade Marks Act, 1999",
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 107, The Trade Marks Act, 1999",
+          "Section 146, The Trade Marks Act, 1999",
+          "Section 28, The Trade Marks Act, 1999",
+          "Section 6, The Trade Marks Act, 1999",
+          "Section 29, The Trade Marks Act, 1999",
+          "Section 18, The Trade Marks Act, 1999",
+          "Section 49, The Trade Marks Act, 1999",
+          "Section 30, The Trade Marks Act, 1999",
+          "Section 72, The Trade Marks Act, 1999",
+          "Section 2, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10405,
+        "output_tokens": 949
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "patents_act_1970:48"
+      ],
+      "seconds": 14.5,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 8,
+        "rejected": 1,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "What rights do I get once my patent is granted?",
+        "answer": "A granted patent gives you rights to stop certain activities in India without your consent. The rights depend on what your patent covers:\n\n• Product patent: You can prevent others from making, using, offering for sale, selling or importing the product for those purposes in India. [patents_act_1970:48]\n• Process patent: You can prevent others from using the process in India. You can also prevent them from using, offering for sale, selling or importing for those purposes a product obtained directly by that process. [patents_act_1970:48]\n\nThese rights have limits. For example, the patented invention may be used for experiments, research or teaching pupils. Certain government uses are also permitted. [patents_act_1970:47] In specified circumstances, such as a national emergency, a licence allowing someone else to work the invention may be granted. [patents_act_1970:92]\n\nIf you own the patent jointly, an agreement may change your co-ownership rights. Subject to the rules and any agreement, a co-owner generally needs the other owners’ consent to grant a licence or transfer their share. [patents_act_1970:50]\n\nYou may bring an infringement case, but monetary compensation is not automatic. For example, it cannot be awarded against someone who proves they did not know and had no reasonable grounds to believe the patent existed when the infringement occurred. [patents_act_1970:111]",
+        "confidence": "medium",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "patents_act_1970:48",
+            "quote": "the exclusive right to prevent third parties, who do not have his consent, from the act of making, using, offering for sale, selling or importing for those purposes that product in India",
+            "supports": "The rights conferred by a product patent.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 48, The Patents Act, 1970",
+            "page": 30
+          },
+          {
+            "section_id": "patents_act_1970:48",
+            "quote": "the exclusive right to prevent third parties, who do not have his consent, from the act of using that process, and from the act of using, offering for sale, selling or importing for those purposes the product obtained directly by that process in India",
+            "supports": "The rights conferred by a process patent.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 48, The Patents Act, 1970",
+            "page": 30
+          },
+          {
+            "section_id": "patents_act_1970:47",
+            "quote": "for the purpose merely of experiment or research including the imparting of instructions to pupils",
+            "supports": "The exception for experiments, research and teaching pupils.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Patents Act, 1970",
+            "page": 30
+          },
+          {
+            "section_id": "patents_act_1970:47",
+            "quote": "any process in respect of which the patent is granted may be used by or on behalf of the Government for the purpose merely of its own use",
+            "supports": "Certain government uses are permitted.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Patents Act, 1970",
+            "page": 30
+          },
+          {
+            "section_id": "patents_act_1970:92",
+            "quote": "in circumstances of national emergency or in circumstances of extreme urgency or in case of public non -commercial use",
+            "supports": "Specified circumstances in which special compulsory licensing may apply.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 92, The Patents Act, 1970",
+            "page": 47
+          },
+          {
+            "section_id": "patents_act_1970:92",
+            "quote": "the Controller shall , on application made at any time after the notification by any person interested, grant to the applicant a licence under the patent on such terms and conditions as he thinks fit",
+            "supports": "Following the specified notification, a licence may be granted to work the invention.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 92, The Patents Act, 1970",
+            "page": 47
+          },
+          {
+            "section_id": "patents_act_1970:50",
+            "quote": "subject to any agreement for the time being in force",
+            "supports": "An agreement may affect co-owners’ rights.",
+            "verified": false,
+            "reason": "Quoted words do not appear in this section's text.",
+            "citation": "Section 50, The Patents Act, 1970",
+            "page": 31
+          },
+          {
+            "section_id": "patents_act_1970:50",
+            "quote": "a licence under the patent shall not be granted and a share in the patent shall not be assigned by one of such persons except with the consent of the other person or persons",
+            "supports": "Subject to the rules and any agreement, a co-owner generally needs the other owners’ consent to grant a licence or transfer their share.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 50, The Patents Act, 1970",
+            "page": 31
+          },
+          {
+            "section_id": "patents_act_1970:111",
+            "quote": "damages or an account of profits shall not be granted against the defendant who proves that at the date of the infringement he was not aware and had no reasonable grounds for believing that the patent existed",
+            "supports": "In an infringement case, monetary compensation is not automatic in the stated circumstances.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 111, The Patents Act, 1970",
+            "page": 54
+          }
+        ],
+        "next_steps": [
+          "Keep your grant documents and a copy of the patent specification.",
+          "If you suspect infringement, document the product or process involved and how you learned about it.",
+          "If you have co-owners, review any agreement between you.",
+          "Consider consulting a patent lawyer about your particular patent and possible enforcement."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 50, The Patents Act, 1970",
+          "Section 52, The Patents Act, 1970",
+          "Section 11A, The Patents Act, 1970",
+          "Section 48, The Patents Act, 1970",
+          "Section 111, The Patents Act, 1970",
+          "Section 44, The Patents Act, 1970",
+          "Section 43, The Patents Act, 1970",
+          "Section 47, The Patents Act, 1970",
+          "Section 92, The Patents Act, 1970",
+          "Section 51, The Patents Act, 1970",
+          "Section 33, The Copyright Act, 1957",
+          "Section 134, The Patents Act, 1970",
+          "Section 46, The Patents Act, 1970",
+          "Section 83, The Patents Act, 1970",
+          "Section 144, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 6307,
+        "output_tokens": 1166
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "patents_act_1970:84"
+      ],
+      "seconds": 12.7,
+      "score": {
+        "retrieved_correct": false,
+        "grounded": true,
+        "correct_law": false,
+        "passed": false,
+        "verified": 2,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Can another company force me to let them make my patented medicine?",
+        "answer": "Yes, in certain circumstances, another company can seek a compulsory licence: permission granted by the Controller that allows it to make a patented medicine. The company cannot simply give itself that permission. [patents_act_1970:92A]\n\nOne situation covered by the available law is manufacture solely for export to a country that lacks sufficient manufacturing capacity for the product to address public health problems. The destination country must also have granted a compulsory licence or otherwise allowed the import. [patents_act_1970:92A]\n\nThe available sources do not explain when a compulsory licence can be granted to supply the Indian market, so I cannot say whether that would be possible in your case.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "patents_act_1970:92A",
+            "quote": "The Controller shall, on receipt of an application in the prescribed manner, grant a compulsory licence solely for manufacture and export of the concerned pharmaceutical product to such country under such terms and conditions as may be specified and published by him.",
+            "supports": "The Controller grants a compulsory licence for manufacture and export under the specified conditions; another company cannot simply grant itself permission.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 92A, The Patents Act, 1970",
+            "page": 48
+          },
+          {
+            "section_id": "patents_act_1970:92A",
+            "quote": "Compulsory licence shall be available for manufacture and export of patented pharmaceutical products to any country having insufficient or no manufacturing capacity in the pharmaceutical sector for the concerned product to address public health problems, provided compulsory licence has been granted by such country or such country has, by notification or otherwise, allowed importation of the patented pharmaceutical products from India.",
+            "supports": "A compulsory licence is available for manufacture and export in the stated public-health circumstances and subject to the destination country's permission.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 92A, The Patents Act, 1970",
+            "page": 48
+          }
+        ],
+        "next_steps": [
+          "Keep your patent documents and any communications from the other company.",
+          "If a company has made a request or application, ask a patent lawyer to review it and your patent's status."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 47, The Patents Act, 1970",
+          "Section 19, The Patents Act, 1970",
+          "Section 52, The Patents Act, 1970",
+          "Section 107, The Patents Act, 1970",
+          "Section 50, The Patents Act, 1970",
+          "Section 120, The Patents Act, 1970",
+          "Section 53, The Patents Act, 1970",
+          "Section 90, The Patents Act, 1970",
+          "Section 54, The Patents Act, 1970",
+          "Section 55, The Patents Act, 1970",
+          "Section 100, The Patents Act, 1970",
+          "Section 129, The Patents Act, 1970",
+          "Section 69, The Copyright Act, 1957",
+          "Section 92A, The Patents Act, 1970",
+          "Section 114, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 7203,
+        "output_tokens": 784
+      }
+    },
+    {
+      "set": "held_out",
+      "expected": [
+        "patents_act_1970:108"
+      ],
+      "seconds": 11.8,
+      "score": {
+        "retrieved_correct": false,
+        "grounded": true,
+        "correct_law": false,
+        "passed": false,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "A company copied my patented invention. What can a court order against them?",
+        "answer": "In a patent infringement lawsuit, a court may grant an injunction—an order requiring the company to stop the infringing activity. The court may also award damages, meaning money for loss, or an account of profits, meaning a remedy based on profits made from the infringement. These remedies are not automatic. [patents_act_1970:111; patents_act_1970:109]\n\nThere are important limits on monetary remedies:\n• The court cannot award damages or an account of profits if the company proves that, when the infringement occurred, it did not know and had no reasonable grounds to believe the patent existed. This does not remove the court’s power to grant an injunction. [patents_act_1970:111]\n• The court may refuse those monetary remedies for infringement during a period between a missed renewal fee deadline and an extension of that period. [patents_act_1970:111]\n• If the patent specification was amended after publication, monetary remedies for use before the amendment was allowed are restricted, unless the court is satisfied that the original specification was prepared in good faith and with reasonable skill and knowledge. [patents_act_1970:111]\n\nThe available sources do not set out a complete list of possible court orders.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "patents_act_1970:111",
+            "quote": "Nothing in this section shall affect the power of the court to grant an injunction in any suit for infringement of a patent.",
+            "supports": "A court may grant an injunction in a patent infringement suit, including where monetary remedies are restricted.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 111, The Patents Act, 1970",
+            "page": 54
+          },
+          {
+            "section_id": "patents_act_1970:109",
+            "quote": "in awarding damages or an account of profits or granting any other relief in any such suit the court shall take into consideration any loss suffered or likely to be suffered by the exclusive licensee as such or, as the case may be, the profits earned by means of the infringement",
+            "supports": "Damages and an account of profits are possible monetary remedies; an account of profits relates to profits earned through infringement.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 109, The Patents Act, 1970",
+            "page": 53
+          },
+          {
+            "section_id": "patents_act_1970:111",
+            "quote": "damages or an account of profits shall not be granted against the defendant who proves that at the date of the infringement he was not aware and had no reasonable grounds for believing that the patent existed",
+            "supports": "Monetary remedies cannot be granted if the company proves the specified lack of knowledge and reasonable grounds for belief.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 111, The Patents Act, 1970",
+            "page": 54
+          },
+          {
+            "section_id": "patents_act_1970:111",
+            "quote": "the court may, if it thinks fit, refuse to grant any damages or an account of profits in respect of any infringement committed after a failure to pay any renewal fee within the prescribed period and before any extension of that period",
+            "supports": "The court may refuse monetary remedies for infringement during the specified renewal-fee period.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 111, The Patents Act, 1970",
+            "page": 54
+          },
+          {
+            "section_id": "patents_act_1970:111",
+            "quote": "no damages or account of profits shall be granted in any proceedings in respect of the use of the invention before the date of the decision allowing the amendment, unless the court is satisfied that the specification as originally published was framed in good faith and with reasonable skill and knowledge",
+            "supports": "Monetary remedies for use before an amendment was allowed are restricted, subject to the stated exception.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 111, The Patents Act, 1970",
+            "page": 54
+          }
+        ],
+        "next_steps": [
+          "Gather your patent documents, renewal records and details of any amendments.",
+          "Keep evidence of the company’s product or process, when you discovered it, and any losses or information about its sales.",
+          "Consult a patent lawyer about the evidence and possible remedies."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 111, The Patents Act, 1970",
+          "Section 52, The Patents Act, 1970",
+          "Section 151, The Patents Act, 1970",
+          "Section 72, The Copyright Act, 1957",
+          "Section 109, The Patents Act, 1970",
+          "Section 113, The Patents Act, 1970",
+          "Section 105, The Patents Act, 1970",
+          "Section 19, The Patents Act, 1970",
+          "Section 2, The Patents Act, 1970",
+          "Section 110, The Patents Act, 1970",
+          "Section 52, The Copyright Act, 1957",
+          "Section 53, The Patents Act, 1970",
+          "Section 66, The Copyright Act, 1957",
+          "Section 104A, The Patents Act, 1970",
+          "Section 58, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 11013,
+        "output_tokens": 941
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 2.0,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "What is the capital of France?",
+        "answer": "I cannot answer this question from the laws available. The supplied sources do not identify the capital of France.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Check a reliable geography reference or an official French government source."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 84, The Patents Act, 1970",
+          "Section 35, The Trade Marks Act, 1999",
+          "Section 36B, The Trade Marks Act, 1999",
+          "Section 147, The Trade Marks Act, 1999",
+          "Section 154, The Trade Marks Act, 1999",
+          "Section 32, The Trade Marks Act, 1999",
+          "Section 36, The Trade Marks Act, 1999",
+          "Section 5, The Trade Marks Act, 1999",
+          "Section 2, The Trade Marks Act, 1999",
+          "Section 133, The Patents Act, 1970",
+          "Section 2, The Patents Act, 1970",
+          "Section 124, The Trade Marks Act, 1999",
+          "Section 13, The Trade Marks Act, 1999",
+          "Section 32, The Copyright Act, 1957",
+          "Section 153, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 11780,
+        "output_tokens": 72
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 2.9,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "How do I file for divorce in India?",
+        "answer": "I cannot explain how to file for divorce from the laws provided. The available sources do not address divorce.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Consult a family lawyer or a legal aid service in India about the process for your circumstances.",
+          "Gather relevant documents, such as your marriage certificate, for that consultation."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 138, The Patents Act, 1970",
+          "Section 8, The Patents Act, 1970",
+          "Section 7, The Patents Act, 1970",
+          "Section 18, The Trade Marks Act, 1999",
+          "Section 9, The Patents Act, 1970",
+          "Section 39, The Patents Act, 1970",
+          "Section 135, The Patents Act, 1970",
+          "Section 11, The Patents Act, 1970",
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 5, The Copyright Act, 1957",
+          "Section 36E, The Trade Marks Act, 1999",
+          "Section 29, The Patents Act, 1970",
+          "Section 10, The Patents Act, 1970",
+          "Section 120, The Patents Act, 1970",
+          "Section 42, The Copyright Act, 1957"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9256,
+        "output_tokens": 94
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 2.5,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "How much GST do I have to pay on a restaurant bill?",
+        "answer": "I cannot determine how much GST you have to pay on your restaurant bill from the laws available here. The sources do not cover restaurant GST.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Check the tax breakdown on your bill and ask the restaurant how it calculated the GST.",
+          "For confirmation, consult the official GST website or a tax professional."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 26, The Trade Marks Act, 1999",
+          "Section 79, The Patents Act, 1970",
+          "Section 103, The Trade Marks Act, 1999",
+          "Section 150, The Trade Marks Act, 1999",
+          "Section 55, The Patents Act, 1970",
+          "Section 112B, The Trade Marks Act, 1999",
+          "Section 60, The Patents Act, 1970",
+          "Section 30, The Trade Marks Act, 1999",
+          "Section 33A, The Copyright Act, 1957",
+          "Section 140, The Trade Marks Act, 1999",
+          "Section 61, The Patents Act, 1970",
+          "Section 110, The Trade Marks Act, 1999",
+          "Section 31D, The Copyright Act, 1957",
+          "Section 114, The Trade Marks Act, 1999",
+          "Section 102, The Patents Act, 1970"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 5954,
+        "output_tokens": 83
+      }
+    }
+  ]
+}

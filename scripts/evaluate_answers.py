@@ -29,24 +29,34 @@ PRICE_PER_MILLION_INPUT = 1.00
 PRICE_PER_MILLION_OUTPUT = 5.00
 
 
-def score_answer(case: dict, response: dict) -> dict:
-    """Turn one case + one assistant response into pass/fail checks."""
+def score_answer(case: dict, response: dict, citation_of: dict[str, str]) -> dict:
+    """Turn one case + one assistant response into pass/fail checks.
+
+    citation_of maps "patents_act_1970:53" -> "Section 53, The Patents Act, 1970",
+    so we can tell whether an expected section was among the sources given to the model.
+    """
     verified = [c for c in response["citations"] if c["verified"]]
     rejected = [c for c in response["citations"] if not c["verified"]]
+    abstained = response["confidence"] == "insufficient"
 
     if case["set"] == "out_of_scope":
         # Correct behaviour: admit it cannot answer, and cite no law.
-        passed = response["confidence"] == "insufficient" and not verified
-        return {"passed": passed, "verified": len(verified), "rejected": len(rejected)}
+        passed = abstained and not verified
+        return {"passed": passed, "verified": len(verified), "rejected": len(rejected), "abstained": abstained}
 
-    grounded = response["confidence"] != "insufficient" and len(verified) > 0
+    retrieved_correct = any(citation_of[s] in response["sources_considered"] for s in case["expected"])
+    grounded = not abstained and len(verified) > 0
     correct_law = any(c["section_id"] in case["expected"] for c in verified)
     return {
+        "retrieved_correct": retrieved_correct,  # was a right section GIVEN to the model?
         "grounded": grounded,
-        "correct_law": correct_law,
+        "correct_law": correct_law,  # did the model CITE a right section (verified)?
         "passed": grounded and correct_law,
         "verified": len(verified),
         "rejected": len(rejected),
+        "abstained": abstained,
+        # Abstaining is wrong when the right section was in front of the model.
+        "abstained_despite_source": abstained and retrieved_correct,
     }
 
 
@@ -62,9 +72,14 @@ def summarise(records: list[dict]) -> list[str]:
             ok = sum(r["score"]["passed"] for r in subset)
             lines.append(f"[{set_name}] correctly said 'insufficient': {ok}/{n}")
         else:
+            retrieved = sum(r["score"]["retrieved_correct"] for r in subset)
             grounded = sum(r["score"]["grounded"] for r in subset)
             correct = sum(r["score"]["correct_law"] for r in subset)
-            lines.append(f"[{set_name}] grounded: {grounded}/{n}   correct law cited: {correct}/{n}")
+            wrong_abstain = sum(r["score"]["abstained_despite_source"] for r in subset)
+            lines.append(
+                f"[{set_name}] correct law retrieved: {retrieved}/{n}   grounded: {grounded}/{n}   "
+                f"correct law cited: {correct}/{n}   abstained despite source: {wrong_abstain}"
+            )
 
     verified = sum(r["score"]["verified"] for r in records)
     rejected = sum(r["score"]["rejected"] for r in records)
@@ -93,6 +108,8 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description="Evaluate NyayaAI's final answers.")
     parser.add_argument("--limit", type=int, help="only run the first N questions (to test cheaply)")
+    parser.add_argument("--context-sections", type=int, default=config.ANSWER_CONTEXT_SECTIONS,
+                        help=f"sections given to the model per question (default {config.ANSWER_CONTEXT_SECTIONS})")
     args = parser.parse_args()
 
     if not config.OPENAI_API_KEY:
@@ -105,6 +122,9 @@ def main() -> None:
     if args.limit:
         cases = cases[: args.limit]
     assistant = build_assistant()
+    assistant.context_sections = args.context_sections
+    citation_of = {f"{s.source_id}:{s.section}": s.citation for s in assistant.retriever.keyword_retriever.sections}
+    print(f"model: {config.OPENAI_MODEL}   context sections: {args.context_sections}\n")
 
     records = []
     for number, case in enumerate(cases, start=1):
@@ -116,7 +136,7 @@ def main() -> None:
             continue
         seconds = time.perf_counter() - start
 
-        score = score_answer(case, response)
+        score = score_answer(case, response, citation_of)
         records.append({"set": case["set"], "expected": case["expected"], "seconds": round(seconds, 1),
                         "score": score, "response": response})
 
@@ -133,9 +153,9 @@ def main() -> None:
         print("  " + line)
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    output = RESULTS_DIR / f"{datetime.now():%Y-%m-%d_%H%M%S}_{config.OPENAI_MODEL}.json"
-    output.write_text(json.dumps({"model": config.OPENAI_MODEL, "results": records},
-                                 ensure_ascii=False, indent=2), encoding="utf-8")
+    output = RESULTS_DIR / f"{datetime.now():%Y-%m-%d_%H%M%S}_{config.OPENAI_MODEL}_ctx{args.context_sections}.json"
+    output.write_text(json.dumps({"model": config.OPENAI_MODEL, "context_sections": args.context_sections,
+                                  "results": records}, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nFull answers saved to {output} - please read some of them.")
 
 
