@@ -15,6 +15,7 @@ from pathlib import Path
 
 import snowballstemmer
 
+from app.services.legal_synonyms import expand_query
 from app.services.section_splitter import Section
 
 # Reduces words to a common root: "infringed", "infringement" -> "infring".
@@ -63,13 +64,16 @@ class BM25Retriever:
         k1: float = 1.5,
         b: float = 0.75,
         heading_weight: int = 5,
+        use_synonyms: bool = True,
     ):
         # k1: how quickly repeating a word stops adding to the score.
         # b:  how strongly long sections are penalised (0 = not at all, 1 = fully).
         # heading_weight: how many EXTRA times the heading's words are counted.
         #   Headings summarise a section ("Term of patent"), so their words matter more.
+        # use_synonyms: add legal terms to the question ("song" -> "musical work").
         self.k1 = k1
         self.b = b
+        self.use_synonyms = use_synonyms
 
         # Omitted (repealed) sections are not current law, so we never return them.
         self.sections = [s for s in sections if s.status != "omitted"]
@@ -112,6 +116,8 @@ class BM25Retriever:
 
     def search(self, question: str, top_k: int = 5) -> list[SearchResult]:
         """Return the top_k best-matching sections, best first."""
+        if self.use_synonyms:
+            question = expand_query(question)
         query_words = tokenize(question)
         results = [
             SearchResult(section=section, score=self.score(query_words, index))
