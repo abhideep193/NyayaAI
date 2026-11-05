@@ -10,6 +10,9 @@ uvicorn==0.54.0
 # Data validation (used for LegalQuestion); FastAPI also depends on it
 pydantic==2.14.3
 
+# Reads text out of the legal source PDFs
+pypdf==6.21.4
+
 # --- Testing ---
 # Test runner: finds and runs the tests in tests/
 pytest==9.2.0
