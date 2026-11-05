@@ -13,7 +13,12 @@ from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
+import snowballstemmer
+
 from app.services.section_splitter import Section
+
+# Reduces words to a common root: "infringed", "infringement" -> "infring".
+STEMMER = snowballstemmer.stemmer("english")
 
 # Very common words that say nothing about the topic of a question.
 STOPWORDS = {
@@ -26,12 +31,19 @@ STOPWORDS = {
 
 
 def tokenize(text: str) -> list[str]:
-    """Turn text into a list of lowercase words, without stopwords.
+    """Turn text into a list of lowercase word stems, without stopwords.
 
-    "Can I use a song?" -> ["use", "song"]
+    "Can I use a song?"           -> ["use", "song"]
+    "infringed registered marks"  -> ["infring", "regist", "mark"]
     """
-    words = re.findall(r"[a-z0-9]+", text.lower())
-    return [word for word in words if word not in STOPWORDS]
+    text = text.lower()
+
+    # People write "trademark" or "trade-mark"; the Acts write "trade mark".
+    text = re.sub(r"\btrade-?mark", "trade mark", text)
+
+    words = re.findall(r"[a-z0-9]+", text)
+    words = [word for word in words if word not in STOPWORDS]
+    return STEMMER.stemWords(words)
 
 
 @dataclass

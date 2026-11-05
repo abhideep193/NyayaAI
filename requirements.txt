@@ -13,6 +13,9 @@ pydantic==2.14.3
 # Reads text out of the legal source PDFs
 pypdf==6.21.4
 
+# Reduces words to their root for search ("infringed" -> "infring")
+snowballstemmer==3.1.1
+
 # --- Testing ---
 # Test runner: finds and runs the tests in tests/
 pytest==9.2.0

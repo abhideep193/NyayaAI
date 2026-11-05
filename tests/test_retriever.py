@@ -31,6 +31,21 @@ def test_tokenize_lowercases_and_removes_stopwords():
     assert tokenize("What is the Term of a Patent?") == ["term", "patent"]
 
 
+def test_tokenize_reduces_word_forms_to_the_same_stem():
+    assert tokenize("infringed") == tokenize("infringement") == tokenize("infringes")
+
+
+def test_tokenize_splits_trademark_like_the_acts_do():
+    assert tokenize("trademark") == tokenize("trade mark") == tokenize("trade-mark")
+
+
+def test_search_matches_different_word_forms():
+    # The question says "infringing", the section says "infringed"
+    results = BM25Retriever(SECTIONS).search("infringing")
+
+    assert results[0].section.section == "3"
+
+
 def test_best_match_comes_first():
     results = BM25Retriever(SECTIONS).search("term of patent")
 
