@@ -13,3 +13,6 @@ __pycache__/
 
 # --- Test tool cache (created when we run pytest later) ---
 .pytest_cache/
+
+# --- Generated search index (rebuilt automatically) ---
+data/processed/embeddings_cache.npz

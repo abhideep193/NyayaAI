@@ -8,17 +8,27 @@ import json
 import sys
 from pathlib import Path
 
+from app.services.embeddings import EmbeddingRetriever
+from app.services.hybrid import HybridRetriever
 from app.services.retriever import BM25Retriever, load_sections
 
 SOURCES_FILE = Path("data/legal_sources/sources.json")
 PROCESSED_DIR = Path("data/processed")
+EMBEDDINGS_CACHE = PROCESSED_DIR / "embeddings_cache.npz"
 
 
-def build_retriever() -> BM25Retriever:
-    """Load every Act listed in sources.json and build the search index."""
+def build_retrievers() -> dict:
+    """Load every Act listed in sources.json and build all three search methods."""
     sources = json.loads(SOURCES_FILE.read_text(encoding="utf-8"))["sources"]
     sections = load_sections(PROCESSED_DIR, [source["id"] for source in sources])
-    return BM25Retriever(sections)
+
+    keyword = BM25Retriever(sections)
+    meaning = EmbeddingRetriever(sections, cache_path=EMBEDDINGS_CACHE)
+    return {
+        "bm25": keyword,
+        "embeddings": meaning,
+        "hybrid": HybridRetriever(keyword, meaning),
+    }
 
 
 def main() -> None:
@@ -27,12 +37,12 @@ def main() -> None:
         return
 
     question = " ".join(sys.argv[1:])
-    retriever = build_retriever()
+    retriever = build_retrievers()["hybrid"]
 
     print(f"Question: {question}\n")
     for rank, result in enumerate(retriever.search(question, top_k=5), start=1):
         s = result.section
-        print(f"{rank}. [{result.score:.2f}] {s.citation} - {s.heading} (page {s.page_start})")
+        print(f"{rank}. {s.citation} - {s.heading} (page {s.page_start})")
 
 
 if __name__ == "__main__":
