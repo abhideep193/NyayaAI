@@ -22,6 +22,12 @@ sentence-transformers==6.2.0
 # Fast maths on lists of numbers (the embedding vectors)
 numpy==2.5.4
 
+# Official OpenAI SDK, used to generate answers
+openai==3.46.0
+
+# Loads settings such as OPENAI_API_KEY from the .env file
+python-dotenv==1.2.4
+
 # --- Testing ---
 # Test runner: finds and runs the tests in tests/
 pytest==9.2.0
