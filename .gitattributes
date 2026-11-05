@@ -1,0 +1,5 @@
+# Tell Git how to treat certain file types.
+
+# PDFs are binary: never change line endings, never try to merge them as text.
+# This protects our official legal source files from being altered.
+*.pdf binary
