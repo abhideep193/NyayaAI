@@ -51,18 +51,19 @@ def main() -> None:
     cases = [c for c in cases if c["expected"]]  # out-of-scope questions have no right section
     retrievers = build_retrievers()
 
-    columns = ["tuning@5", "tuning@15", "held_out@5", "held_out@15", "median latency"]
-    print("\n" + f"{'method':<15}" + "".join(f"{c:>15}" for c in columns))
+    sets = list(dict.fromkeys(c["set"] for c in cases))  # e.g. tuning, held_out, fresh
+    columns = [f"{s}@{k}" for s in sets for k in CUTOFFS] + ["median latency"]
+    print("\n" + f"{'method':<12}" + "".join(f"{c:>13}" for c in columns))
 
     all_outcomes = {}
     for method, retriever in retrievers.items():
         outcomes, latencies = run_method(retriever, cases)
         all_outcomes[method] = outcomes
-        row = f"{method:<15}"
-        for set_name in ["tuning", "held_out"]:
+        row = f"{method:<12}"
+        for set_name in sets:
             for cutoff in CUTOFFS:
-                row += f"{count_passes(outcomes, set_name, cutoff):>15}"
-        row += f"{statistics.median(latencies) * 1000:>12.0f} ms"
+                row += f"{count_passes(outcomes, set_name, cutoff):>13}"
+        row += f"{statistics.median(latencies) * 1000:>10.0f} ms"
         print(row)
 
     detail_method = list(retrievers)[-1]  # the most advanced method that was built

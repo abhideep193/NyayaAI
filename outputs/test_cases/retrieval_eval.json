@@ -1,5 +1,5 @@
 {
-  "description": "Questions in everyday language, each with the section(s) a correct answer must cite. A question passes if ANY expected section appears in the top results. Every expected section was checked against the section text in data/processed/. 'tuning' cases may be used to choose settings; 'held_out' cases must NEVER be used for tuning - they only check whether improvements work on unseen questions. 'out_of_scope' cases are NOT about the IPR Acts; they have no expected sections and check that the assistant says it cannot answer instead of using outside knowledge.",
+  "description": "Questions in everyday language, each with the section(s) a correct answer must cite. A question passes if ANY expected section appears in the top results. Every expected section was checked against the section text in data/processed/. 'tuning' cases may be used to choose settings; 'held_out' cases must NEVER be used for tuning - they only check whether improvements work on unseen questions. 'out_of_scope' cases are NOT about the IPR Acts; they have no expected sections and check that the assistant says it cannot answer instead of using outside knowledge. 'fresh' cases (added 2026-11-06, questions 1-5 written by the project owner) were written before the clause-level search change and have not been used for any decision.",
   "cases": [
     {
       "question": "Someone is selling products with my registered trademark on them. What can I do?",
@@ -225,6 +225,101 @@
       "expected": [],
       "why": "Tax law: not covered by the IPR Acts NyayaAI has.",
       "set": "out_of_scope"
+    },
+    {
+      "question": "Can someone use my YouTube video without my permission?",
+      "expected": [
+        "copyright_act_1957:14",
+        "copyright_act_1957:51",
+        "copyright_act_1957:52"
+      ],
+      "why": "S.14(d) exclusive rights in a cinematograph film; s.51 infringement; s.52 acts that are not infringement.",
+      "set": "fresh",
+      "author": "project owner"
+    },
+    {
+      "question": "How long does copyright protection last in India?",
+      "expected": [
+        "copyright_act_1957:22",
+        "copyright_act_1957:23",
+        "copyright_act_1957:24",
+        "copyright_act_1957:26",
+        "copyright_act_1957:27",
+        "copyright_act_1957:28",
+        "copyright_act_1957:28A",
+        "copyright_act_1957:29"
+      ],
+      "why": "Ss.22-29: term depends on the type of work (s.25 omitted).",
+      "set": "fresh",
+      "author": "project owner"
+    },
+    {
+      "question": "How can I register my startup's brand name as a trademark in India?",
+      "expected": [
+        "trade_marks_act_1999:18",
+        "trade_marks_act_1999:23"
+      ],
+      "why": "S.18 application for registration; s.23 registration.",
+      "set": "fresh",
+      "author": "project owner"
+    },
+    {
+      "question": "Someone is using a logo very similar to mine. What can I do?",
+      "expected": [
+        "trade_marks_act_1999:29",
+        "trade_marks_act_1999:27",
+        "trade_marks_act_1999:134",
+        "trade_marks_act_1999:135",
+        "copyright_act_1957:51"
+      ],
+      "why": "TM s.29 infringement by deceptively similar mark; s.27 passing off if unregistered; ss.134-135 suits and reliefs. A logo is also an artistic work (Copyright s.2(c)), so copyright infringement (s.51) is a valid alternative route.",
+      "set": "fresh",
+      "author": "project owner"
+    },
+    {
+      "question": "Can I patent a software application or mobile app idea in India?",
+      "expected": [
+        "patents_act_1970:3"
+      ],
+      "why": "S.3(k): a computer programme per se is not an invention.",
+      "set": "fresh",
+      "author": "project owner"
+    },
+    {
+      "question": "Can I get a patent for a new method of treating a disease?",
+      "expected": [
+        "patents_act_1970:3"
+      ],
+      "why": "S.3(i): processes for medicinal, surgical, curative or other treatment are not inventions.",
+      "set": "fresh",
+      "author": "assistant"
+    },
+    {
+      "question": "Can I patent a new variety of rice seed that I developed?",
+      "expected": [
+        "patents_act_1970:3"
+      ],
+      "why": "S.3(j): plants, seeds, varieties and species are not inventions.",
+      "set": "fresh",
+      "author": "assistant"
+    },
+    {
+      "question": "Can I photocopy pages of a book for my own research?",
+      "expected": [
+        "copyright_act_1957:52"
+      ],
+      "why": "S.52(1)(a)(i): fair dealing for private or personal use, including research.",
+      "set": "fresh",
+      "author": "assistant"
+    },
+    {
+      "question": "Can my product's packaging or colour scheme be protected as a trademark?",
+      "expected": [
+        "trade_marks_act_1999:2"
+      ],
+      "why": "S.2(zb): a trade mark may include shape of goods, packaging and combination of colours; s.2(m) definition of mark.",
+      "set": "fresh",
+      "author": "assistant"
     }
   ]
 }

@@ -31,6 +31,8 @@ def run_summary(data: dict) -> dict:
                                    sum(r["set"] == "tuning" for r in in_scope)),
         "  held_out": "{}/{}".format(sum(r["score"]["correct_law"] for r in in_scope if r["set"] == "held_out"),
                                      sum(r["set"] == "held_out" for r in in_scope)),
+        "  fresh": "{}/{}".format(sum(r["score"]["correct_law"] for r in in_scope if r["set"] == "fresh"),
+                                  sum(r["set"] == "fresh" for r in in_scope)),
         "abstained (in scope)": sum(r["score"]["abstained"] for r in in_scope),
         "abstained despite source": sum(r["score"]["abstained_despite_source"] for r in in_scope),
         "out-of-scope refused": f"{sum(r['score']['passed'] for r in out_scope)}/{len(out_scope)}",

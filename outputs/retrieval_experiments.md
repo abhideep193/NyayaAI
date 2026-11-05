@@ -10,6 +10,23 @@ Score = questions whose correct section appears in the top K results.
 | **Hybrid (BM25 + embeddings, RRF)** | **13/15** | **13/15** | **4/10** | **8/10** | **79 ms** | **in use** |
 | Hybrid + cross-encoder rerank (`BAAI/bge-reranker-base`, top 20) | 9/15 | 13/15 | 6/10 | 8/10 | 33,370 ms | **removed** |
 
+## Clause-level embedding chunks (2026-11-06)
+
+Goal: fix "Is software patentable in India?" (Patents s.3(k) ranked 43rd in hybrid search).
+Hypothesis: clause (k) is buried in a ~1,200-character chunk with clauses (j)-(p).
+Change tested: split sections at clause markers "(a)", "(k)", "(1)"... for embedding search only.
+Tested on a new 'fresh' set of 9 questions (5 written by the project owner) written before the experiment.
+
+| Hybrid | Tuning @5 | Tuning @15 | Held-out @5 | Held-out @15 | Fresh @5 | Fresh @15 |
+|---|---|---|---|---|---|---|
+| Current (section chunks) | 13/15 | 13/15 | 4/10 | 8/10 | 8/9 | 9/9 |
+| Clause-level chunks | 13/15 | 13/15 | 3/10 | 10/10 | 8/9 | 8/9 |
+
+Result: "Is software patentable?" still not found; the owner's question "Can I patent a software
+application or mobile app idea?" went from rank 7 to not found. Rejected; app code never changed.
+Finding: the current search already handles most list-style questions (fresh 9/9 in top 15);
+the failure is specific to very short questions with few clues.
+
 ## Reranker experiment (2026-11-05)
 
 Acceptance criteria were fixed before running: held-out @5 improves by at least 2,

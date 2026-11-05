@@ -14,5 +14,6 @@ OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-6.1-terra")
 
 # --- Retrieval ---
 # How many sections are given to the LLM for each question.
-# Can be overridden in .env with e.g. ANSWER_CONTEXT_SECTIONS=15
-ANSWER_CONTEXT_SECTIONS = int(os.getenv("ANSWER_CONTEXT_SECTIONS", "8"))
+# 15 chosen after comparing 8 vs 15 (see outputs/answer_experiments.md).
+# Can be overridden in .env, e.g. ANSWER_CONTEXT_SECTIONS=8
+ANSWER_CONTEXT_SECTIONS = int(os.getenv("ANSWER_CONTEXT_SECTIONS", "15"))

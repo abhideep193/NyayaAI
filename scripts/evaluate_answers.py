@@ -63,7 +63,7 @@ def score_answer(case: dict, response: dict, citation_of: dict[str, str]) -> dic
 def summarise(records: list[dict]) -> list[str]:
     """Build the summary lines printed at the end."""
     lines = []
-    for set_name in ["tuning", "held_out", "out_of_scope"]:
+    for set_name in ["tuning", "held_out", "fresh", "out_of_scope"]:
         subset = [r for r in records if r["set"] == set_name]
         if not subset:
             continue

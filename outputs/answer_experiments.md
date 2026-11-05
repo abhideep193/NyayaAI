@@ -33,6 +33,9 @@ sources for 28/28 questions and differed in only 1 answer's confidence level.
 The one rejected citation (B, Patents s.50) stitched two parts of a sentence into a "quote";
 the verifier rejected it correctly.
 
+**Decision (2026-11-06): use 15 sections** (default in `app/config.py`). Held-out correct law
+cited 4/10 -> 8/10 and in-scope abstentions 4 -> 1, with no new citation errors, for +$0.005 per question.
+
 ## Judge reliability (manual spot-check)
 
 - Correct: s.52 proviso requires acknowledgment for criticism/review; answers omitted it.
