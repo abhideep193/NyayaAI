@@ -1,5 +1,5 @@
 {
-  "description": "Questions in everyday language, each with the section(s) a correct answer must cite. A question passes if ANY expected section appears in the top results. Every expected section was checked against the section text in data/processed/. 'tuning' cases may be used to choose settings; 'held_out' cases must NEVER be used for tuning - they only check whether improvements work on unseen questions.",
+  "description": "Questions in everyday language, each with the section(s) a correct answer must cite. A question passes if ANY expected section appears in the top results. Every expected section was checked against the section text in data/processed/. 'tuning' cases may be used to choose settings; 'held_out' cases must NEVER be used for tuning - they only check whether improvements work on unseen questions. 'out_of_scope' cases are NOT about the IPR Acts; they have no expected sections and check that the assistant says it cannot answer instead of using outside knowledge.",
   "cases": [
     {
       "question": "Someone is selling products with my registered trademark on them. What can I do?",
@@ -207,6 +207,24 @@
       ],
       "why": "S.108: reliefs in infringement suits - injunction, damages or account of profits.",
       "set": "held_out"
+    },
+    {
+      "question": "What is the capital of France?",
+      "expected": [],
+      "why": "General knowledge, not law.",
+      "set": "out_of_scope"
+    },
+    {
+      "question": "How do I file for divorce in India?",
+      "expected": [],
+      "why": "Family law: not covered by the IPR Acts NyayaAI has.",
+      "set": "out_of_scope"
+    },
+    {
+      "question": "How much GST do I have to pay on a restaurant bill?",
+      "expected": [],
+      "why": "Tax law: not covered by the IPR Acts NyayaAI has.",
+      "set": "out_of_scope"
     }
   ]
 }

@@ -9,7 +9,7 @@ from pydantic import BaseModel, Field
 
 from app import config
 from app.services.answer_generator import ModelRefusedError
-from app.services.assistant import NyayaAssistant, load_known_issues
+from app.services.assistant import NyayaAssistant
 
 logger = logging.getLogger("nyayaai")
 
@@ -22,19 +22,13 @@ async def lifespan(app: FastAPI):
     on every request. The ready assistant is stored on app.state.
     """
     # Imported here so that importing app.main (e.g. in tests) stays fast.
-    from scripts.search import SOURCES_FILE, build_retrievers
+    from scripts.search import build_assistant
 
     app.state.assistant = None
     if not config.OPENAI_API_KEY:
         logger.warning("OPENAI_API_KEY is not set: /ask will return 503 until it is added to .env")
     else:
-        app.state.assistant = NyayaAssistant(
-            retriever=build_retrievers()["hybrid"],
-            client=openai.OpenAI(api_key=config.OPENAI_API_KEY),
-            model=config.OPENAI_MODEL,
-            known_issues=load_known_issues(SOURCES_FILE),
-            context_sections=config.ANSWER_CONTEXT_SECTIONS,
-        )
+        app.state.assistant = build_assistant()
         logger.info("NyayaAI assistant ready (model: %s)", config.OPENAI_MODEL)
     yield
 

@@ -48,6 +48,7 @@ def count_passes(outcomes: list[dict], set_name: str, cutoff: int) -> str:
 
 def main() -> None:
     cases = json.loads(EVAL_FILE.read_text(encoding="utf-8"))["cases"]
+    cases = [c for c in cases if c["expected"]]  # out-of-scope questions have no right section
     retrievers = build_retrievers()
 
     columns = ["tuning@5", "tuning@15", "held_out@5", "held_out@15", "median latency"]

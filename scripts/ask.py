@@ -7,11 +7,8 @@ Run from the project root (needs OPENAI_API_KEY in .env):
 import sys
 import textwrap
 
-from openai import OpenAI
-
 from app import config
-from app.services.assistant import answer_question, load_known_issues
-from scripts.search import SOURCES_FILE, build_retrievers
+from scripts.search import build_assistant
 
 
 def main() -> None:
@@ -25,14 +22,7 @@ def main() -> None:
         return
 
     question = " ".join(sys.argv[1:])
-    response = answer_question(
-        question,
-        retriever=build_retrievers()["hybrid"],
-        client=OpenAI(api_key=config.OPENAI_API_KEY),
-        model=config.OPENAI_MODEL,
-        known_issues=load_known_issues(SOURCES_FILE),
-        context_sections=config.ANSWER_CONTEXT_SECTIONS,
-    )
+    response = build_assistant().ask(question)
 
     wrap = lambda text, indent="": textwrap.fill(text, width=100, initial_indent=indent, subsequent_indent=indent)
 

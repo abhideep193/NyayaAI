@@ -31,6 +31,25 @@ def build_retrievers() -> dict:
     }
 
 
+def build_assistant():
+    """Build the full answer pipeline (search + OpenAI) from the settings in .env.
+
+    Used by the API server, scripts.ask and scripts.evaluate_answers.
+    """
+    import openai
+
+    from app import config
+    from app.services.assistant import NyayaAssistant, load_known_issues
+
+    return NyayaAssistant(
+        retriever=build_retrievers()["hybrid"],
+        client=openai.OpenAI(api_key=config.OPENAI_API_KEY),
+        model=config.OPENAI_MODEL,
+        known_issues=load_known_issues(SOURCES_FILE),
+        context_sections=config.ANSWER_CONTEXT_SECTIONS,
+    )
+
+
 def main() -> None:
     if len(sys.argv) < 2:
         print('Usage: python -m scripts.search "your question"')

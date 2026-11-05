@@ -1,0 +1,161 @@
+{
+  "model": "gpt-6.1-terra",
+  "results": [
+    {
+      "set": "tuning",
+      "expected": [
+        "trade_marks_act_1999:29",
+        "trade_marks_act_1999:135"
+      ],
+      "seconds": 13.4,
+      "score": {
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 5,
+        "rejected": 0
+      },
+      "response": {
+        "question": "Someone is selling products with my registered trademark on them. What can I do?",
+        "answer": "Selling products with your registered trademark may be infringement if the seller is not authorized and the other conditions are met. These include how the mark is used and whether the goods are covered by your registration.\n\nBut a sale is not automatically infringement just because your mark appears on the products. For example, the law provides protection for some sales of lawfully acquired goods put on the market by you or with your consent. There can be exceptions if you have legitimate reasons to oppose further sales, such as a change in the goods’ condition.\n\nThe supplied sources do not explain what court remedies you may seek. A trademark lawyer can assess your situation and discuss your options.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:29",
+            "quote": "A registered trade mark is infringed by a person\nwho, not being a registered proprietor or a person using by way of permitted use, uses in the course of\ntrade, a mark which is identical with, or deceptively similar to, the trade mark in relation to goods or\nservices in respect of which the trade mark is registered and in such manner as to render the use of the\nmark likely to be taken as being used as a trade mark.",
+            "supports": "Unauthorized commercial use may be infringement if the stated conditions concerning the mark, goods and manner of use are met.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 29, The Trade Marks Act, 1999",
+            "page": 20
+          },
+          {
+            "section_id": "trade_marks_act_1999:29",
+            "quote": "offers or exposes goods for sale, puts them on the market, or stocks them for those purposes\nunder the registered trade mark",
+            "supports": "Offering goods for sale under a registered trademark is a form of use relevant to infringement.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 29, The Trade Marks Act, 1999",
+            "page": 20
+          },
+          {
+            "section_id": "trade_marks_act_1999:30",
+            "quote": "Where the goods bearing a registered trade mark are lawfully acquired by a person, the sale of the\ngoods in the market or otherwise dealing in those goods by that person or by a person claiming under or\nthrough him is not infringement of a trade mark by reason only of—",
+            "supports": "A sale of lawfully acquired goods bearing the mark is not automatically infringement.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 30, The Trade Marks Act, 1999",
+            "page": 21
+          },
+          {
+            "section_id": "trade_marks_act_1999:30",
+            "quote": "the goods having been put on the market under the registered trade mark by the proprietor or\nwith his consent.",
+            "supports": "The protection can apply where the proprietor put the goods on the market or consented to their being put on the market.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 30, The Trade Marks Act, 1999",
+            "page": 21
+          },
+          {
+            "section_id": "trade_marks_act_1999:30",
+            "quote": "Sub-section (3) shall not apply where there exists legitimate reasons for the proprietor to oppose\nfurther dealings in the goods in particular, where the condition of the goods , has been changed or\nimpaired after they have been put on the market.",
+            "supports": "There can be exceptions where the proprietor has legitimate reasons to oppose further dealings, including a change in the goods’ condition.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 30, The Trade Marks Act, 1999",
+            "page": 21
+          }
+        ],
+        "next_steps": [
+          "Keep copies of your registration details, including the goods it covers.",
+          "Save product listings, photographs, packaging, receipts, seller details and dates. Record why you believe the products or sale are unauthorized.",
+          "Check whether you or someone you authorized supplied the products or permitted use of the mark.",
+          "Consult a trademark lawyer with this information to assess the facts and discuss available options."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 29, The Trade Marks Act, 1999",
+          "Section 16, The Trade Marks Act, 1999",
+          "Section 9, The Trade Marks Act, 1999",
+          "Section 30, The Trade Marks Act, 1999",
+          "Section 146, The Trade Marks Act, 1999",
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 107, The Trade Marks Act, 1999",
+          "Section 138, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 5340,
+        "output_tokens": 856
+      }
+    },
+    {
+      "set": "tuning",
+      "expected": [
+        "trade_marks_act_1999:27"
+      ],
+      "seconds": 10.8,
+      "score": {
+        "grounded": true,
+        "correct_law": false,
+        "passed": false,
+        "verified": 3,
+        "rejected": 0
+      },
+      "response": {
+        "question": "Can I sue someone for using my brand name if I never registered it?",
+        "answer": "Yes, possibly. Even if you never registered your brand name, a claim called “passing off” may be available if you used the name in trade and the other person uses an identical or deceptively similar mark. The law refers to passing-off suits involving unregistered trade marks. [trade_marks_act_1999:11] [trade_marks_act_1999:134]\n\nSuch a suit must be brought in a District Court with jurisdiction, not a lower court. [trade_marks_act_1999:134]\n\nThe sources do not set out all the requirements for winning a passing-off claim, so whether you have a case depends on the facts.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "trade_marks_act_1999:11",
+            "quote": "the law of passing off protecting an unregistered trade mark\nused in the course of trade",
+            "supports": "Passing-off law can protect an unregistered trade mark used in trade.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 11, The Trade Marks Act, 1999",
+            "page": 13
+          },
+          {
+            "section_id": "trade_marks_act_1999:134",
+            "quote": "for passing off arising out of the use by the defendant of any trade mark which is identical\nwith or deceptively similar to the plaintiff’s trade mark, whether registered or unregistered",
+            "supports": "A passing-off suit can involve an unregistered mark and another person's use of an identical or deceptively similar mark.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 134, The Trade Marks Act, 1999",
+            "page": 46
+          },
+          {
+            "section_id": "trade_marks_act_1999:134",
+            "quote": "shall be instituted in any court inferior to a District Court having jurisdiction to try the suit.",
+            "supports": "The listed suits must not be brought in a court below a District Court with jurisdiction.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 134, The Trade Marks Act, 1999",
+            "page": 46
+          }
+        ],
+        "next_steps": [
+          "Keep dated examples of your use of the brand name, such as invoices, packaging and advertisements.",
+          "Save examples of the other person's use and any evidence of customer confusion.",
+          "Consult an intellectual property lawyer about the facts and the appropriate court."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 29, The Trade Marks Act, 1999",
+          "Section 134, The Trade Marks Act, 1999",
+          "Section 135, The Trade Marks Act, 1999",
+          "Section 67, The Trade Marks Act, 1999",
+          "Section 28, The Trade Marks Act, 1999",
+          "Section 46, The Trade Marks Act, 1999",
+          "Section 11, The Trade Marks Act, 1999",
+          "Section 146, The Trade Marks Act, 1999"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 4716,
+        "output_tokens": 737
+      }
+    }
+  ]
+}
