@@ -9,3 +9,10 @@ uvicorn==0.54.0
 
 # Data validation (used for LegalQuestion); FastAPI also depends on it
 pydantic==2.14.3
+
+# --- Testing ---
+# Test runner: finds and runs the tests in tests/
+pytest==9.2.0
+
+# Needed by FastAPI's TestClient to send fake requests to the app
+httpx==0.28.1
