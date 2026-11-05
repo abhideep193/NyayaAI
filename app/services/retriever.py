@@ -57,9 +57,17 @@ class SearchResult:
 class BM25Retriever:
     """Keyword search over a list of sections."""
 
-    def __init__(self, sections: list[Section], k1: float = 1.5, b: float = 0.75):
+    def __init__(
+        self,
+        sections: list[Section],
+        k1: float = 1.5,
+        b: float = 0.75,
+        heading_weight: int = 5,
+    ):
         # k1: how quickly repeating a word stops adding to the score.
         # b:  how strongly long sections are penalised (0 = not at all, 1 = fully).
+        # heading_weight: how many EXTRA times the heading's words are counted.
+        #   Headings summarise a section ("Term of patent"), so their words matter more.
         self.k1 = k1
         self.b = b
 
@@ -67,8 +75,11 @@ class BM25Retriever:
         self.sections = [s for s in sections if s.status != "omitted"]
 
         # For each section, count how often each word appears in it.
-        # The heading is included because it summarises the section.
-        self.word_counts = [Counter(tokenize(f"{s.heading}\n{s.text}")) for s in self.sections]
+        # (The text already starts with the heading, so it is counted once there.)
+        self.word_counts = [
+            Counter(tokenize(s.text) + tokenize(s.heading) * heading_weight)
+            for s in self.sections
+        ]
         self.lengths = [sum(counts.values()) for counts in self.word_counts]
         self.average_length = sum(self.lengths) / len(self.lengths)
 

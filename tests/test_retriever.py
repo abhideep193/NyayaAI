@@ -62,6 +62,21 @@ def test_no_results_when_no_word_matches():
     assert BM25Retriever(SECTIONS).search("zebra") == []
 
 
+def test_heading_words_count_more_than_body_words():
+    sections = [
+        # "renewal" appears twice, but only in the body
+        make_section("10", "Fees", "Fees for renewal. A renewal fee is payable."),
+        # "renewal" appears once in the body, but it is also the heading
+        make_section("11", "Renewal", "Renewal is allowed every ten years."),
+    ]
+
+    with_boost = BM25Retriever(sections, heading_weight=5).search("renewal")
+    without_boost = BM25Retriever(sections, heading_weight=0).search("renewal")
+
+    assert with_boost[0].section.section == "11"
+    assert without_boost[0].section.section == "10"
+
+
 def test_top_k_limits_number_of_results():
     results = BM25Retriever(SECTIONS).search("patent mark act", top_k=1)
 
