@@ -18,7 +18,7 @@ EMBEDDINGS_CACHE = PROCESSED_DIR / "embeddings_cache.npz"
 
 
 def build_retrievers() -> dict:
-    """Load every Act listed in sources.json and build all three search methods."""
+    """Load every Act listed in sources.json and build the search methods."""
     sources = json.loads(SOURCES_FILE.read_text(encoding="utf-8"))["sources"]
     sections = load_sections(PROCESSED_DIR, [source["id"] for source in sources])
 
