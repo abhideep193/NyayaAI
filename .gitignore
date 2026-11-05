@@ -1,0 +1,15 @@
+# --- Secrets: NEVER commit these ---
+# Real API keys and passwords live in .env.
+# (.env.example is different: it holds placeholder names only and IS committed.)
+.env
+
+# --- Python virtual environment ---
+# Rebuild it with: pip install -r requirements.txt
+.venv/
+
+# --- Files Python generates automatically ---
+__pycache__/
+*.pyc
+
+# --- Test tool cache (created when we run pytest later) ---
+.pytest_cache/

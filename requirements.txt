@@ -1,0 +1,11 @@
+# NyayaAI dependencies
+# Install with:  pip install -r requirements.txt
+
+# Web framework used to build the API
+fastapi==0.162.0
+
+# Server that runs the FastAPI app
+uvicorn==0.54.0
+
+# Data validation (used for LegalQuestion); FastAPI also depends on it
+pydantic==2.14.3
