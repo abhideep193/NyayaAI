@@ -23,6 +23,27 @@ class AssistantResponse:
     output_tokens: int
 
 
+class NyayaAssistant:
+    """Everything the pipeline needs, created once and reused for every question."""
+
+    def __init__(self, retriever, client, model: str, known_issues: dict[str, list[str]], context_sections: int = 8):
+        self.retriever = retriever
+        self.client = client
+        self.model = model
+        self.known_issues = known_issues
+        self.context_sections = context_sections
+
+    def ask(self, question: str) -> "AssistantResponse":
+        return answer_question(
+            question,
+            retriever=self.retriever,
+            client=self.client,
+            model=self.model,
+            known_issues=self.known_issues,
+            context_sections=self.context_sections,
+        )
+
+
 def load_known_issues(sources_file: Path) -> dict[str, list[str]]:
     """Read the known_issues of every source in sources.json, keyed by source id."""
     sources = json.loads(sources_file.read_text(encoding="utf-8"))["sources"]
