@@ -1,0 +1,51 @@
+{
+  "sources": [
+    {
+      "id": "copyright_act_1957",
+      "title": "The Copyright Act, 1957",
+      "act_number": "14 of 1957",
+      "domain": "ipr",
+      "topic": "copyright",
+      "file": "copyright_act_1957.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "a1957-14.pdf",
+      "source_url": "https://indiacode.gov.in/server/api/core/bitstreams/696240f0-b1ef-42f3-972d-9d03b1a6066f/content",
+      "version_as_on": "2026-06-15",
+      "downloaded_on": "2026-11-05",
+      "sha256": "fc1e8ab7dee763fcda531eedc44de835c8e2bc4b9aaaf8cf29730e45b4289523",
+      "known_issues": [
+        "This consolidated text does not appear to reflect the Tribunals Reforms Act, 2021 (33 of 2021), which amended this Act. Sections 2(aa), 11 and 12 still refer to the Appellate Board. Do not tell users to approach the Appellate Board without checking the 2021 amendments."
+      ]
+    },
+    {
+      "id": "trade_marks_act_1999",
+      "title": "The Trade Marks Act, 1999",
+      "act_number": "47 of 1999",
+      "domain": "ipr",
+      "topic": "trademark",
+      "file": "trade_marks_act_1999.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "a1999-47.pdf",
+      "source_url": "https://indiacode.gov.in/server/api/core/bitstreams/7648d2d2-4e14-40dc-80d0-db8f99716fd5/content",
+      "version_as_on": "2026-06-01",
+      "downloaded_on": "2026-11-05",
+      "sha256": "3ee682af4ec4701a00aa27842e0add2321a6aed75808aa1c5ca33591e85d4986",
+      "known_issues": []
+    },
+    {
+      "id": "patents_act_1970",
+      "title": "The Patents Act, 1970",
+      "act_number": "39 of 1970",
+      "domain": "ipr",
+      "topic": "patent",
+      "file": "patents_act_1970.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "a197039.pdf",
+      "source_url": "https://www.indiacode.nic.in/indiacode/bitstream/123456789/1392/1/a197039.pdf",
+      "version_as_on": "2026-05-05",
+      "downloaded_on": "2026-11-05",
+      "sha256": "759fc6f2833eaf2eab8f7f66b0441246bcb543ef5283682eb6427fbff725e135",
+      "known_issues": []
+    }
+  ]
+}
