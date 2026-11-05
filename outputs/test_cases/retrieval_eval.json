@@ -1,0 +1,80 @@
+{
+  "description": "Questions in everyday language, each with the section(s) a correct answer must cite. A question passes if ANY expected section appears in the top results. Every expected section was checked against the section text in data/processed/.",
+  "cases": [
+    {
+      "question": "Someone is selling products with my registered trademark on them. What can I do?",
+      "expected": ["trade_marks_act_1999:29", "trade_marks_act_1999:135"],
+      "why": "S.29 defines infringement of a registered trade mark; s.135 lists reliefs (injunction, damages)."
+    },
+    {
+      "question": "Can I sue someone for using my brand name if I never registered it?",
+      "expected": ["trade_marks_act_1999:27"],
+      "why": "S.27: no infringement action for an unregistered mark, but passing off remains available."
+    },
+    {
+      "question": "Why could my trademark application be rejected?",
+      "expected": ["trade_marks_act_1999:9", "trade_marks_act_1999:11"],
+      "why": "S.9 absolute and s.11 relative grounds for refusal of registration."
+    },
+    {
+      "question": "How long is a trademark registration valid and how do I renew it?",
+      "expected": ["trade_marks_act_1999:25"],
+      "why": "S.25(1): registration is for ten years and may be renewed."
+    },
+    {
+      "question": "Can I use a song in my YouTube video without permission?",
+      "expected": ["copyright_act_1957:51", "copyright_act_1957:52"],
+      "why": "S.51 defines infringement; s.52 lists acts that are not infringement (fair dealing)."
+    },
+    {
+      "question": "How long does copyright last for a book after the author dies?",
+      "expected": ["copyright_act_1957:22"],
+      "why": "S.22: sixty years from the year after the author's death."
+    },
+    {
+      "question": "My employer says they own the articles I wrote at work. Who owns the copyright?",
+      "expected": ["copyright_act_1957:17"],
+      "why": "S.17: first owner of copyright, including works made in the course of employment."
+    },
+    {
+      "question": "Someone copied my book and is selling it. What legal action can I take?",
+      "expected": ["copyright_act_1957:55", "copyright_act_1957:63", "copyright_act_1957:51"],
+      "why": "S.55 civil remedies, s.63 criminal offence, s.51 what counts as infringement."
+    },
+    {
+      "question": "What is the jail punishment for copyright piracy?",
+      "expected": ["copyright_act_1957:63"],
+      "why": "S.63: imprisonment of six months to three years and a fine."
+    },
+    {
+      "question": "How do I register my copyright?",
+      "expected": ["copyright_act_1957:45"],
+      "why": "S.45: application to the Registrar of Copyrights to enter particulars of a work in the Register."
+    },
+    {
+      "question": "Is software patentable in India?",
+      "expected": ["patents_act_1970:3"],
+      "why": "S.3(k): a computer programme per se is not an invention."
+    },
+    {
+      "question": "How long does a patent last?",
+      "expected": ["patents_act_1970:53"],
+      "why": "S.53: term of patent is twenty years from the date of filing."
+    },
+    {
+      "question": "Who is allowed to apply for a patent?",
+      "expected": ["patents_act_1970:6"],
+      "why": "S.6: persons entitled to apply for patents."
+    },
+    {
+      "question": "Can I file a patent in the US first if I live in India?",
+      "expected": ["patents_act_1970:39"],
+      "why": "S.39: residents need a written permit before applying outside India."
+    },
+    {
+      "question": "Can someone challenge or oppose my patent?",
+      "expected": ["patents_act_1970:25"],
+      "why": "S.25: opposition to the patent (pre-grant and post-grant)."
+    }
+  ]
+}
