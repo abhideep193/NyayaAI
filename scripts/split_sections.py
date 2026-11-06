@@ -31,8 +31,10 @@ def main() -> None:
 
         toc, body = split_toc_and_body(document)
         toc_numbers = parse_toc_numbers(toc)
-        sections = split_sections(body, source_id=source["id"], act_title=source["title"])
+        sections = split_sections(body, source_id=source["id"], act_title=source["title"], toc_numbers=toc_numbers)
         report = compare_with_toc(toc_numbers, sections)
+        # Sections the official table of contents leaves out, checked by hand (see known_issues)
+        report["unexpected"] = [n for n in report["unexpected"] if n not in source.get("sections_missing_from_toc", [])]
 
         output_path = PROCESSED_DIR / f"{source['id']}_sections.json"
         output_path.write_text(

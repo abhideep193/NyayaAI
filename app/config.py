@@ -22,3 +22,8 @@ ANSWER_CONTEXT_SECTIONS = int(os.getenv("ANSWER_CONTEXT_SECTIONS", "15"))
 # Accepted after measurement (see outputs/retrieval_experiments.md). Set to "false" to switch off.
 USE_QUERY_REWRITE = os.getenv("USE_QUERY_REWRITE", "true").lower() == "true"
 QUERY_REWRITE_MODEL = os.getenv("QUERY_REWRITE_MODEL", "gpt-6-luna")
+
+# --- Areas of law ---
+# Which domains (the "domain" field in data/legal_sources/sources.json) the app searches.
+# Comma-separated, e.g. "ipr,criminal". Criminal law stays off until it has been evaluated.
+ENABLED_DOMAINS = [d.strip() for d in os.getenv("ENABLED_DOMAINS", "ipr").split(",") if d.strip()]

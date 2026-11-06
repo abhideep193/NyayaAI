@@ -17,10 +17,17 @@ PROCESSED_DIR = Path("data/processed")
 EMBEDDINGS_CACHE = PROCESSED_DIR / "embeddings_cache.npz"
 
 
+def enabled_source_ids(sources: list[dict], domains: list[str]) -> list[str]:
+    """IDs of the Acts whose domain is switched on (see ENABLED_DOMAINS in app/config.py)."""
+    return [source["id"] for source in sources if source["domain"] in domains]
+
+
 def build_retrievers() -> dict:
-    """Load every Act listed in sources.json and build the search methods."""
+    """Load the Acts of the enabled domains from sources.json and build the search methods."""
+    from app import config
+
     sources = json.loads(SOURCES_FILE.read_text(encoding="utf-8"))["sources"]
-    sections = load_sections(PROCESSED_DIR, [source["id"] for source in sources])
+    sections = load_sections(PROCESSED_DIR, enabled_source_ids(sources, config.ENABLED_DOMAINS))
 
     keyword = BM25Retriever(sections)
     meaning = EmbeddingRetriever(sections, cache_path=EMBEDDINGS_CACHE)

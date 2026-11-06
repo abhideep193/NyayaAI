@@ -36,10 +36,15 @@ TOC_ENTRY = re.compile(r"^\s*(\d+[A-Z]*)\.\s+\S")
 # The law itself starts at the enacting formula ...
 BODY_START = re.compile(r"^BE it enacted", re.IGNORECASE | re.MULTILINE)
 # ... and ends where the Schedule or the Statement of Objects and Reasons begins.
-BODY_END = re.compile(r"^\s*(THE SCHEDULE|STATEMENT OF OBJECTS AND REASONS)", re.MULTILINE)
+# \b = "whole word only", so that "THE SCHEDULED CASTES ..." (an Act's own title) does not count as "THE SCHEDULE".
+BODY_END = re.compile(r"^\s*(THE SCHEDULE\b|STATEMENT OF OBJECTS AND REASONS)", re.MULTILINE)
 
 TOC_START = "ARRANGEMENT OF SECTIONS"
-DASH = "—"  # the long dash that ends every section heading in the body
+# The dash that ends a section heading in the body. Most Acts use the long dash "—";
+# some (IT Act 2000, sections 1-2 of the BNS) use the shorter "–" or "––".
+DASH = re.compile(r"[—–]")
+# A heading's end: full stop, optional space, then the dash, e.g. "... under the Act. —"
+HEADING_END = re.compile(r"\.\s*[—–]")
 MAX_HEADING_LENGTH = 250  # a heading longer than this is not a heading
 
 
@@ -127,13 +132,21 @@ def match_section_start(lines: list[str], index: int) -> tuple[str, str, str] | 
         return None
 
     number, rest = match.groups()
-    if FOOTNOTE_START.match(rest):
-        return None
 
     # A heading can wrap onto the next line, so look at the next two lines too
     # (skipping page markers).
     following = [line for line in lines[index + 1 : index + 3] if not PAGE_MARKER.match(line)]
     lookahead = " ".join([rest] + following)
+
+    footnote = FOOTNOTE_START.match(rest)
+    if footnote:
+        # Some real headings begin with "Section", e.g. SC/ST Act s.18:
+        # "18. Section 438 of the Code not to apply ... under the Act. —Nothing in ..."
+        # They end with a heading dash; footnotes ("1. Section 3 renumbered ...") do not.
+        heading_end = HEADING_END.search(lookahead)
+        starts_with_section = footnote.group(1) == "Section"
+        if not (starts_with_section and heading_end and heading_end.start() <= MAX_HEADING_LENGTH):
+            return None
 
     # Omitted section: "25. [Term of copyright in photographs .] Omitted by ..."
     if rest.startswith("["):
@@ -143,10 +156,10 @@ def match_section_start(lines: list[str], index: int) -> tuple[str, str, str] | 
         return None
 
     # Normal section: "52. Certain acts not to be infringement of copyright .—(1) ..."
-    dash = lookahead.find(DASH)
-    if dash == -1 or dash > MAX_HEADING_LENGTH:
+    dash = DASH.search(lookahead)
+    if dash is None or dash.start() > MAX_HEADING_LENGTH:
         return None
-    return number, _clean_heading(lookahead[:dash]), "in_force"
+    return number, _clean_heading(lookahead[: dash.start()]), "in_force"
 
 
 # ---------------------------------------------------------------------------
@@ -154,8 +167,26 @@ def match_section_start(lines: list[str], index: int) -> tuple[str, str, str] | 
 # ---------------------------------------------------------------------------
 
 
-def split_sections(body: str, source_id: str, act_title: str) -> list[Section]:
-    """Split the body of an Act into Section objects."""
+def _fix_merged_footnote_number(start: tuple[str, str, str], toc_numbers: set[str]):
+    """Undo a footnote mark glued onto a section number.
+
+    In the IT Act PDF, "2[66A." (footnote 2) is printed as "266A.". If "266A" is not in the
+    table of contents but "66A" is, the section is 66A.
+    """
+    number, heading, status = start
+    if toc_numbers and number not in toc_numbers and number[1:] in toc_numbers:
+        return number[1:], heading, status
+    return start
+
+
+def split_sections(body: str, source_id: str, act_title: str,
+                   toc_numbers: list[str] | None = None) -> list[Section]:
+    """Split the body of an Act into Section objects.
+
+    toc_numbers (optional): the section numbers from the Act's table of contents,
+    used only to repair numbers damaged in the PDF (see _fix_merged_footnote_number).
+    """
+    known_numbers = set(toc_numbers or [])
     lines = body.splitlines()
     sections: list[Section] = []
     current_lines: list[str] = []  # text lines of the section being built
@@ -186,6 +217,8 @@ def split_sections(body: str, source_id: str, act_title: str) -> list[Section]:
         # A new section starts here? Section numbers only go up, so anything
         # numbered lower than the previous section is not a new section.
         start = match_section_start(lines, index)
+        if start is not None:
+            start = _fix_merged_footnote_number(start, known_numbers)
         if start is not None and (last_key is None or _sort_key(start[0]) > last_key):
             number, heading, status = start
             current_lines = [line]

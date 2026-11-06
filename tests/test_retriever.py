@@ -81,3 +81,11 @@ def test_top_k_limits_number_of_results():
     results = BM25Retriever(SECTIONS).search("patent mark act", top_k=1)
 
     assert len(results) == 1
+
+
+def test_only_acts_of_enabled_domains_are_searched():
+    from scripts.search import enabled_source_ids
+
+    sources = [{"id": "copyright_act_1957", "domain": "ipr"}, {"id": "bns_2023", "domain": "criminal"}]
+    assert enabled_source_ids(sources, ["ipr"]) == ["copyright_act_1957"]
+    assert enabled_source_ids(sources, ["ipr", "criminal"]) == ["copyright_act_1957", "bns_2023"]

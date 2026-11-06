@@ -100,3 +100,46 @@ def test_compare_with_toc_reports_problems():
     report = compare_with_toc(["1", "2", "2A", "3", "4"], sections[:3])
 
     assert report == {"missing": ["3", "4"], "unexpected": []}
+
+
+# --- Layouts found in the criminal-law Acts (BNS, IT Act, SC/ST Act) ---------------
+
+
+def body_of(text: str) -> str:
+    return split_toc_and_body("[[PAGE 1]]\nBE it enacted by Parliament as follows:—\n" + text)[1]
+
+
+def test_short_dashes_end_a_heading():
+    # IT Act uses "–"; BNS sections 1-2 use " ––" (with a space before)
+    body = body_of("1. Short title. ––(1) This Act may be called X.\n2. Definitions.–(1) In this Act,–\n")
+    sections = split_sections(body, "x", "X Act")
+    assert [(s.section, s.heading) for s in sections] == [("1", "Short title"), ("2", "Definitions")]
+
+
+def test_act_title_starting_with_schedule_does_not_end_the_body():
+    # "THE SCHEDULED CASTES ..." is the SC/ST Act's own title, not "THE SCHEDULE"
+    body = body_of("THE SCHEDULED CASTES AND THE SCHEDULED TRIBES\n1. Short title.—This Act.\nTHE SCHEDULE\nItems.\n")
+    sections = split_sections(body, "x", "X Act")
+    assert [s.section for s in sections] == ["1"]
+    assert "Items" not in sections[0].text
+
+
+def test_heading_that_starts_with_section_is_not_a_footnote():
+    body = body_of(
+        "17. Preventive action.—Text.\n"
+        "18. Section 438 of the Code not to apply to persons committing an offence under the Act. —\n"
+        "Nothing in section 438 of the Code shall apply.\n"
+        "1. Section 3 renumbered as sub-section (1) by Act 1 of 2016.\n"
+    )
+    sections = split_sections(body, "x", "X Act")
+    assert [s.section for s in sections] == ["17", "18"]
+    assert sections[1].heading.startswith("Section 438 of the Code")
+
+
+def test_footnote_mark_glued_to_section_number_is_repaired():
+    # The IT Act PDF prints "2[66A." as "266A."
+    body = body_of("66. Computer related offences.–Text.\n"
+                   "266A. [Punishment for sending offensive messages.]– Omitted by Act 18 of 2023.\n"
+                   "66B. Punishment for receiving stolen computer resource.–Text.\n")
+    sections = split_sections(body, "x", "X Act", toc_numbers=["66", "66A", "66B"])
+    assert [(s.section, s.status) for s in sections] == [("66", "in_force"), ("66A", "omitted"), ("66B", "in_force")]
