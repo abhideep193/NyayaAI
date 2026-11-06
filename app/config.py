@@ -27,3 +27,8 @@ QUERY_REWRITE_MODEL = os.getenv("QUERY_REWRITE_MODEL", "gpt-6-luna")
 # Which domains (the "domain" field in data/legal_sources/sources.json) the app searches.
 # Comma-separated, e.g. "ipr". Criminal law switched on 2026-11-06 after evaluation (outputs/answer_experiments.md).
 ENABLED_DOMAINS = [d.strip() for d in os.getenv("ENABLED_DOMAINS", "ipr,criminal").split(",") if d.strip()]
+
+# --- Public demo ---
+# If set (e.g. as a secret on Hugging Face), the chat page asks for this code before answering,
+# so a public link cannot spend the owner's OpenAI credit. Empty = no code needed (local use).
+APP_ACCESS_CODE = os.getenv("APP_ACCESS_CODE", "")

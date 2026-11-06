@@ -178,3 +178,17 @@ def test_answer_page_has_no_emojis(fake):
     shown = all_text(at) + " ".join(b.label for b in at.button)
     emoji = re.compile("[\U0001F300-\U0001FAFF☀-➿⬀-⯿■-◿️]")
     assert emoji.findall(shown.replace("☰", "")) == []
+
+
+def test_access_code_is_required_when_set(fake, monkeypatch):
+    monkeypatch.setattr(config, "APP_ACCESS_CODE", "lex-2026")
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    assert len(at.chat_input) == 0  # no question box before the code is entered
+
+    at.text_input(key="access_code").set_value("wrong").run()
+    assert "not correct" in at.error[0].value
+    assert len(at.chat_input) == 0
+
+    at.text_input(key="access_code").set_value("lex-2026").run()
+    at.chat_input[0].set_value("How long does a patent last?").run()
+    assert "A patent lasts twenty years" in all_text(at)

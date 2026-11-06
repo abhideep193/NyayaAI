@@ -11,6 +11,7 @@ TRUE about what NyayaAI does (no invented numbers or features).
 """
 
 import base64
+import hmac
 import html
 import json
 import os
@@ -302,6 +303,17 @@ with st.container(key="topbar"):
 
 if not config.OPENAI_API_KEY:
     st.error("OPENAI_API_KEY is not set. Copy .env.example to .env and add your key, then restart.")
+    st.stop()
+
+# Optional access code for the public demo (set APP_ACCESS_CODE as a secret on the host):
+# the page is public, but every question is paid from the owner's OpenAI account.
+if config.APP_ACCESS_CODE and not st.session_state.get("access_ok"):
+    code = st.text_input("This demo needs an access code", type="password", key="access_code")
+    if code and hmac.compare_digest(code.strip(), config.APP_ACCESS_CODE):
+        st.session_state.access_ok = True
+        st.rerun()
+    if code:
+        st.error("That access code is not correct.")
     st.stop()
 
 # A question that was still being answered when the page reloaded (the Stop button, or a new
