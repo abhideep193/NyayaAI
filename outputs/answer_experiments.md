@@ -124,3 +124,12 @@ lost the 1930 helpline and the March-2023 answer (no citations) lost the old-law
 was searched, the old-law notice and keyword helplines (OTP, UPI, phishing...) are also checked. Replayed on the
 saved answers: exactly these two notes added, nothing else changed.
 Known limitation: sexual-assault answer citing only BNSS s.173 shows 112 but not the Women Helpline 181.
+
+## Follow-up context across topic switches (2026-11-06)
+Change: the chat now sends the last 4 earlier questions (was 2), with the instruction "use these ONLY if the
+current question refers back to them; otherwise ignore them" inside the message (system prompts unchanged, so
+the evaluated results above still apply). Code: app/conversation.py.
+Manual check, owner's scenario (3 real turns): YouTube copyright strike -> stalking -> "going back to YouTube,
+can I file a copyright claim?". Turn 3 cited only the Copyright Act (s.2, 14, 17, 52) and showed no criminal
+helplines; turn 2 cited BNS s.78 (+ POCSO s.11 because age was not given) with 112/181/1098.
+One conversation is a spot check, not a measurement.

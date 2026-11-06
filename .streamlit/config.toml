@@ -1,0 +1,10 @@
+# Colours for Streamlit's own widgets (buttons, inputs, expanders), matching the dark design.
+[theme]
+base = "dark"
+primaryColor = "#22d3ee"
+backgroundColor = "#0b1020"
+secondaryBackgroundColor = "#141a2b"
+textColor = "#e6e9f2"
+
+[client]
+toolbarMode = "minimal"

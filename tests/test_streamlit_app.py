@@ -43,6 +43,7 @@ class FakeAssistant:
 def fake(monkeypatch):
     assistant = FakeAssistant()
     monkeypatch.setattr(config, "OPENAI_API_KEY", "test-key")
+    monkeypatch.setenv("NYAYAAI_TYPEWRITER_DELAY", "0")  # no typing animation in tests
     monkeypatch.setattr(scripts.search, "build_assistant", lambda: assistant)
     st.cache_resource.clear()  # make the page build the (fake) assistant again
     yield assistant
@@ -105,3 +106,75 @@ def test_safety_notes_and_criminal_citations_are_shown(fake, monkeypatch):
     assert "(Section 78, Bharatiya Nyaya Sanhita 2023)" in all_text(at)
     assert "date before 1 July 2024" in at.warning[0].value
     assert any("181" in box.value for box in at.info)
+
+
+def test_start_screen_shows_sphere_then_disappears_after_a_question(fake):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    assert len(at.chat_message) == 0  # start screen: only the sphere, no messages
+
+    at.chat_input[0].set_value("How long does a patent last?").run()
+    assert len(at.chat_message) == 2  # the question and its answer
+    assert "A patent lasts twenty years" in all_text(at)
+
+
+def test_clicking_the_name_starts_a_new_conversation(fake):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("How long does a patent last?").run()
+    at.button(key="brand").click().run()
+
+    assert at.session_state.messages == []
+    assert len(at.chat_message) == 0
+
+
+def test_page_text_makes_no_invented_claims(fake):
+    # The design mock-ups contained invented claims; none may appear on the real page.
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    text = all_text(at).lower()
+    for claim in ["tflops", "encrypted", "sovereign", "precision", "inc.", "audit"]:
+        assert claim not in text
+
+
+def test_edit_replaces_the_latest_question_and_its_answer(fake):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("How long does a patant last?").run()
+    at.button(key="edit").click().run()
+    at.text_area(key="edit_box").set_value("How long does a patent last in India?")
+    at.button(key="resend").click().run()
+
+    assert fake.questions[-1] == "How long does a patent last in India?"
+    users = [m["content"] for m in at.session_state.messages if m["role"] == "user"]
+    assert users == ["How long does a patent last in India?"]  # the typo version and its answer are gone
+
+
+def test_question_interrupted_by_stop_is_kept_and_marked_stopped(fake):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.session_state["in_progress"] = "A question that was being answered when Stop was clicked"
+    at.run()
+
+    roles = [m["role"] for m in at.session_state.messages]
+    assert roles == ["user", "stopped"]
+    assert "Stopped" in all_text(at)
+
+
+def test_follow_up_context_keeps_four_questions_and_ignores_unrelated_topics(fake):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    for q in ["Q0 old topic", "Q1 youtube strike", "Q2 harassment", "Q3 stalking", "Q4 fir",
+              "Q5 youtube claim again"]:
+        at.chat_input[0].set_value(q).run()
+
+    earlier, current = fake.questions[-1].split("Current question:")
+    assert all(q in earlier for q in ["Q1 youtube strike", "Q2 harassment", "Q3 stalking", "Q4 fir"])
+    assert "Q0 old topic" not in earlier  # only the last four earlier questions are kept
+    assert "ignore them" in earlier
+    assert current.strip() == "Q5 youtube claim again"
+
+
+def test_answer_page_has_no_emojis(fake):
+    # Owner's design choice: no emojis on the page (the ☰ menu symbol is not an emoji and is allowed).
+    import re
+
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("How long does a patent last?").run()
+    shown = all_text(at) + " ".join(b.label for b in at.button)
+    emoji = re.compile("[\U0001F300-\U0001FAFF☀-➿⬀-⯿■-◿️]")
+    assert emoji.findall(shown.replace("☰", "")) == []
