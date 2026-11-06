@@ -15,4 +15,6 @@ __pycache__/
 .pytest_cache/
 
 # --- Generated search index (rebuilt automatically) ---
-data/processed/embeddings_cache*.npz
+# The per-area indexes (embeddings_cache.npz = IPR, embeddings_cache_criminal.npz = criminal) ARE committed,
+# so the deployed app starts without computing them; they rebuild automatically if the Acts change.
+data/processed/embeddings_cache_*_*.npz

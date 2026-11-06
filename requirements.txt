@@ -16,7 +16,11 @@ pypdf==6.21.4
 # Reduces words to their root for search ("infringed" -> "infring")
 snowballstemmer==3.1.1
 
-# Runs the local embedding model for meaning-based search (installs PyTorch too)
+# PyTorch, CPU-only: the default download adds ~2 GB of graphics-card (GPU) libraries NyayaAI does not use
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0+cpu
+
+# Runs the local embedding model for meaning-based search
 sentence-transformers==6.2.0
 
 # Fast maths on lists of numbers (the embedding vectors)

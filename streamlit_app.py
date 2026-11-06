@@ -24,7 +24,17 @@ import openai
 import streamlit as st
 import streamlit.components.v1 as components
 
-from app import config
+# On Streamlit Community Cloud, secrets are typed into the app's settings and appear in st.secrets.
+# Copy them into environment variables BEFORE app.config reads them. A real environment variable
+# or the local .env file still wins; locally there is no secrets file and nothing happens.
+try:
+    for _name in ("OPENAI_API_KEY", "APP_ACCESS_CODE", "OPENAI_MODEL", "ENABLED_DOMAINS"):
+        if _name in st.secrets:
+            os.environ.setdefault(_name, str(st.secrets[_name]))
+except Exception:  # no secrets file
+    pass
+
+from app import config  # noqa: E402  (must come after the secrets are copied)
 from app.conversation import question_with_context
 from app.domains import load_domains
 from app.services.answer_generator import ModelRefusedError
