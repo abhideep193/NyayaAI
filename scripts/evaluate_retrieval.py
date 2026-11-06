@@ -6,14 +6,21 @@ Prints a table for every method, then per-question details for the best method.
 
 Run from the project root:
     python -m scripts.evaluate_retrieval
+Options:
+    --cases FILE        add another question file (e.g. outputs/test_cases/criminal_eval.json)
+    --with-rewrite      also measure hybrid + LLM query rewriting (the app's setup; calls OpenAI),
+                        and domain routing when 2+ areas of law are enabled
+Areas of law searched come from ENABLED_DOMAINS (e.g. set ENABLED_DOMAINS=ipr,criminal).
 """
 
+import argparse
 import json
 import statistics
 import time
 from pathlib import Path
 
-from scripts.search import build_retrievers
+from app import config
+from scripts.search import build_retrievers, build_rewriting_retriever, build_routed_retriever
 
 EVAL_FILE = Path("outputs/test_cases/retrieval_eval.json")
 CUTOFFS = [5, 15]
@@ -47,9 +54,20 @@ def count_passes(outcomes: list[dict], set_name: str, cutoff: int) -> str:
 
 
 def main() -> None:
-    cases = json.loads(EVAL_FILE.read_text(encoding="utf-8"))["cases"]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--cases", action="append", default=[], help="extra question file(s)")
+    parser.add_argument("--with-rewrite", action="store_true", help="also measure hybrid + query rewriting")
+    args = parser.parse_args()
+
+    cases = []
+    for path in [EVAL_FILE, *map(Path, args.cases)]:
+        cases += json.loads(path.read_text(encoding="utf-8"))["cases"]
     cases = [c for c in cases if c["expected"]]  # out-of-scope questions have no right section
     retrievers = build_retrievers()
+    if args.with_rewrite:
+        retrievers["hybrid+rewrite"] = build_rewriting_retriever(retrievers["hybrid"])
+        if len(config.ENABLED_DOMAINS) > 1:
+            retrievers["routed"] = build_routed_retriever()
 
     sets = list(dict.fromkeys(c["set"] for c in cases))  # e.g. tuning, held_out, fresh
     columns = [f"{s}@{k}" for s in sets for k in CUTOFFS] + ["median latency"]
@@ -59,7 +77,7 @@ def main() -> None:
     for method, retriever in retrievers.items():
         outcomes, latencies = run_method(retriever, cases)
         all_outcomes[method] = outcomes
-        row = f"{method:<12}"
+        row = f"{method:<15}"
         for set_name in sets:
             for cutoff in CUTOFFS:
                 row += f"{count_passes(outcomes, set_name, cutoff):>13}"

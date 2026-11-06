@@ -143,3 +143,11 @@ def test_footnote_mark_glued_to_section_number_is_repaired():
                    "66B. Punishment for receiving stolen computer resource.–Text.\n")
     sections = split_sections(body, "x", "X Act", toc_numbers=["66", "66A", "66B"])
     assert [(s.section, s.status) for s in sections] == [("66", "in_force"), ("66A", "omitted"), ("66B", "in_force")]
+
+
+def test_numbered_schedules_are_not_part_of_the_last_section():
+    # BNSS: "THE FIRST SCHEDULE"; IT Act: "1[THE FIRST SCHEDULE" (with an amendment mark)
+    for heading in ["THE FIRST SCHEDULE", "1[THE FIRST SCHEDULE", "THE SECOND SCHEDULE"]:
+        body = body_of(f"531. Repeal and savings.—The Code is repealed.\n{heading}\nClassification of offences.\n")
+        sections = split_sections(body, "x", "X Act")
+        assert "Classification" not in sections[-1].text, heading

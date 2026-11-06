@@ -63,7 +63,7 @@ def score_answer(case: dict, response: dict, citation_of: dict[str, str]) -> dic
 def summarise(records: list[dict]) -> list[str]:
     """Build the summary lines printed at the end."""
     lines = []
-    for set_name in ["tuning", "held_out", "fresh", "fresh2", "multilingual", "out_of_scope"]:
+    for set_name in dict.fromkeys(r["set"] for r in records):  # every set, in the order run
         subset = [r for r in records if r["set"] == set_name]
         if not subset:
             continue
@@ -108,6 +108,10 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description="Evaluate NyayaAI's final answers.")
     parser.add_argument("--limit", type=int, help="only run the first N questions (to test cheaply)")
+    parser.add_argument("--cases", action="append", default=[],
+                        help="extra question file(s), e.g. outputs/test_cases/criminal_eval.json")
+    parser.add_argument("--only-set", action="append", default=[],
+                        help="run only these sets, e.g. --only-set criminal --only-set criminal_owner")
     parser.add_argument("--context-sections", type=int, default=config.ANSWER_CONTEXT_SECTIONS,
                         help=f"sections given to the model per question (default {config.ANSWER_CONTEXT_SECTIONS})")
     args = parser.parse_args()
@@ -118,7 +122,11 @@ def main() -> None:
 
     from scripts.search import build_assistant  # slow import: loads the search models
 
-    cases = json.loads(EVAL_FILE.read_text(encoding="utf-8"))["cases"]
+    cases = []
+    for path in [EVAL_FILE, *map(Path, args.cases)]:
+        cases += json.loads(path.read_text(encoding="utf-8"))["cases"]
+    if args.only_set:
+        cases = [c for c in cases if c["set"] in args.only_set]
     if args.limit:
         cases = cases[: args.limit]
     assistant = build_assistant()
@@ -143,6 +151,7 @@ def main() -> None:
 
         score = score_answer(case, response, citation_of)
         records.append({"set": case["set"], "expected": case["expected"], "seconds": round(seconds, 1),
+                        "also_check": case.get("also_check"),
                         "score": score, "response": response})
 
         status = "PASS" if score["passed"] else "FAIL"
@@ -158,9 +167,12 @@ def main() -> None:
         print("  " + line)
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    output = RESULTS_DIR / f"{datetime.now():%Y-%m-%d_%H%M%S}_{config.OPENAI_MODEL}_ctx{args.context_sections}.json"
+    areas = "+".join(config.ENABLED_DOMAINS)
+    output = RESULTS_DIR / (f"{datetime.now():%Y-%m-%d_%H%M%S}_{config.OPENAI_MODEL}"
+                            f"_ctx{args.context_sections}_{areas}.json")
     output.write_text(json.dumps({"model": config.OPENAI_MODEL, "context_sections": args.context_sections,
-                                  "results": records}, ensure_ascii=False, indent=2), encoding="utf-8")
+                                  "areas_of_law": config.ENABLED_DOMAINS, "results": records},
+                                 ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nFull answers saved to {output} - please read some of them.")
 
 

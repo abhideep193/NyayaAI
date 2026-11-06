@@ -80,11 +80,12 @@ def test_sources_text_contains_id_citation_text_and_known_issues():
 def test_generate_answer_sends_rules_question_and_sources():
     client = FakeClient(model_answer([]))
 
-    generate_answer("How long does a patent last?", RESULTS, {}, client=client, model="test-model")
+    generate_answer("How long does a patent last?", RESULTS, {}, client=client, model="test-model",
+                    instructions="TEST RULES")
     request = client.responses.request
 
     assert request["model"] == "test-model"
-    assert "Use ONLY the SOURCES" in request["instructions"]
+    assert request["instructions"] == "TEST RULES"
     assert "How long does a patent last?" in request["input"]
     assert "[patents_act_1970:53]" in request["input"]
     assert request["text_format"] is LegalAnswer
@@ -93,7 +94,7 @@ def test_generate_answer_sends_rules_question_and_sources():
 
 def test_refusal_raises_an_error():
     with pytest.raises(ModelRefusedError):
-        generate_answer("question", RESULTS, {}, client=FakeClient(parsed=None), model="m")
+        generate_answer("question", RESULTS, {}, client=FakeClient(parsed=None), model="m", instructions="r")
 
 
 # --- the full pipeline --------------------------------------------------------
@@ -106,6 +107,7 @@ def ask(citations, confidence="high"):
         client=FakeClient(model_answer(citations, confidence)),
         model="test-model",
         known_issues={},
+        system_prompt="TEST RULES",
     )
 
 
@@ -129,3 +131,24 @@ def test_pipeline_rejects_a_hallucinated_citation_and_lowers_confidence():
     assert not response.citations[0].verified
     assert response.model_confidence == "high"
     assert response.confidence == "low"
+
+
+def test_pipeline_adds_safety_notes_from_verified_citations_only():
+    from app.safety import load_safety
+    from pathlib import Path
+
+    safety = load_safety(Path(__file__).parent.parent / "data/legal_sources/safety.json")
+    response = answer_question(
+        "How long does a patent last? It happened in March 2023.",
+        retriever=FakeRetriever(),
+        client=FakeClient(model_answer([Citation(section_id="patents_act_1970:53",
+                                                 quote="The term of every patent shall be twenty years",
+                                                 supports="A patent lasts twenty years")])),
+        model="test-model",
+        known_issues={},
+        system_prompt="TEST RULES",
+        safety=safety,
+        domain_of={"patents_act_1970": "ipr"},
+    )
+    # IPR citation: no helplines, and no old-criminal-law notice even though the question has a 2023 date
+    assert response.safety_notes == []

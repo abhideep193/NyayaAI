@@ -37,7 +37,12 @@ TOC_ENTRY = re.compile(r"^\s*(\d+[A-Z]*)\.\s+\S")
 BODY_START = re.compile(r"^BE it enacted", re.IGNORECASE | re.MULTILINE)
 # ... and ends where the Schedule or the Statement of Objects and Reasons begins.
 # \b = "whole word only", so that "THE SCHEDULED CASTES ..." (an Act's own title) does not count as "THE SCHEDULE".
-BODY_END = re.compile(r"^\s*(THE SCHEDULE\b|STATEMENT OF OBJECTS AND REASONS)", re.MULTILINE)
+# Also "THE FIRST SCHEDULE" (BNSS) and "1[THE FIRST SCHEDULE" (IT Act, "1[" = amendment mark):
+# without this, the BNSS's 199,000-character schedules were glued onto section 531.
+BODY_END = re.compile(
+    r"^\s*(?:\d+\[)?\[?(THE (?:(?:FIRST|SECOND|THIRD|FOURTH|FIFTH) )?SCHEDULE\b|STATEMENT OF OBJECTS AND REASONS)",
+    re.MULTILINE,
+)
 
 TOC_START = "ARRANGEMENT OF SECTIONS"
 # The dash that ends a section heading in the body. Most Acts use the long dash "—";

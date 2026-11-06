@@ -1,0 +1,40 @@
+{
+  "description": "Areas of law NyayaAI can cover. Each Act in sources.json names its domain. The answer and search prompts are built from the ENABLED domains (ENABLED_DOMAINS in .env), so adding an area of law means adding data here, not editing prompts. 'extra_rules' are added to the answer instructions only when that area is enabled.",
+  "domains": {
+    "ipr": {
+      "label": "intellectual property law",
+      "covers": "copyright, trade marks, patents",
+      "scope": "copyright, trade marks and patents",
+      "rewrite_scope": "copyright, trade marks or patents",
+      "search_words": [
+        "infringement",
+        "assignment",
+        "invention",
+        "registration",
+        "licence"
+      ],
+      "extra_rules": []
+    },
+    "criminal": {
+      "label": "criminal law",
+      "covers": "offences and punishments, police complaints and FIRs, arrest and bail, sexual offences, child sexual abuse, workplace sexual harassment, domestic violence, dowry, caste atrocities, cyber crime",
+      "scope": "criminal law (offences, police complaints, arrest, sexual offences, child protection, workplace harassment, domestic violence, dowry, caste atrocities and cyber crime)",
+      "rewrite_scope": "criminal law",
+      "search_words": [
+        "offence",
+        "punishment",
+        "information to police",
+        "arrest",
+        "complaint",
+        "Magistrate"
+      ],
+      "extra_rules": [
+        "For crimes, violence, abuse or harassment: write calmly and kindly. Never blame or doubt the person, and never ask for graphic details.",
+        "Never promise an outcome: do not say that someone will or will not be arrested, convicted or punished, or that a complaint will succeed. Explain what the law says and who decides.",
+        "Do not write helpline or emergency numbers yourself; NyayaAI adds checked helplines to the answer automatically.",
+        "If the events happened before 1 July 2024, do not quote or guess section numbers of the old Indian Penal Code or Code of Criminal Procedure; they are not in the SOURCES. NyayaAI adds a notice about the old laws automatically.",
+        "If the situation involves a child (under 18), say so and use the child-protection SOURCES where they apply."
+      ]
+    }
+  }
+}

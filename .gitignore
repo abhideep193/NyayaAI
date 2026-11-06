@@ -15,4 +15,4 @@ __pycache__/
 .pytest_cache/
 
 # --- Generated search index (rebuilt automatically) ---
-data/processed/embeddings_cache.npz
+data/processed/embeddings_cache*.npz

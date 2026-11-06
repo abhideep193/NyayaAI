@@ -1,0 +1,179 @@
+{
+  "description": "Criminal-law evaluation set, written on 2026-11-06 BEFORE criminal law was connected to answering. 'criminal_owner' = the project owner's 5 questions, copied verbatim from criminal_owner_questions.json. 'criminal' = questions written by the assistant to cover topics the owner's questions do not. A case passes retrieval if ANY expected section is found. Expected sections were checked against the official India Code text (quoted in 'why') and must not be changed to improve scores. 'also_check' lists behaviour to review by hand in the answer (not scored automatically).",
+  "cases": [
+    {
+      "question": "My neighbour filed a police complaint accusing me of stealing his expensive laptop. I have CCTV footage proving that I was not even present at his house that day. What can I do against a false criminal complaint? Can I take legal action against him?",
+      "expected": [
+        "bns_2023:248",
+        "bns_2023:217"
+      ],
+      "why": "BNS s.248 'False charge of offence made with intent to injure' ('falsely charges any person with having committed an offence, knowing that there is no just or lawful ground'); s.217 false information to a public servant.",
+      "also_check": "Should say a civil claim for damages (malicious prosecution) is outside NyayaAI's sources, not invent one. Should not promise the complaint will be quashed.",
+      "set": "criminal_owner",
+      "author": "owner"
+    },
+    {
+      "question": "Police officers came to my house and arrested my brother without explaining the reason. They have not allowed us to contact a lawyer or informed us about where he is being taken. What are his legal rights after arrest, and what can our family do?",
+      "expected": [
+        "bnss_2023:47",
+        "bnss_2023:48",
+        "bnss_2023:38",
+        "bnss_2023:58"
+      ],
+      "why": "BNSS s.47 grounds of arrest must be communicated 'forthwith'; s.48 arrest and 'place where the arrested person is being held' must be told to a relative or friend; s.38 right to meet an advocate during interrogation; s.58 not detained beyond twenty-four hours without a Magistrate.",
+      "also_check": "Calm, practical next steps (ask for the police station, contact a lawyer, the 24-hour rule).",
+      "set": "criminal_owner",
+      "author": "owner"
+    },
+    {
+      "question": "Three people attacked me while I was walking home at night. I hit one of them with a nearby object to escape, and he suffered serious injuries. Can I claim the right of private defence under Indian criminal law? Could I still be arrested?",
+      "expected": [
+        "bns_2023:34",
+        "bns_2023:35",
+        "bns_2023:38",
+        "bns_2023:39"
+      ],
+      "why": "BNS s.34 'Nothing is an offence which is done in the exercise of the right of private defence'; s.35 right of private defence of body; s.38 extends even to causing death where the assault 'may reasonably cause the apprehension that grievous hurt will otherwise be the consequence'; s.39 other harm.",
+      "also_check": "Must not promise he cannot be arrested; private defence is decided on facts (s.37 limits). Should advise a lawyer.",
+      "set": "criminal_owner",
+      "author": "owner"
+    },
+    {
+      "question": "Someone posted false allegations about me on Instagram, claiming that I committed fraud. The post has damaged my reputation and affected my professional opportunities. Can I file a criminal defamation case in India? What remedies are available?",
+      "expected": [
+        "bns_2023:356",
+        "bnss_2023:222"
+      ],
+      "why": "BNS s.356 Defamation ('makes or publishes in any manner, any imputation'); BNSS s.222 'No Court shall take cognizance of an offence punishable under section 356 ... except upon a complaint made by some person aggrieved'.",
+      "also_check": "Should explain it is a complaint to a Magistrate by the person defamed. Civil damages are outside the sources.",
+      "set": "criminal_owner",
+      "author": "owner"
+    },
+    {
+      "question": "My former friend is threatening to leak my private photographs unless I pay him ₹50,000. He has sent these threats over WhatsApp. What criminal provisions protect me, and what should I do immediately?",
+      "expected": [
+        "bns_2023:308",
+        "bns_2023:351",
+        "it_act_2000:66E"
+      ],
+      "why": "BNS s.308 Extortion ('intentionally puts any person in fear of any injury ... and thereby dishonestly induces the person ... to deliver ... property'); s.351 criminal intimidation ('threatens ... with any injury to his person, reputation'); IT Act s.66E if the images are published.",
+      "also_check": "Immediate steps: do not pay, keep screenshots, report (cybercrime helpline 1930 / cybercrime.gov.in once safety block exists).",
+      "set": "criminal_owner",
+      "author": "owner"
+    },
+    {
+      "question": "During an argument, my neighbour punched me and caused injuries to my face. I have medical records and CCTV footage. Can I file an FIR, what offences might apply, and what happens after I file the complaint?",
+      "expected": [
+        "bns_2023:115",
+        "bns_2023:117",
+        "bnss_2023:173",
+        "bnss_2023:174"
+      ],
+      "why": "BNS s.115 Voluntarily causing hurt ('does any act with the intention of thereby causing hurt'); s.117 grievous hurt if the injury is grievous (s.116 list); BNSS s.173 FIR for cognizable cases and s.174 'Information as to non-cognizable cases' (simple hurt may be non-cognizable).",
+      "also_check": "Should not decide hurt vs grievous hurt without facts; explains what happens after the complaint (FIR copy, investigation, or s.174 route).",
+      "set": "criminal_owner",
+      "author": "owner"
+    },
+    {
+      "question": "Someone called me pretending to be a bank employee and convinced me to share an OTP. ₹45,000 was transferred from my bank account without my permission. What criminal offences may apply, how do I report this, and can I recover my money?",
+      "expected": [
+        "bns_2023:318",
+        "bns_2023:319",
+        "it_act_2000:66D",
+        "it_act_2000:66C"
+      ],
+      "why": "BNS s.318 Cheating ('by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property'); s.319 cheating by personation ('pretending to be some other person'); IT Act s.66D 'cheating by personation by using computer resource'; s.66C identity theft ('password or any other unique identification feature').",
+      "also_check": "Report at once to 1930 / cybercrime.gov.in and the bank (once safety block exists); must not promise recovery of money; bank refund rules are outside the sources.",
+      "set": "criminal_owner",
+      "author": "owner"
+    },
+    {
+      "question": "A man keeps following me from college to my house and keeps messaging me on Instagram from new accounts even after I blocked him. What can I do legally?",
+      "expected": [
+        "bns_2023:78"
+      ],
+      "why": "BNS s.78 Stalking: '(i) follows a woman and contacts, or attempts to contact such woman ... repeatedly despite a clear indication of disinterest ... or (ii) monitors the use by a woman of the internet'.",
+      "also_check": "Mentions filing an FIR (BNSS s.173) and safety helpline.",
+      "set": "criminal",
+      "author": "assistant"
+    },
+    {
+      "question": "My manager keeps making sexual comments and hinted that my promotion depends on 'being friendly' with him. Our company has about 30 employees. Where and how do I complain, and is there a time limit?",
+      "expected": [
+        "posh_act_2013:9",
+        "posh_act_2013:4"
+      ],
+      "why": "POSH s.9 complaint 'in writing ... to the Internal Committee ... within a period of three months from the date of incident'; s.4 every employer constitutes an Internal Complaints Committee (s.6 Local Committee only where 'less than ten workers').",
+      "also_check": "States the three-month limit from the text. May also mention BNS s.75 sexual harassment.",
+      "set": "criminal",
+      "author": "assistant"
+    },
+    {
+      "question": "My friend was sexually assaulted by someone she knows. She is scared of going to the police station. Can she report it without going there, and will her name be published?",
+      "expected": [
+        "bnss_2023:173",
+        "bns_2023:72"
+      ],
+      "why": "BNSS s.173 proviso: such information 'shall be recorded, by a woman police officer or any woman officer' (and further proviso on recording at the residence); BNS s.72 punishes publishing 'the name or any matter which may make known the identity' of the victim.",
+      "also_check": "Trauma-informed tone; helplines 112/181; no victim-blaming; adult (not POCSO).",
+      "set": "criminal",
+      "author": "assistant"
+    },
+    {
+      "question": "I am a school teacher. A 12-year-old student told me that a relative touches her inappropriately. Do I have to report this to the police? What happens if I don't?",
+      "expected": [
+        "pocso_act_2012:19",
+        "pocso_act_2012:21"
+      ],
+      "why": "POCSO s.19 'Any person (including the child), who has apprehension that an offence under this Act is likely to be committed or has knowledge ... shall provide such information to ... the Special Juvenile Police Unit; or ... the local police'; s.21 punishment for 'fails to report'.",
+      "also_check": "Child helpline 1098; the reporting duty quoted from s.19.",
+      "set": "criminal",
+      "author": "assistant"
+    },
+    {
+      "question": "मेरे ससुराल वाले शादी के बाद भी और दहेज माँग रहे हैं और मना करने पर मेरे पति मुझे मारते हैं। मैं क्या कर सकती हूँ?",
+      "expected": [
+        "dowry_prohibition_act_1961:4",
+        "bns_2023:85",
+        "domestic_violence_act_2005:12",
+        "domestic_violence_act_2005:18",
+        "domestic_violence_act_2005:3"
+      ],
+      "why": "Hindi: 'My in-laws keep demanding more dowry after marriage and my husband beats me when I refuse. What can I do?' Dowry Act s.4 'Penalty for demanding dowry'; BNS s.85 husband or relative 'subjects such woman to cruelty'; DV Act s.3 definition of domestic violence, s.12 application to Magistrate, s.18 protection orders.",
+      "also_check": "Answer in Hindi with English quotes; helplines 112/181.",
+      "set": "criminal",
+      "author": "assistant"
+    },
+    {
+      "question": "I belong to a Scheduled Caste. Some people in my village insulted me using my caste name in front of everyone and are stopping my family from using the village water source. Which law protects me?",
+      "expected": [
+        "sc_st_atrocities_act_1989:3"
+      ],
+      "why": "SC/ST Act s.3(1): 'intentionally insults or intimidates with intent to humiliate ... in any place within public view' / 'abuses ... by caste name in any place within public view', and wrongful interference with 'water or irrigation facilities'.",
+      "also_check": "May mention s.15A rights of victims; must not name the caste of the accused or assume.",
+      "set": "criminal",
+      "author": "assistant"
+    },
+    {
+      "question": "The police station near my house refused to register my FIR, saying the incident happened in another area's jurisdiction. Are they allowed to do that?",
+      "expected": [
+        "bnss_2023:173"
+      ],
+      "why": "BNSS s.173(1) 'Every information relating to the commission of a cognizable offence, irrespective of the area where the offence is committed, may be given ... to an officer in charge of a police station' (Zero FIR); s.173(4) complaint to the Superintendent of Police if refused.",
+      "also_check": "Explains the step if refused (Superintendent of Police, then Magistrate).",
+      "set": "criminal",
+      "author": "assistant"
+    },
+    {
+      "question": "Someone cheated me of ₹2 lakh in March 2023 and I filed an FIR at that time. The trial is still going on. Does my case now fall under the new BNS or the old IPC?",
+      "expected": [
+        "bns_2023:358",
+        "bnss_2023:531"
+      ],
+      "why": "BNS s.358(2): repeal of the IPC 'shall not affect ... any penalty, or punishment incurred in respect of any offences committed against the Code so repealed'; BNSS s.531(2)(a): pending trials 'shall be disposed of ... in accordance with the provisions of the Code of Criminal Procedure, 1973'.",
+      "also_check": "Old-law warning: incident before 1 July 2024 -> IPC/CrPC apply; NyayaAI does not contain the IPC/CrPC text, so it must not quote IPC section numbers from memory.",
+      "set": "criminal",
+      "author": "assistant"
+    }
+  ]
+}

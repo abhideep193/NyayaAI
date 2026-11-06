@@ -72,6 +72,12 @@ class CitationOut(BaseModel):
     reason: str
 
 
+class SafetyNoteOut(BaseModel):
+    kind: Literal["helpline", "old_law"]
+    text: str = Field(description="Fixed text added by NyayaAI's code, not by the model")
+    source: str = Field(description="Official source of the information")
+
+
 class AskResponse(BaseModel):
     question: str
     answer: str
@@ -86,6 +92,7 @@ class AskResponse(BaseModel):
     model: str
     input_tokens: int
     output_tokens: int
+    safety_notes: list[SafetyNoteOut] = Field(description="Checked helplines / old-law notice")
 
 
 # ---------------------------------------------------------------------------

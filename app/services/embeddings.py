@@ -54,11 +54,15 @@ def chunk_section(section: Section) -> list[str]:
 class EmbeddingRetriever:
     """Search sections by meaning instead of by exact words."""
 
-    def __init__(self, sections: list[Section], cache_path: Path | None = None, model_name: str = MODEL_NAME):
-        # Imported here because loading the library takes several seconds.
-        from sentence_transformers import SentenceTransformer
+    def __init__(self, sections: list[Section], cache_path: Path | None = None, model_name: str = MODEL_NAME,
+                 model=None):
+        # model: an already-loaded SentenceTransformer to share between several indexes (saves memory).
+        if model is None:
+            # Imported here because loading the library takes several seconds.
+            from sentence_transformers import SentenceTransformer
 
-        self.model = SentenceTransformer(model_name)
+            model = SentenceTransformer(model_name)
+        self.model = model
 
         # Like BM25: omitted (repealed) sections are never returned.
         self.sections = [s for s in sections if s.status != "omitted"]

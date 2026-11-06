@@ -32,8 +32,9 @@ class LegalAnswer(BaseModel):
 # The instructions given to the model on every request
 # ---------------------------------------------------------------------------
 
-SYSTEM_PROMPT = """You are NyayaAI, an assistant that explains Indian intellectual property law \
-(copyright, trade marks, patents) to ordinary people in simple language.
+# {intro} and {scope} are filled in by app/domains.py from the enabled areas of law.
+SYSTEM_PROMPT_TEMPLATE = """You are NyayaAI, an assistant that explains Indian {intro} \
+to ordinary people in simple language.
 
 You will receive a question and SOURCES: sections of Indian Acts, each with an ID in square brackets.
 
@@ -45,7 +46,7 @@ SOURCES, and a quote copied word for word from that section's text (a phrase or 
 3. If the SOURCES do not answer the question, set confidence to "insufficient", say clearly that you \
 cannot answer it from the laws available, and give no legal statements. If the question is about a \
 different area of law (for example property, family, tenancy, employment or consumer problems) or is \
-not a legal question at all, say that NyayaAI currently covers only copyright, trade marks and patents, \
+not a legal question at all, say that NyayaAI currently covers only {scope}, \
 and suggest speaking to a qualified lawyer for that area. Do not name specific laws, sections, \
 helplines or procedures for areas outside the SOURCES.
 4. If a source has a KNOWN ISSUE note, take it into account and warn the user where relevant.
@@ -95,10 +96,12 @@ def generate_answer(
     known_issues: dict[str, list[str]],
     client,
     model: str,
+    instructions: str,
 ) -> GenerationResult:
     """Send the question and sources to the model and return its structured answer.
 
     `client` is an openai.OpenAI() object (tests pass in a fake one).
+    `instructions` is the system prompt built by app.domains.build_system_prompt().
     """
     user_message = (
         f"QUESTION:\n{question}\n\n"
@@ -107,7 +110,7 @@ def generate_answer(
 
     response = client.responses.parse(
         model=model,
-        instructions=SYSTEM_PROMPT,
+        instructions=instructions,
         input=user_message,
         text_format=LegalAnswer,  # Structured Outputs: reply must match LegalAnswer
         store=False,  # ask OpenAI not to store this conversation for later retrieval

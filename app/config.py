@@ -25,5 +25,5 @@ QUERY_REWRITE_MODEL = os.getenv("QUERY_REWRITE_MODEL", "gpt-6-luna")
 
 # --- Areas of law ---
 # Which domains (the "domain" field in data/legal_sources/sources.json) the app searches.
-# Comma-separated, e.g. "ipr,criminal". Criminal law stays off until it has been evaluated.
-ENABLED_DOMAINS = [d.strip() for d in os.getenv("ENABLED_DOMAINS", "ipr").split(",") if d.strip()]
+# Comma-separated, e.g. "ipr". Criminal law switched on 2026-11-06 after evaluation (outputs/answer_experiments.md).
+ENABLED_DOMAINS = [d.strip() for d in os.getenv("ENABLED_DOMAINS", "ipr,criminal").split(",") if d.strip()]

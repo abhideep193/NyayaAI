@@ -55,3 +55,65 @@ Net over all 25 questions: 17 -> 15 in the top 5. Removed.
 Likely causes: model trained on general web text, not statutes; ~100 chunk pairs scored
 per question on CPU. Revisit only with a GPU or a reranker suited to legal text,
 and evaluate on a larger held-out set.
+
+## Adding criminal law: does it hurt IPR search? + domain routing (2026-11-06)
+
+8 criminal-law Acts added (1,815 sections). Criminal test set written BEFORE this work:
+outputs/test_cases/criminal_eval.json (7 owner questions, 8 assistant questions).
+Method in the app: hybrid + LLM query rewriting. Same code, same day.
+
+| hybrid+rewrite @5 / @15 | tuning | held_out | fresh | fresh2 | multilingual | criminal_owner | criminal |
+|---|---|---|---|---|---|---|---|
+| IPR Acts only | 13/13 of 15 | 8 / 10 | 9 / 9 | 1 / 2 | 0 / 3 | - | - |
+| IPR + criminal in one index | 13/13 of 15 | 7 / 9 | 8 / 8 | 1 / 1 | 1 / 2 | 6/7 / 7/7 | 5/8 / 8/8 |
+
+IPR total @15 fell from 37/39 to 33/39: criminal sections crowd out IPR sections
+(rewrite is an LLM step, so part of this is run-to-run noise, but every change is downward).
+
+### Experiment: domain routing (criteria fixed BEFORE running)
+Change: the rewrite call also returns which area(s) of law the question is about; each area
+has its own search index; search only the chosen area(s) (merge with RRF if several; search all
+if none is chosen or the rewrite fails). IPR-only mode is untouched (no routing with one area).
+
+Accept routing only if ALL hold, compared with the table above:
+1. IPR total @15 >= 36/39, and no IPR set more than 1 lower at @15 than "IPR Acts only".
+2. Criminal total @15 >= 14/15 (currently 15/15 unrouted).
+3. Median latency increase <= 1 s compared with unrouted hybrid+rewrite.
+Otherwise reject and look for another fix before enabling criminal law.
+
+### Result (same run, both areas enabled)
+
+| @5 / @15 | tuning | held_out | fresh | fresh2 | multilingual | IPR total @15 | criminal_owner | criminal | latency |
+|---|---|---|---|---|---|---|---|---|---|
+| IPR Acts only (baseline above) | 13/13 | 8/10 | 9/9 | 1/2 | 0/3 | 37/39 | - | - | 1.9 s |
+| hybrid+rewrite, one index | 13/13 | 8/9 | 8/8 | 1/1 | 2/2 | 33/39 | 5/7 | 6/8 | 2.5 s |
+| routed | 13/13 | 8/10 | 9/9 | 1/1 | 0/2 | **35/39** | 4/7 | 6/8 | 2.7 s |
+
+Criteria: (1) IPR total @15 >= 36/39 -> 35/39, FAILED by one question (no set more than 1 lower: met);
+(2) criminal @15 >= 14/15 -> 15/15, met; (3) latency +0.24 s, met.
+The two IPR questions lost (fresh2 "company name ... never registered", Hindi "register brand") were
+both at rank 15 - the last place counted - in the IPR-only run. Not accepted on this run; decision
+on next step recorded below.
+
+### Second test: is the 1-question gap noise? (owner's decision; rule fixed BEFORE running)
+The first test above FAILED rule 1. The owner chose a noise test, with this rule written before running:
+run "IPR Acts only" (hybrid+rewrite) and "routed" (both areas enabled) 3 times each, same code.
+Accept routing only if BOTH hold:
+1. Mean IPR total @15 of routed >= mean IPR total @15 of IPR-only minus 1.
+2. Criminal total @15 >= 14/15 in EVERY routed run.
+The first test's numbers are not included in these means.
+
+### Second test result: routing ACCEPTED
+
+| run | IPR only: IPR total @15 | routed: IPR total @15 | routed: criminal @15 | one index (no routing): criminal @15 |
+|---|---|---|---|---|
+| 1 | 34/39 | 36/39 | 14/15 | 14/15 |
+| 2 | 36/39 | 35/39 | 14/15 | 13/15 |
+| 3 | 35/39 | 34/39 | 15/15 | 13/15 |
+| mean | 35.0 | 35.0 | - | - |
+
+Rule 1: routed mean 35.0 >= 35.0 - 1 -> met. Rule 2: 14, 14, 15 -> met. Accepted.
+Finding: the same IPR-only setup varies 34-37/39 between runs (LLM rewrite), so a single run
+cannot detect a 1-2 question change. Without routing, criminal search falls below 14/15 in 2 of 3 runs.
+Known weak questions: owner's "neighbour punched me" (BNS s.115 missed in 1-2 of 3 runs);
+Hindi dowry question and OTP fraud question sometimes near rank 15.

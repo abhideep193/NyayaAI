@@ -82,3 +82,26 @@ def test_follow_up_question_includes_earlier_messages(fake):
     follow_up = fake.questions[-1]
     assert "How long does a patent last?" in follow_up
     assert "Current question: Can it be renewed?" in follow_up
+
+
+def test_safety_notes_and_criminal_citations_are_shown(fake, monkeypatch):
+    from app.safety import SafetyNote
+
+    original = fake.ask
+
+    def ask_with_notes(question):
+        response = original(question)
+        response.answer = "Stalking is an offence. [bns_2023:78]"
+        response.safety_notes = [
+            SafetyNote("old_law", "Your question mentions a date before 1 July 2024.", "S.O. 850(E)"),
+            SafetyNote("helpline", "Women Helpline 181 (24x7).", "https://missionshakti.wcd.gov.in"),
+        ]
+        return response
+
+    monkeypatch.setattr(fake, "ask", ask_with_notes)
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("A man follows me every day since March 2023").run()
+
+    assert "(Section 78, Bharatiya Nyaya Sanhita 2023)" in all_text(at)
+    assert "date before 1 July 2024" in at.warning[0].value
+    assert any("181" in box.value for box in at.info)

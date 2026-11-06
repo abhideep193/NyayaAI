@@ -1,0 +1,1545 @@
+{
+  "model": "gpt-6.1-terra",
+  "context_sections": 15,
+  "areas_of_law": [
+    "ipr",
+    "criminal"
+  ],
+  "results": [
+    {
+      "set": "criminal_owner",
+      "expected": [
+        "bns_2023:248",
+        "bns_2023:217"
+      ],
+      "seconds": 17.8,
+      "also_check": "Should say a civil claim for damages (malicious prosecution) is outside NyayaAI's sources, not invent one. Should not promise the complaint will be quashed.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 4,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "My neighbour filed a police complaint accusing me of stealing his expensive laptop. I have CCTV footage proving that I was not even present at his house that day. What can I do against a false criminal complaint? Can I take legal action against him?",
+        "answer": "Yes, legal action may be possible, but it depends on the facts. Your CCTV footage may help you respond to the accusation. It does not, by itself, establish that your neighbour knew the complaint was false.\n\nUnder BNS section 217, giving a public servant information that the person knows or believes is false can be an offence if the required intention or knowledge about the public servant’s action is present. This includes intending or knowing it is likely that the public servant will use their lawful power to injure or annoy someone. The available source does not explain how to start a prosecution under this section.\n\nCompensation may also be possible in certain circumstances. If you are accused before a Magistrate in a case the Magistrate can try, and are later discharged or acquitted, the Magistrate may consider compensation if they find there was no reasonable ground for the accusation. The complainant must have an opportunity to explain, and compensation is not automatic.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "bns_2023:217",
+            "quote": "information which he knows or believes to be\nfalse, intending thereby to cause, or knowing it to be likely that he will thereby cause, such public\nservant",
+            "supports": "Section 217 requires the person to know or believe the information is false and have the specified intention or knowledge.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 217, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 72
+          },
+          {
+            "section_id": "bns_2023:217",
+            "quote": "to use the lawful power of such public servant to the injury or annoyance of any person",
+            "supports": "The section covers the specified use of a public servant’s lawful power to injure or annoy someone.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 217, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 72
+          },
+          {
+            "section_id": "bnss_2023:273",
+            "quote": "the Magistrate by whom the case is\nheard discharges or acquits all or any of the accused, and is of opinion that there was no reasonable ground\nfor making the accusation",
+            "supports": "The Magistrate may consider compensation after discharge or acquittal if there was no reasonable ground for the accusation.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 273, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 103
+          },
+          {
+            "section_id": "bnss_2023:273",
+            "quote": "The Magistrate shall record and consider any cause which such complainant or informant may show",
+            "supports": "The complainant or informant has an opportunity to explain before a compensation order.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 273, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 103
+          }
+        ],
+        "next_steps": [
+          "Preserve the original CCTV footage and make a backup. Note the camera location, date and time, and whether its clock was accurate.",
+          "Share the footage and any other relevant records with the police officer handling the complaint. Keep copies of what you provide.",
+          "Speak to a criminal lawyer about responding to the accusation and whether the evidence supports action concerning the complaint or a later request for compensation."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 217, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 22, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 14, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 233, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 273, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 219, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 222, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 234, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 243, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 212, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 220, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 201, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 280, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 34, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 244, The Bharatiya Nagarik Suraksha Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 8963,
+        "output_tokens": 857,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal_owner",
+      "expected": [
+        "bnss_2023:47",
+        "bnss_2023:48",
+        "bnss_2023:38",
+        "bnss_2023:58"
+      ],
+      "seconds": 23.0,
+      "also_check": "Calm, practical next steps (ask for the police station, contact a lawyer, the 24-hour rule).",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 9,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Police officers came to my house and arrested my brother without explaining the reason. They have not allowed us to contact a lawyer or informed us about where he is being taken. What are his legal rights after arrest, and what can our family do?",
+        "answer": "I’m sorry your family is facing this. The information available does not establish whether the police explained the arrest to your brother or whether they had a warrant. His rights include:\n\n• If he was arrested without a warrant, the officer must promptly tell him the full details of the alleged offence or other grounds for arrest.\n• If police interrogate him, he can meet a lawyer of his choice during questioning, though the lawyer need not be present throughout.\n• The person making the arrest must promptly inform a relative, friend or other person your brother identifies or nominates about the arrest and where he is being held. At the police station, he must be told of this right.\n• The arresting officer must prepare an arrest memorandum—a record of the arrest—witnessed as specified in the law and countersigned by your brother.\n• If he was arrested without a warrant, police must take or send him without unnecessary delay before the appropriate Magistrate or the officer in charge of a police station. A Magistrate is a judicial officer.\n• If he was arrested under a warrant, he must be brought before the required court without unnecessary delay. The delay cannot exceed 24 hours, excluding necessary travel time to the Magistrate’s court.\n• If he was arrested without a warrant and is not accused of a non-bailable offence, police must tell him that he can be released on bail and arrange sureties—people who provide assurance for his release.\n\nThese sources do not set out a general 24-hour deadline for every arrest without a warrant. A lawyer can help check the circumstances urgently.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "bnss_2023:47",
+            "quote": "Every police\nofficer or other person arresting any person without warrant shall  forthwith communicate to him full\nparticulars of the offence for which he is arrested or other grounds for such arrest.",
+            "supports": "If arrested without a warrant, he must promptly be told the full details of the offence or other grounds for arrest.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 33
+          },
+          {
+            "section_id": "bnss_2023:38",
+            "quote": "he shall be entitled to meet an advocate of his choice\nduring interrogation, though not throughout interrogation.",
+            "supports": "He may meet his chosen lawyer during police questioning, though not necessarily throughout it.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 38, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 31
+          },
+          {
+            "section_id": "bnss_2023:48",
+            "quote": "Every police officer or other person making any arrest under this Sanhita shall  forthwith give the\ninformation regarding such arrest and place where the arrested person is being held to any of his relatives,\nfriends or such other persons as may be disclosed or  nominated by the arrested person",
+            "supports": "The person making the arrest must promptly inform a relative, friend or other person your brother identifies or nominates about the arrest and where he is held.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 48, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 33
+          },
+          {
+            "section_id": "bnss_2023:48",
+            "quote": "The police officer shall inform the arrested person of his rights under sub-section (1) as soon as he\nis brought to the police station.",
+            "supports": "At the police station, your brother must be told of his right to have someone informed.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 48, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 33
+          },
+          {
+            "section_id": "bnss_2023:36",
+            "quote": "prepare a memorandum of arrest which shall be—\n(i) attested by at least one witness, who is a member of the family of the  person arrested or a\nrespectable member of the locality where the arrest is made;\n(ii) countersigned by the person arrested",
+            "supports": "The arresting officer must prepare an arrest memorandum witnessed as specified in the law and countersigned by your brother.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 36, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 31
+          },
+          {
+            "section_id": "bnss_2023:57",
+            "quote": "take or send the person arrested before a Magistrate having jurisdiction in the\ncase, or before the officer in charge of a police station.",
+            "supports": "After an arrest without a warrant, police must take or send him before the appropriate Magistrate or the officer in charge of a police station.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 57, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 36
+          },
+          {
+            "section_id": "bnss_2023:57",
+            "quote": "A police\nofficer making an arrest without warrant shall, without unnecessary delay",
+            "supports": "The required transfer after an arrest without a warrant must be without unnecessary delay.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 57, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 36
+          },
+          {
+            "section_id": "bnss_2023:78",
+            "quote": "Provided that such delay shall not, in any case, exceed twenty -four hours exclusive of the time\nnecessary for the journey from the place of arrest to the Magistrate's Court.",
+            "supports": "For an arrest under a warrant, the delay in bringing the person before the required court cannot exceed 24 hours, excluding necessary travel time.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 78, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 39
+          },
+          {
+            "section_id": "bnss_2023:47",
+            "quote": "he shall inform the person arrested that he is entitled to  be released on bail and that he\nmay arrange for sureties on his behalf.",
+            "supports": "If arrested without a warrant and not accused of a non-bailable offence, he must be informed about release on bail and arranging sureties.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 47, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 33
+          }
+        ],
+        "next_steps": [
+          "Contact a criminal lawyer urgently. Give them your brother’s name, the time and place of arrest, and everything the officers said.",
+          "Ask the police station and the district’s designated police officer where your brother is being held, the reason for arrest, whether there was a warrant, and when and where he will be taken next. Ask for the lawyer to meet him.",
+          "Write down the officers’ names or identifying details, the vehicle details, the time of arrest, and the names of any witnesses. Keep any documents the police give you.",
+          "Tell the lawyer and, when your brother is produced, the Magistrate about the lack of information and the difficulty contacting a lawyer."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 48, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 47, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 35, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 43, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 57, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 49, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 36, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 78, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 38, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 54, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 356, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 82, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 50, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 170, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 40, The Bharatiya Nagarik Suraksha Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 5556,
+        "output_tokens": 1678,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal_owner",
+      "expected": [
+        "bns_2023:34",
+        "bns_2023:35",
+        "bns_2023:38",
+        "bns_2023:39"
+      ],
+      "seconds": 16.0,
+      "also_check": "Must not promise he cannot be arrested; private defence is decided on facts (s.37 limits). Should advise a lawyer.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 8,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Three people attacked me while I was walking home at night. I hit one of them with a nearby object to escape, and he suffered serious injuries. Can I claim the right of private defence under Indian criminal law? Could I still be arrested?",
+        "answer": "I’m sorry this happened to you. You may be able to claim private defence: the law recognises a right to defend your body against an attack. Whether it applies depends on the circumstances, including what danger you reasonably feared and what you did to escape.\n\nYou must not cause more harm than necessary for defence. The right lasts while a reasonable fear of danger to your body continues. It does not apply where there is time to seek protection from public authorities. If an assault reasonably makes you fear death or serious injury, the right can extend to causing serious harm to the attacker, subject to those restrictions. An act done within the right of private defence is not an offence.\n\nI cannot say from the available sources whether you could be arrested: they do not provide the rules on arrest. The fact that three people attacked you does not, by itself, settle whether your response was within the right of private defence.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "bns_2023:35",
+            "quote": "Every person has a right, subject to the restrictions contained in section 37, to defend—\n(a) his own body, and the body of any other person, against any offence affecting the human\nbody;",
+            "supports": "A person has a right, subject to restrictions, to defend their body against an offence affecting the human body.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 35, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 28
+          },
+          {
+            "section_id": "bns_2023:37",
+            "quote": "The right of private defence in no case extends to the inflicting of more harm than it is necessary\nto inflict for the purpose of defence.",
+            "supports": "The right does not extend to causing more harm than necessary for defence.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 37, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 28
+          },
+          {
+            "section_id": "bns_2023:40",
+            "quote": "it\ncontinues as long as such apprehension of danger to the body continues.",
+            "supports": "The right continues while the reasonable fear of danger to the body continues.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 40, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 29
+          },
+          {
+            "section_id": "bns_2023:37",
+            "quote": "in cases in which there is time to have recourse to the protection of the public authorities.",
+            "supports": "There is no right of private defence where there is time to seek protection from public authorities.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 37, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 28
+          },
+          {
+            "section_id": "bns_2023:38",
+            "quote": "The right of private\ndefence of the body extends, under the restrictions specified in section 37, to the voluntary causing of\ndeath or of any other harm to the assailant",
+            "supports": "In the specified circumstances, the right can extend to causing harm to an attacker, subject to restrictions.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 38, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 29
+          },
+          {
+            "section_id": "bns_2023:38",
+            "quote": "such an assault as may reasonably cause the apprehension that grievous hurt will otherwise be\nthe consequence of such assault;",
+            "supports": "An assault that reasonably causes fear of serious injury is one of those circumstances.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 38, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 29
+          },
+          {
+            "section_id": "bns_2023:38",
+            "quote": "such an assault as may reasonably cause the apprehension that death will otherwise be the\nconsequence of such assault;",
+            "supports": "An assault that reasonably causes fear of death is also one of those circumstances.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 38, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 29
+          },
+          {
+            "section_id": "bns_2023:34",
+            "quote": "Nothing is an offence which is done in the exercise of the\nright of private defence.",
+            "supports": "An act done within the right of private defence is not an offence.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 34, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 28
+          }
+        ],
+        "next_steps": [
+          "Seek medical care if you need it, and keep records of any injuries and treatment.",
+          "Write down what happened while it is fresh in your memory, including what made you fear for your safety and when you were able to escape.",
+          "Keep any available witness details, messages, photographs or information about nearby cameras.",
+          "Speak promptly to a criminal lawyer about the incident and any concern about arrest. This is legal information, not legal advice."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 44, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 38, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 41, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 36, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 243, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 359, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 37, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 245, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 35, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 4, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 220, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 43, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 234, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 34, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 40, The Bharatiya Nyaya Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 7937,
+        "output_tokens": 1075,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal_owner",
+      "expected": [
+        "bns_2023:356",
+        "bnss_2023:222"
+      ],
+      "seconds": 18.4,
+      "also_check": "Should explain it is a complaint to a Magistrate by the person defamed. Civil damages are outside the sources.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 4,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Someone posted false allegations about me on Instagram, claiming that I committed fraud. The post has damaged my reputation and affected my professional opportunities. Can I file a criminal defamation case in India? What remedies are available?",
+        "answer": "Yes. You may make a criminal defamation complaint about the Instagram post. An allegation can amount to defamation if it was published with intent to harm your reputation, or with knowledge or reason to believe it would do so. The court would consider the evidence and any applicable exceptions. [bns_2023:356]\n\nFor example, the law makes an exception for a true allegation published for the public good. Other exceptions may also apply. [bns_2023:356]\n\nAs the person affected, you may complain to a Magistrate with jurisdiction. A Magistrate is a judicial officer who hears certain criminal cases. [bnss_2023:222]\n\nIf defamation is established, the possible punishment is simple imprisonment for up to two years, a fine, both, or community service. A fine is not necessarily compensation paid to you. [bns_2023:356]\n\nThe sources provided do not explain whether you can obtain compensation or a court order to remove the post. A lawyer can help you explore those questions.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "bns_2023:356",
+            "quote": "intending to harm, or knowing or having reason to believe that such imputation will harm",
+            "supports": "A published allegation may amount to defamation when the required intent or knowledge about harm to reputation is present.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 356, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 108
+          },
+          {
+            "section_id": "bns_2023:356",
+            "quote": "It is not defamation to impute anything which is true concerning any person, if it be for the public good that the imputation should be made or published.",
+            "supports": "A true allegation published for the public good is an exception to defamation.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 356, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 108
+          },
+          {
+            "section_id": "bnss_2023:222",
+            "quote": "Nothing in this section shall affect the right of the person against whom the offence is alleged to have been committed, to make a complaint in respect of that offence before a Magistrate having jurisdiction",
+            "supports": "The affected person may make a complaint before a Magistrate with jurisdiction.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 222, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 87
+          },
+          {
+            "section_id": "bns_2023:356",
+            "quote": "Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both, or with community service.",
+            "supports": "The possible punishments include up to two years of simple imprisonment, a fine, both, or community service.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 356, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 108
+          }
+        ],
+        "next_steps": [
+          "Save screenshots of the post, the account name, the link, the date, and any relevant comments or reposts.",
+          "Keep records of affected professional opportunities and communications that connect them to the post.",
+          "Consider reporting the post to Instagram, keeping copies of your report and any response.",
+          "Consult a lawyer about the evidence, the appropriate Magistrate and possible remedies, including compensation or removal."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 222, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 356, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 359, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 336, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 246, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 217, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 243, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 353, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 240, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 335, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 228, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 355, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 244, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 197, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 127, The Bharatiya Nagarik Suraksha Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 12132,
+        "output_tokens": 950,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal_owner",
+      "expected": [
+        "bns_2023:308",
+        "bns_2023:351",
+        "it_act_2000:66E"
+      ],
+      "seconds": 15.1,
+      "also_check": "Immediate steps: do not pay, keep screenshots, report (cybercrime helpline 1930 / cybercrime.gov.in once safety block exists).",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 3,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "My former friend is threatening to leak my private photographs unless I pay him ₹50,000. He has sent these threats over WhatsApp. What criminal provisions protect me, and what should I do immediately?",
+        "answer": "I’m sorry this is happening to you. You can seek help now; you do not need to wait for the photographs to be shared.\n\n• The threat to obtain money may fall under BNS section 308(3), which covers putting or attempting to put someone in fear of injury in order to commit extortion [bns_2023:308].\n• BNS section 308(1) defines extortion as using fear to dishonestly induce someone to hand over property, including money. Whether you have paid is relevant to this distinction [bns_2023:308].\n• If the images show a private area and were captured, published or electronically sent without consent in circumstances violating privacy, IT Act section 66E may also apply. A threat to share alone does not establish that this provision applies [it_act_2000:66E].\n\nThese are possible provisions, not a prediction of the outcome. This is legal information, not legal advice.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "bns_2023:308",
+            "quote": "Whoever, in order to the committing of extortion, puts any person in fear, or attempts to put any person in fear, of any injury",
+            "supports": "BNS section 308(3) may apply to a threat made to obtain money, even if no money has been handed over.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 308, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 90
+          },
+          {
+            "section_id": "bns_2023:308",
+            "quote": "Whoever intentionally puts any person in fear of any injury to that person, or to\nany other, and thereby dishonestly induces the person so put in fear to deliver to any person any property",
+            "supports": "BNS section 308(1) defines extortion in terms of fear dishonestly inducing the delivery of property.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 308, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 90
+          },
+          {
+            "section_id": "it_act_2000:66E",
+            "quote": "intentionally or knowingly captures, publishes\nor transmits the image of a private area of any person without his or her consent, under circumstances\nviolating the privacy of that person",
+            "supports": "IT Act section 66E may apply if the specified acts involving an image of a private area occurred without consent in circumstances violating privacy.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 66E, The Information Technology Act, 2000",
+            "page": 26
+          }
+        ],
+        "next_steps": [
+          "Contact the police or a cybercrime police unit promptly. Tell them about the WhatsApp threats, the ₹50,000 demand and any urgency.",
+          "Preserve the chat, screenshots showing the sender’s number, dates and payment demand, and any payment details or receipts. Keep the original messages and avoid forwarding the private photographs unnecessarily.",
+          "Consider reporting the threatening account to WhatsApp after preserving the evidence.",
+          "Secure your accounts: change passwords and enable two-step verification. If you feel in immediate danger, move somewhere safe and contact police and a trusted person.",
+          "A qualified criminal lawyer can help you discuss the facts and your options. Tell the police or lawyer if you are under 18."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 308, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 15A, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 72A, The Information Technology Act, 2000",
+          "Section 66E, The Information Technology Act, 2000",
+          "Section 273, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 202, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 232, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 397, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 65, The Information Technology Act, 2000",
+          "Section 217, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 356, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 66, The Information Technology Act, 2000",
+          "Section 316, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 216, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 219, The Bharatiya Nagarik Suraksha Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10217,
+        "output_tokens": 758,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          },
+          {
+            "kind": "helpline",
+            "text": "For online fraud or cyber crime, call 1930 or report at https://cybercrime.gov.in as soon as possible.",
+            "source": "https://cybercrime.gov.in (National Cyber Crime Reporting Portal, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal_owner",
+      "expected": [
+        "bns_2023:115",
+        "bns_2023:117",
+        "bnss_2023:173",
+        "bnss_2023:174"
+      ],
+      "seconds": 23.2,
+      "also_check": "Should not decide hurt vs grievous hurt without facts; explains what happens after the complaint (FIR copy, investigation, or s.174 route).",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": false,
+        "correct_law": true,
+        "passed": false,
+        "verified": 4,
+        "rejected": 0,
+        "abstained": true,
+        "abstained_despite_source": true
+      },
+      "response": {
+        "question": "During an argument, my neighbour punched me and caused injuries to my face. I have medical records and CCTV footage. Can I file an FIR, what offences might apply, and what happens after I file the complaint?",
+        "answer": "I’m sorry you were injured. You can approach the police with your account, medical records and CCTV footage. However, the available sources do not tell me whether an FIR can be registered in your situation or explain the steps that would follow a complaint.\n\nAs for possible offences, an example in the available law says that a person who wrongfully strikes another may be charged with voluntarily causing hurt and assault or use of criminal force. Whether those charges fit your case depends on the facts. [bnss_2023:243; bnss_2023:359]\n\nA more serious offence of voluntarily causing grievous hurt may apply if the injury is legally considered grievous and the person intended to cause, or knew they were likely to cause, grievous hurt. The available sources do not provide enough information to decide whether your facial injuries meet that definition. [bns_2023:117]",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [
+          {
+            "section_id": "bnss_2023:243",
+            "quote": "A wrongfully strikes B with a cane. A may be separately charged with, and convicted  of, offences under sub-section (2) of section 115 and section 131",
+            "supports": "The law gives an example where wrongful striking may lead to charges under both provisions.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 243, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 95
+          },
+          {
+            "section_id": "bnss_2023:359",
+            "quote": "Voluntarily causing hurt. 115(2)",
+            "supports": "Section 115(2) concerns voluntarily causing hurt.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 359, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 125
+          },
+          {
+            "section_id": "bnss_2023:359",
+            "quote": "Assault or use of criminal force. 131,133,136",
+            "supports": "Section 131 concerns assault or use of criminal force.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 359, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 125
+          },
+          {
+            "section_id": "bns_2023:117",
+            "quote": "A person is not said voluntarily to cause grievous hurt except when he both causes grievous hurt and intends or knows himself to be likely to cause grievous hurt.",
+            "supports": "The offence of voluntarily causing grievous hurt requires both grievous injury and the stated intention or knowledge.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 117, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 51
+          }
+        ],
+        "next_steps": [
+          "Preserve copies of your medical records and CCTV footage. Note the date, time, place and names of any witnesses.",
+          "You can visit a police station, describe what happened and ask how to report it. Keep a copy of anything you submit.",
+          "Consult a criminal lawyer about the injuries, possible charges and what to expect after reporting."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 216, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 243, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 233, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 256, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 220, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 15A, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 120, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 34, The Protection of Women from Domestic Violence Act, 2005",
+          "Section 117, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 352, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 359, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 217, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 234, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 290, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 245, The Bharatiya Nagarik Suraksha Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9815,
+        "output_tokens": 1289,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal_owner",
+      "expected": [
+        "bns_2023:318",
+        "bns_2023:319",
+        "it_act_2000:66D",
+        "it_act_2000:66C"
+      ],
+      "seconds": 13.0,
+      "also_check": "Report at once to 1930 / cybercrime.gov.in and the bank (once safety block exists); must not promise recovery of money; bank refund rules are outside the sources.",
+      "score": {
+        "retrieved_correct": false,
+        "grounded": true,
+        "correct_law": false,
+        "passed": false,
+        "verified": 2,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Someone called me pretending to be a bank employee and convinced me to share an OTP. ₹45,000 was transferred from my bank account without my permission. What criminal offences may apply, how do I report this, and can I recover my money?",
+        "answer": "I’m sorry this happened. Sharing the OTP does not change the fact that you say you did not permit the transfer.\n\nThe police can consider whether cheating by personation—cheating while pretending to be someone else—applies. The available source names this offence, but does not give its full definition [bnss_2023:359]. Dishonest misappropriation—dishonestly taking property for one’s own use—may also be relevant, depending on the facts [bns_2023:314]. The applicable offences will depend on the investigation.\n\nYou can report the incident to your bank and the police. The available sources do not explain the reporting procedure or whether you are entitled to reimbursement, so I cannot say whether you can recover the ₹45,000. Ask your bank what recovery options it can attempt; recovery is not guaranteed.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "bnss_2023:359",
+            "quote": "Cheating by personation.",
+            "supports": "The available source names cheating by personation as an offence.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 359, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 125
+          },
+          {
+            "section_id": "bns_2023:314",
+            "quote": "Whoever dishonestly misappropriates or converts to his own use any movable property",
+            "supports": "Dishonest misappropriation may be relevant, depending on the facts.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 314, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 92
+          }
+        ],
+        "next_steps": [
+          "Contact your bank immediately using its official contact details. Report the unauthorised transfer, ask it to secure your account and ask whether it can attempt to recall the money.",
+          "Report the incident at a police station or cybercrime police station. Explain that the caller claimed to be a bank employee and that you did not permit the transfer.",
+          "Keep the transaction reference, bank statement, call number, messages and dates. Keep copies of your reports and any responses.",
+          "Do not share another OTP or banking password with anyone who contacts you about recovery. Consider speaking to a qualified lawyer about your options."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 316, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 314, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 359, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 111, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 335, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 97, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 322, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 243, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 180, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 273, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 34, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 234, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 317, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 219, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 178, The Bharatiya Nyaya Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 13946,
+        "output_tokens": 639,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal",
+      "expected": [
+        "bns_2023:78"
+      ],
+      "seconds": 16.7,
+      "also_check": "Mentions filing an FIR (BNSS s.173) and safety helpline.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 3,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "A man keeps following me from college to my house and keeps messaging me on Instagram from new accounts even after I blocked him. What can I do legally?",
+        "answer": "I’m sorry this is happening. If you are a woman, the repeated following and messages you describe may amount to stalking. The law covers a man repeatedly following and contacting a woman, or trying to contact her for personal interaction, despite a clear indication that she is not interested. Whether it applies depends on the facts; the law also provides exceptions.\n\nYou can report what is happening to the police. During a police investigation of alleged stalking against a woman, her statement must be recorded by a woman police officer or another woman officer.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "bns_2023:78",
+            "quote": "follows a woman and contacts, or attempts to contact such woman to foster personal\ninteraction repeatedly despite a clear indication of disinterest by such woman",
+            "supports": "Repeated following and contact despite a clear indication of disinterest may amount to stalking.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 78, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 41
+          },
+          {
+            "section_id": "bns_2023:78",
+            "quote": "Provided that such conduct shall not amount to stalking if the man who pursued it proves that—",
+            "supports": "The stalking provision has exceptions.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 78, The Bharatiya Nyaya Sanhita, 2023",
+            "page": 41
+          },
+          {
+            "section_id": "bnss_2023:180",
+            "quote": "section 77, section 78, section 79 or section 124 of the Bharatiya Nyaya Sanhita, 2023 is alleged to have\nbeen committed or attempted, shall be recorded, by a woman police officer or any woman officer.",
+            "supports": "During an investigation of alleged stalking against a woman, her statement must be recorded by a woman police officer or another woman officer.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 180, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 72
+          }
+        ],
+        "next_steps": [
+          "Save screenshots of the messages, account names, dates and any indications that you blocked him. Note when and where he followed you and whether anyone witnessed it.",
+          "Consider taking this information to the police. You can also tell a trusted person or your college’s security staff.",
+          "If you feel in immediate danger, move to a safe place and contact the police.",
+          "If you are under 18, tell the police or a trusted adult your age. A lawyer can help explain the options that apply to you."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 78, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 202, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 359, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 63, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 330, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 220, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 75, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 81, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 180, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 219, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 177, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 193, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 125, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 4, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 297, The Bharatiya Nyaya Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 8514,
+        "output_tokens": 891,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          },
+          {
+            "kind": "helpline",
+            "text": "Women Helpline 181 (24x7) gives emergency and non-emergency support to women facing violence.",
+            "source": "https://missionshakti.wcd.gov.in (Mission Shakti, Ministry of Women and Child Development)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal",
+      "expected": [
+        "posh_act_2013:9",
+        "posh_act_2013:4"
+      ],
+      "seconds": 19.0,
+      "also_check": "States the three-month limit from the text. May also mention BNS s.75 sexual harassment.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 9,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "My manager keeps making sexual comments and hinted that my promotion depends on 'being friendly' with him. Our company has about 30 employees. Where and how do I complain, and is there a time limit?",
+        "answer": "I’m sorry you’re dealing with this. If the sexual comments were unwelcome, they may amount to sexual harassment. A hint that promotion depends on such conduct may also be relevant [posh_act_2013:2; posh_act_2013:3].\n\nThe workplace complaint route below applies if you are a woman [posh_act_2013:2; posh_act_2013:9]:\n\n• Your employer must set up an Internal Committee to handle workplace sexual harassment complaints [posh_act_2013:4]. You can submit a written complaint to it. If no Internal Committee has been set up, you can complain to the Local Committee [posh_act_2013:9].\n• If you cannot write the complaint yourself, a committee officer or member must give you reasonable help to put it in writing [posh_act_2013:9].\n• The usual time limit is three months from the incident, or three months from the last incident in a series. The committee may allow up to three more months if circumstances prevented you from filing on time; it must record its reasons in writing [posh_act_2013:9].\n\nThe sources provided do not explain this workplace complaint route for someone who is not a woman. A qualified lawyer can help you explore your options.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "posh_act_2013:2",
+            "quote": "“sexual harassment” includes any one or more of the followi ng unwelcome acts or behavior",
+            "supports": "Unwelcome sexual comments may amount to sexual harassment.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+            "page": 5
+          },
+          {
+            "section_id": "posh_act_2013:2",
+            "quote": "making sexually coloured remarks",
+            "supports": "Sexual remarks are included in the definition of sexual harassment.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+            "page": 5
+          },
+          {
+            "section_id": "posh_act_2013:3",
+            "quote": "implied or explicit promise of preferential treatment in her employment",
+            "supports": "A hint about promotion connected with sexual harassment may be relevant.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 3, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+            "page": 7
+          },
+          {
+            "section_id": "posh_act_2013:2",
+            "quote": "a woman, of any age whether employed or not, who alleges to\nhave been subjected to any act of sexual harassment by the respondent",
+            "supports": "The described workplace complaint route applies to an aggrieved woman.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+            "page": 5
+          },
+          {
+            "section_id": "posh_act_2013:4",
+            "quote": "Every employer of a workplace shall, by\nan order in writing, constitute a Committee to be known as the “Internal Complaints Committee”",
+            "supports": "The employer must set up an Internal Committee.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 4, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+            "page": 7
+          },
+          {
+            "section_id": "posh_act_2013:9",
+            "quote": "Any aggrieved woman  may make, in writing, a complaint\nof sexual harassment at workplace to the Internal Committee if so constituted, or the Local Committee, in\ncase it is not so constituted",
+            "supports": "A woman can complain in writing to the Internal Committee, or to the Local Committee if no Internal Committee has been set up.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+            "page": 10
+          },
+          {
+            "section_id": "posh_act_2013:9",
+            "quote": "shall render all reasonable assistance to the woman for making the complaint in writing",
+            "supports": "A committee officer or member must provide reasonable help if the woman cannot make the complaint in writing.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+            "page": 10
+          },
+          {
+            "section_id": "posh_act_2013:9",
+            "quote": "within a period of three months from the date of incident and in case of a\nseries of incidents, within a period of three months from the date of  last incident",
+            "supports": "The usual deadline is three months from the incident, or from the last incident in a series.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+            "page": 10
+          },
+          {
+            "section_id": "posh_act_2013:9",
+            "quote": "for\nthe reasons to be recorded in writing, extend the time limit not exceeding three months, if it is satisfied\nthat the circumstances were such which prevented the woman from filing  a complaint within the said\nperiod",
+            "supports": "The committee may extend the time limit by up to three months if circumstances prevented timely filing, with reasons recorded in writing.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 9, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+            "page": 10
+          }
+        ],
+        "next_steps": [
+          "Note the dates, what was said, any witnesses, and any relevant messages. Keep copies somewhere you can access safely.",
+          "Ask HR or another trusted company contact for the Internal Committee’s contact details. You do not need to raise the matter with your manager first.",
+          "If there is no Internal Committee, contact the District Officer’s office to locate the Local Committee.",
+          "If the usual time limit has passed, explain in your complaint what prevented you from filing sooner and ask the committee to consider an extension."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 9, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 19, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 4, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 2, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 25, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 3, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 6, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 1, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 13, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 75, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 69, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 12, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 21, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 26, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 8, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 6095,
+        "output_tokens": 1217,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "Women Helpline 181 (24x7) gives emergency and non-emergency support to women facing violence.",
+            "source": "https://missionshakti.wcd.gov.in (Mission Shakti, Ministry of Women and Child Development)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal",
+      "expected": [
+        "bnss_2023:173",
+        "bns_2023:72"
+      ],
+      "seconds": 18.8,
+      "also_check": "Trauma-informed tone; helplines 112/181; no victim-blaming; adult (not POCSO).",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 4,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "My friend was sexually assaulted by someone she knows. She is scared of going to the police station. Can she report it without going there, and will her name be published?",
+        "answer": "I’m sorry this happened to your friend. It is understandable that she is scared.\n\n**Reporting without visiting a police station:** Information about a cognizable offence—an offence for which police may arrest without a warrant—can be sent electronically to the officer in charge of a police station. The person giving it must sign it within three days for it to be taken on record. The available sources do not say that the entire reporting process can always be completed without a station visit. [bnss_2023:173, bnss_2023:2]\n\nIf the offence is rape, her statement is to be recorded at her home or another place she chooses. As far as practicable, a woman police officer should record it, in the presence of a parent, guardian, near relative or local social worker. [bnss_2023:176]\n\n**Her name:** The available sources do not answer whether her name can be published in this situation. I cannot promise that it will or will not be published. A qualified lawyer can explain the privacy protections that apply to her circumstances.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "bnss_2023:173",
+            "quote": "Every information relating to the commission of a\ncognizable offence, irrespective of the area where the offence is committed, may be given orally or by\nelectronic communication to an officer in charge of a police station",
+            "supports": "Information about a cognizable offence can be sent electronically to the officer in charge of a police station.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 173, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 69
+          },
+          {
+            "section_id": "bnss_2023:173",
+            "quote": "by electronic communication, it shall be taken on record by him on being signed within three\ndays by the person giving it",
+            "supports": "The person giving electronic information must sign it within three days for it to be taken on record.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 173, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 69
+          },
+          {
+            "section_id": "bnss_2023:2",
+            "quote": "a police officer may, in accordance with the First Schedule or under any other law for the time being in\nforce, arrest without warrant",
+            "supports": "A cognizable offence is an offence for which police may arrest without a warrant.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 18
+          },
+          {
+            "section_id": "bnss_2023:176",
+            "quote": "in relation to an offence of rape, the recording of statement of the victim shall be\nconducted at the residence of the victim or in the place of her choice and as far as practicable by a woman\npolice officer in the presence of her parents or guardian or near relatives or social worker of the locality",
+            "supports": "For rape, her statement is to be recorded at her home or a place she chooses, with the stated arrangements for the officer and a person to be present.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 176, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 70
+          }
+        ],
+        "next_steps": [
+          "She or a trusted person can contact the police and ask how to submit information electronically and arrange the signature.",
+          "If applicable, she can ask for her rape statement to be recorded at home or another place where she feels comfortable.",
+          "She can speak with a qualified lawyer about privacy, reporting options and any safety concerns. If she is under 18, tell the lawyer or officer so they can consider child-protection provisions."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 193, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 176, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 35, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 16, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 59, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 173, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 9, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 10, The Protection of Women from Domestic Violence Act, 2005",
+          "Section 34, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 2, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 19, The Protection of Women from Domestic Violence Act, 2005",
+          "Section 219, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 184, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 202, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 44, The Bharatiya Nagarik Suraksha Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 11371,
+        "output_tokens": 1001,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal",
+      "expected": [
+        "pocso_act_2012:19",
+        "pocso_act_2012:21"
+      ],
+      "seconds": 15.7,
+      "also_check": "Child helpline 1098; the reporting duty quoted from s.19.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": false,
+        "correct_law": true,
+        "passed": false,
+        "verified": 3,
+        "rejected": 0,
+        "abstained": true,
+        "abstained_despite_source": true
+      },
+      "response": {
+        "question": "I am a school teacher. A 12-year-old student told me that a relative touches her inappropriately. Do I have to report this to the police? What happens if I don't?",
+        "answer": "I’m sorry your student has shared this. She is a child, and her safety matters.\n\nYes. If you understand from what she told you that a sexual offence has happened or is likely to happen, you must report the information to the local police or the Special Juvenile Police Unit, a police unit for children. You do not need to decide yourself whether the relative is guilty. The law protects a person from civil or criminal liability for giving the information in good faith.\n\nThe sources available to me do not say what penalty, if any, applies if you do not report. I cannot answer that part from the laws available.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [
+          {
+            "section_id": "pocso_act_2012:19",
+            "quote": "any person (including the child), who has apprehension that an offence under\nthis Act is likely to be committed or has knowledge that such  an offence has been committed",
+            "supports": "A person must report where they have knowledge of an offence under the Act or apprehend that one is likely to be committed.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 19, The Protection of Children from Sexual Offences Act, 2012",
+            "page": 12
+          },
+          {
+            "section_id": "pocso_act_2012:19",
+            "quote": "(a) the Special Juvenile Police Unit; or\n(b) the local police.",
+            "supports": "The information can be given to either the Special Juvenile Police Unit or the local police.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 19, The Protection of Children from Sexual Offences Act, 2012",
+            "page": 12
+          },
+          {
+            "section_id": "pocso_act_2012:19",
+            "quote": "No person shall incur any liability, whether civil or criminal, for giving the information in good\nfaith for the purpose of sub-section (1).",
+            "supports": "A person is protected from civil or criminal liability for giving the information in good faith.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 19, The Protection of Children from Sexual Offences Act, 2012",
+            "page": 12
+          }
+        ],
+        "next_steps": [
+          "Contact the local police or Special Juvenile Police Unit promptly. Tell them what the student shared and mention any immediate safety concerns.",
+          "Make a private note of her words as accurately as you can. Do not press her for graphic details.",
+          "Help her stay with a safe, trusted adult. Be mindful that the person she named is a relative.",
+          "Speak to a qualified lawyer about the consequences of not reporting."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 20, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 19, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 9, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 43, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 33, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 23, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 5, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 34, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 176, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 28, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 193, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 2, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 12, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 10, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 7, The Protection of Children from Sexual Offences Act, 2012"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9121,
+        "output_tokens": 864,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          },
+          {
+            "kind": "helpline",
+            "text": "Child Helpline 1098 (24x7) helps children in need of care and protection.",
+            "source": "https://wcd.gov.in/child/child-helpline (Ministry of Women and Child Development)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal",
+      "expected": [
+        "dowry_prohibition_act_1961:4",
+        "bns_2023:85",
+        "domestic_violence_act_2005:12",
+        "domestic_violence_act_2005:18",
+        "domestic_violence_act_2005:3"
+      ],
+      "seconds": 17.6,
+      "also_check": "Answer in Hindi with English quotes; helplines 112/181.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 3,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "मेरे ससुराल वाले शादी के बाद भी और दहेज माँग रहे हैं और मना करने पर मेरे पति मुझे मारते हैं। मैं क्या कर सकती हूँ?",
+        "answer": "आपके साथ मारपीट होना आपकी गलती नहीं है। आपकी सुरक्षा सबसे ज़रूरी है।\n\nयदि दहेज की माँग आपके माता-पिता, अन्य रिश्तेदारों या अभिभावक से की गई है, तो ऐसी माँग के लिए सज़ा का प्रावधान है। [dowry_prohibition_act_1961:4]\n\nआप घरेलू हिंसा के बारे में पति के रिश्तेदार के खिलाफ भी शिकायत कर सकती हैं। घरेलू हिंसा से हुए खर्च और नुकसान के लिए मजिस्ट्रेट से आर्थिक राहत के बारे में भी पूछ सकती हैं। मजिस्ट्रेट एक न्यायिक अधिकारी होता है। [domestic_violence_act_2005:2]\n\nउपलब्ध स्रोतों में पुलिस शिकायत और सुरक्षा आदेश पाने की पूरी प्रक्रिया नहीं दी गई है।",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "dowry_prohibition_act_1961:4",
+            "quote": "If any person demands, directly or indirectly, from the parents\nor other relatives or guardian of a bride or bridegroom, as the case may be, any dowry, he shall be punishable",
+            "supports": "दुल्हन के माता-पिता, अन्य रिश्तेदारों या अभिभावक से सीधे या परोक्ष रूप से दहेज माँगने पर सज़ा का प्रावधान है।",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 4, The Dowry Prohibition Act, 1961",
+            "page": 5
+          },
+          {
+            "section_id": "domestic_violence_act_2005:2",
+            "quote": "an aggrieved wife or female living in a relationship in the nature of a marriage  may\nalso file a complaint against a relative of the husband or the male partner",
+            "supports": "पत्नी पति के रिश्तेदार के खिलाफ भी शिकायत कर सकती है।",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Protection of Women from Domestic Violence Act, 2005",
+            "page": 5
+          },
+          {
+            "section_id": "domestic_violence_act_2005:2",
+            "quote": "to meet the expenses incurred and the losses suffered by the aggrieved  person as a result of\nthe domestic violence",
+            "supports": "घरेलू हिंसा से हुए खर्च और नुकसान के लिए मजिस्ट्रेट से आर्थिक राहत के बारे में पूछा जा सकता है।",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Protection of Women from Domestic Violence Act, 2005",
+            "page": 5
+          }
+        ],
+        "next_steps": [
+          "यदि अभी खतरा है, तो जहाँ सुरक्षित हो वहाँ जाएँ और किसी भरोसेमंद व्यक्ति को बताएँ। चोट लगी हो तो चिकित्सकीय सहायता लें।",
+          "आप पुलिस को दहेज की माँग और मारपीट के बारे में बता सकती हैं। यह भी बताएँ कि किसने क्या माँगा और किसने मारपीट की।",
+          "यदि सुरक्षित हो, तो संदेश, चोटों की तस्वीरें और इलाज के कागज़ सुरक्षित रखें। घटनाओं की तारीखें और गवाहों के नाम भी लिख लें।",
+          "किसी वकील से सुरक्षा आदेश और आर्थिक राहत के विकल्पों तथा उन्हें माँगने की प्रक्रिया के बारे में बात करें।"
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 202, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 4, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 243, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 2, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 80, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 113, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 219, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 2, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 31, The Protection of Women from Domestic Violence Act, 2005",
+          "Section 84, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 2, The Protection of Women from Domestic Violence Act, 2005",
+          "Section 33, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 3, The Dowry Prohibition Act, 1961",
+          "Section 307, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 4, The Dowry Prohibition Act, 1961"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9449,
+        "output_tokens": 833,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          },
+          {
+            "kind": "helpline",
+            "text": "Women Helpline 181 (24x7) gives emergency and non-emergency support to women facing violence.",
+            "source": "https://missionshakti.wcd.gov.in (Mission Shakti, Ministry of Women and Child Development)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal",
+      "expected": [
+        "sc_st_atrocities_act_1989:3"
+      ],
+      "seconds": 16.1,
+      "also_check": "May mention s.15A rights of victims; must not name the caste of the accused or assume.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 6,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "I belong to a Scheduled Caste. Some people in my village insulted me using my caste name in front of everyone and are stopping my family from using the village water source. Which law protects me?",
+        "answer": "I’m sorry this happened to you. The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989 may protect you.\n\nUnder this Act, abusing a Scheduled Caste person by caste name in a place within public view can be an offence. Preventing a Scheduled Caste person from using a common water source can also be an offence. These provisions apply when the person responsible is not a member of a Scheduled Caste or Scheduled Tribe. Whether they apply in your case depends on the facts.\n\nThe Act also says the State must make arrangements to protect victims, their dependents and witnesses against threats or violence.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "sc_st_atrocities_act_1989:1",
+            "quote": "This Act may be called the Scheduled Castes and\nthe Scheduled Tribes (Prevention of Atrocities) Act, 1989.",
+            "supports": "The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989 may protect you.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 1, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+            "page": 5
+          },
+          {
+            "section_id": "sc_st_atrocities_act_1989:3",
+            "quote": "abuses any member of a Scheduled Caste or a Scheduled Tribe  by caste name in any place\nwithin public view",
+            "supports": "Abusing a Scheduled Caste person by caste name in a place within public view can be an offence.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 3, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+            "page": 6
+          },
+          {
+            "section_id": "sc_st_atrocities_act_1989:3",
+            "quote": "obstructs or prevents a member of a Scheduled Caste",
+            "supports": "The Act addresses preventing a Scheduled Caste person from using a water source.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 3, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+            "page": 6
+          },
+          {
+            "section_id": "sc_st_atrocities_act_1989:3",
+            "quote": "using any river, stream,  spring, well, tank, cistern, water-tap or other watering place",
+            "supports": "The provision covers common water sources such as wells, tanks and water taps.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 3, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+            "page": 6
+          },
+          {
+            "section_id": "sc_st_atrocities_act_1989:3",
+            "quote": "Whoever, not being a member of a Scheduled Caste\nor a Scheduled Tribe",
+            "supports": "These provisions apply when the person responsible is not a member of a Scheduled Caste or Scheduled Tribe.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 3, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+            "page": 6
+          },
+          {
+            "section_id": "sc_st_atrocities_act_1989:15A",
+            "quote": "It shall be the duty and responsibility of the State to\nmake arrangements  for the protection of victims, their dependents, and witnesses against any kind of\nintimidation or coercion or inducement or violence or threats of violence.",
+            "supports": "The State must make arrangements to protect victims, their dependents and witnesses against threats or violence.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 15A, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+            "page": 14
+          }
+        ],
+        "next_steps": [
+          "You can report both incidents to the police. Tell them if you or your family feel unsafe or need access to water.",
+          "If safe, note when and where the incidents happened, what was said, who was present, and how access to the water source was blocked. Keep any relevant recordings or messages.",
+          "Consider speaking to a lawyer or a trusted organisation for help with your complaint."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 3, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 17, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 2, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 1, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 34, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 196, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 8, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 217, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 18, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 15A, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 16, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 353, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 7, The Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "Section 13, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 10, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10489,
+        "output_tokens": 908,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal",
+      "expected": [
+        "bnss_2023:173"
+      ],
+      "seconds": 16.8,
+      "also_check": "Explains the step if refused (Superintendent of Police, then Magistrate).",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "The police station near my house refused to register my FIR, saying the incident happened in another area's jurisdiction. Are they allowed to do that?",
+        "answer": "No—not just because the incident happened in another area, if the information concerns a cognizable offence. A cognizable offence is one for which police may arrest without a warrant. You can give this information to the officer in charge of a police station, regardless of where the offence happened. The recorded information must be given to you or the victim free of cost.\n\nIf the officer in charge refuses to record it, you can send the information in writing and by post to the Superintendent of Police concerned. If that does not resolve the matter, you may apply to a Magistrate. The sources do not establish whether your particular incident is a cognizable offence.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "bnss_2023:173",
+            "quote": "cognizable offence, irrespective of the area where the offence is committed",
+            "supports": "Information about a cognizable offence can be given regardless of where the offence happened.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 173, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 69
+          },
+          {
+            "section_id": "bnss_2023:2",
+            "quote": "a police officer may, in accordance with the First Schedule or under any other law for the time being in\nforce, arrest without warrant",
+            "supports": "A cognizable offence is one for which police may arrest without a warrant.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 18
+          },
+          {
+            "section_id": "bnss_2023:173",
+            "quote": "A copy of the information as recorded under sub -section (1) shall be given forthwith, free of cost,\nto the informant or the victim.",
+            "supports": "The informant or victim must receive a free copy of the recorded information.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 173, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 69
+          },
+          {
+            "section_id": "bnss_2023:173",
+            "quote": "may send the substance of  such information, in writing and\nby post, to the Superintendent of Police concerned",
+            "supports": "A person whose information was refused may send it in writing and by post to the Superintendent of Police concerned.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 173, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 69
+          },
+          {
+            "section_id": "bnss_2023:173",
+            "quote": "such aggrieved person may make an application to the Magistrate.",
+            "supports": "If the matter is not resolved through the Superintendent of Police, the person may apply to a Magistrate.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 173, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+            "page": 69
+          }
+        ],
+        "next_steps": [
+          "Write down what happened, when you visited the station, and what the police told you. Keep copies of any documents or messages relevant to the incident.",
+          "Ask the officer in charge to record your information and request a free copy.",
+          "If the officer refuses, consider posting the written information to the Superintendent of Police concerned. Keep a copy and proof of posting.",
+          "If needed, speak to a qualified criminal lawyer about whether the incident is cognizable and about applying to a Magistrate."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 2, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 186, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 173, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 175, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 174, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 81, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 59, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 80, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 57, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 207, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 9, The Protection of Women from Domestic Violence Act, 2005",
+          "Section 185, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 10, The Protection of Women from Domestic Violence Act, 2005",
+          "Section 176, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 35, The Bharatiya Nagarik Suraksha Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 8646,
+        "output_tokens": 809,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "criminal",
+      "expected": [
+        "bns_2023:358",
+        "bnss_2023:531"
+      ],
+      "seconds": 7.2,
+      "also_check": "Old-law warning: incident before 1 July 2024 -> IPC/CrPC apply; NyayaAI does not contain the IPC/CrPC text, so it must not quote IPC section numbers from memory.",
+      "score": {
+        "retrieved_correct": false,
+        "grounded": false,
+        "correct_law": false,
+        "passed": false,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Someone cheated me of ₹2 lakh in March 2023 and I filed an FIR at that time. The trial is still going on. Does my case now fall under the new BNS or the old IPC?",
+        "answer": "I cannot determine from the laws available here whether your March 2023 case falls under the old IPC or the new BNS. The sources do not include the transition rules needed to answer that question.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Keep a copy of your FIR and the court’s charge document.",
+          "Ask the prosecutor or a criminal lawyer handling your case to check those documents and explain which law applies."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 243, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 363, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 234, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 4, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 202, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 359, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 318, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 238, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 244, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 220, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 290, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 217, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 1, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 72A, The Information Technology Act, 2000",
+          "Section 242, The Bharatiya Nagarik Suraksha Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10053,
+        "output_tokens": 163,
+        "safety_notes": []
+      }
+    }
+  ]
+}
