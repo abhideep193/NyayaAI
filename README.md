@@ -10,6 +10,9 @@ NyayaAI gives legal information, not legal advice. It says so, and it says when 
 
 Built for the Kuku *AI Generalist* assignment, Problem 2 ("Build an AI Lawyer").
 
+**Live demo:** https://nyayaai-j6jrrcqxexfz2umjqgdodp.streamlit.app/ (asks for an access code, because every
+question is paid for by the developer; the code is shared with reviewers).
+
 ---
 
 ## What it covers
@@ -63,19 +66,25 @@ All test questions were written **before** the feature they test was built, and 
 against the Act text. Details and every experiment, including rejected ones: [`outputs/retrieval_experiments.md`](outputs/retrieval_experiments.md),
 [`outputs/answer_experiments.md`](outputs/answer_experiments.md). Raw answers: [`outputs/answer_eval/`](outputs/answer_eval/).
 
+Final run with the submitted version (all 63 answers, unedited:
+[`outputs/raw_outputs/`](outputs/raw_outputs/)):
+
 | Question set | Result |
 |---|---|
-| IPR questions (39: tuning, held-out, fresh, owner-written, Hindi/Hinglish) | correct law cited in **37/39** |
+| IPR questions (39: tuning, held-out, fresh, owner-written, Hindi/Hinglish) | correct law cited in **36/39** |
 | Criminal-law questions (15: 7 owner-written, 8 assistant-written) | correct law cited in **13/15** |
 | Out-of-scope questions (6) | correctly declined **6/6** |
-| Citations checked word for word | **303/304** verified in the full run (the 1 failure was flagged to the user) |
+| Real-life questions typed by the owner while testing (3) | shown, not scored |
+| Citations checked word for word | **310/312** verified (the 2 rejected quotes were too short to prove anything, and were flagged) |
 
-Cost about **$0.01-0.03 per question**; median answer time about **15 s**.
+Cost about **$0.015 per question**; median answer time about **15 s**. Results vary slightly between runs because
+the search-rewrite step uses an LLM (the previous full run scored 37/39 on IPR).
 
-**Known failures:** "Is software patentable?" (Patents s.3(k) never found by search); an OTP-fraud question where
-search missed BNS s.318/319; a question about a 2023 case where the transition sections were not found; the model
-sometimes labels a partly covered answer "not covered". Search quality varies a little between runs because the
-rewrite step uses an LLM.
+**Known failures:** "Is software patentable?" (Patents s.3(k) never found by search); unregistered brand-name
+questions (Trade Marks s.27 not cited); "neighbour punched me" (BNS s.115 not found by search); and over-caution
+in 3 criminal answers: for the POCSO teacher and sexual-assault questions the model cited the right sections but
+labelled its answer "not covered", and for the 2023 case it was given the right transition sections (BNS s.358,
+BNSS s.531) but still declined. The code-added old-law warning was shown in that case anyway.
 
 ## Run it yourself
 
