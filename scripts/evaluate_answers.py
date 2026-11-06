@@ -44,6 +44,10 @@ def score_answer(case: dict, response: dict, citation_of: dict[str, str]) -> dic
         passed = abstained and not verified
         return {"passed": passed, "verified": len(verified), "rejected": len(rejected), "abstained": abstained}
 
+    if case["set"] == "scenario":
+        # Real-life questions with no single right section: recorded for reading, not scored.
+        return {"passed": None, "verified": len(verified), "rejected": len(rejected), "abstained": abstained}
+
     retrieved_correct = any(citation_of[s] in response["sources_considered"] for s in case["expected"])
     grounded = not abstained and len(verified) > 0
     correct_law = any(c["section_id"] in case["expected"] for c in verified)
@@ -71,6 +75,8 @@ def summarise(records: list[dict]) -> list[str]:
         if set_name == "out_of_scope":
             ok = sum(r["score"]["passed"] for r in subset)
             lines.append(f"[{set_name}] correctly said 'insufficient': {ok}/{n}")
+        elif set_name == "scenario":
+            lines.append(f"[{set_name}] {n} real-life questions recorded (not scored; read them in the raw outputs)")
         else:
             retrieved = sum(r["score"]["retrieved_correct"] for r in subset)
             grounded = sum(r["score"]["grounded"] for r in subset)
@@ -154,7 +160,7 @@ def main() -> None:
                         "also_check": case.get("also_check"),
                         "score": score, "response": response})
 
-        status = "PASS" if score["passed"] else "FAIL"
+        status = "----" if score["passed"] is None else ("PASS" if score["passed"] else "FAIL")
         print(f"{number:2}. {status}  [{case['set']}] {case['question']}")
         print(f"      confidence={response['confidence']}  citations: {score['verified']} verified, "
               f"{score['rejected']} rejected  ({seconds:.1f}s)")

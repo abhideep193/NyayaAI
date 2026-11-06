@@ -1,7 +1,7 @@
 """Download the embedding model and build the search indexes ahead of time.
 
 Run while building the deployment image (see Dockerfile), so the live app starts quickly
-instead of embedding ~2,300 sections (several minutes) on its first visitor.
+instead of embedding ~2,260 sections (several minutes) on its first visitor.
 Writes data/processed/embeddings_cache*.npz for every enabled area of law.
 
     python -m scripts.prebuild_search

@@ -1,0 +1,8 @@
+{
+  "description": "Messy, real-life questions the project owner typed into the chat page while testing (2026-11-06), copied exactly, spelling included. They have no single correct section, so they are shown in the raw outputs but not scored. The headphones question is consumer law, which NyayaAI does not cover, so the expected behaviour is a clear 'not covered' answer.",
+  "cases": [
+    {"question": "my neighbour aunty is screaming from her house what should i do?", "expected": [], "set": "scenario", "author": "owner"},
+    {"question": "meri gf ko aaj koi stalk kar raha tha and ussko continously unknown number se messages aa rahe hai kya karna cahhiye", "expected": [], "set": "scenario", "author": "owner"},
+    {"question": "maine ekk heaphones order kiye the but wo deffective nikle and company refund bhi nhi de rahi hai mujhe kya karna chahiye", "expected": [], "set": "scenario", "author": "owner"}
+  ]
+}

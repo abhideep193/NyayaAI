@@ -93,6 +93,19 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
 }
 .block-container { padding-top: 7.5rem; }  /* room for the fixed top bar */
 .logo { height: 44px; display: block; filter: drop-shadow(0 0 6px rgba(34, 211, 238, .35)); }
+
+/* Keep ☰ / Lady Justice / NyayaAI in ONE row on every screen. (On phones Streamlit stacks columns
+   vertically, which made the pinned bar very tall and covered the page.) */
+.st-key-topbar [data-testid="stHorizontalBlock"] { flex-wrap: nowrap !important; gap: .6rem !important; }
+.st-key-topbar [data-testid="stColumn"] { width: auto !important; flex: 0 0 auto !important; min-width: 0 !important; }
+.st-key-topbar [data-testid="stColumn"]:last-child { flex: 1 1 auto !important; }
+@media (max-width: 640px) {
+  .st-key-topbar { padding: .5rem 1rem 1.2rem; }
+  .logo { height: 34px; }
+  .st-key-brand button, .st-key-brand button p { font-size: 1.6rem !important; }
+  .tagline { font-size: .72rem; margin-top: -.2rem; }
+  .block-container { padding-top: 7.2rem; }  /* the tagline wraps to 2 lines on phones */
+}
 .block-container { padding-bottom: 7rem; max-width: 820px; }
 
 /* --- top bar: menu button + NyayaAI (click = new chat) --- */

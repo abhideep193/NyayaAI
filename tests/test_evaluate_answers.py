@@ -77,3 +77,17 @@ def test_summary_counts_and_verification_rate():
             "abstained despite source: 0") in lines
     assert "[out_of_scope] correctly said 'insufficient': 1/1" in lines
     assert "citations: 3 verified, 1 rejected (verification rate 75%)" in lines
+
+
+def test_scenario_questions_are_recorded_but_not_scored():
+    from scripts.evaluate_answers import score_answer, summarise
+
+    case = {"question": "q", "expected": [], "set": "scenario"}
+    response = {"citations": [{"verified": True, "section_id": "bns_2023:78"}], "confidence": "high",
+                "sources_considered": []}
+    score = score_answer(case, response, {})
+    assert score["passed"] is None and score["verified"] == 1
+
+    record = {"set": "scenario", "score": score, "seconds": 1.0,
+              "response": {"confidence": "high", "input_tokens": 1, "output_tokens": 1}}
+    assert any("not scored" in line for line in summarise([record]))
