@@ -40,10 +40,16 @@ def build_assistant():
 
     from app import config
     from app.services.assistant import NyayaAssistant, load_known_issues
+    from app.services.query_rewriter import QueryRewriter, QueryRewritingRetriever
+
+    client = openai.OpenAI(api_key=config.OPENAI_API_KEY)
+    retriever = build_retrievers()["hybrid"]
+    if config.USE_QUERY_REWRITE:
+        retriever = QueryRewritingRetriever(retriever, QueryRewriter(client, config.QUERY_REWRITE_MODEL))
 
     return NyayaAssistant(
-        retriever=build_retrievers()["hybrid"],
-        client=openai.OpenAI(api_key=config.OPENAI_API_KEY),
+        retriever=retriever,
+        client=client,
         model=config.OPENAI_MODEL,
         known_issues=load_known_issues(SOURCES_FILE),
         context_sections=config.ANSWER_CONTEXT_SECTIONS,

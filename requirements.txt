@@ -28,6 +28,9 @@ openai==3.46.0
 # Loads settings such as OPENAI_API_KEY from the .env file
 python-dotenv==1.2.4
 
+# The chat web page (streamlit run streamlit_app.py)
+streamlit==1.67.0
+
 # --- Testing ---
 # Test runner: finds and runs the tests in tests/
 pytest==9.2.0

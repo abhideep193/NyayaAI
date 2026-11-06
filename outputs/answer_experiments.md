@@ -36,6 +36,26 @@ the verifier rejected it correctly.
 **Decision (2026-11-06): use 15 sections** (default in `app/config.py`). Held-out correct law
 cited 4/10 -> 8/10 and in-scope abstentions 4 -> 1, with no new citation errors, for +$0.005 per question.
 
+## With query rewriting + multilingual + out-of-scope redirect (2026-11-06)
+
+File: `answer_eval/2026-11-06_133348_gpt-6.1-terra_ctx15.json` (45 questions; rewrite model `gpt-6-luna`).
+Prompt changes: reply in the user's language with quotes kept verbatim in English; non-IPR questions get
+"NyayaAI covers only copyright, trade marks and patents" + "speak to a qualified lawyer", no other laws named.
+
+| Set | Correct law retrieved | Correct law cited & verified |
+|---|---|---|
+| Tuning (15) | 13/15 | 13/15 |
+| Held-out (10) | 10/10 | 10/10 (was 8/10 without rewriting) |
+| Fresh (9) | 9/9 | 9/9 |
+| Fresh2 (2, owner) | 2/2 | 1/2 |
+| Multilingual (3, Hindi/Hinglish) | 2/3 | 2/3 |
+| Out of scope (6) | - | 6/6 correctly declined |
+
+Citations: 219 verified, 0 rejected. Median latency 13.4 s (max 24.9 s). Cost $0.0153 per question.
+Remaining failures: "Is software patentable?" (s.3 never retrieved); unregistered company name and "sue for
+unregistered brand" (answers cite ss.11/134/135 for passing off - substantively right, but s.27 not cited);
+Hindi "register my brand name" (s.18 not retrieved; answer honestly says the sources don't give the procedure).
+
 ## Judge reliability (manual spot-check)
 
 - Correct: s.52 proviso requires acknowledgment for criticism/review; answers omitted it.

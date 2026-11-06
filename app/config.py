@@ -17,3 +17,8 @@ OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-6.1-terra")
 # 15 chosen after comparing 8 vs 15 (see outputs/answer_experiments.md).
 # Can be overridden in .env, e.g. ANSWER_CONTEXT_SECTIONS=8
 ANSWER_CONTEXT_SECTIONS = int(os.getenv("ANSWER_CONTEXT_SECTIONS", "15"))
+
+# Rewrite each question into the Acts' vocabulary (and into English) before searching.
+# Accepted after measurement (see outputs/retrieval_experiments.md). Set to "false" to switch off.
+USE_QUERY_REWRITE = os.getenv("USE_QUERY_REWRITE", "true").lower() == "true"
+QUERY_REWRITE_MODEL = os.getenv("QUERY_REWRITE_MODEL", "gpt-6-luna")

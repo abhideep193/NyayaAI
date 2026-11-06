@@ -63,7 +63,7 @@ def score_answer(case: dict, response: dict, citation_of: dict[str, str]) -> dic
 def summarise(records: list[dict]) -> list[str]:
     """Build the summary lines printed at the end."""
     lines = []
-    for set_name in ["tuning", "held_out", "fresh", "out_of_scope"]:
+    for set_name in ["tuning", "held_out", "fresh", "fresh2", "multilingual", "out_of_scope"]:
         subset = [r for r in records if r["set"] == set_name]
         if not subset:
             continue
@@ -123,8 +123,13 @@ def main() -> None:
         cases = cases[: args.limit]
     assistant = build_assistant()
     assistant.context_sections = args.context_sections
-    citation_of = {f"{s.source_id}:{s.section}": s.citation for s in assistant.retriever.keyword_retriever.sections}
-    print(f"model: {config.OPENAI_MODEL}   context sections: {args.context_sections}\n")
+    from app.services.retriever import load_sections
+    from scripts.search import PROCESSED_DIR, SOURCES_FILE
+
+    source_ids = [s["id"] for s in json.loads(SOURCES_FILE.read_text(encoding="utf-8"))["sources"]]
+    citation_of = {f"{s.source_id}:{s.section}": s.citation for s in load_sections(PROCESSED_DIR, source_ids)}
+    print(f"model: {config.OPENAI_MODEL}   context sections: {args.context_sections}   "
+          f"query rewrite: {config.QUERY_REWRITE_MODEL if config.USE_QUERY_REWRITE else 'off'}\n")
 
     records = []
     for number, case in enumerate(cases, start=1):
