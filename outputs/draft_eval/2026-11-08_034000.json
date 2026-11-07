@@ -1,0 +1,554 @@
+{
+  "run_at": "2026-11-08_034000",
+  "totals": {
+    "R1_no_unverified_law": 8,
+    "R2_no_invented_figures": 8,
+    "R3_name_is_blank": 8,
+    "R4_includes_user_facts": 8,
+    "R6_offer_shown": 8,
+    "R7_right_document": 8,
+    "R8_right_guide": 8
+  },
+  "cases": 8,
+  "results": [
+    {
+      "id": "deposit_delhi",
+      "author": "project owner",
+      "checks": {
+        "R1_no_unverified_law": true,
+        "R2_no_invented_figures": true,
+        "R3_name_is_blank": true,
+        "R4_includes_user_facts": true,
+        "R6_offer_shown": true,
+        "R7_right_document": true,
+        "R8_right_guide": true
+      },
+      "answer_confidence": "medium",
+      "answer_verified_sections": [
+        "contract_act_1872:73",
+        "contract_act_1872:73"
+      ],
+      "questions_asked": [
+        "When did you vacate the flat and return the keys?",
+        "What does your rental agreement say about the deposit return deadline and deductions?",
+        "Has your landlord given a specific reason for withholding the deposit or claimed any deductions?"
+      ],
+      "facts_reply_used": "I moved out on 15 September 2026. He said he will deduct money for painting but never gave any bill.",
+      "document_type": "landlord_letter",
+      "guide": "landlord_letter",
+      "draft_text": "Request for return of security deposit\n\nFrom:\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR CONTACT DETAILS]\n\nTo:\n[LANDLORD'S NAME]\n[LANDLORD'S ADDRESS]\n[LANDLORD'S CONTACT DETAILS]\n\nDate: [DATE]\n\nSubject: Return of security deposit for [ADDRESS OF THE FLAT]\n\nDear [LANDLORD'S NAME],\n\nI rented the flat in Delhi and paid you ₹50,000 as a security deposit. I moved out on 15 September 2026, cleared all my bills and returned the keys.\n\nYou have not returned the deposit and have given excuses for the delay. You said you would deduct money for painting, but you have not provided a bill.\n\nPlease return the ₹50,000 deposit within [NUMBER OF DAYS] days. If you claim any deduction, please provide an itemised explanation, the bill and the basis for the deduction under our rental agreement within the same period.\n\nPlease contact me at [YOUR CONTACT DETAILS] to arrange payment.\n\nYours sincerely,\n[YOUR NAME]\n\nLegal provisions referred to:\n- Section 73, The Indian Contract Act, 1872: \"compensation for any loss or damage caused to him thereby\"",
+      "blanks": [
+        "[YOUR NAME]",
+        "[YOUR ADDRESS]",
+        "[YOUR CONTACT DETAILS]",
+        "[LANDLORD'S NAME]",
+        "[LANDLORD'S ADDRESS]",
+        "[LANDLORD'S CONTACT DETAILS]",
+        "[DATE]",
+        "[ADDRESS OF THE FLAT]",
+        "[NUMBER OF DAYS]"
+      ],
+      "law": [
+        {
+          "section_id": "contract_act_1872:73",
+          "verified": true,
+          "quote": "compensation for any loss or damage caused to him thereby"
+        }
+      ],
+      "unverified_figures": [],
+      "law_in_body": [],
+      "check_before_sending": [
+        "Confirm the move-out date and year.",
+        "Check the rental agreement for deposit return and painting deduction terms.",
+        "Choose a response deadline and keep copies of deposit payment, bill clearance and key-return evidence."
+      ],
+      "must_be_blank (hand check)": [
+        "tenant's name",
+        "landlord's name",
+        "flat address"
+      ],
+      "seconds": 20.0
+    },
+    {
+      "id": "deposit_pune_hinglish",
+      "author": "assistant",
+      "checks": {
+        "R1_no_unverified_law": true,
+        "R2_no_invented_figures": true,
+        "R3_name_is_blank": true,
+        "R4_includes_user_facts": true,
+        "R6_offer_shown": true,
+        "R7_right_document": true,
+        "R8_right_guide": true
+      },
+      "answer_confidence": "medium",
+      "answer_verified_sections": [
+        "contract_act_1872:73"
+      ],
+      "questions_asked": [
+        "Rent agreement ke mutabik deposit kab tak wapas milna tha?",
+        "Kya landlord ne deposit se kisi katauti ki baat kahi hai?"
+      ],
+      "facts_reply_used": "Rent agreement 11 mahine ka tha, usme deposit wapas karne ki koi date nahi likhi.",
+      "document_type": "landlord_letter",
+      "guide": "landlord_letter",
+      "draft_text": "Request for return of security deposit\n\nFrom:\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR CONTACT DETAILS]\n\nTo:\n[LANDLORD'S NAME]\n[LANDLORD'S ADDRESS]\n[LANDLORD'S CONTACT DETAILS]\n\nDate: [DATE OF LETTER]\n\nSubject: Request for return of security deposit\n\nDear [LANDLORD'S NAME],\n\nI vacated the flat at [ADDRESS OF THE FLAT] in Pune on 1 October 2026 and handed over the keys. The rent agreement was for 11 months and did not specify a date for return of the deposit.\n\nThe deposit of ₹30,000 has not been returned. You have said that you will pay it later. I request that you return the deposit within [NUMBER OF DAYS] days of receiving this letter, using [PAYMENT METHOD OR DETAILS]. If you propose any deductions, please provide their details and the basis for them.\n\nPlease confirm when the payment will be made.\n\nYours sincerely,\n[YOUR NAME]",
+      "blanks": [
+        "[YOUR NAME]",
+        "[YOUR ADDRESS]",
+        "[YOUR CONTACT DETAILS]",
+        "[LANDLORD'S NAME]",
+        "[LANDLORD'S ADDRESS]",
+        "[LANDLORD'S CONTACT DETAILS]",
+        "[DATE OF LETTER]",
+        "[ADDRESS OF THE FLAT]",
+        "[NUMBER OF DAYS]",
+        "[PAYMENT METHOD OR DETAILS]"
+      ],
+      "law": [],
+      "unverified_figures": [],
+      "law_in_body": [],
+      "check_before_sending": [
+        "Rent agreement mein deposit aur kisi katauti ki shartein check karein.",
+        "Payment ke liye dinon ki sankhya aur payment ka tarika bharein.",
+        "Agreement, deposit payment aur chaabi dene ka saboot sambhal kar rakhein."
+      ],
+      "must_be_blank (hand check)": [
+        "tenant's name",
+        "landlord's name",
+        "flat address"
+      ],
+      "seconds": 21.8
+    },
+    {
+      "id": "iphone_dummy",
+      "author": "project owner",
+      "checks": {
+        "R1_no_unverified_law": true,
+        "R2_no_invented_figures": true,
+        "R3_name_is_blank": true,
+        "R4_includes_user_facts": true,
+        "R6_offer_shown": true,
+        "R7_right_document": true,
+        "R8_right_guide": true
+      },
+      "answer_confidence": "high",
+      "answer_verified_sections": [
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:35",
+        "consumer_protection_act_2019:39",
+        "consumer_protection_act_2019:39",
+        "consumer_protection_act_2019:39",
+        "consumer_protection_act_2019:39",
+        "consumer_protection_act_2019:47"
+      ],
+      "questions_asked": [
+        "When did you place the order and receive the package?",
+        "When did you contact customer support, and when was your refund rejected?",
+        "Do you have photos, an unboxing video, or other evidence of what you received?",
+        "Besides a refund, do you want to claim compensation?"
+      ],
+      "facts_reply_used": "Delivered on 20 October 2026. I have the unboxing video and the order invoice.",
+      "document_type": "consumer_complaint",
+      "guide": "consumer_complaint",
+      "draft_text": "Consumer complaint seeking refund for a dummy phone\n\nTo\nThe [NAME OF CONSUMER COMMISSION]\n[COMMISSION ADDRESS]\n\nComplainant: [YOUR NAME]\n[YOUR ADDRESS]\n[YOUR CONTACT DETAILS]\n\nOpposite party: [NAME OF WEBSITE OPERATOR OR SELLER]\n[OPPOSITE PARTY'S ADDRESS]\n[OPPOSITE PARTY'S CONTACT DETAILS]\n\nSubject: Complaint seeking refund for an iPhone order\n\nRespected Sir or Madam,\n\n1. I ordered an iPhone from an online shopping website for ₹65,000. The order was delivered on 20 October 2026, but the package contained a cheap dummy phone instead.\n\n2. I contacted customer support several times, but my refund requests were repeatedly rejected.\n\n3. I have the order invoice and an unboxing video as evidence.\n\nI request that the Commission direct the appropriate opposite party to refund ₹65,000 and grant any other relief it considers appropriate under the applicable law.\n\nYours faithfully,\n[YOUR SIGNATURE]\n[YOUR NAME]\n[DATE]\n\nLegal provisions referred to:\n- Section 2, The Consumer Protection Act, 2019: \"offline or online transactions through electronic means or by teleshopping or direct\nselling or multi-level marketing\"\n- Section 39, The Consumer Protection Act, 2019: \"to return to the complainant the price\"",
+      "blanks": [
+        "[NAME OF CONSUMER COMMISSION]",
+        "[COMMISSION ADDRESS]",
+        "[YOUR NAME]",
+        "[YOUR ADDRESS]",
+        "[YOUR CONTACT DETAILS]",
+        "[NAME OF WEBSITE OPERATOR OR SELLER]",
+        "[OPPOSITE PARTY'S ADDRESS]",
+        "[OPPOSITE PARTY'S CONTACT DETAILS]",
+        "[YOUR SIGNATURE]",
+        "[DATE]"
+      ],
+      "law": [
+        {
+          "section_id": "consumer_protection_act_2019:2",
+          "verified": true,
+          "quote": "offline or online transactions through electronic means or by teleshopping or direct\nselling or multi-level marketing"
+        },
+        {
+          "section_id": "consumer_protection_act_2019:39",
+          "verified": true,
+          "quote": "to return to the complainant the price"
+        }
+      ],
+      "unverified_figures": [],
+      "law_in_body": [],
+      "check_before_sending": [
+        "Confirm the delivery date, order amount and payment details.",
+        "Identify the correct opposite party or parties using the invoice and order details.",
+        "Check which Commission has jurisdiction, the filing requirements and whether the purchase qualifies as a consumer transaction.",
+        "Prepare the invoice, unboxing video and any available customer-support records for submission."
+      ],
+      "must_be_blank (hand check)": [
+        "complainant's name",
+        "seller or platform name",
+        "order number"
+      ],
+      "seconds": 36.8
+    },
+    {
+      "id": "washing_machine",
+      "author": "project owner",
+      "checks": {
+        "R1_no_unverified_law": true,
+        "R2_no_invented_figures": true,
+        "R3_name_is_blank": true,
+        "R4_includes_user_facts": true,
+        "R6_offer_shown": true,
+        "R7_right_document": true,
+        "R8_right_guide": true
+      },
+      "answer_confidence": "high",
+      "answer_verified_sections": [
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:39",
+        "consumer_protection_act_2019:39",
+        "consumer_protection_act_2019:39",
+        "consumer_protection_act_2019:39",
+        "consumer_protection_act_2019:2",
+        "consumer_protection_act_2019:35",
+        "consumer_protection_act_2019:34"
+      ],
+      "questions_asked": [
+        "Was the machine bought for personal use?",
+        "Is the machine still not working after the three technician visits?",
+        "Do you want a replacement or a refund?",
+        "Does the bill state a return or refund period?"
+      ],
+      "facts_reply_used": "I want a replacement, or a refund if they cannot replace it.",
+      "document_type": "consumer_complaint",
+      "guide": "consumer_complaint",
+      "draft_text": "Consumer complaint seeking replacement or refund of washing machine\n\nTo\nThe President and Members\n[NAME OF DISTRICT CONSUMER COMMISSION]\n[COMMISSION ADDRESS]\n[COMMISSION CONTACT DETAILS]\n\nComplainant: [YOUR NAME], [YOUR ADDRESS], [YOUR CONTACT DETAILS]\nOpposite party: [SELLER'S NAME], [SELLER'S ADDRESS], [SELLER'S CONTACT DETAILS]\n\nSubject: Complaint concerning a washing machine\n\nRespected Sir/Madam,\n\n1. I bought a new washing machine for ₹35,000 from the opposite party's shop in Guwahati. The shop gave me a written bill dated 2 October 2026.\n\n2. Within two weeks, the machine stopped working. The seller has sent technicians, and the technician visited three times. The seller refuses to replace the machine or refund my money.\n\n3. I believe the machine is defective and request the Commission to consider my complaint under the applicable law.\n\nI respectfully request that the Commission direct the seller to replace the machine with a new, defect-free machine of similar description, or, if it cannot be replaced, refund ₹35,000.\n\nSupporting documents: [LIST OF DOCUMENTS ATTACHED]\n\nPlace: [PLACE]\nDate: [DATE]\n\nSignature: [YOUR SIGNATURE]\n[YOUR NAME]\n\nLegal provisions referred to:\n- Section 2, The Consumer Protection Act, 2019: \"(ii) the goods bought by him or agreed to be bought by him suffer from one or more defects;\"\n- Section 39, The Consumer Protection Act, 2019: \"(b) to replace the goods with new goods of similar description which shall be free from any\ndefect;\"\n- Section 39, The Consumer Protection Act, 2019: \"(c) to return to the complainant the price, or, as the case may be, the charges paid by the\ncomplainant along with such interest on such price or charges as may be decided;\"",
+      "blanks": [
+        "[NAME OF DISTRICT CONSUMER COMMISSION]",
+        "[COMMISSION ADDRESS]",
+        "[COMMISSION CONTACT DETAILS]",
+        "[YOUR NAME]",
+        "[YOUR ADDRESS]",
+        "[YOUR CONTACT DETAILS]",
+        "[SELLER'S NAME]",
+        "[SELLER'S ADDRESS]",
+        "[SELLER'S CONTACT DETAILS]",
+        "[LIST OF DOCUMENTS ATTACHED]",
+        "[PLACE]",
+        "[DATE]",
+        "[YOUR SIGNATURE]"
+      ],
+      "law": [
+        {
+          "section_id": "consumer_protection_act_2019:2",
+          "verified": true,
+          "quote": "(ii) the goods bought by him or agreed to be bought by him suffer from one or more defects;"
+        },
+        {
+          "section_id": "consumer_protection_act_2019:39",
+          "verified": true,
+          "quote": "(b) to replace the goods with new goods of similar description which shall be free from any\ndefect;"
+        },
+        {
+          "section_id": "consumer_protection_act_2019:39",
+          "verified": true,
+          "quote": "(c) to return to the complainant the price, or, as the case may be, the charges paid by the\ncomplainant along with such interest on such price or charges as may be decided;"
+        }
+      ],
+      "unverified_figures": [],
+      "law_in_body": [],
+      "check_before_sending": [
+        "Check the bill date, 2 October 2026, and complete the seller's details.",
+        "Confirm how the machine was used and whether it is currently working; add accurate details if needed.",
+        "Attach the bill and any available technician records or communications with the seller.",
+        "Check the appropriate Commission, current financial limits and filing requirements before filing."
+      ],
+      "must_be_blank (hand check)": [
+        "complainant's name",
+        "shop name",
+        "shop address"
+      ],
+      "seconds": 29.2
+    },
+    {
+      "id": "phone_theft",
+      "author": "assistant",
+      "checks": {
+        "R1_no_unverified_law": true,
+        "R2_no_invented_figures": true,
+        "R3_name_is_blank": true,
+        "R4_includes_user_facts": true,
+        "R6_offer_shown": true,
+        "R7_right_document": true,
+        "R8_right_guide": true
+      },
+      "answer_confidence": "high",
+      "answer_verified_sections": [
+        "bns_2023:303"
+      ],
+      "questions_asked": [
+        "When did the theft happen?",
+        "Which bus route were you travelling on, and where did you notice the phone was missing?",
+        "What was the phone’s make, model and colour?",
+        "Did you see anyone take it or notice anything suspicious?"
+      ],
+      "facts_reply_used": "It happened on 5 November 2026 around 6 pm on the bus from Swargate. The phone is a Samsung worth ₹22,000.",
+      "document_type": "police_complaint",
+      "guide": "police_complaint",
+      "draft_text": "Police complaint about theft of mobile phone\n\nTo,\nThe Officer in Charge\n[POLICE STATION NAME]\n[POLICE STATION ADDRESS]\n\nDate: [DATE]\n\nSubject: Complaint about theft of mobile phone\n\nSir/Madam,\n\n1. On 5 November 2026 around 6 pm, I was travelling on a city bus in Pune from Swargate when someone stole my phone from my bag.\n\n2. The phone is a Samsung worth ₹22,000. Its model is [PHONE MODEL] and its IMEI number is [IMEI NUMBER, IF AVAILABLE].\n\nI request you to register my complaint, investigate the theft and take appropriate steps to trace my phone. Please provide me with an acknowledgement of this complaint.\n\nYours faithfully,\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR CONTACT DETAILS]\n[SIGNATURE]\n\nLegal provisions referred to:\n- Section 303, The Bharatiya Nyaya Sanhita, 2023: \"Whoever, intending to take dishonestly any movable property out of the possession\nof any person without that person’s consent, moves that property in order to such taking, is said to\ncommit theft.\"",
+      "blanks": [
+        "[POLICE STATION NAME]",
+        "[POLICE STATION ADDRESS]",
+        "[DATE]",
+        "[PHONE MODEL]",
+        "[IMEI NUMBER, IF AVAILABLE]",
+        "[YOUR NAME]",
+        "[YOUR ADDRESS]",
+        "[YOUR CONTACT DETAILS]",
+        "[SIGNATURE]"
+      ],
+      "law": [
+        {
+          "section_id": "bns_2023:303",
+          "verified": true,
+          "quote": "Whoever, intending to take dishonestly any movable property out of the possession\nof any person without that person’s consent, moves that property in order to such taking, is said to\ncommit theft."
+        }
+      ],
+      "unverified_figures": [],
+      "law_in_body": [],
+      "check_before_sending": [
+        "Check that the date, time and bus journey details are correct.",
+        "Add the phone model and IMEI number if available.",
+        "Fill in the police station and your contact details, and sign the complaint."
+      ],
+      "must_be_blank (hand check)": [
+        "complainant's name",
+        "IMEI number",
+        "police station name"
+      ],
+      "seconds": 20.1
+    },
+    {
+      "id": "upi_fraud",
+      "author": "assistant",
+      "checks": {
+        "R1_no_unverified_law": true,
+        "R2_no_invented_figures": true,
+        "R3_name_is_blank": true,
+        "R4_includes_user_facts": true,
+        "R6_offer_shown": true,
+        "R7_right_document": true,
+        "R8_right_guide": true
+      },
+      "answer_confidence": "high",
+      "answer_verified_sections": [
+        "bns_2023:318",
+        "bns_2023:319"
+      ],
+      "questions_asked": [
+        "When did you send the ₹12,000?",
+        "What did the caller say to persuade you to send the money?",
+        "Have you reported this to your bank? If so, what was its response?"
+      ],
+      "facts_reply_used": "It was on 6 November 2026. I have the UPI transaction ID and a screenshot of the call log.",
+      "document_type": "police_complaint",
+      "guide": "cyber_complaint",
+      "draft_text": "Complaint about suspected UPI fraud\n\nTo\n[RECIPIENT'S NAME OR DESIGNATION]\nCyber Crime Police\n[POLICE STATION ADDRESS]\n[RECIPIENT'S CONTACT DETAILS]\n\nFrom\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR CONTACT DETAILS]\n\nDate: [DATE OF COMPLAINT]\n\nSubject: Complaint about suspected UPI fraud\n\nDear Sir/Madam,\n\n1. On 6 November 2026, someone called me pretending to be from my bank. I sent ₹12,000 by UPI to their number, [CALLER'S NUMBER].\n\n2. The caller's phone is now switched off. The UPI transaction ID is [UPI TRANSACTION ID]. I have a screenshot of the call log and can provide it along with the transaction ID.\n\nI request you to record my complaint, investigate the matter and take appropriate steps to trace the recipient and assist in recovering the money. Please provide an acknowledgement of this complaint.\n\nYours faithfully,\n[YOUR NAME]\n[YOUR SIGNATURE]\n\nLegal provisions referred to:\n- Section 318, The Bharatiya Nyaya Sanhita, 2023: \"fraudulently or dishonestly induces the\nperson so deceived to deliver any property to any person\"",
+      "blanks": [
+        "[RECIPIENT'S NAME OR DESIGNATION]",
+        "[POLICE STATION ADDRESS]",
+        "[RECIPIENT'S CONTACT DETAILS]",
+        "[YOUR NAME]",
+        "[YOUR ADDRESS]",
+        "[YOUR CONTACT DETAILS]",
+        "[DATE OF COMPLAINT]",
+        "[CALLER'S NUMBER]",
+        "[UPI TRANSACTION ID]",
+        "[YOUR SIGNATURE]"
+      ],
+      "law": [
+        {
+          "section_id": "bns_2023:318",
+          "verified": true,
+          "quote": "fraudulently or dishonestly induces the\nperson so deceived to deliver any property to any person"
+        }
+      ],
+      "unverified_figures": [],
+      "law_in_body": [],
+      "check_before_sending": [
+        "Check the date, caller's number and UPI transaction ID.",
+        "Keep the call-log screenshot and transaction details ready to provide.",
+        "Contact your bank and report the transaction as soon as possible."
+      ],
+      "must_be_blank (hand check)": [
+        "complainant's name",
+        "UPI transaction ID",
+        "bank name"
+      ],
+      "seconds": 21.2
+    },
+    {
+      "id": "youtube_reupload",
+      "author": "project owner",
+      "checks": {
+        "R1_no_unverified_law": true,
+        "R2_no_invented_figures": true,
+        "R3_name_is_blank": true,
+        "R4_includes_user_facts": true,
+        "R6_offer_shown": true,
+        "R7_right_document": true,
+        "R8_right_guide": true
+      },
+      "answer_confidence": "medium",
+      "answer_verified_sections": [
+        "copyright_act_1957:51",
+        "copyright_act_1957:51",
+        "copyright_act_1957:17",
+        "copyright_act_1957:17",
+        "copyright_act_1957:18",
+        "copyright_act_1957:56",
+        "copyright_act_1957:63"
+      ],
+      "questions_asked": [
+        "Did you create the video yourself, and do you own its copyright?"
+      ],
+      "facts_reply_used": "My video was published on 3 March 2026. Their copy appeared on 10 June 2026.",
+      "document_type": "copyright_notice",
+      "guide": "copyright_notice",
+      "draft_text": "Copyright infringement notice to YouTube\n\nTo: YouTube Copyright Team\n[RECIPIENT NAME]\n[RECIPIENT ADDRESS OR CONTACT DETAILS]\n\nFrom: [YOUR NAME]\n[YOUR ADDRESS]\n[YOUR CONTACT DETAILS]\n\nDate: [DATE]\n\nSubject: Request to remove an unauthorised copy of my video\n\nDear Copyright Team,\n\n1. My YouTube video, [VIDEO TITLE], was published on 3 March 2026. Its URL is [ORIGINAL VIDEO URL].\n\n2. My entire video was uploaded on another channel without my permission. The copy appeared on 10 June 2026 and has been monetised. Its URL is [COPIED VIDEO URL], and the channel is [CHANNEL NAME OR URL].\n\n3. My basis for claiming copyright ownership or authority to act is: [BASIS OF COPYRIGHT OWNERSHIP OR AUTHORITY].\n\nPlease review this complaint and remove the unauthorised copy. Please let me know if you require further information and confirm the outcome of your review.\n\nYours faithfully,\n[YOUR NAME]\n[YOUR CONTACT DETAILS]\n\nLegal provisions referred to:\n- Section 51, The Copyright Act, 1957: \"does anything, the exclusive right to do which is by this Act conferred upon the owner of\nthe copyright\"",
+      "blanks": [
+        "[RECIPIENT NAME]",
+        "[RECIPIENT ADDRESS OR CONTACT DETAILS]",
+        "[YOUR NAME]",
+        "[YOUR ADDRESS]",
+        "[YOUR CONTACT DETAILS]",
+        "[DATE]",
+        "[VIDEO TITLE]",
+        "[ORIGINAL VIDEO URL]",
+        "[COPIED VIDEO URL]",
+        "[CHANNEL NAME OR URL]",
+        "[BASIS OF COPYRIGHT OWNERSHIP OR AUTHORITY]"
+      ],
+      "law": [
+        {
+          "section_id": "copyright_act_1957:51",
+          "verified": true,
+          "quote": "does anything, the exclusive right to do which is by this Act conferred upon the owner of\nthe copyright"
+        }
+      ],
+      "unverified_figures": [],
+      "law_in_body": [],
+      "check_before_sending": [
+        "Confirm that you own the relevant copyright or have authority to submit the complaint.",
+        "Check both video URLs, the channel details and the dates; preserve evidence of the copy and monetisation.",
+        "Check YouTube’s copyright complaint process and supply any additional information it requires."
+      ],
+      "must_be_blank (hand check)": [
+        "owner's name",
+        "channel name",
+        "video link"
+      ],
+      "seconds": 26.5
+    },
+    {
+      "id": "photo_website",
+      "author": "assistant",
+      "checks": {
+        "R1_no_unverified_law": true,
+        "R2_no_invented_figures": true,
+        "R3_name_is_blank": true,
+        "R4_includes_user_facts": true,
+        "R6_offer_shown": true,
+        "R7_right_document": true,
+        "R8_right_guide": true
+      },
+      "answer_confidence": "high",
+      "answer_verified_sections": [
+        "copyright_act_1957:2",
+        "copyright_act_1957:2",
+        "copyright_act_1957:17",
+        "copyright_act_1957:17",
+        "copyright_act_1957:17",
+        "copyright_act_1957:14",
+        "copyright_act_1957:14",
+        "copyright_act_1957:51",
+        "copyright_act_1957:52",
+        "copyright_act_1957:55",
+        "copyright_act_1957:55"
+      ],
+      "questions_asked": [
+        "Which photographs is the company using?",
+        "Were the photographs commissioned or taken as part of employment, and did you agree to transfer or license the rights?",
+        "When did you first notice the company using them?",
+        "What would you like the company to do: remove the photographs, pay you, or both?"
+      ],
+      "facts_reply_used": "I want them to remove the photos or pay a licence fee.",
+      "document_type": "copyright_notice",
+      "guide": "copyright_notice",
+      "draft_text": "Copyright infringement notice concerning photographs\n\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR CONTACT DETAILS]\n\n[DATE]\n\n[COMPANY NAME]\n[COMPANY ADDRESS]\n[COMPANY CONTACT DETAILS]\n\nSubject: Use of my photographs on your website and Instagram page\n\nDear Sir or Madam,\n\n1. I am a freelance photographer. I took the photographs identified as [DESCRIPTION OR LINKS TO PHOTOGRAPHS] and posted them on my portfolio in January 2026.\n\n2. Your company is using these photographs on its website and Instagram page at [LINKS TO COMPANY WEBSITE AND INSTAGRAM POSTS]. You did not ask my permission or pay me for their use. This use may infringe copyright under the applicable law.\n\nPlease, within [NUMBER OF DAYS] days, either remove the photographs from your website and Instagram page and confirm their removal, or contact me to agree and pay a licence fee for their use. Any licence would be subject to terms agreed between us.\n\nPlease respond using the contact details above.\n\nYours faithfully,\n\n[YOUR NAME]\n\nLegal provisions referred to:\n- Section 2, The Copyright Act, 1957: \"(iv) in relation to a photograph, the person taking the photograph;\"\n- Section 17, The Copyright Act, 1957: \"Subject to the provisions of this Act, the author of a work shall be\nthe first owner of the copyright therein:\"\n- Section 14, The Copyright Act, 1957: \"(c) in the case of an artistic work,—\n5[(i) to reproduce the work in any material form including—\"",
+      "blanks": [
+        "[YOUR NAME]",
+        "[YOUR ADDRESS]",
+        "[YOUR CONTACT DETAILS]",
+        "[DATE]",
+        "[COMPANY NAME]",
+        "[COMPANY ADDRESS]",
+        "[COMPANY CONTACT DETAILS]",
+        "[DESCRIPTION OR LINKS TO PHOTOGRAPHS]",
+        "[LINKS TO COMPANY WEBSITE AND INSTAGRAM POSTS]",
+        "[NUMBER OF DAYS]"
+      ],
+      "law": [
+        {
+          "section_id": "copyright_act_1957:2",
+          "verified": true,
+          "quote": "(iv) in relation to a photograph, the person taking the photograph;"
+        },
+        {
+          "section_id": "copyright_act_1957:17",
+          "verified": true,
+          "quote": "Subject to the provisions of this Act, the author of a work shall be\nthe first owner of the copyright therein:"
+        },
+        {
+          "section_id": "copyright_act_1957:14",
+          "verified": true,
+          "quote": "(c) in the case of an artistic work,—\n5[(i) to reproduce the work in any material form including—"
+        }
+      ],
+      "unverified_figures": [],
+      "law_in_body": [],
+      "check_before_sending": [
+        "Check ownership and any commissioning, employment or licence agreements.",
+        "Add links identifying the photographs and save screenshots of their use.",
+        "Decide the response deadline and the fee and terms you would accept."
+      ],
+      "must_be_blank (hand check)": [
+        "photographer's name",
+        "company name",
+        "website link"
+      ],
+      "seconds": 29.3
+    }
+  ],
+  "consent_cases": [
+    {
+      "id": "out_of_scope_divorce",
+      "confidence": "insufficient",
+      "offer_shown": false,
+      "pass": true
+    },
+    {
+      "id": "new_question_after_offer",
+      "result": "covered by test_new_question_after_offer_is_answered_normally"
+    }
+  ]
+}

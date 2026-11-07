@@ -1,0 +1,70 @@
+{
+  "description": "Contract-law evaluation set (Indian Contract Act 1872), written on 2026-11-08 BEFORE the Act was added to NyayaAI (the PDF had not been downloaded yet). 'contract_owner' = the project owner's question, copied verbatim. 'contract' = questions written by the assistant. A case passes if ANY expected section is found/cited. Expected section NUMBERS were chosen from the assistant's knowledge of the Act and MUST be checked against the India Code text once it is downloaded, before any search or answer is run; the check is recorded in 'checked_against_text'. They must not be changed to improve scores.",
+  "written_on": "2026-11-08",
+  "checked_against_text": "2026-11-08, before any search or answer was run: all expected sections (Contract Act ss.10, 37, 39, 72, 73, 74; TPA s.108(m)) confirmed in the India Code text; none changed.",
+  "acceptance_rules": {
+    "A1_search": "Expected section in the top 15 for at least 6 of 8 questions, in each of 3 runs (routed search, as in the app).",
+    "A2_no_harm": "Other areas stay within the limits used before: IPR mean >= 35.0, criminal mean >= 12.7, property mean >= 8.0, consumer >= 10 of 11 (3 runs each).",
+    "A3_answers": "Answers cite an expected section for at least 6 of 8; every shown quote verified by code.",
+    "A4_drafting": "Re-run outputs/test_cases/drafting_eval.json: the offer is shown after both deposit answers (R6 8/8), and R1 (no unverified law) and R2 (no invented figures) stay at 8/8.",
+    "A5_hand_check": "No answer or draft invents a time limit for returning a deposit, claims that a deposit-specific law exists, or names the Model Tenancy Act 2021 (a model for States, not law in force); no promise of the outcome."
+  },
+  "cases": [
+    {
+      "question": "I rented a flat in Delhi and paid my landlord ₹50,000 as a security deposit. I've vacated the flat, cleared all my bills and returned the keys, but he keeps making excuses and isn't returning my deposit. What can I legally do?",
+      "expected": ["contract_act_1872:73", "transfer_of_property_act_1882:108"],
+      "why": "Contract Act s.73 compensation for loss caused by breach of contract (the agreement to return the deposit); TPA s.108 rights and liabilities of lessor and lessee (incl. restoring the property subject to reasonable wear and tear).",
+      "set": "contract_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "Pune mein maine flat chhod diya hai lekin landlord ₹30,000 ka deposit wapas nahi kar raha, bolta hai baad mein dunga. Main kya kar sakta hoon?",
+      "expected": ["contract_act_1872:73", "transfer_of_property_act_1882:108"],
+      "why": "As above, in Hinglish (also used in drafting_eval.json).",
+      "set": "contract",
+      "author": "assistant"
+    },
+    {
+      "question": "My landlord deducted ₹20,000 from my deposit for repainting and normal wear and tear, although our agreement says nothing about such deductions. Is he allowed to do that?",
+      "expected": ["transfer_of_property_act_1882:108", "contract_act_1872:73"],
+      "why": "TPA s.108(m): the lessee must restore the property 'in as good condition as it was in at the time when he was put in possession, subject only to the changes caused by reasonable wear and tear'; Contract Act s.73.",
+      "set": "contract",
+      "author": "assistant"
+    },
+    {
+      "question": "I paid a contractor ₹1,00,000 in advance to renovate my kitchen. He did half the work, stopped coming, and refuses to return the rest of the money. What are my rights?",
+      "expected": ["contract_act_1872:73", "contract_act_1872:39"],
+      "why": "s.39 when a party refuses to perform his promise entirely, the promisee may put an end to the contract; s.73 compensation for breach.",
+      "set": "contract",
+      "author": "assistant"
+    },
+    {
+      "question": "A friend borrowed ₹50,000 from me and promised in a signed note to repay it within six months. It's been a year and he refuses to pay. Is his promise legally binding?",
+      "expected": ["contract_act_1872:10", "contract_act_1872:37", "contract_act_1872:73"],
+      "why": "s.10 agreements made by free consent of competent parties, for a lawful consideration, are contracts; s.37 parties must perform their promises; s.73 compensation for breach.",
+      "set": "contract",
+      "author": "assistant"
+    },
+    {
+      "question": "My rent agreement says I will lose my entire 3-month deposit as a penalty if I leave before 11 months. Can the landlord really keep all of it?",
+      "expected": ["contract_act_1872:74"],
+      "why": "s.74: where a contract names a penalty for breach, the party complaining is entitled to 'reasonable compensation not exceeding the amount so named'.",
+      "set": "contract",
+      "author": "assistant"
+    },
+    {
+      "question": "I transferred ₹15,000 by mistake to a stranger's bank account. He knows it was a mistake but refuses to send it back. What does the law say?",
+      "expected": ["contract_act_1872:72"],
+      "why": "s.72: a person to whom money has been paid by mistake must repay or return it.",
+      "set": "contract",
+      "author": "assistant"
+    },
+    {
+      "question": "Is a verbal agreement legally valid in India, or does it have to be in writing?",
+      "expected": ["contract_act_1872:10"],
+      "why": "s.10 what agreements are contracts; writing is needed only where another law requires it.",
+      "set": "contract",
+      "author": "assistant"
+    }
+  ]
+}

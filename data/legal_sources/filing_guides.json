@@ -1,0 +1,151 @@
+{
+  "description": "Step-by-step filing guides shown by NyayaAI's CODE after a draft (never written by the model). Every link was checked on an official government source on 2026-11-08 ('checked_source'). Every 'law' line carries a quote that tests/test_filing_guides.py checks word for word against the Act text. Fees, money limits for each Commission and State-specific procedures are deliberately NOT included: they are set by Rules or State law that NyayaAI does not have. NyayaAI never files anything itself.",
+  "checked_on": "2026-11-08",
+  "legal_aid": {
+    "text": "Free legal help: call the NALSA helpline 15100 (toll-free). Women, children, members of Scheduled Castes or Scheduled Tribes, persons with disability, people in custody, industrial workmen and people below an income limit (it differs by State) can get a free lawyer from their District Legal Services Authority.",
+    "checked_source": "https://nalsa.gov.in/faqs (National Legal Services Authority, FAQs on section 12 of the Legal Services Authorities Act 1987)"
+  },
+  "guides": [
+    {
+      "id": "consumer_complaint",
+      "title": "Filing a consumer complaint",
+      "steps": [
+        {
+          "heading": "1. First try the National Consumer Helpline (optional, free)",
+          "text": "Call 1915 (8 AM to 8 PM) or register your grievance on the National Consumer Helpline portal, app, UMANG or WhatsApp. The helpline forwards it to the company, and you can track the status online.",
+          "link": "https://consumerhelpline.gov.in",
+          "checked_source": "https://consumerhelpline.gov.in (Department of Consumer Affairs, Government of India); PIB National Consumer Day note, 23 Dec 2025"
+        },
+        {
+          "heading": "2. File a complaint with the Consumer Commission online: e-Jagriti",
+          "text": "e-Jagriti is the government portal for consumer commission cases (it replaced e-Daakhil in January 2025). You register with a one-time password, file the complaint, pay any fee, join hearings by video and follow your case online. You can also file in person at the District Commission.",
+          "link": "https://e-jagriti.gov.in",
+          "checked_source": "https://e-jagriti.gov.in (Ministry of Consumer Affairs, Food and Public Distribution); PIB National Consumer Day note, 23 Dec 2025: 'the platform enables users to file complaints, make payments, participate in virtual hearings'"
+        },
+        {
+          "heading": "3. Where you can file",
+          "text": "You can file in the District Commission where you live or work, not only where the seller is.",
+          "law": {"section_id": "consumer_protection_act_2019:34", "quote": "the complainant resides or personally works for gain"}
+        },
+        {
+          "heading": "4. Time limit",
+          "text": "File within two years from when the problem arose. A late complaint may be accepted only if you show a good reason for the delay.",
+          "law": {"section_id": "consumer_protection_act_2019:69", "quote": "unless it is filed within two years from the date on which the cause of action has arisen"}
+        },
+        {
+          "heading": "5. Fees and which Commission",
+          "text": "The fee, and whether the District, State or National Commission hears your case, depend on the amount and are set by government Rules that NyayaAI does not have. e-Jagriti or the Commission's office will tell you."
+        }
+      ],
+      "documents_to_keep": ["Bill, invoice or order confirmation", "Payment proof (bank or UPI statement)", "Warranty card, if any", "Messages, emails and complaint numbers from customer care", "Photos or video of the defect (for example an unboxing video)", "A copy of your letter to the seller and proof it was delivered"],
+      "acknowledgement": "The National Consumer Helpline and e-Jagriti both show a status you can track online. Save every reference number you receive."
+    },
+    {
+      "id": "police_complaint",
+      "title": "Giving a complaint to the police",
+      "steps": [
+        {
+          "heading": "1. Go to any police station",
+          "text": "You can report a cognizable offence (such as theft) at any police station, even if it happened in another area. You can give it in writing, orally, or electronically.",
+          "law": {"section_id": "bnss_2023:173", "quote": "irrespective of the area where the offence is committed, may be given orally or by electronic communication to an officer in charge of a police station"}
+        },
+        {
+          "heading": "2. If you report it electronically, sign it within three days",
+          "text": "A complaint sent electronically is taken on record once you sign it, within three days.",
+          "law": {"section_id": "bnss_2023:173", "quote": "it shall be taken on record by him on being signed within three days by the person giving it"}
+        },
+        {
+          "heading": "3. Ask for your free copy",
+          "text": "You are entitled to a copy of what the police recorded, free of cost. Keep it: it has the FIR number you will need later.",
+          "law": {"section_id": "bnss_2023:173", "quote": "shall be given forthwith, free of cost, to the informant or the victim"}
+        },
+        {
+          "heading": "4. If the police refuse to register it",
+          "text": "Send the complaint in writing, by post, to the Superintendent of Police of the district. Keep the postal receipt.",
+          "law": {"section_id": "bnss_2023:173", "quote": "may send the substance of such information, in writing and by post, to the Superintendent of Police concerned"}
+        },
+        {
+          "heading": "5. Online police services",
+          "text": "Many State police websites accept online complaints for lost or stolen items. Search for your State police's official website (it ends in .gov.in or .nic.in); NyayaAI does not list State websites."
+        }
+      ],
+      "documents_to_keep": ["Date, time and place of the incident", "Description of what was lost or what happened (for a phone: the IMEI number, printed on the box or bill)", "Bills or proof of ownership", "Names of any witnesses", "Photos, screenshots or messages"],
+      "acknowledgement": "Ask for the copy of the recorded complaint (FIR) with its number and the police station's name. If you sent it by post, keep the receipt and tracking number."
+    },
+    {
+      "id": "cyber_complaint",
+      "title": "Reporting online fraud or cyber crime",
+      "steps": [
+        {
+          "heading": "1. Act fast: call 1930",
+          "text": "For money lost to online fraud, call 1930 as soon as possible, and also tell your bank straight away.",
+          "link": "https://cybercrime.gov.in",
+          "checked_source": "https://cybercrime.gov.in (National Cyber Crime Reporting Portal, Ministry of Home Affairs); same source as NyayaAI's helpline note, checked 2026-11-06"
+        },
+        {
+          "heading": "2. Report on the National Cyber Crime Reporting Portal",
+          "text": "File the complaint at cybercrime.gov.in with the transaction details and screenshots. Never share an OTP, PIN or password with anyone who calls claiming to help.",
+          "link": "https://cybercrime.gov.in",
+          "checked_source": "https://cybercrime.gov.in (National Cyber Crime Reporting Portal, Ministry of Home Affairs)"
+        },
+        {
+          "heading": "3. You can also go to any police station",
+          "text": "The information can be given at any police station, orally or electronically, and you get a free copy.",
+          "law": {"section_id": "bnss_2023:173", "quote": "shall be given forthwith, free of cost, to the informant or the victim"}
+        }
+      ],
+      "documents_to_keep": ["UPI or bank transaction ID, date, time and amount", "The phone number, UPI ID or website used by the fraudster", "Screenshots of calls, messages and payment", "Your bank account statement showing the debit"],
+      "acknowledgement": "The portal and the 1930 helpline give you a complaint or acknowledgement number. Save it, and give it to your bank."
+    },
+    {
+      "id": "landlord_letter",
+      "title": "Sending your letter to the landlord and next steps",
+      "steps": [
+        {
+          "heading": "1. Send the letter with proof of delivery",
+          "text": "Send it by Speed Post or Registered Post and keep the receipt; you can track delivery with the receipt number on India Post's website. Also sending it by email or WhatsApp gives you a dated copy.",
+          "link": "https://www.indiapost.gov.in",
+          "checked_source": "https://www.indiapost.gov.in (Department of Posts, Government of India)"
+        },
+        {
+          "heading": "2. Keep a copy of everything",
+          "text": "Keep a signed copy of the letter, the postal receipt and the tracking result."
+        },
+        {
+          "heading": "3. If there is no reply",
+          "text": "Recovering the money usually means a case in a civil court, and rent rules differ by State. Talk to a lawyer, or get free legal help (below). NyayaAI does not give court fees or time limits, because they are in laws it does not have."
+        }
+      ],
+      "documents_to_keep": ["Rent agreement", "Proof of paying the deposit (bank transfer, receipt)", "Rent receipts and paid bills", "Photos or video of the flat when you left", "Proof you returned the keys (message or receipt)", "Messages with the landlord about the deposit"],
+      "acknowledgement": "The India Post tracking result showing delivery, or the landlord's written reply."
+    },
+    {
+      "id": "copyright_notice",
+      "title": "Sending a copyright notice and next steps",
+      "steps": [
+        {
+          "heading": "1. Send the notice",
+          "text": "Send it to the person or company using your work: by email and, if you have an address, by Speed Post or Registered Post. Keep proof of sending.",
+          "link": "https://www.indiapost.gov.in",
+          "checked_source": "https://www.indiapost.gov.in (Department of Posts, Government of India)"
+        },
+        {
+          "heading": "2. The platform's own process",
+          "text": "Websites and video platforms usually have their own copyright complaint form. That is the platform's policy, not Indian law, so NyayaAI does not describe it: look for 'copyright' in the platform's help pages."
+        },
+        {
+          "heading": "3. Court remedies",
+          "text": "The copyright owner can ask a court for an injunction (an order to stop), damages and accounts of profits. This needs a lawyer.",
+          "law": {"section_id": "copyright_act_1957:55", "quote": "remedies by way of injunction, damages, accounts and otherwise"}
+        },
+        {
+          "heading": "4. Police complaint",
+          "text": "Knowingly infringing copyright is also an offence, so you can give a complaint to the police. Whether it applies to your case is for the police and court to decide.",
+          "law": {"section_id": "copyright_act_1957:63", "quote": "who knowingly infringes or abets the infringement of"}
+        }
+      ],
+      "documents_to_keep": ["Your original file (with its date) and where you first published it", "Links and screenshots of the copy, with dates", "Any earnings or views shown on the copy", "Proof of sending the notice"],
+      "acknowledgement": "Proof of delivery of your notice, and any reply or complaint number from the platform."
+    }
+  ]
+}

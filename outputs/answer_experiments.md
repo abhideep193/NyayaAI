@@ -230,3 +230,55 @@ Caveat: CPA s.2 (definitions, 25,000 characters) matches most consumer questions
 meet in this area than in others. Same known prompt inconsistency as property: rule 3's examples of OTHER areas still
 include "consumer problems"; it caused no wrong declines here.
 Decision: ENABLED_DOMAINS default -> ipr,criminal,property,consumer.
+
+## 2026-11-08: Adding contract law (Indian Contract Act 1872) - rules fixed BEFORE building
+
+Why: the drafting feature (letters/complaints) is offered only after an answer with a verified citation. The owner's
+deposit question was answered "insufficient" (no section on deposits), so the letter was never offered. The owner
+chose to add the law that actually governs it rather than relax that rule. India has no Central law specific to rent
+deposits; the deposit is returned under the agreement, governed by the Contract Act (s.73 compensation for breach).
+The Model Tenancy Act 2021 is deliberately NOT added (a model for States, not law in force).
+Act downloaded by the owner; all 268 sections match the table of contents (76 omitted/repealed); the 17 existing
+Acts are byte-identical. New area "contract" in domains.json. Test set outputs/test_cases/contract_eval.json
+(owner's deposit question verbatim + 7 assistant questions), written before the PDF existed; expected sections
+checked against the text before any run.
+
+Accept contract law (ENABLED_DOMAINS=ipr,criminal,property,consumer,contract) only if ALL hold; otherwise it stays off:
+1. Retrieval: expected section in top 15 for >= 6/8 contract questions in each of 3 routed runs.
+2. Other areas not harmed (3 routed runs): IPR mean >= 35.0/39, criminal >= 12.7/15, property >= 8.0/10, consumer >= 10/11.
+3. Answers cite an expected section for >= 6/8; all shown quotes verified.
+4. Drafting re-run (drafting_eval.json): offer shown after both deposit answers (R6 8/8); R1 and R2 stay 8/8.
+5. Hand check: no invented deposit time limit, no claim that a deposit-specific law exists, Model Tenancy Act never
+   named, no limitation periods/court fees stated, no promised outcome. Out-of-scope still declined 6/6.
+
+### Result: contract law ACCEPTED (2026-11-08, ~03:45)
+
+| rule | result |
+|---|---|
+| 1. retrieval, contract @15 (routed, 3 runs) | 8/8, 8/8, 8/8 (>= 6) - met; deposit questions routed to property + contract |
+| 2. other areas (3 runs) | IPR mean 36.00 (>= 35.0), criminal 13.33 (>= 12.7), property 9.67 (>= 8.0), consumer 11/11 every run (>= 10) - met |
+| 3. answers cite an expected section | 8/8 (>= 6); 23/23 citations verified; out-of-scope declined 6/6 - met |
+| 4. drafting re-run | all rules 8/8: offer now shown after both deposit answers (R6 6/8 -> 8/8); R1 8/8, R2 8/8 - met |
+| 5. hand check | met: answers say no Central deposit-specific law exists, no invented deposit time limit, Model Tenancy Act never named, no limitation periods or court fees, no promised outcome |
+
+Unedited answers: outputs/answer_eval/2026-11-08_033553_gpt-6.1-terra_ctx15_ipr+criminal+property+consumer+contract.json;
+drafts: outputs/draft_eval/2026-11-08_034000.md.
+Notes from the hand check: (a) the contractor answer computed "₹50,000" (half of the user's ₹1,00,000) to say that sum
+is NOT necessarily due back - not a legal claim, but a figure the user did not write; (b) answers still repeat the
+"no 'as on' date" known issue (same as property). Decision: ENABLED_DOMAINS default -> ipr,criminal,property,consumer,contract.
+
+## 2026-11-08: Drafting letters/complaints + filing guide - first runs
+
+Rules R1-R9 fixed in outputs/test_cases/drafting_eval.json before the feature was built.
+Run 1 (contract law off), outputs/draft_eval/2026-11-08_031108.md: R1 8/8, R2 7/8, R3 8/8, R4 8/8, R6 6/8, R7 8/8, R8 8/8.
+- R2 miss was a checker false positive: the user wrote "11 mahine", the English letter said "11 months". Fix: the
+  figure checker now reads Hindi/Hinglish duration words (mahine, din, saal, ...); a different number is still flagged.
+- R6 misses: both deposit answers were "insufficient" (no section on deposits) so no offer -> owner chose to add the
+  Indian Contract Act (above) rather than relax the rule.
+Run 2 (contract law on), outputs/draft_eval/2026-11-08_034000.md: every rule 8/8; out-of-scope (divorce) gets no offer.
+R5 (DRAFT label) and the consent behaviour (no draft without yes; a new question after the offer is answered normally)
+are covered by tests/test_streamlit_app.py. R9 hand check: met (no promises, every deadline left as [NUMBER OF DAYS],
+names/addresses/IMEI left blank). Display fix after the hand check: law quotes in the letter are shown without PDF
+line breaks and amendment marks ("5[") - same words.
+Filing guides (data/legal_sources/filing_guides.json): written by hand, every link checked on .gov.in/.nic.in on
+2026-11-08 (e-Daakhil was merged into e-Jagriti on 1 Jan 2025, per PIB); every law line's quote is checked by a test.

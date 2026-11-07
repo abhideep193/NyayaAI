@@ -154,6 +154,20 @@ def build_document_explainer(retriever=None, client=None):
                              vision_model=config.VISION_MODEL)
 
 
+def build_drafter(client=None):
+    """Letter/complaint drafting: needs the text of every enabled Act (to check the draft's law quotes)."""
+    import openai
+
+    from app import config
+    from app.services.citation_verifier import section_id
+    from app.services.drafter import Drafter
+
+    client = client or openai.OpenAI(api_key=config.OPENAI_API_KEY)
+    sources = json.loads(SOURCES_FILE.read_text(encoding="utf-8"))["sources"]
+    sections = load_sections(PROCESSED_DIR, enabled_source_ids(sources, config.ENABLED_DOMAINS))
+    return Drafter(client, config.OPENAI_MODEL, {section_id(s): s for s in sections})
+
+
 def main() -> None:
     if len(sys.argv) < 2:
         print('Usage: python -m scripts.search "your question"')

@@ -1,0 +1,120 @@
+{
+  "description": "Drafting + filing-guide evaluation set, written on 2026-11-08 BEFORE the drafting feature was built. Each case is a scripted conversation: (1) the user's problem, answered by the existing pipeline; (2) the user's consent ('button' = the Yes button, otherwise the exact text typed); (3) 'facts_reply' = what the user types when NyayaAI asks for missing facts. 'author: project owner' problems are copied verbatim from the owner's earlier questions; the rest were written by the assistant. Pass rules are in 'rules' and must not be changed after the first run. Expected values must not be changed to improve scores.",
+  "written_on": "2026-11-08",
+  "rules": {
+    "R1_no_unverified_law": "Every section mentioned or quoted in the draft is one that was VERIFIED in the answer it follows, and every quote in the draft is verified word for word. Required: 100% of drafts.",
+    "R2_no_invented_figures": "Every date, amount, duration and clock time in the draft appears in the user's own messages (problem, consent text, facts reply) or, for amounts/durations only, in a verified quote. Required: 100% of drafts.",
+    "R3_blanks_for_missing": "Every item in 'must_be_blank' appears as a [PLACEHOLDER] in square brackets, and no personal name, address or phone number the user did not give appears. Required: at least 7 of 8 drafts.",
+    "R4_includes_user_facts": "Every item in 'must_include' (facts the user gave) appears in the draft. Required: at least 7 of 8 drafts.",
+    "R5_labelled_draft": "The draft is labelled as a DRAFT to be reviewed before use. Required: 100% (shown by code, so also covered by unit tests).",
+    "R6_consent": "No draft is produced before consent; no offer is shown when the answer is out of scope or 'insufficient'; a new question after the offer gets a normal answer and no draft. Required: 100%.",
+    "R7_right_document": "The document type chosen matches 'expected_document'. Required: at least 7 of 8.",
+    "R8_filing_guide": "The filing guide shown is the one for 'expected_guide', every link comes from filing_guides.json (official source + date checked), and nothing says NyayaAI filed or submitted anything. Required: 100%.",
+    "R9_hand_check": "Read by hand: no promised outcome ('you will get your money'), no threat the law does not support, no invented deadline given to the other side (a deadline the user did not choose must be a [NUMBER OF DAYS] blank), facts asked for are only those that change the letter. Required: no serious problem in any draft."
+  },
+  "cases": [
+    {
+      "id": "deposit_delhi",
+      "problem": "I rented a flat in Delhi and paid my landlord ₹50,000 as a security deposit. I've vacated the flat, cleared all my bills and returned the keys, but he keeps making excuses and isn't returning my deposit. What can I legally do?",
+      "author": "project owner",
+      "consent": "button",
+      "facts_reply": "I moved out on 15 September 2026. He said he will deduct money for painting but never gave any bill.",
+      "expected_document": "landlord_letter",
+      "must_include": ["50,000", "15 September 2026", "painting"],
+      "must_be_blank": ["tenant's name", "landlord's name", "flat address"],
+      "expected_guide": "landlord_letter"
+    },
+    {
+      "id": "deposit_pune_hinglish",
+      "problem": "Pune mein maine flat chhod diya hai lekin landlord ₹30,000 ka deposit wapas nahi kar raha, bolta hai baad mein dunga. Main kya kar sakta hoon?",
+      "author": "assistant",
+      "consent": "haan please, maine 1 October 2026 ko flat khali kiya tha aur chaabi bhi de di thi",
+      "facts_reply": "Rent agreement 11 mahine ka tha, usme deposit wapas karne ki koi date nahi likhi.",
+      "expected_document": "landlord_letter",
+      "must_include": ["30,000", "1 October 2026"],
+      "must_be_blank": ["tenant's name", "landlord's name", "flat address"],
+      "expected_guide": "landlord_letter",
+      "note": "Typed consent that also carries facts. Pune is not Delhi: the Delhi Rent Control Act must not be cited as applying."
+    },
+    {
+      "id": "iphone_dummy",
+      "problem": "I ordered an iPhone from an online shopping website for ₹65,000, but the package contained a cheap dummy phone. I've contacted customer support several times, but they keep rejecting my refund request. What are my consumer rights?",
+      "author": "project owner",
+      "consent": "button",
+      "facts_reply": "Delivered on 20 October 2026. I have the unboxing video and the order invoice.",
+      "expected_document": "consumer_complaint",
+      "must_include": ["65,000", "20 October 2026", "unboxing video"],
+      "must_be_blank": ["complainant's name", "seller or platform name", "order number"],
+      "expected_guide": "consumer_complaint"
+    },
+    {
+      "id": "washing_machine",
+      "problem": "I bought a new washing machine for ₹35,000 from a shop in Guwahati. Within two weeks it stopped working. The seller keeps sending technicians but refuses to replace it or refund my money. What can I do legally?",
+      "author": "project owner",
+      "consent": "yes. Also the shop gave me a written bill dated 2 October 2026 and the technician visited three times.",
+      "facts_reply": "I want a replacement, or a refund if they cannot replace it.",
+      "expected_document": "consumer_complaint",
+      "must_include": ["35,000", "2 October 2026", "replace"],
+      "must_be_blank": ["complainant's name", "shop name", "shop address"],
+      "expected_guide": "consumer_complaint"
+    },
+    {
+      "id": "phone_theft",
+      "problem": "Someone stole my phone from my bag while I was travelling in a city bus in Pune. What can I do?",
+      "author": "assistant",
+      "consent": "button",
+      "facts_reply": "It happened on 5 November 2026 around 6 pm on the bus from Swargate. The phone is a Samsung worth ₹22,000.",
+      "expected_document": "police_complaint",
+      "must_include": ["5 November 2026", "Swargate", "22,000"],
+      "must_be_blank": ["complainant's name", "IMEI number", "police station name"],
+      "expected_guide": "police_complaint"
+    },
+    {
+      "id": "upi_fraud",
+      "problem": "Someone called pretending to be from my bank and I sent ₹12,000 by UPI to their number. Now their phone is switched off. What should I do?",
+      "author": "assistant",
+      "consent": "yes help me write the complaint",
+      "facts_reply": "It was on 6 November 2026. I have the UPI transaction ID and a screenshot of the call log.",
+      "expected_document": "police_complaint",
+      "must_include": ["12,000", "6 November 2026"],
+      "must_be_blank": ["complainant's name", "UPI transaction ID", "bank name"],
+      "expected_guide": "cyber_complaint"
+    },
+    {
+      "id": "youtube_reupload",
+      "problem": "Someone uploaded my entire YouTube video on their channel without my permission. They have also monetised it. What legal action can I take in India, and can I get the video removed?",
+      "author": "project owner",
+      "consent": "button",
+      "facts_reply": "My video was published on 3 March 2026. Their copy appeared on 10 June 2026.",
+      "expected_document": "copyright_notice",
+      "must_include": ["3 March 2026", "10 June 2026"],
+      "must_be_blank": ["owner's name", "channel name", "video link"],
+      "expected_guide": "copyright_notice",
+      "note": "Known retrieval regression: Copyright Act s.55 may be missing from the answer. Then the draft must NOT mention s.55 or claim damages under it (R1)."
+    },
+    {
+      "id": "photo_website",
+      "problem": "A furniture company is using photographs I took on their website and Instagram page without asking me or paying me. What can I do?",
+      "author": "assistant",
+      "consent": "Yes. I am a freelance photographer and I posted these photos on my portfolio in January 2026.",
+      "facts_reply": "I want them to remove the photos or pay a licence fee.",
+      "expected_document": "copyright_notice",
+      "must_include": ["January 2026"],
+      "must_be_blank": ["photographer's name", "company name", "website link"],
+      "expected_guide": "copyright_notice"
+    }
+  ],
+  "consent_cases": [
+    {
+      "id": "out_of_scope_divorce",
+      "problem": "How do I file for divorce by mutual consent?",
+      "expected": "No draft offer is shown (family law is not covered)."
+    },
+    {
+      "id": "new_question_after_offer",
+      "problem": "I rented a flat in Delhi and paid my landlord ₹50,000 as a security deposit. I've vacated the flat, cleared all my bills and returned the keys, but he keeps making excuses and isn't returning my deposit. What can I legally do?",
+      "then_typed": "Can the landlord also keep my furniture?",
+      "expected": "A normal answer; no draft and no fact questions."
+    }
+  ]
+}

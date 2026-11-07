@@ -170,7 +170,7 @@ def test_follow_up_context_keeps_four_questions_and_ignores_unrelated_topics(fak
 
 
 def test_answer_page_has_no_emojis(fake):
-    # Owner's design choice: no emojis on the page (the ☰ menu symbol is not an emoji and is allowed).
+    # Owner's design choice: no emojis on the page (the ☰ symbol, if ever used, is not an emoji and is allowed).
     import re
 
     at = AppTest.from_file(APP_FILE, default_timeout=30).run()
@@ -276,3 +276,120 @@ def test_voice_text_is_checked_before_sending(fake):
     at.text_area(key="heard_box").set_value("How long does a patent last in India?")
     at.button(key="send_heard").click().run()
     assert fake.questions == ["How long does a patent last in India?"]
+
+
+# ---------------------------------------------------------------------------
+# Drafting a letter/complaint and the filing guide (only after the person agrees)
+# ---------------------------------------------------------------------------
+
+
+class FakeDrafter:
+    def __init__(self, questions=("When did you buy it?",)):
+        self.questions = list(questions)
+        self.calls = []
+
+    def plan(self, problem, answer, consent=""):
+        from app.services.drafter import DraftPlan, DraftQuestions
+
+        self.calls.append(("plan", consent))
+        plan = DraftPlan(document_type="consumer_complaint", guide="consumer_complaint", recipient="the seller",
+                         questions=self.questions)
+        return DraftQuestions(plan=plan, label="Consumer complaint / refund demand")
+
+    def write(self, problem, answer, plan, consent="", facts=""):
+        from app.services.document_explainer import FigureCheck
+        from app.services.drafter import DraftResult
+
+        self.calls.append(("write", facts))
+        law = [CitationCheck("patents_act_1970:53", "The term of every patent shall be twenty years", "why", True,
+                             "ok", "Section 53, The Patents Act, 1970", 30)]
+        return DraftResult(document_type="consumer_complaint", label="Consumer complaint / refund demand",
+                           guide="consumer_complaint", title="Complaint", body="From: [YOUR NAME]\nI bought it.",
+                           law=law, blanks=["[YOUR NAME]"], figures=[FigureCheck("date", "9 May 2026", False)],
+                           law_in_body=[], check_before_sending=["Check the dates."])
+
+
+@pytest.fixture
+def fake_drafter(fake, monkeypatch):
+    fake.client = None
+    drafter = FakeDrafter()
+    monkeypatch.setattr(scripts.search, "build_drafter", lambda **kwargs: drafter)
+    return drafter
+
+
+def test_answer_offers_a_draft_but_drafts_nothing_until_yes(fake_drafter):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("My new machine broke").run()
+    assert "Would you like help preparing a letter or complaint" in all_text(at)
+    assert at.button(key="draft_yes")
+    assert fake_drafter.calls == []  # nothing drafted without consent
+
+
+def test_full_flow_button_questions_draft_then_guide(fake_drafter):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("My new machine broke").run()
+    at.button(key="draft_yes").click().run()
+    assert fake_drafter.calls == [("plan", "Yes, please help me draft it.")]
+    assert "When did you buy it?" in all_text(at)
+
+    at.chat_input[0].set_value("On 2 May 2026").run()
+    assert fake_drafter.calls[-1] == ("write", "On 2 May 2026")
+    text = all_text(at)
+    assert at.text_area(key="draft_5").value.startswith("Complaint")  # editable draft
+    assert "DRAFT prepared by NyayaAI" in at.info[0].value
+    assert any('"9 May 2026"' in w.value for w in at.warning)  # an invented date is flagged
+    assert "[YOUR NAME]" in text
+    assert "step-by-step guidance" in text
+
+    at.chat_input[0].set_value("haan").run()  # typed consent works like the button
+    text = all_text(at)
+    assert "Filing a consumer complaint" in text and "https://e-jagriti.gov.in" in text
+    assert "15100" in " ".join(i.value for i in at.info)
+    assert "does not send, file or track anything" in text
+    assert at.session_state.flow is None
+    # Replies inside the flow have no Edit button and are not used as context for later questions.
+    assert not [b for b in at.button if b.key == "edit"]
+
+
+def test_typed_yes_with_details_counts_as_consent(fake_drafter):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("My new machine broke").run()
+    at.chat_input[0].set_value("yes, and the bill is dated 2 May 2026").run()
+    assert fake_drafter.calls == [("plan", "yes, and the bill is dated 2 May 2026")]
+
+
+def test_new_question_after_offer_is_answered_normally(fake, fake_drafter):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("My new machine broke").run()
+    at.chat_input[0].set_value("Can the shop refuse a refund?").run()
+    assert fake_drafter.calls == []
+    assert "Current question: Can the shop refuse a refund?" in fake.questions[-1]
+
+
+def test_no_offer_when_the_question_is_not_covered(fake, fake_drafter, monkeypatch):
+    original = fake.ask
+
+    def out_of_scope(question):
+        response = original(question)
+        response.confidence, response.citations = "insufficient", []
+        return response
+
+    monkeypatch.setattr(fake, "ask", out_of_scope)
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("How do I get a divorce?").run()
+    assert "Would you like help preparing" not in all_text(at)
+    at.chat_input[0].set_value("yes").run()
+    assert fake_drafter.calls == []  # "yes" with no offer is just a question
+
+
+def test_not_now_and_new_chat_end_the_flow(fake_drafter):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].set_value("My new machine broke").run()
+    at.button(key="draft_yes").click().run()
+    at.button(key="draft_cancel").click().run()
+    assert at.session_state.flow is None
+    at.chat_input[0].set_value("Can it be repaired?").run()
+    assert [c[0] for c in fake_drafter.calls] == ["plan"]  # not treated as the facts reply
+
+    at.button(key="brand").click().run()
+    assert at.session_state.flow is None and at.session_state.messages == []

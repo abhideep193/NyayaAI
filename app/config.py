@@ -25,9 +25,9 @@ QUERY_REWRITE_MODEL = os.getenv("QUERY_REWRITE_MODEL", "gpt-6-luna")
 
 # --- Areas of law ---
 # Which domains (the "domain" field in data/legal_sources/sources.json) the app searches.
-# Comma-separated, e.g. "ipr". Criminal law switched on 2026-11-06, property and consumer law 2026-11-08, each after
+# Comma-separated, e.g. "ipr". Criminal law switched on 2026-11-06, property, consumer and contract law 2026-11-08, each after
 # evaluation against rules fixed in advance (outputs/answer_experiments.md).
-ENABLED_DOMAINS = [d.strip() for d in os.getenv("ENABLED_DOMAINS", "ipr,criminal,property,consumer").split(",") if d.strip()]
+ENABLED_DOMAINS = [d.strip() for d in os.getenv("ENABLED_DOMAINS", "ipr,criminal,property,consumer,contract").split(",") if d.strip()]
 
 # --- Documents and voice (added 2026-11-07) ---
 # Model that reads the text in a PHOTO of a document (must accept images).

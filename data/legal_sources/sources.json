@@ -296,6 +296,26 @@
         "The India Code PDF has no 'As on' date on its cover; it is a consolidated text, but the exact date is unknown."
       ],
       "strip_state_amendments": true
+    },
+    {
+      "id": "contract_act_1872",
+      "title": "The Indian Contract Act, 1872",
+      "act_number": "9 of 1872",
+      "domain": "contract",
+      "topic": "contracts",
+      "file": "contract/contract_act_1872.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "a1872-9.pdf",
+      "source_url": "https://www.indiacode.nic.in",
+      "downloaded_by": "project owner",
+      "version_as_on": null,
+      "downloaded_on": "2026-11-08",
+      "sha256": "85a7a066098255c93001d678aeaf483f91d3080918363c03b78d40c3eeb8b386",
+      "known_issues": [
+        "The India Code PDF has no 'As on' date on its cover; it is a consolidated text, but the exact date is unknown.",
+        "India has no Central law written specifically about returning rent security deposits; the deposit is returned under the rent agreement, and this Act governs agreements in general."
+      ],
+      "strip_state_amendments": true
     }
   ]
 }

@@ -20,6 +20,7 @@ import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from types import SimpleNamespace
 
 import openai
 import streamlit as st
@@ -38,8 +39,11 @@ except Exception:  # no secrets file
 from app import config  # noqa: E402  (must come after the secrets are copied)
 from app.conversation import question_with_context
 from app.domains import load_domains
+from app.services.answer_generator import DISCLAIMER as DISCLAIMER_TEXT
 from app.services.answer_generator import ModelRefusedError
+from app.filing_guides import guide_for, load_filing_guides
 from app.services.document_explainer import DocumentUnreadable
+from app.services.drafter import DRAFT_LABEL, DraftResult, is_consent
 from app.services.voice import transcribe
 
 ROOT = Path(__file__).parent
@@ -69,6 +73,16 @@ THINKING_TEXT = f"Searching {len(ENABLED_SOURCES)} Acts and checking every quote
 DOCUMENT_THINKING_TEXT = "Reading your document and checking every date, amount and quote…"
 DOCUMENT_TYPES = ["pdf", "png", "jpg", "jpeg", "webp"]
 MAX_UPLOAD_MB = 10
+FILING_GUIDES = load_filing_guides(ROOT / "data/legal_sources/filing_guides.json")
+
+# Drafting flow (only after the person agrees). The button texts are sent as the person's reply,
+# so clicking and typing "yes" / "haan" work the same way.
+DRAFT_THINKING_TEXT = "Preparing your draft from your own facts and the verified law…"
+DRAFT_OFFER = "Would you like help preparing a letter or complaint about this?"
+DRAFT_YES = "Yes, please help me draft it."
+DRAFT_SKIP = "Please draft it now and leave blanks for anything I haven't said."
+GUIDE_OFFER = "Would you like step-by-step guidance on sending or filing it?"
+GUIDE_YES = "Yes, please guide me through the next steps."
 
 # Internal citation IDs in the answer text, e.g. "[copyright_act_1957:13]" or "[patents_act_1970:117A]"
 CITATION_ID = re.compile(r"\[([a-z_]+_\d{4}):(\w+)\]")
@@ -100,11 +114,11 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
 .block-container { padding-top: 7.5rem; }  /* room for the fixed top bar */
 .logo { height: 44px; display: block; filter: drop-shadow(0 0 6px rgba(34, 211, 238, .35)); }
 
-/* Keep ☰ / Lady Justice / NyayaAI in ONE row on every screen. (On phones Streamlit stacks columns
+/* Keep Lady Justice / NyayaAI / i in ONE row on every screen. (On phones Streamlit stacks columns
    vertically, which made the pinned bar very tall and covered the page.) */
 .st-key-topbar [data-testid="stHorizontalBlock"] { flex-wrap: nowrap !important; gap: .6rem !important; }
 .st-key-topbar [data-testid="stColumn"] { width: auto !important; flex: 0 0 auto !important; min-width: 0 !important; }
-.st-key-topbar [data-testid="stColumn"]:last-child { flex: 1 1 auto !important; }
+.st-key-topbar [data-testid="stColumn"]:nth-child(2) { flex: 1 1 auto !important; }  /* NyayaAI fills the middle */
 @media (max-width: 640px) {
   .st-key-topbar { padding: .5rem 1rem 1.2rem; }
   .logo { height: 34px; }
@@ -114,7 +128,7 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
 }
 .block-container { padding-bottom: 7rem; max-width: 820px; }
 
-/* --- top bar: menu button + NyayaAI (click = new chat) --- */
+/* --- top bar: NyayaAI (click = new chat) + info button --- */
 .st-key-brand button {
   background: transparent !important; border: none !important; box-shadow: none !important;
   font-family: 'Cormorant Garamond', serif !important; font-size: 2rem !important;
@@ -122,12 +136,23 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
 }
 .st-key-brand button p { font-family: 'Cormorant Garamond', serif !important; font-size: 2rem !important; }
 .st-key-brand button:hover { color: var(--accent) !important; }
-.st-key-menu button { background: transparent !important; border: none !important; font-size: 1.4rem; }
-/* Remove the small "⌄" arrow next to ☰ completely: merely hiding it still reserved 16px,
-   which squeezed the ☰ itself to 0px wide (invisible) once the column got narrower. */
-.st-key-menu button span:has(> [data-testid="stIconMaterial"]) { display: none !important; }
-.st-key-menu button [data-testid="stMarkdownContainer"] { min-width: 1.3rem; overflow: visible; }
-.st-key-menu button p { font-size: 1.4rem !important; line-height: 1; }
+/* "i" button: a small round outlined circle at the right of the top bar */
+.st-key-info button {
+  width: 2.1rem; height: 2.1rem; min-height: 0 !important; padding: 0 !important; border-radius: 50% !important;
+  background: transparent !important; border: 1.5px solid var(--muted) !important; box-shadow: none !important;
+  display: flex; align-items: center; justify-content: center;
+}
+.st-key-info button:hover { border-color: var(--accent) !important; }
+.st-key-info button:hover p { color: var(--accent) !important; }
+/* Remove the small "⌄" arrow Streamlit adds to popovers (hiding it alone still reserves space). */
+.st-key-info button span:has(> [data-testid="stIconMaterial"]) { display: none !important; }
+.st-key-info button p {
+  font-family: 'Cormorant Garamond', serif !important; font-size: 1.35rem !important; font-weight: 700;
+  font-style: italic; line-height: 1; color: var(--text) !important; margin: 0;
+}
+.info-muted { color: var(--muted); font-size: .88em; }
+[data-testid="stPopoverBody"] h4 { font-size: 1rem; margin: .9rem 0 .3rem; color: var(--accent); }
+[data-testid="stPopoverBody"] h4:first-child { margin-top: 0; }
 iframe { border: none; }
 .tagline { color: var(--muted); font-size: 0.82rem; margin: -0.4rem 0 1.2rem 0; letter-spacing: 0.02em; }
 
@@ -247,6 +272,14 @@ def load_explainer():
 
     assistant = load_assistant()
     return build_document_explainer(retriever=assistant.retriever, client=assistant.client)
+
+
+@st.cache_resource(show_spinner="Preparing the drafting assistant...")
+def load_drafter():
+    """Letter/complaint drafting, sharing the chat pipeline's OpenAI client."""
+    from scripts.search import build_drafter
+
+    return build_drafter(client=load_assistant().client)
 
 
 def readable_citations(text: str) -> str:
@@ -375,11 +408,115 @@ def show_document_answer(response, animate: bool = False) -> None:
     st.markdown(f'<div class="disclaimer">{html.escape(response.disclaimer)}</div>', unsafe_allow_html=True)
 
 
-def show_any_answer(response, animate: bool = False) -> None:
-    if getattr(response, "kind", "") == "document":
+def show_draft_questions(response, animate: bool = False) -> None:
+    """NyayaAI's questions before drafting (only facts that change the letter; never names or addresses)."""
+    intro = f"To prepare a **{response.label.lower()}**, I need a few details:"
+    st.markdown(intro)
+    st.markdown("\n".join(f"{i}. {q}" for i, q in enumerate(response.plan.questions, start=1)))
+    st.caption("Answer in one message, in your own words. Please leave out names, addresses and phone numbers: "
+               "the draft keeps blanks for those, and you fill them in yourself.")
+
+
+def show_draft(response, key: str) -> None:
+    """A checked draft: label, warnings from the code checks, editable text, download, verified law."""
+    st.markdown(f'<div class="section-title">{html.escape(response.label)}</div>', unsafe_allow_html=True)
+    st.info(DRAFT_LABEL)
+    if response.unverified_figures:
+        listed = ", ".join(f'"{f.text}"' for f in response.unverified_figures)
+        st.warning(f"**Check this:** the draft contains {listed}, which you did not write. Change or remove it.")
+    if response.law_in_body:
+        listed = ", ".join(f'"{t}"' for t in response.law_in_body)
+        st.warning(f"**Check this:** the letter mentions {listed} in its text, which NyayaAI could not check. "
+                   "Remove it, or ask a lawyer.")
+    if response.removed_law:
+        st.caption(f"{len(response.removed_law)} legal reference(s) could not be verified in the official text "
+                   "and were left out of the draft.")
+
+    edited = st.text_area("Your draft (you can edit it here)", value=response.full_text(), height=440, key=key)
+    st.download_button("Download draft", data=edited, file_name=f"NyayaAI_DRAFT_{response.document_type}.txt",
+                       mime="text/plain", key=f"{key}_download")
+    if response.blanks:
+        st.caption("Blanks to fill in: " + ", ".join(response.blanks))
+    st.caption("Your edits are not sent to OpenAI and are not saved by NyayaAI; download the draft to keep it.")
+    if response.check_before_sending:
+        steps = "".join(f'<div class="step">{html.escape(s)}</div>' for s in response.check_before_sending)
+        st.markdown(f'<div class="section-title">Check before you use it</div>{steps}', unsafe_allow_html=True)
+    show_sources(response.law)
+    st.markdown(f'<div class="disclaimer">{html.escape(DISCLAIMER_TEXT)}</div>', unsafe_allow_html=True)
+
+
+def law_citation(section_id_: str) -> str:
+    source_id, number = section_id_.split(":")
+    return f"Section {number}, {SHORT_NAME.get(source_id, source_id)}"
+
+
+def show_guide(response, animate: bool = False) -> None:
+    """The filing guide: fixed, hand-checked text from filing_guides.json (never written by the model)."""
+    guide = guide_for(FILING_GUIDES, response.guide)
+    if guide:
+        st.markdown(f'<div class="section-title">{html.escape(guide["title"])}</div>', unsafe_allow_html=True)
+        for step in guide["steps"]:
+            lines = [f"**{step['heading']}**", step["text"]]
+            if step.get("link"):
+                lines.append(f"Official site: {step['link']}")
+            if step.get("law"):
+                lines.append(f"*{law_citation(step['law']['section_id'])}:* \"{step['law']['quote']}\"")
+            st.markdown("  \n".join(lines))
+        keep = "".join(f'<div class="step">{html.escape(d)}</div>' for d in guide["documents_to_keep"])
+        st.markdown(f'<div class="section-title">Useful to keep</div>{keep}', unsafe_allow_html=True)
+        st.caption("These help prove your case; they are suggestions, not a list required by law.")
+        st.markdown(f"**Proof that you sent or filed it:** {guide['acknowledgement']}")
+    else:
+        st.markdown("NyayaAI does not have a checked filing guide for this kind of document yet. "
+                    "A lawyer or the free legal aid service below can tell you where to send it.")
+    st.info(FILING_GUIDES["legal_aid"]["text"])
+    st.caption(f"Links and steps checked on official government websites on {FILING_GUIDES['checked_on']}. "
+               "NyayaAI only guides you: it does not send, file or track anything for you.")
+
+
+def show_any_answer(response, animate: bool = False, key: str = "draft") -> None:
+    kind = getattr(response, "kind", "")
+    if kind == "document":
         show_document_answer(response, animate)
+    elif kind == "draft_questions":
+        show_draft_questions(response, animate)
+    elif kind == "draft":
+        show_draft(response, key)
+    elif kind == "guide":
+        show_guide(response, animate)
     else:
         show_answer(response, animate)
+
+
+def offers_draft(response) -> bool:
+    """Offer a draft only after a real answer: not out of scope, and at least one verified quote."""
+    return (getattr(response, "kind", "") == "" and response.confidence != "insufficient"
+            and any(c.verified for c in response.citations))
+
+
+def not_now() -> None:
+    st.session_state.flow = None
+
+
+def ask_from_button(text: str) -> None:
+    st.session_state.pending_question = text
+
+
+def show_offer(flow: dict | None) -> None:
+    """The follow-up offer under NyayaAI's latest message (nothing happens until the person agrees)."""
+    if not flow:
+        return
+    if flow["stage"] == "offered":
+        st.markdown(f"**{DRAFT_OFFER}**")
+        st.button("Yes, help me draft it", key="draft_yes", on_click=ask_from_button, args=(DRAFT_YES,))
+        st.caption("Or type your reply: you can add more details, or ask something else.")
+    elif flow["stage"] == "asking":
+        draft_col, later_col, _ = st.columns([2, 1, 2])
+        draft_col.button("Draft it with blanks", key="draft_skip", on_click=ask_from_button, args=(DRAFT_SKIP,))
+        later_col.button("Not now", key="draft_cancel", on_click=not_now)
+    elif flow["stage"] == "guide_offered":
+        st.markdown(f"**{GUIDE_OFFER}**")
+        st.button("Yes, guide me", key="guide_yes", on_click=ask_from_button, args=(GUIDE_YES,))
 
 
 # ---------------------------------------------------------------------------
@@ -390,37 +527,54 @@ st.markdown(STYLE, unsafe_allow_html=True)
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Top bar: ☰ opens "about NyayaAI"; clicking the name starts a new chat.
+def show_info() -> None:
+    """Contents of the "i" (information) panel in the top bar."""
+    st.markdown("#### About NyayaAI")
+    st.markdown("Plain-language legal information for India, answered **only** from the official text of the "
+                "Acts (India Code). Every quote is checked word for word before you see it.")
+
+    st.markdown("#### How to ask")
+    st.markdown("- **Type** in English, Hindi or Hinglish\n"
+                "- **Speak** with the microphone (you check the words before sending)\n"
+                "- **Attach** a notice or letter (PDF or photo) to have it explained")
+
+    st.markdown("#### What it covers")
+    for domain in config.ENABLED_DOMAINS:
+        acts = [s for s in ENABLED_SOURCES if s["domain"] == domain]
+        st.markdown(f"**{DOMAINS[domain]['label']}** ({len(acts)} Acts)  \n"
+                    f"<span class='info-muted'>{DOMAINS[domain]['covers']}</span>", unsafe_allow_html=True)
+    with st.expander(f"All {len(ENABLED_SOURCES)} Acts and their dates"):
+        st.markdown("\n".join(
+            f"- {s['title']} " + (f"(as on {s['version_as_on']})" if s.get("version_as_on")
+                                  else "(consolidated text; India Code prints no 'as on' date)")
+            for s in ENABLED_SOURCES))
+
+    st.markdown("#### Not covered yet")
+    st.markdown("Rules, fees, court judgments, State laws (except Delhi's rent law), inheritance, land records, "
+                "stamp duty, and other areas (family, employment, tax...). For these NyayaAI says so instead of guessing.")
+
+    st.markdown("#### Privacy")
+    st.markdown("Questions, documents and recordings are sent to OpenAI to write the answer. NyayaAI does not "
+                "save them. Please leave out names, phone numbers and addresses; cover them on documents if you can.")
+
+    st.caption("Legal information, not legal advice. For decisions, consult a qualified lawyer.")
+
+
+# Top bar: logo, NyayaAI (click = new chat) and an "i" button on the right that opens the information panel.
 # Wrapped in a container that CSS pins to the top of the window (stays visible when scrolling).
 with st.container(key="topbar"):
-    menu_col, logo_col, brand_col = st.columns([0.9, 0.6, 10.5], vertical_alignment="center")
+    logo_col, brand_col, info_col = st.columns([0.6, 10.5, 0.9], vertical_alignment="center")
     with logo_col:
         st.markdown(f'<img class="logo" src="data:image/png;base64,{LADY_ICON}" alt="Lady Justice">',
                     unsafe_allow_html=True)
-    with menu_col:
-        with st.popover("☰", key="menu"):
-            areas = " and ".join(f"**{DOMAINS[d]['label']}** ({DOMAINS[d]['covers']})" for d in config.ENABLED_DOMAINS)
-            st.markdown(f"**About NyayaAI**  \nPlain-language help with Indian {areas}, answered only from the "
-                        "official text of the Acts (India Code). Every quote is checked against the Act.")
-            st.markdown(f"**The {len(ENABLED_SOURCES)} Acts NyayaAI uses**")
-            st.markdown("\n".join(
-                f"- {s['title']} " + (f"(as on {s['version_as_on']})" if s.get("version_as_on")
-                                      else "(consolidated text; India Code prints no 'as on' date)")
-                for s in ENABLED_SOURCES))
-            st.markdown("**Not covered yet:** rules, fees, court judgments, State laws (except Delhi's rent law), "
-                        "inheritance, land records, stamp duty, and other areas of law (family, employment, tax...).")
-            st.markdown("**Privacy:** your questions are sent to OpenAI to write the answer. Do not include names, "
-                        "phone numbers, addresses or other details that could identify you or anyone else. "
-                        "NyayaAI does not save your conversation.")
-            st.markdown("You can write in English, Hindi or Hinglish, speak your question (microphone), or attach "
-                        "a notice or letter (PDF or photo) to have it explained.")
-            st.markdown("**Documents and voice:** attached documents and recordings are also sent to OpenAI. "
-                        "Documents often contain names and addresses; cover them if you can. "
-                        "Nothing is saved by NyayaAI.")
     with brand_col:
         if st.button("NyayaAI", key="brand", help="Start a new conversation"):
             st.session_state.messages = []
+            st.session_state.flow = None
             st.rerun()
+    with info_col:
+        with st.popover("i", key="info", help="About NyayaAI: what it covers, how to ask, privacy"):
+            show_info()
     st.markdown('<div class="tagline">Legal information, not legal advice. For decisions, consult a qualified lawyer.</div>',
                 unsafe_allow_html=True)
 
@@ -484,13 +638,29 @@ if question:
     st.session_state.editing = False
     st.session_state.pop("heard", None)
 
+# What this message does. Drafting happens ONLY after the person agreed (button or a typed "yes"/"haan");
+# anything else is answered as a normal question and the offer is dropped.
+flow = st.session_state.get("flow")
+action = "ask"
+if document:
+    action = "document"
+elif question and flow:
+    if flow["stage"] == "offered" and is_consent(question):
+        action = "plan"
+    elif flow["stage"] == "asking":
+        action = "write"  # the reply to NyayaAI's questions (or "draft it with blanks")
+    elif flow["stage"] == "guide_offered" and is_consent(question):
+        action = "guide"
+
 # Earlier messages of this conversation (no animation when shown again).
 messages = st.session_state.messages
 last_user = max((i for i, m in enumerate(messages) if m["role"] == "user"), default=None)
 for index, message in enumerate(messages):
     if message["role"] == "assistant":
         with st.chat_message("assistant", avatar=SPHERE_ICON):
-            show_any_answer(message["response"])
+            show_any_answer(message["response"], key=f"draft_{index}")
+            if index == len(messages) - 1 and not question:
+                show_offer(flow)
     elif message["role"] == "stopped":
         with st.chat_message("assistant", avatar=SPHERE_ICON):
             st.caption("Stopped. No answer was given to this question.")
@@ -504,6 +674,7 @@ for index, message in enumerate(messages):
                 if resend_col.button("Resend", key="resend", type="primary") and edited.strip():
                     del messages[index:]
                     st.session_state.editing = False
+                    st.session_state.flow = None
                     st.session_state.pending_question = edited.strip()
                     st.rerun()
                 if cancel_col.button("Cancel", key="cancel_edit"):
@@ -513,7 +684,7 @@ for index, message in enumerate(messages):
                 st.markdown(message["content"])
                 if message.get("attachment"):
                     st.caption(f"Attached: {message['attachment']}")
-                elif index == last_user and not question:  # a new question gets its own Edit button
+                elif index == last_user and not question and not message.get("flow"):  # new question: own Edit button
                     st.button("Edit", key="edit", on_click=start_editing)
 
 # What NyayaAI heard from a voice recording: checked (and corrected) by the person before sending.
@@ -542,6 +713,14 @@ if first_question and not question and not st.session_state.get("heard"):
 def background_workers() -> ThreadPoolExecutor:
     """Threads that run the (slow) answering, so the page can still react to the Stop button."""
     return ThreadPoolExecutor(max_workers=4)
+
+
+def plan_then_maybe_write(drafter, flow: dict, consent: str):
+    """Ask for missing facts; if nothing is missing, write the draft straight away."""
+    questions = drafter.plan(flow["problem"], flow["answer"], consent)
+    if questions.plan.questions:
+        return questions
+    return drafter.write(flow["problem"], flow["answer"], questions.plan, consent)
 
 
 def status_pill(seconds: int, text: str = THINKING_TEXT) -> str:
@@ -575,14 +754,24 @@ if question:
     # Remember the question until its answer is shown: if the page reloads first, it is marked "stopped".
     st.session_state.in_progress = question
     try:
-        if document:
+        thinking_text = DRAFT_THINKING_TEXT
+        if action == "document":
             explainer = load_explainer()
             job = background_workers().submit(explainer.explain_file, document["data"], document["type"],
                                               document["name"], document["note"])
             thinking_text = DOCUMENT_THINKING_TEXT
+        elif action == "plan":
+            job = background_workers().submit(plan_then_maybe_write, load_drafter(), flow, question)
+        elif action == "write":
+            facts = "" if question == DRAFT_SKIP else question
+            job = background_workers().submit(load_drafter().write, flow["problem"], flow["answer"],
+                                              flow["plan"].plan, flow["consent"], facts)
+        elif action == "guide":  # fixed, checked text: no AI call
+            job = background_workers().submit(SimpleNamespace, kind="guide", guide=flow["guide"])
         else:
             assistant = load_assistant()
-            job = background_workers().submit(assistant.ask, question_with_context(messages, question))
+            asked = question_with_context(messages, question)
+            job = background_workers().submit(assistant.ask, asked)
             thinking_text = THINKING_TEXT
         started = time.monotonic()
         while not job.done():
@@ -601,10 +790,13 @@ if question:
         st.error("Sorry, the AI service could not answer right now. Please try again in a moment.")
         st.stop()
     except Exception:  # e.g. a damaged PDF; the full error goes to the server log, not the page
-        logging.getLogger("nyayaai").exception("Could not process the attached document")
+        logging.getLogger("nyayaai").exception("Could not complete the request (%s)", action)
         st.session_state.pop("in_progress", None)
         thinking.empty()
-        st.error("Sorry, NyayaAI could not read this file. Please try a PDF or a clear photo of the page.")
+        if action == "document":
+            st.error("Sorry, NyayaAI could not read this file. Please try a PDF or a clear photo of the page.")
+        else:
+            st.error("Sorry, something went wrong. Please try again in a moment.")
         st.stop()
     st.session_state.pop("in_progress", None)
 
@@ -615,15 +807,29 @@ if question:
         time.sleep(0.8)
     thinking.empty()
 
-    with st.chat_message("assistant", avatar=SPHERE_ICON):
-        show_any_answer(response, animate=True)
+    # Where the drafting flow goes next (None = no offer).
+    if action == "ask":
+        flow = {"stage": "offered", "problem": asked, "answer": response} if offers_draft(response) else None
+    elif action == "plan" and response.kind == "draft_questions":
+        flow = {**flow, "stage": "asking", "consent": question, "plan": response}
+    elif action in ("plan", "write"):
+        flow = {"stage": "guide_offered", "guide": response.guide}
+    else:
+        flow = None
+    st.session_state.flow = flow
 
-    if document:
+    with st.chat_message("assistant", avatar=SPHERE_ICON):
+        show_any_answer(response, animate=True, key=f"draft_{len(messages) + 1}")
+        show_offer(flow)
+
+    if action == "document":
         # Follow-up questions ("what should I reply?") get a short description of the document as context.
         messages.append({"role": "user", "content": question, "attachment": document["name"],
                          "context": f"I attached a document ({response.document_type}): {response.summary} "
                                     f"{document['note']}".strip()})
-    else:
+    elif action == "ask":
         messages.append({"role": "user", "content": question})
         edit_slot.button("Edit", key="edit", on_click=start_editing)
+    else:  # a reply inside the drafting flow: no Edit button, not used as context for later questions
+        messages.append({"role": "user", "content": question, "flow": True})
     messages.append({"role": "assistant", "response": response})

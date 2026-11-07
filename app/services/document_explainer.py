@@ -223,6 +223,14 @@ NUMBER_WORDS.update({"thirty": 30, "forty": 40, "forty-five": 45, "fifty": 50, "
                      "eighty": 80, "ninety": 90, "hundred": 100})
 _NUMBER = r"\d+|" + "|".join(sorted(map(re.escape, NUMBER_WORDS), key=len, reverse=True))
 DURATION = re.compile(rf"\b({_NUMBER})\s+(working\s+days|days?|weeks?|months?|years?|hours?)\b", re.IGNORECASE)
+# The same durations written in Hindi / Hinglish by the person ("11 mahine", "3 din", "2 साल"), so that an
+# English letter saying "11 months" is not flagged as invented.
+HINDI_UNITS = {"mahine": "month", "mahina": "month", "mahino": "month", "maheene": "month", "maheena": "month",
+               "din": "day", "dino": "day", "hafte": "week", "hafta": "week", "saal": "year", "sal": "year",
+               "ghante": "hour", "ghanta": "hour", "महीने": "month", "महीना": "month", "दिन": "day",
+               "हफ्ते": "week", "हफ़्ते": "week", "साल": "year", "वर्ष": "year", "घंटे": "hour"}
+HINDI_DURATION = re.compile(r"(?<!\w)(\d+)\s*(" + "|".join(sorted(map(re.escape, HINDI_UNITS), key=len, reverse=True))
+                            + r")(?!\w)", re.IGNORECASE)
 
 
 def _number(text: str) -> int:
@@ -248,8 +256,10 @@ def _amounts(text: str) -> set[str]:
 
 
 def _durations(text: str) -> set[tuple]:
-    return {(_number(m.group(1)), m.group(2).lower().split()[-1].rstrip("s"), "working" in m.group(2).lower())
-            for m in DURATION.finditer(text)}
+    found = {(_number(m.group(1)), m.group(2).lower().split()[-1].rstrip("s"), "working" in m.group(2).lower())
+             for m in DURATION.finditer(text)}
+    found |= {(int(m.group(1)), HINDI_UNITS[m.group(2).lower()], False) for m in HINDI_DURATION.finditer(text)}
+    return found
 
 
 def _clocks(text: str) -> set[tuple]:

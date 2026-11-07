@@ -79,6 +79,26 @@
         "Never promise a refund, replacement or compensation. Explain what the Act allows a Consumer Commission or authority to order, and that it decides.",
         "E-commerce rules and other Rules made under the Consumer Protection Act are NOT in the SOURCES; do not describe them."
       ]
+    },
+    "contract": {
+      "label": "contract law",
+      "covers": "agreements and promises, money owed under an agreement, advances and deposits not returned, breach of contract and compensation, penalty clauses, money paid by mistake",
+      "scope": "contract law (agreements, money owed under an agreement, deposits and advances not returned, breach of contract, compensation and penalty clauses)",
+      "rewrite_scope": "agreements, promises, deposits, advances, loans between people or money owed",
+      "search_words": [
+        "contract",
+        "agreement",
+        "promise",
+        "breach",
+        "compensation",
+        "consideration",
+        "penalty",
+        "repay"
+      ],
+      "extra_rules": [
+        "India has no Central law written specifically about returning a rent security deposit. Never claim one exists, never invent a time limit for returning a deposit, and never mention the Model Tenancy Act (a model for States, not law in the SOURCES). Explain that the deposit is returned under the agreement, and what the Contract Act says about breach of an agreement.",
+        "Time limits for going to court (limitation), court fees and court procedure are NOT in the SOURCES; do not state them. Never promise that the person will get their money back."
+      ]
     }
   }
 }

@@ -10,7 +10,9 @@ def question_with_context(messages: list[dict], new_question: str) -> str:
     prompts stay unchanged. It stops an old topic (e.g. harassment) leaking into a new one.
     """
     # A message may carry a "context" text, e.g. a short summary of a document the user attached.
-    earlier = [m.get("context", m["content"]) for m in messages if m["role"] == "user"][-PREVIOUS_TURNS_USED:]
+    # Replies inside the drafting flow ("yes, draft it", facts for the letter) are marked "flow" and skipped.
+    earlier = [m.get("context", m["content"]) for m in messages
+               if m["role"] == "user" and not m.get("flow")][-PREVIOUS_TURNS_USED:]
     if not earlier:
         return new_question
     context = "\n".join(f"- {text}" for text in earlier)
