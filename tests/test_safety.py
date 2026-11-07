@@ -76,3 +76,21 @@ def test_keywords_alone_do_not_add_criminal_notes_to_ipr_answers():
     notes = safety_notes("Someone hacked my YouTube channel in 2023 and reuploaded my videos",
                          ["copyright_act_1957:51"], DOMAIN_OF, SAFETY, retrieved_section_ids=["copyright_act_1957:51"])
     assert notes == []
+
+
+PROPERTY_DOMAIN_OF = {**DOMAIN_OF, "transfer_of_property_act_1882": "property", "copyright_act_1957": "ipr"}
+
+
+def test_state_law_note_whenever_property_law_was_searched():
+    # cited
+    notes = safety_notes("Can my landlord evict me?", ["transfer_of_property_act_1882:106"], PROPERTY_DOMAIN_OF, SAFETY)
+    assert [n.kind for n in notes] == ["state_law"]
+    # only retrieved, nothing cited (e.g. the model declined): the note must still appear
+    notes = safety_notes("Can my landlord evict me?", [], PROPERTY_DOMAIN_OF, SAFETY, ["transfer_of_property_act_1882:111"])
+    assert [n.kind for n in notes] == ["state_law"]
+
+
+def test_no_state_law_note_for_other_areas():
+    notes = safety_notes("Someone copied my song", ["copyright_act_1957:51"], PROPERTY_DOMAIN_OF, SAFETY,
+                         ["copyright_act_1957:51"])
+    assert not [n for n in notes if n.kind == "state_law"]

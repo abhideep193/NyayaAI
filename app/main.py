@@ -73,7 +73,7 @@ class CitationOut(BaseModel):
 
 
 class SafetyNoteOut(BaseModel):
-    kind: Literal["helpline", "old_law"]
+    kind: Literal["helpline", "old_law", "state_law"]
     text: str = Field(description="Fixed text added by NyayaAI's code, not by the model")
     source: str = Field(description="Official source of the information")
 

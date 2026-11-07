@@ -35,6 +35,29 @@
         "If the events happened before 1 July 2024, do not quote or guess section numbers of the old Indian Penal Code or Code of Criminal Procedure; they are not in the SOURCES. NyayaAI adds a notice about the old laws automatically.",
         "If the situation involves a child (under 18), say so and use the child-protection SOURCES where they apply."
       ]
+    },
+    "property": {
+      "label": "property and tenancy law",
+      "covers": "renting and leases (notice, eviction, rights of landlord and tenant), buying and selling property, registration of property documents, being thrown out without a court order, and rent control in Delhi",
+      "scope": "property and tenancy law under Central Acts (leases, notice to vacate, eviction, sale agreements, registration of documents) and Delhi's rent control law",
+      "rewrite_scope": "property, renting or tenancy law",
+      "search_words": [
+        "lease",
+        "lessor",
+        "lessee",
+        "immovable property",
+        "possession",
+        "registered instrument",
+        "tenant",
+        "landlord",
+        "specific performance"
+      ],
+      "extra_rules": [
+        "Rent and tenancy rules differ by State. Only the Delhi Rent Control Act, 1958 is a State-level rent law in the SOURCES; never state or guess the rent law, stamp duty, registration fee or rules of any other State. NyayaAI adds a note about State laws automatically.",
+        "The Delhi Rent Control Act applies only to premises it covers (see its sections 1 and 3, e.g. it does not apply where the monthly rent exceeds the limit in section 3). If you use it, say that it applies only if those conditions are met.",
+        "Never promise an outcome (for example that a landlord can or cannot evict someone, or that a court will order a sale). Explain what the Acts say and that a court or the Rent Controller decides.",
+        "Inheritance and succession, land records, land ceiling and agricultural land rules are NOT in the SOURCES; for those, say NyayaAI cannot answer and suggest a lawyer."
+      ]
     }
   }
 }

@@ -1,0 +1,1406 @@
+{
+  "model": "gpt-6.1-terra",
+  "context_sections": 15,
+  "areas_of_law": [
+    "ipr",
+    "criminal",
+    "property"
+  ],
+  "results": [
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 5.5,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "What is the capital of France?",
+        "answer": "I cannot answer this question from the laws available. NyayaAI covers copyright, trade marks, patents, criminal law, property and tenancy law under Central Acts, and Delhi’s rent control law.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Consult a reliable geography reference.",
+          "For a legal issue outside NyayaAI’s coverage, speak to a qualified lawyer in that area."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 84, The Patents Act, 1970",
+          "Section 230, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 57, The Transfer of Property Act, 1882",
+          "Section 35, The Trade Marks Act, 1999",
+          "Section 301, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 94, The Transfer of Property Act, 1882",
+          "Section 36B, The Trade Marks Act, 1999",
+          "Section 231, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 105, The Transfer of Property Act, 1882",
+          "Section 147, The Trade Marks Act, 1999",
+          "Section 139, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 67A, The Transfer of Property Act, 1882",
+          "Section 32, The Trade Marks Act, 1999",
+          "Section 18, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 79, The Registration Act, 1908"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 6564,
+        "output_tokens": 170,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 4.8,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "How do I file for divorce in India?",
+        "answer": "I cannot explain how to file for divorce from the laws available to me. Divorce is a family-law matter, which is outside NyayaAI’s current coverage. NyayaAI covers copyright, trade marks and patents; criminal law; and property and tenancy law under Central Acts and Delhi’s rent control law.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Speak to a qualified family-law lawyer about your circumstances and how to file."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 138, The Patents Act, 1970",
+          "Section 113, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 89, The Registration Act, 1908",
+          "Section 8, The Patents Act, 1970",
+          "Section 290, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 26, The Registration Act, 1908",
+          "Section 18, The Trade Marks Act, 1999",
+          "Section 144, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 33, The Registration Act, 1908",
+          "Section 7, The Patents Act, 1970",
+          "Section 146, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 78, The Registration Act, 1908",
+          "Section 39, The Patents Act, 1970",
+          "Section 64, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 65, The Registration Act, 1908"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 8047,
+        "output_tokens": 115,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 4.6,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "How much GST do I have to pay on a restaurant bill?",
+        "answer": "I cannot determine the GST on your restaurant bill from the laws available to me. GST is outside NyayaAI’s current coverage, which includes intellectual property, criminal law, and property and tenancy law under Central Acts and Delhi’s rent control law.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Ask the restaurant to explain the GST shown on your bill.",
+          "Consult a qualified tax lawyer or tax professional for the applicable rate."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 30, The Trade Marks Act, 1999",
+          "Section 335, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 7, The Delhi Rent Control Act, 1958",
+          "Section 79, The Patents Act, 1970",
+          "Section 400, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 26, The Delhi Rent Control Act, 1958",
+          "Section 150, The Trade Marks Act, 1999",
+          "Section 177, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 80, The Registration Act, 1908",
+          "Section 103, The Trade Marks Act, 1999",
+          "Section 8, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 137, The Transfer of Property Act, 1882",
+          "Section 2, The Trade Marks Act, 1999",
+          "Section 334, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 36, The Specific Relief Act, 1963"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10263,
+        "output_tokens": 115,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 8.6,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "my uncle is claiming my father's land after his death",
+        "answer": "I’m sorry about your father’s death. I cannot determine from the laws available whether your uncle has a claim to the land. Inheritance and succession are not covered by NyayaAI’s sources.\n\nNyayaAI covers copyright, trade marks, patents, criminal law, property and tenancy law under Central Acts, and Delhi’s rent control law. Please speak with a qualified inheritance or property lawyer about your situation.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Gather your father’s property documents, any will, his death certificate, and any documents or messages about your uncle’s claim.",
+          "Share these documents with a qualified lawyer, and explain whether anyone is currently occupying or trying to sell the land."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 62, The Transfer of Property Act, 1882",
+          "Section 68, The Transfer of Property Act, 1882",
+          "Section 73, The Transfer of Property Act, 1882",
+          "Section 22, The Specific Relief Act, 1963",
+          "Section 5, The Delhi Rent Control Act, 1958",
+          "Section 5, The Specific Relief Act, 1963",
+          "Section 40, The Registration Act, 1908",
+          "Section 28, The Specific Relief Act, 1963",
+          "Section 66, The Registration Act, 1908",
+          "Section 7, The Specific Relief Act, 1963",
+          "Section 27, The Transfer of Property Act, 1882",
+          "Section 19, The Specific Relief Act, 1963",
+          "Section 8, The Specific Relief Act, 1963",
+          "Section 76, The Transfer of Property Act, 1882",
+          "Section 114A, The Transfer of Property Act, 1882"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 7142,
+        "output_tokens": 322,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 6.4,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "can i own land in northeast",
+        "answer": "I cannot tell whether you can own land in the Northeast from the laws available. The answer needs to be checked for the particular location and your circumstances.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Identify the state, district and type of land you are interested in.",
+          "Consult a property lawyer familiar with that location before paying a deposit or signing an agreement."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 40, The Transfer of Property Act, 1882",
+          "Section 6, The Transfer of Property Act, 1882",
+          "Section 57, The Transfer of Property Act, 1882",
+          "Section 60, The Transfer of Property Act, 1882",
+          "Section 22, The Registration Act, 1908",
+          "Section 43, The Transfer of Property Act, 1882",
+          "Section 28, The Registration Act, 1908",
+          "Section 64, The Registration Act, 1908",
+          "Section 55, The Transfer of Property Act, 1882",
+          "Section 21, The Registration Act, 1908",
+          "Section 41, The Transfer of Property Act, 1882",
+          "Section 73, The Transfer of Property Act, 1882",
+          "Section 11, The Transfer of Property Act, 1882",
+          "Section 70, The Transfer of Property Act, 1882",
+          "Section 44, The Transfer of Property Act, 1882"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 8823,
+        "output_tokens": 141,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 4.5,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "what is molecular formula of water",
+        "answer": "The available legal sources do not answer this chemistry question. NyayaAI covers Indian intellectual property, criminal, property and tenancy law, including Delhi’s rent control law.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Check a chemistry textbook or a reliable science reference for the formula.",
+          "For questions about other areas of law, consider speaking to a qualified lawyer."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 49, The Patents Act, 1970",
+          "Section 279, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 45, The Delhi Rent Control Act, 1958",
+          "Section 13, The Trade Marks Act, 1999",
+          "Section 166, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 7, The Delhi Rent Control Act, 1958",
+          "Section 3, The Patents Act, 1970",
+          "Section 129, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 58, The Transfer of Property Act, 1882",
+          "Section 70, The Copyright Act, 1957",
+          "Section 164, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 16A, The Registration Act, 1908",
+          "Section 19, The Copyright Act, 1957",
+          "Section 284, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 111, The Transfer of Property Act, 1882"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9298,
+        "output_tokens": 166,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property_owner",
+      "expected": [
+        "transfer_of_property_act_1882:111",
+        "transfer_of_property_act_1882:107",
+        "transfer_of_property_act_1882:108"
+      ],
+      "seconds": 16.4,
+      "also_check": "Must say Karnataka's own rent law is not in NyayaAI (State-law note shown). Should mention that whether the 5-year lease was registered matters (s.107), without inventing Karnataka rules. No promise that the tenant will win.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 8,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "I've rented a commercial shop in Bengaluru under a written lease for five years. After just one year, the landlord sent me a notice asking me to leave, even though I haven't violated any terms. Can he terminate my lease before the agreed period?",
+        "answer": "Not necessarily. A notice alone does not settle whether your five-year lease has ended early. That depends on the lease terms, whether it was registered, the reason given in the notice and other relevant circumstances.\n\nGenerally, if you pay the rent and comply with your obligations, the landlord is deemed to promise that you may occupy the shop without interruption for the lease period, unless the contract or local usage says otherwise. A lease can also end early in certain circumstances, such as when an agreed event occurs or a valid notice to end it expires.\n\nCheck whether your lease gives the landlord an early termination option. If it says the lease can end early but does not say who has that option, the option belongs to the tenant, not the landlord. A lease for more than one year can be made only by a registered document, so it matters whether yours was registered.\n\nThe general month-to-month and notice rules apply in the absence of a contract or local law or usage to the contrary. Do not assume that a 15-day notice automatically ends your five-year lease.\n\nThe available Central Act text is consolidated, but its exact update date is unknown. The sources do not provide Bengaluru-specific rent law, so a local lawyer should check whether other rules affect your situation.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "transfer_of_property_act_1882:108",
+            "quote": "In the absence of a contract or local\nusage to the contrary",
+            "supports": "The stated rights are subject to a contrary contract or local usage.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 108, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:108",
+            "quote": "if the latter pays the rent\nreserved by the lease and performs the contracts binding on the lessee, he may hold the\nproperty d uring the time limited by the lease without interruption.",
+            "supports": "Generally, a tenant who pays rent and performs the lease obligations may occupy the property without interruption during the agreed period.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 108, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:111",
+            "quote": "where such time is limited conditionally on the happening of some event —by the happening\nof such event:",
+            "supports": "A lease may end early when an event on which its duration is conditional occurs.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 111, The Transfer of Property Act, 1882",
+            "page": 40
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:111",
+            "quote": "on the expiration of a notice to determine the lease, or to quit, or of i ntention to quit, the\nproperty leased, duly given by one party to the other.",
+            "supports": "A lease may end when a duly given notice to end it expires.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 111, The Transfer of Property Act, 1882",
+            "page": 40
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:110",
+            "quote": "Where the time so limited is expressed to be terminable before its\nexpiration, and the lease omits to mention at whose option it is so terminable, the lessee, and not the\nlessor, shall have such option.",
+            "supports": "If an early termination option is stated but the lease does not say whose option it is, it belongs to the tenant.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 110, The Transfer of Property Act, 1882",
+            "page": 40
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:107",
+            "quote": "for any term\nexceeding one year, or reserving a yearly rent, can be made only by a registered instrument.",
+            "supports": "A lease for more than one year can be made only by a registered document.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 107, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:106",
+            "quote": "In the\nabsence of a contract or local law or usage to the contrary",
+            "supports": "The general rules on lease duration and notice apply in the absence of a contrary contract, local law or usage.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 106, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:106",
+            "quote": "a lease of immovable property for any other purpose\nshall be deemed to be a lease from month to month, terminable, on the part of either lessor or l essee, by\nfifteen days’ notice.",
+            "supports": "The general rule provides for a month-to-month lease and fifteen days’ notice for purposes other than agriculture or manufacturing, subject to the stated qualification.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 106, The Transfer of Property Act, 1882",
+            "page": 38
+          }
+        ],
+        "next_steps": [
+          "Keep the lease, registration documents if available, notice, proof of when you received it, rent receipts and relevant messages.",
+          "Check the lease for clauses about early termination, notice and the landlord’s stated reason.",
+          "Ask a Bengaluru property lawyer to review the documents and the applicable local rules promptly, including how to respond to the notice."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 111, The Transfer of Property Act, 1882",
+          "Section 106, The Transfer of Property Act, 1882",
+          "Section 116, The Transfer of Property Act, 1882",
+          "Section 108, The Transfer of Property Act, 1882",
+          "Section 113, The Transfer of Property Act, 1882",
+          "Section 47, The Delhi Rent Control Act, 1958",
+          "Section 65A, The Transfer of Property Act, 1882",
+          "Section 110, The Transfer of Property Act, 1882",
+          "Section 14, The Delhi Rent Control Act, 1958",
+          "Section 107, The Transfer of Property Act, 1882",
+          "Section 65, The Transfer of Property Act, 1882",
+          "Section 127, The Transfer of Property Act, 1882",
+          "Section 37, The Transfer of Property Act, 1882",
+          "Section 29, The Delhi Rent Control Act, 1958",
+          "Section 17, The Delhi Rent Control Act, 1958"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 11118,
+        "output_tokens": 1064,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property_owner",
+      "expected": [
+        "specific_relief_act_1963:10",
+        "specific_relief_act_1963:19",
+        "transfer_of_property_act_1882:54"
+      ],
+      "seconds": 19.3,
+      "also_check": "Should not invent limitation periods or court fees (not in the Acts). May mention registration of the agreement (Registration Act s.17(1A)) only from the text. Suggest a lawyer quickly because of the threatened second sale.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 9,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "I paid the full amount for a property in Kolkata and signed an agreement with the seller. Now the seller is refusing to complete the sale and says he wants to sell the property to somebody else for a higher price. What legal options do I have?",
+        "answer": "You can discuss a court case for **specific performance** with a property lawyer: this means asking the court to require the seller to complete the agreed sale. In an appropriate case, you can also ask for possession. The court decides what relief to grant. [specific_relief_act_1963:22]\n\nThe sale agreement alone does not make you the owner or itself create a right over the property. Generally, for tangible property worth ₹100 or more, ownership is transferred by a registered document. [transfer_of_property_act_1882:54]\n\nSubject to any contrary contract, the seller must sign a proper transfer document when the price has been paid or offered and the buyer presents the document for signing at a proper time and place. [transfer_of_property_act_1882:55]\n\nYou may also have a **charge** over the seller’s interest in the property for money properly paid before delivery, plus interest. A charge is a security right over the property; it is not the same as ownership. This applies only if you have not improperly refused to accept delivery. [transfer_of_property_act_1882:55]\n\nIn a specific-performance case, you may specifically claim possession and, if that claim is refused, any other relief you are entitled to, including refund of earnest money or a deposit. Ask your lawyer about recovery of the full amount you paid and what can be done urgently about the proposed sale to someone else. [specific_relief_act_1963:22]\n\nThe available consolidated text of the Transfer of Property Act has no stated 'as on' date. A lawyer should check the current law and any applicable local provisions.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "specific_relief_act_1963:22",
+            "quote": "any person suing for the specific performance of a contract for the transfer of immovable property may, in an appropriate case, ask for",
+            "supports": "A buyer may sue for specific performance and seek additional relief in an appropriate case.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 22, The Specific Relief Act, 1963",
+            "page": 12
+          },
+          {
+            "section_id": "specific_relief_act_1963:22",
+            "quote": "possession, or partition and separate possession, of the property",
+            "supports": "Possession may be requested in an appropriate specific-performance case.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 22, The Specific Relief Act, 1963",
+            "page": 12
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:54",
+            "quote": "It does not, of itself, create any interest in or charge on such property.",
+            "supports": "The sale agreement alone does not create an interest or charge in the property.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 54, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:54",
+            "quote": "in the case of tangible immoveable property of the value of one\nhundred rupees and upwards, or in the case of a reversion or other intangible thing, can be made only by a\nregistered instrument.",
+            "supports": "A transfer of ownership of tangible property worth ₹100 or more requires a registered document.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 54, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:55",
+            "quote": "In the absence o f a contract to the contrary,",
+            "supports": "The stated seller and buyer rights and duties are subject to a contrary contract.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:55",
+            "quote": "on payment or tender of the amount due in respect of the price, to execute a proper\nconveyance of the property when the buyer tenders it to him for execution at a proper time and place;",
+            "supports": "The seller has a conditional duty to sign a proper transfer document.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:55",
+            "quote": "unless he has improperly declined to accept delivery of the property, to a charge on the\nproperty, as against the seller and all persons claiming under him 1*** to the extent of the\nseller's interest in the property, for the amount of any purchase -money properly paid by the\nbuyer in anticipation of the delivery and for interest on such amount;",
+            "supports": "The buyer may have a charge over the seller’s interest for money properly paid before delivery and interest, subject to the stated condition.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "specific_relief_act_1963:22",
+            "quote": "including the refund of any earnest money or\ndeposit paid or 1[made by] him, in case his claim for specific performance is refused.",
+            "supports": "A buyer may seek eligible relief including refund of earnest money or deposit if specific performance is refused.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 22, The Specific Relief Act, 1963",
+            "page": 12
+          },
+          {
+            "section_id": "specific_relief_act_1963:22",
+            "quote": "No relief under clause (a) or clause (b) of sub-section (1) shall be granted by the court unless it has\nbeen specifically claimed",
+            "supports": "Possession and the other relief described must be specifically claimed.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 22, The Specific Relief Act, 1963",
+            "page": 12
+          }
+        ],
+        "next_steps": [
+          "Keep the signed agreement, bank records, receipts and all messages in which the seller refuses to complete the sale or mentions another buyer.",
+          "Promptly consult a property lawyer in Kolkata. Show them the documents and ask about specific performance, recovery of your payment, and urgent options concerning the proposed sale.",
+          "Ask the lawyer to review the agreement’s terms, the seller’s title and any documents presented for completing the transfer."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 55, The Transfer of Property Act, 1882",
+          "Section 17, The Specific Relief Act, 1963",
+          "Section 56, The Transfer of Property Act, 1882",
+          "Section 13, The Specific Relief Act, 1963",
+          "Section 54, The Transfer of Property Act, 1882",
+          "Section 57, The Transfer of Property Act, 1882",
+          "Section 73, The Transfer of Property Act, 1882",
+          "Section 69, The Transfer of Property Act, 1882",
+          "Section 38, The Transfer of Property Act, 1882",
+          "Section 58, The Transfer of Property Act, 1882",
+          "Section 46, The Transfer of Property Act, 1882",
+          "Section 28, The Specific Relief Act, 1963",
+          "Section 22, The Specific Relief Act, 1963",
+          "Section 43, The Transfer of Property Act, 1882",
+          "Section 67, The Transfer of Property Act, 1882"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10609,
+        "output_tokens": 1311,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property_owner",
+      "expected": [
+        "registration_act_1908:17",
+        "registration_act_1908:49",
+        "transfer_of_property_act_1882:107"
+      ],
+      "seconds": 18.6,
+      "also_check": "Must show the State-law note (Maharashtra has its own rent and stamp laws, not in NyayaAI). Must not state stamp duty amounts or Maharashtra rules.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 4,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "I rented a flat in Mumbai for three years, but my landlord and I only signed a normal agreement on stamp paper. We never registered it. Is this agreement legally valid, and can either of us rely on it in court?",
+        "answer": "Under the available central-law sources, a lease for more than one year can be made only by a registered document. Signing an agreement on stamp paper does not by itself meet that registration requirement. So your unregistered agreement cannot by itself create the intended three-year lease. [transfer_of_property_act_1882:107]\n\nIn court, an unregistered document that required registration generally cannot be received as evidence of the property transaction. But it may be received for limited purposes, including a claim asking the court to order performance of a contract, or to prove a separate, incidental transaction that did not require a registered document. Whether either exception applies depends on the issue and is for the court to decide. [registration_act_1908:49]\n\nThis does not, by itself, settle every question about your landlord–tenant relationship or either party’s rights. The available sources do not include Maharashtra-specific rules, and the exact consolidation dates of the central Acts provided are unknown.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "transfer_of_property_act_1882:107",
+            "quote": "A lease of immoveable property from year to year, or for any term\nexceeding one year, or reserving a yearly rent, can be made only by a registered instrument.",
+            "supports": "A three-year lease requires a registered document; stamp paper alone does not meet that requirement.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 107, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "registration_act_1908:49",
+            "quote": "be received as evidence of any transaction affecting such property or conferring such power,\nunless it has been registered:",
+            "supports": "An unregistered document that required registration generally cannot be received as evidence of the property transaction.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 49, The Registration Act, 1908",
+            "page": 27
+          },
+          {
+            "section_id": "registration_act_1908:49",
+            "quote": "may be received as evidence of a contract in a suit for specific",
+            "supports": "There is an exception for evidence of a contract in a claim seeking an order for its performance.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 49, The Registration Act, 1908",
+            "page": 27
+          },
+          {
+            "section_id": "registration_act_1908:49",
+            "quote": "or as evidence of any collateral\ntransaction not required to be effected by registered instrument.",
+            "supports": "The document may also be received as evidence of a separate, incidental transaction that did not require a registered document.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 49, The Registration Act, 1908",
+            "page": 27
+          }
+        ],
+        "next_steps": [
+          "Keep the signed agreement, rent receipts, payment records and relevant messages.",
+          "Ask a Mumbai property lawyer to review the agreement, your circumstances and any applicable Maharashtra-specific rules, especially before relying on the document in a dispute."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 107, The Transfer of Property Act, 1882",
+          "Section 48, The Registration Act, 1908",
+          "Section 17, The Registration Act, 1908",
+          "Section 3, The Transfer of Property Act, 1882",
+          "Section 116, The Transfer of Property Act, 1882",
+          "Section 89, The Registration Act, 1908",
+          "Section 18, The Registration Act, 1908",
+          "Section 28, The Registration Act, 1908",
+          "Section 3, The Delhi Rent Control Act, 1958",
+          "Section 49, The Registration Act, 1908",
+          "Section 47, The Delhi Rent Control Act, 1958",
+          "Section 4, The Delhi Rent Control Act, 1958",
+          "Section 14A, The Delhi Rent Control Act, 1958",
+          "Section 108, The Transfer of Property Act, 1882",
+          "Section 28, The Delhi Rent Control Act, 1958"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 11036,
+        "output_tokens": 1208,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property_owner",
+      "expected": [
+        "transfer_of_property_act_1882:106",
+        "specific_relief_act_1963:6",
+        "delhi_rent_control_act_1958:14",
+        "delhi_rent_control_act_1958:3"
+      ],
+      "seconds": 10.3,
+      "also_check": "Should mention that the Delhi Rent Control Act applies only if the conditions in s.3 are met (rent limit), if DRCA is used at all. Should not say the landlord can never evict; explain the law's process. Calm tone.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 2,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "I'm living in a rented house in Delhi. My landlord suddenly told me to leave within three days because he wants to rent the property to someone else at a higher price. Can he force me to vacate like this?",
+        "answer": "A three-day demand does not by itself establish that you must leave. If the Delhi Rent Control Act applies to your home, the landlord must apply to the Rent Controller, an authority that decides these cases. The Controller may order eviction only on specified grounds. Wanting to rent the house to someone else at a higher price is not one of the grounds listed in the supplied text.\n\nWhether the Act applies needs checking. It covers only certain areas of Delhi and excludes some properties, including premises where monthly rent exceeds ₹3,500. If it does not apply, the sources provided do not tell me what notice or eviction rules apply to your situation.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "delhi_rent_control_act_1958:14",
+            "quote": "the Controller may, on an application made to him in the prescribed manner, make an\norder for the recovery of possession of the premises on one or more of the following grounds only",
+            "supports": "If the Act applies, the Controller may order eviction on an application only on specified grounds; the stated wish to re-rent at a higher price is not one of the grounds listed.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Delhi Rent Control Act, 1958",
+            "page": 12
+          },
+          {
+            "section_id": "delhi_rent_control_act_1958:3",
+            "quote": "whose monthly rent exceeds three thousand and five\nhundred rupees",
+            "supports": "The Act excludes premises whose monthly rent exceeds ₹3,500.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 3, The Delhi Rent Control Act, 1958",
+            "page": 8
+          }
+        ],
+        "next_steps": [
+          "Keep your rental agreement, rent receipts, payment records and the landlord’s messages or notice.",
+          "Check the monthly rent, the property’s location and its construction date with a Delhi property lawyer to see whether the Act applies. Ask the lawyer to review the three-day demand promptly.",
+          "If the landlord threatens you or tries to remove you by force, document what happens if safe and contact the police."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 14, The Delhi Rent Control Act, 1958",
+          "Section 14A, The Delhi Rent Control Act, 1958",
+          "Section 14C, The Delhi Rent Control Act, 1958",
+          "Section 15, The Delhi Rent Control Act, 1958",
+          "Section 6, The Delhi Rent Control Act, 1958",
+          "Section 3, The Delhi Rent Control Act, 1958",
+          "Section 14B, The Delhi Rent Control Act, 1958",
+          "Section 47, The Delhi Rent Control Act, 1958",
+          "Section 27, The Delhi Rent Control Act, 1958",
+          "Section 50, The Delhi Rent Control Act, 1958",
+          "Section 2, The Delhi Rent Control Act, 1958",
+          "Section 9, The Delhi Rent Control Act, 1958",
+          "Section 6A, The Delhi Rent Control Act, 1958",
+          "Section 12, The Delhi Rent Control Act, 1958",
+          "Section 7, The Delhi Rent Control Act, 1958"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 12927,
+        "output_tokens": 578,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "scenario",
+      "expected": [],
+      "seconds": 7.0,
+      "also_check": "Correct = says honestly that its laws do not contain a rule on refunding security deposits and suggests the practical steps (written demand, records, lawyer) WITHOUT citing the Contract Act or inventing procedures; may mention DRCA s.5 only from its text and only if relevant. A partial answer is acceptable; inventing law is a fail.",
+      "score": {
+        "passed": null,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "I rented a flat in Delhi and paid my landlord ₹50,000 as a security deposit. I've vacated the flat, cleared all my bills and returned the keys, but he keeps making excuses and isn't returning my deposit. What can I legally do?",
+        "answer": "I’m sorry your deposit has not been returned. The laws available to me do not explain how to recover a security deposit in your circumstances, so I cannot say what legal action is available to you.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Keep your rental agreement, proof of the ₹50,000 payment, cleared bills, proof of returning the keys, and messages with your landlord.",
+          "Send the landlord a written request for the deposit and keep a copy of it and any reply.",
+          "Consult a qualified lawyer with these documents to discuss your options."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 15, The Delhi Rent Control Act, 1958",
+          "Section 14, The Delhi Rent Control Act, 1958",
+          "Section 27, The Delhi Rent Control Act, 1958",
+          "Section 14A, The Delhi Rent Control Act, 1958",
+          "Section 44, The Delhi Rent Control Act, 1958",
+          "Section 14C, The Delhi Rent Control Act, 1958",
+          "Section 13, The Delhi Rent Control Act, 1958",
+          "Section 21, The Delhi Rent Control Act, 1958",
+          "Section 26, The Delhi Rent Control Act, 1958",
+          "Section 29, The Delhi Rent Control Act, 1958",
+          "Section 19, The Delhi Rent Control Act, 1958",
+          "Section 28, The Delhi Rent Control Act, 1958",
+          "Section 20, The Delhi Rent Control Act, 1958",
+          "Section 45, The Delhi Rent Control Act, 1958",
+          "Section 9, The Delhi Rent Control Act, 1958"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10199,
+        "output_tokens": 223,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property",
+      "expected": [
+        "delhi_rent_control_act_1958:45",
+        "specific_relief_act_1963:6"
+      ],
+      "seconds": 15.8,
+      "also_check": "Should mention the DRCA applies only to premises within s.3 (rent limit). No helpline numbers invented.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 6,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "My landlord in Delhi cut off my water and electricity to force me to leave the flat. Is he allowed to do that?",
+        "answer": "If the Delhi Rent Control Act applies to your flat, your landlord cannot cut off water or electricity you enjoy as a tenant without a just and sufficient reason. Both are essential services under the Act.\n\nYou can apply to the Rent Controller, the authority that handles these matters. If the Controller is satisfied that the landlord cut the services to force you to leave, the Controller may order their immediate restoration while the matter is being examined. The Controller can make this temporary order without first notifying the landlord. After an inquiry, if the Controller finds there was no just and sufficient reason, the Controller must order the services restored.\n\nThe Act does not cover every area or every flat in Delhi. Its application to your flat needs to be checked. If it does not apply, these sources do not establish what remedy is available to you.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "delhi_rent_control_act_1958:45",
+            "quote": "No landlord either himself or through\nany person purporting to act on his behalf shall without just and sufficient cause cut off or withhold any\nessential supply or service enjoyed by the tenant in respect of the premises let to him.",
+            "supports": "If the Act applies, a landlord cannot cut off an essential service enjoyed by the tenant without a just and sufficient reason.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Delhi Rent Control Act, 1958",
+            "page": 26
+          },
+          {
+            "section_id": "delhi_rent_control_act_1958:45",
+            "quote": "“essential supply or service” includes supply of water, electricity",
+            "supports": "Water and electricity are essential services under the Act.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Delhi Rent Control Act, 1958",
+            "page": 26
+          },
+          {
+            "section_id": "delhi_rent_control_act_1958:45",
+            "quote": "the tenant may make an application to\nthe Controller complaining of such contravention.",
+            "supports": "The tenant can apply to the Controller about the cutoff.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Delhi Rent Control Act, 1958",
+            "page": 26
+          },
+          {
+            "section_id": "delhi_rent_control_act_1958:45",
+            "quote": "the essential supply or service was cut off or withheld by the\nlandlord with a view to compel the tenant to vacate the premises or to pay an enhanced rent, the Controller\nmay pass an order directing the landlord to restore the amenities immediately, pending the inquiry",
+            "supports": "If satisfied that the cutoff was intended to force the tenant to leave, the Controller may order immediate restoration pending inquiry.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Delhi Rent Control Act, 1958",
+            "page": 26
+          },
+          {
+            "section_id": "delhi_rent_control_act_1958:45",
+            "quote": "An interim order may be passed under this sub -section without giving notice to the\nlandlord.",
+            "supports": "The Controller can make the temporary order without first notifying the landlord.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Delhi Rent Control Act, 1958",
+            "page": 26
+          },
+          {
+            "section_id": "delhi_rent_control_act_1958:45",
+            "quote": "If the Controller on inquiry finds that the essential supply or service enjoyed by the tenant in respect\nof the premises was cut off or withheld by the landlord without just and sufficient cause, he shall make an\norder directing the landlord to restore such supply or service.",
+            "supports": "After inquiry, the Controller must order restoration if the cutoff was without just and sufficient reason.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 45, The Delhi Rent Control Act, 1958",
+            "page": 26
+          }
+        ],
+        "next_steps": [
+          "Keep your rental agreement, rent receipts, utility bills, and any messages in which the landlord asks you to leave or discusses the cutoff. Note when the services stopped.",
+          "Consult a local lawyer promptly to check whether the Act covers your flat. Share your address and monthly rent.",
+          "If the Act applies, consider applying to the Rent Controller and asking for an immediate restoration order while the matter is examined."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 45, The Delhi Rent Control Act, 1958",
+          "Section 14, The Delhi Rent Control Act, 1958",
+          "Section 44, The Delhi Rent Control Act, 1958",
+          "Section 50, The Delhi Rent Control Act, 1958",
+          "Section 14C, The Delhi Rent Control Act, 1958",
+          "Section 14A, The Delhi Rent Control Act, 1958",
+          "Section 7, The Delhi Rent Control Act, 1958",
+          "Section 15, The Delhi Rent Control Act, 1958",
+          "Section 12, The Delhi Rent Control Act, 1958",
+          "Section 47, The Delhi Rent Control Act, 1958",
+          "Section 20, The Delhi Rent Control Act, 1958",
+          "Section 24, The Delhi Rent Control Act, 1958",
+          "Section 57, The Delhi Rent Control Act, 1958",
+          "Section 9, The Delhi Rent Control Act, 1958",
+          "Section 17, The Delhi Rent Control Act, 1958"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10799,
+        "output_tokens": 1063,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property",
+      "expected": [
+        "transfer_of_property_act_1882:106"
+      ],
+      "seconds": 18.2,
+      "also_check": "Must show the State-law note (State rent laws may differ). Must say '15 days' only from s.106 text.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 6,
+        "rejected": 2,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "I rent a room month to month with no written agreement. How much notice does my landlord have to give me before asking me to leave?",
+        "answer": "Usually, for a month-to-month residential lease, the landlord must give 15 days’ notice to end the lease. The 15 days run from when you receive the notice. This default rule applies unless a contract, local law or local usage says otherwise. [transfer_of_property_act_1882:106]\n\nThe notice must be in writing and signed by or for the landlord. The law also specifies how it must be delivered. A notice that gives less than 15 days is not automatically invalid if a case is filed after the required period has expired. [transfer_of_property_act_1882:106]\n\nNotice to end a lease is different from an eviction order. For example, if your room is covered by Delhi’s rent control law, the Rent Controller may order possession only on specified grounds. That law applies only in covered Delhi areas and excludes some premises. Your location and circumstances matter. [delhi_rent_control_act_1958:14] [delhi_rent_control_act_1958:3]",
+        "confidence": "medium",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "transfer_of_property_act_1882:106",
+            "quote": "In the absence of a contract or local law or usage to the contrary",
+            "supports": "The default notice rule can be affected by a contrary contract, local law or usage.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 106, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:106",
+            "quote": "fifteen days’ notice.",
+            "supports": "The default notice period for a residential month-to-month lease is 15 days.",
+            "verified": false,
+            "reason": "Quote is too short to prove anything.",
+            "citation": "Section 106, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:106",
+            "quote": "shall commence from the date of receipt of notice.",
+            "supports": "The notice period runs from receipt of the notice.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 106, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:106",
+            "quote": "must be in writing, signed by or on behalf of the person giving it",
+            "supports": "The notice must be written and signed by or for the person giving it.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 106, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:106",
+            "quote": "either be sent by post to the party who is intended to be bound by it or be tendered or delivered personally",
+            "supports": "The law specifies ways in which the notice must be delivered.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 106, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:106",
+            "quote": "shall not be deemed to be invalid merely because the period\nmentioned therein falls short of the period specified under that sub -section, where a suit or proceeding is\nfiled after the expiry of the period mentioned in that sub-section.",
+            "supports": "A shorter notice is not automatically invalid if a case is filed after the required period has expired.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 106, The Transfer of Property Act, 1882",
+            "page": 38
+          },
+          {
+            "section_id": "delhi_rent_control_act_1958:14",
+            "quote": "the Controller may, on an application made to him in the prescribed manner, make an\norder for the recovery of possession of the premises on one or more of the following grounds only",
+            "supports": "Where Delhi’s rent control law applies, the Controller may order possession on specified grounds.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 14, The Delhi Rent Control Act, 1958",
+            "page": 12
+          },
+          {
+            "section_id": "delhi_rent_control_act_1958:3",
+            "quote": "Applies only in the areas of Delhi it covers (see its section 1), and section 3 excludes some premises from the Act",
+            "supports": "The Delhi law applies only in covered areas and excludes some premises.",
+            "verified": false,
+            "reason": "Quoted words do not appear in this section's text.",
+            "citation": "Section 3, The Delhi Rent Control Act, 1958",
+            "page": 8
+          }
+        ],
+        "next_steps": [
+          "Keep any notice, its envelope, rent receipts and messages about your rental. Note the date you received the notice.",
+          "Check your city and State, and what notice terms, if any, you agreed with the landlord. A local lawyer can help check which rules apply to your room and notice."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 17, The Delhi Rent Control Act, 1958",
+          "Section 106, The Transfer of Property Act, 1882",
+          "Section 27, The Delhi Rent Control Act, 1958",
+          "Section 14, The Delhi Rent Control Act, 1958",
+          "Section 47, The Delhi Rent Control Act, 1958",
+          "Section 29, The Delhi Rent Control Act, 1958",
+          "Section 15, The Delhi Rent Control Act, 1958",
+          "Section 50, The Delhi Rent Control Act, 1958",
+          "Section 8, The Delhi Rent Control Act, 1958",
+          "Section 26, The Delhi Rent Control Act, 1958",
+          "Section 113, The Transfer of Property Act, 1882",
+          "Section 14A, The Delhi Rent Control Act, 1958",
+          "Section 111, The Transfer of Property Act, 1882",
+          "Section 3, The Delhi Rent Control Act, 1958",
+          "Section 116, The Transfer of Property Act, 1882"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10355,
+        "output_tokens": 1217,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property",
+      "expected": [
+        "transfer_of_property_act_1882:109"
+      ],
+      "seconds": 14.4,
+      "also_check": "Plain explanation; no invented procedure.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "The owner of the house I am renting has sold it to someone else. Does my rental agreement continue with the new owner?",
+        "answer": "Generally, yes. If your rental agreement is a lease, the sale alone does not normally end it. Unless there is a contract saying otherwise, the new owner takes over the former owner’s rights under the lease while they own the property. If you choose to treat the new owner as responsible for the former owner’s obligations under the lease, those obligations also pass to the new owner. [transfer_of_property_act_1882:109]\n\nThe former owner does not stop being responsible for their lease obligations merely because of the sale, unless you choose to treat the new owner as responsible instead. [transfer_of_property_act_1882:109]\n\nThe new owner is not entitled to rent arrears that became due before the transfer. If you paid the former owner without reason to believe the transfer had happened, you do not have to pay that same rent again to the new owner. [transfer_of_property_act_1882:109]\n\nYour agreement’s terms and whether the lease has already ended matter. For example, a lease can end when its agreed term expires. [transfer_of_property_act_1882:111]\n\nThe available text of the central Act is consolidated, but its exact update date is unknown. State-specific rules may also matter.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "transfer_of_property_act_1882:109",
+            "quote": "the transferee, in the absence of a contract to the contrary, shall possess all\nthe rights and, if the lessee so elects, be subject to all the liabilities of  the lessor as to the property or part\ntransferred so long as he is the owner of it",
+            "supports": "Unless a contract says otherwise, the new owner takes over the former owner's lease rights and, if the tenant chooses, the former owner's lease obligations.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 109, The Transfer of Property Act, 1882",
+            "page": 40
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:109",
+            "quote": "the lessor shall not, by reason only of such transfer, cease\nto be subject to any of the liabilities imposed upon him by the lease, unless the lessee elects to treat the\ntransferee as the person liable to him",
+            "supports": "The sale alone does not release the former owner from lease obligations; the tenant may choose to treat the new owner as responsible instead.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 109, The Transfer of Property Act, 1882",
+            "page": 40
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:109",
+            "quote": "the transferee is not entitled to arrears of rent due before the transfer",
+            "supports": "The new owner is not entitled to rent arrears that became due before the transfer.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 109, The Transfer of Property Act, 1882",
+            "page": 40
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:109",
+            "quote": "if the lessee, not having reason to believe that such transfer has been made, pays rent to the\nlessor, the lessee shall not be liabl e to pay such rent over again to the transferee",
+            "supports": "Rent paid to the former owner without reason to believe the transfer had occurred need not be paid again to the new owner.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 109, The Transfer of Property Act, 1882",
+            "page": 40
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:111",
+            "quote": "by efflux of the time limited thereby",
+            "supports": "A lease can end when its agreed term expires.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 111, The Transfer of Property Act, 1882",
+            "page": 40
+          }
+        ],
+        "next_steps": [
+          "Keep your rental agreement, deposit records, rent receipts and any messages about the sale.",
+          "Ask the former and new owners for written confirmation of the transfer and the details for future rent payments.",
+          "If there is a dispute about the agreement, rent or deposit, consult a local property lawyer with your documents."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 116, The Transfer of Property Act, 1882",
+          "Section 109, The Transfer of Property Act, 1882",
+          "Section 37, The Transfer of Property Act, 1882",
+          "Section 2, The Delhi Rent Control Act, 1958",
+          "Section 44, The Transfer of Property Act, 1882",
+          "Section 55, The Transfer of Property Act, 1882",
+          "Section 108, The Transfer of Property Act, 1882",
+          "Section 47, The Transfer of Property Act, 1882",
+          "Section 14, The Delhi Rent Control Act, 1958",
+          "Section 56, The Transfer of Property Act, 1882",
+          "Section 111, The Transfer of Property Act, 1882",
+          "Section 34, The Delhi Rent Control Act, 1958",
+          "Section 81, The Transfer of Property Act, 1882",
+          "Section 105, The Transfer of Property Act, 1882",
+          "Section 76, The Transfer of Property Act, 1882"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 13049,
+        "output_tokens": 880,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property",
+      "expected": [
+        "transfer_of_property_act_1882:116"
+      ],
+      "seconds": 15.5,
+      "also_check": "Should explain year-to-year vs month-to-month depends on the purpose (s.106).",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 1,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "My lease ended last year but I kept living in the flat and the landlord kept accepting my rent every month. Am I still a legal tenant?",
+        "answer": "Possibly yes. Based on what you describe, you may still be a tenant under a renewed lease. When a tenant stays after a lease ends and the landlord accepts rent, the lease is generally renewed unless there is an agreement to the contrary. This is called “holding over” [transfer_of_property_act_1882:116].\n\nThe renewed lease may run month to month or year to year, depending on the purpose for which the property was leased. The fact that you pay monthly does not by itself settle that question [transfer_of_property_act_1882:116]. Your lease terms and any later agreement matter, so your status cannot be confirmed from these facts alone.\n\nThe available copy of the Act is consolidated, but its exact update date is unknown.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "transfer_of_property_act_1882:116",
+            "quote": "the lessor or his legal\nrepresentative accepts rent from the lessee or under -lessee, or  otherwise assents to his continuing in\npossession, the lease is, in the absence of an agreement to the contrary, renewed  from year to year, or\nfrom month to month, according to the purpose for which the property is leased",
+            "supports": "After a lease ends, continued possession and the landlord’s acceptance of rent can renew the lease, unless there is an agreement to the contrary. Its duration depends on the leasing purpose.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 116, The Transfer of Property Act, 1882",
+            "page": 42
+          }
+        ],
+        "next_steps": [
+          "Keep your original lease, rent receipts or bank records, and any messages about staying after the lease ended.",
+          "Check the lease and later communications for any agreement about what happens after expiry.",
+          "If your status is disputed, ask a property lawyer to review the documents and the rules applicable where the flat is located."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 116, The Transfer of Property Act, 1882",
+          "Section 14, The Delhi Rent Control Act, 1958",
+          "Section 29, The Delhi Rent Control Act, 1958",
+          "Section 27, The Delhi Rent Control Act, 1958",
+          "Section 108, The Transfer of Property Act, 1882",
+          "Section 111, The Transfer of Property Act, 1882",
+          "Section 2, The Delhi Rent Control Act, 1958",
+          "Section 47, The Delhi Rent Control Act, 1958",
+          "Section 6A, The Delhi Rent Control Act, 1958",
+          "Section 107, The Transfer of Property Act, 1882",
+          "Section 105, The Transfer of Property Act, 1882",
+          "Section 14A, The Delhi Rent Control Act, 1958",
+          "Section 110, The Transfer of Property Act, 1882",
+          "Section 50, The Delhi Rent Control Act, 1958",
+          "Section 25, The Delhi Rent Control Act, 1958"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 12068,
+        "output_tokens": 634,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property",
+      "expected": [
+        "transfer_of_property_act_1882:55"
+      ],
+      "seconds": 15.2,
+      "also_check": "Quotes must come from s.55; no invented consumer/RERA law.",
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 6,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "I bought a flat and paid in full, but the seller still has not handed over the original title documents. What is the seller legally required to do?",
+        "answer": "Generally, because you have paid the full purchase price, the seller must hand over the property’s title documents that are in the seller’s possession or control. These are documents relating to ownership of the property. This rule applies unless your contract provides otherwise. [transfer_of_property_act_1882:55]\n\nThere are exceptions if the same documents cover other property: if the seller keeps part of that property, the seller may keep the documents; if all of it is sold to different buyers, the buyer of the most valuable lot may keep them. In either case, on a reasonable request, the person keeping them must produce them and provide true copies or extracts at the requesting buyer’s cost. They must also keep them safe, subject to the exception in the source. [transfer_of_property_act_1882:55]\n\nThe available Act text is consolidated, but its exact update date is unknown.",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "transfer_of_property_act_1882:55",
+            "quote": "Where the whole of the purchase -money has been paid to the seller, he is also bound to\ndeliver to the buyer all documents of title relating to the property which are in the seller ’s\npossession or power:",
+            "supports": "After full payment, the seller generally must deliver title documents in their possession or control.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:55",
+            "quote": "In the absence o f a contract to the contrary,",
+            "supports": "The rule applies unless the contract provides otherwise.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:55",
+            "quote": "whe re the seller retains any part of the property comprised in such\ndocuments, he is entitled to retain them all",
+            "supports": "The seller may retain the documents if they keep part of the property covered by them.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:55",
+            "quote": "where the whole of such property is sold\nto different buyers the buyers , of the lot of greatest value is entitled to such documents.",
+            "supports": "Where all the property covered by the documents is sold to different buyers, the buyer of the most valuable lot is entitled to them.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:55",
+            "quote": "upon every\nreasonable request by the buyer, or by any of the other buyers, as the case may be, and at the\ncost of the person making the request, to produce the said  documents and furnish such true\ncopies thereof or extracts therefrom as he may require",
+            "supports": "In those exceptions, the person keeping the documents must produce them and provide true copies or extracts on reasonable request, at the requester’s cost.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Transfer of Property Act, 1882",
+            "page": 20
+          },
+          {
+            "section_id": "transfer_of_property_act_1882:55",
+            "quote": "shall keep the said documents safe,\nuncancelled and undefaced, unless p revented from so doing by fire or other inevitable accident.",
+            "supports": "The person keeping the documents must keep them safe, subject to the stated exception.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 55, The Transfer of Property Act, 1882",
+            "page": 20
+          }
+        ],
+        "next_steps": [
+          "Check your sale agreement for terms about the title documents. Keep your payment receipts and communications with the seller.",
+          "Ask the seller in writing to hand over the original title documents, or explain who holds them and why.",
+          "If the documents are not provided, consult a property lawyer with your agreement and payment records."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 55, The Transfer of Property Act, 1882",
+          "Section 54, The Transfer of Property Act, 1882",
+          "Section 50, The Transfer of Property Act, 1882",
+          "Section 17, The Registration Act, 1908",
+          "Section 57, The Transfer of Property Act, 1882",
+          "Section 51, The Transfer of Property Act, 1882",
+          "Section 3, The Transfer of Property Act, 1882",
+          "Section 58, The Transfer of Property Act, 1882",
+          "Section 13, The Specific Relief Act, 1963",
+          "Section 32A, The Registration Act, 1908",
+          "Section 60B, The Transfer of Property Act, 1882",
+          "Section 73, The Transfer of Property Act, 1882",
+          "Section 60, The Transfer of Property Act, 1882",
+          "Section 69, The Transfer of Property Act, 1882",
+          "Section 89, The Registration Act, 1908"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 13053,
+        "output_tokens": 956,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "property",
+      "expected": [
+        "specific_relief_act_1963:6"
+      ],
+      "seconds": 12.3,
+      "also_check": "Answer in Hinglish; quotes in English exactly. Should not invent the time limit unless quoted from s.6 (s.6(2)(a) 'after the expiry of six months from the date of dispossession').",
+      "score": {
+        "retrieved_correct": false,
+        "grounded": false,
+        "correct_law": false,
+        "passed": false,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Mere landlord ne bina court order ke mujhe ghar se nikal diya aur taala laga diya. Ab main kya kar sakta hoon?",
+        "answer": "Yeh bahut pareshani ki baat hai. Diye gaye kanooni sources se main yeh nahi bata sakta ki taala lagne ke baad ghar ka kabza wapas paane ke liye kaun-si kanooni karwai uplabdh hai. Yeh bhi jaan-na zaroori hai ki ghar kis shehar aur rajya mein hai.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Jaldi kisi sthaniya property ya tenancy lawyer se baat karein aur unse ghar ka kabza wapas paane ke vikalpon ke baare mein poochhein.",
+          "Kiraye ka agreement, rent receipts ya payment records, landlord ke messages aur lage hue taale ki tasveerein sambhal kar rakhein. Ghatna ki tareekh bhi likh lein.",
+          "Agar aapka zaroori samaan ya dawai ghar mein band hai, ya aapko suraksha ka khatra hai, to sthaniya police se sampark karein."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 14, The Delhi Rent Control Act, 1958",
+          "Section 14A, The Delhi Rent Control Act, 1958",
+          "Section 50, The Delhi Rent Control Act, 1958",
+          "Section 25, The Delhi Rent Control Act, 1958",
+          "Section 47, The Delhi Rent Control Act, 1958",
+          "Section 19, The Delhi Rent Control Act, 1958",
+          "Section 20, The Delhi Rent Control Act, 1958",
+          "Section 25B, The Delhi Rent Control Act, 1958",
+          "Section 21, The Delhi Rent Control Act, 1958",
+          "Section 14C, The Delhi Rent Control Act, 1958",
+          "Section 14B, The Delhi Rent Control Act, 1958",
+          "Section 15, The Delhi Rent Control Act, 1958",
+          "Section 45, The Delhi Rent Control Act, 1958",
+          "Section 44, The Delhi Rent Control Act, 1958",
+          "Section 18, The Delhi Rent Control Act, 1958"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 10919,
+        "output_tokens": 509,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    }
+  ]
+}

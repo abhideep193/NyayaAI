@@ -272,6 +272,8 @@ def show_answer(response, animate: bool = False) -> None:
     for note in notes:
         if note.kind == "old_law":
             st.warning(f"**Date check:** {note.text}  \n*Source: {note.source}*")
+        elif note.kind == "state_law":
+            st.warning(f"**Your State's law:** {note.text}")
 
     answer = readable_citations(response.answer)
     if animate and TYPEWRITER_DELAY > 0:
@@ -401,9 +403,12 @@ with st.container(key="topbar"):
             st.markdown(f"**About NyayaAI**  \nPlain-language help with Indian {areas}, answered only from the "
                         "official text of the Acts (India Code). Every quote is checked against the Act.")
             st.markdown(f"**The {len(ENABLED_SOURCES)} Acts NyayaAI uses**")
-            st.markdown("\n".join(f"- {s['title']} (as on {s['version_as_on']})" for s in ENABLED_SOURCES))
-            st.markdown("**Not covered yet:** rules, fees, court judgments, state laws, and other areas of law "
-                        "(property, family, tenancy, consumer, employment...).")
+            st.markdown("\n".join(
+                f"- {s['title']} " + (f"(as on {s['version_as_on']})" if s.get("version_as_on")
+                                      else "(consolidated text; India Code prints no 'as on' date)")
+                for s in ENABLED_SOURCES))
+            st.markdown("**Not covered yet:** rules, fees, court judgments, State laws (except Delhi's rent law), "
+                        "inheritance, land records, stamp duty, and other areas of law (family, consumer, employment...).")
             st.markdown("**Privacy:** your questions are sent to OpenAI to write the answer. Do not include names, "
                         "phone numbers, addresses or other details that could identify you or anyone else. "
                         "NyayaAI does not save your conversation.")

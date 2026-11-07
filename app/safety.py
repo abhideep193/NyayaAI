@@ -100,6 +100,11 @@ def safety_notes(question: str, verified_section_ids: list[str], domain_of: dict
     if criminal_searched and mentions_date_before(question, date.fromisoformat(old["new_laws_in_force_from"])):
         notes.append(SafetyNote("old_law", old["text"], old["source"]))
 
+    # Property / rent law differs by State: whenever property law was searched, say so (added 2026-11-08).
+    state_law = safety.get("state_law")
+    if state_law and domains(verified_section_ids + (retrieved_section_ids or [])) & set(state_law["applies_to_domains"]):
+        notes.append(SafetyNote("state_law", state_law["text"], state_law["source"]))
+
     helplines = helplines_for(verified_section_ids, safety)
     if criminal_searched:
         helplines += [h for h in keyword_helplines(question, safety) if h not in helplines]

@@ -18,13 +18,33 @@ PAGE_MARKER = re.compile(r"^\[\[PAGE (\d+)\]\]$")
 #   "52. Certain acts not to be infringement of copyright.—(1) ..."
 #   "1[52A. Particulars to be included in ..."   (1[ = "inserted, see footnote 1")
 # Captures: (1) the section number such as "52" or "52A", (2) the rest of the line.
-SECTION_START = re.compile(r"^\s*(?:\d+\[)?(\d+[A-Z]*)\.\s*(.*)$")
+# "1[53A." and, in the older PDFs (Transfer of Property Act), "1 [53A." and "3[119 ." with spaces.
+SECTION_START = re.compile(r"^\s*(?:\d+\s?\[)?(\d+[A-Z]*)\s?\.\s*(.*)$")
+
+# State amendments printed inside a Central Act (e.g. 41 blocks in the Registration Act, 1908):
+#   STATE AMENDMENT / Karnataka / Insertion of new section 18A ... / [Vide Karnataka Act 55 of 1976, s. 16]
+# They change the law ONLY in that State, so they must not be quoted as law for all of India.
+# When a source asks for it (sources.json "strip_state_amendments": true) their text is removed and the
+# section gets a note naming the States instead.
+STATE_AMENDMENT_START = re.compile(r"^\s*STATE AMENDMENTS?\s*$")
+STATES = {
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana",
+    "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
+    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Orissa", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu",
+    "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Delhi", "Jammu and Kashmir",
+    "Puducherry", "Pondicherry", "Chandigarh", "Ladakh", "Andaman and Nicobar Islands", "Lakshadweep",
+    "Dadra and Nagar Haveli", "Daman and Diu", "Bombay", "Madras", "Mysore",
+}
 
 # Footnotes also start with "number. ", e.g. "1. Subs. by Act 38 of 1994 ...".
 # If the text after the number starts with one of these, it is a footnote.
 FOOTNOTE_START = re.compile(
     r"^(Subs\.|Ins\.|Rep\.|Omitted|Added|The words|Cl\.|Clause|Sub-section"
-    r"|Section|Proviso|Vide|See |Came into force|Renumbered)"
+    r"|Section|Proviso|Vide|See |Came into force|Renumbered"
+    # Older Acts' footnotes about where the Act applies, e.g. Transfer of Property Act footnote
+    # "5. The Act has been extended to — The Presidency of Bombay ..." (it contains a dash, so
+    # without this it was taken for section 5 and swallowed the real sections 2-5).
+    r"|The Act has been|This Act has been|The application of this Act|The Act was|This Act was)"
 )
 
 # "CHAPTER XI" or "1[CHAPTER VIIA" -> captures "XI" / "VIIA"
@@ -35,6 +55,9 @@ TOC_ENTRY = re.compile(r"^\s*(\d+[A-Z]*)\.\s+\S")
 
 # The law itself starts at the enacting formula ...
 BODY_START = re.compile(r"^BE it enacted", re.IGNORECASE | re.MULTILINE)
+# Older Acts (Transfer of Property Act 1882, Registration Act 1908) have a preamble instead:
+# "WHEREAS it is expedient ...; It is hereby enacted as follows". Used only when "BE it enacted" is absent.
+OLD_BODY_START = re.compile(r"it\s+is\s+hereby\s+enacted", re.IGNORECASE)
 # ... and ends where the Schedule or the Statement of Objects and Reasons begins.
 # \b = "whole word only", so that "THE SCHEDULED CASTES ..." (an Act's own title) does not count as "THE SCHEDULE".
 # Also "THE FIRST SCHEDULE" (BNSS) and "1[THE FIRST SCHEDULE" (IT Act, "1[" = amendment mark):
@@ -76,9 +99,9 @@ class Section:
 
 def split_toc_and_body(document: str) -> tuple[str, str]:
     """Return (table_of_contents, body) of an Act."""
-    start = BODY_START.search(document)
+    start = BODY_START.search(document) or OLD_BODY_START.search(document)
     if start is None:
-        raise ValueError("Could not find 'BE it enacted' - is this an India Code Act?")
+        raise ValueError("Could not find 'BE it enacted' or 'it is hereby enacted' - is this an India Code Act?")
 
     # Begin the body at the page marker just before "BE it enacted", so the
     # body knows which page it starts on.
@@ -156,7 +179,9 @@ def match_section_start(lines: list[str], index: int) -> tuple[str, str, str] | 
     # Omitted section: "25. [Term of copyright in photographs .] Omitted by ..."
     if rest.startswith("["):
         closing = lookahead.find("]")
-        if closing != -1 and "Omitted" in lookahead[closing : closing + 40]:
+        after = lookahead[closing : closing + 40]
+        # Newer Acts write "Omitted by ..."; older ones "Rep. by ..." or "Repealed. by ..." (also stored as omitted).
+        if closing != -1 and ("Omitted" in after or re.search(r"\][\s—–-]*(Rep\.|Repealed)", after)):
             return number, _clean_heading(lookahead[1:closing]), "omitted"
         return None
 
@@ -185,11 +210,13 @@ def _fix_merged_footnote_number(start: tuple[str, str, str], toc_numbers: set[st
 
 
 def split_sections(body: str, source_id: str, act_title: str,
-                   toc_numbers: list[str] | None = None) -> list[Section]:
+                   toc_numbers: list[str] | None = None, strip_state_amendments: bool = False) -> list[Section]:
     """Split the body of an Act into Section objects.
 
     toc_numbers (optional): the section numbers from the Act's table of contents,
-    used only to repair numbers damaged in the PDF (see _fix_merged_footnote_number).
+    used only to repair numbers damaged in the PDF (see _fix_merged_footnote_number),
+    and to recognise the end of a State amendment block.
+    strip_state_amendments: remove State amendment blocks, noting the States (see STATE_AMENDMENT_START).
     """
     known_numbers = set(toc_numbers or [])
     lines = body.splitlines()
@@ -200,6 +227,8 @@ def split_sections(body: str, source_id: str, act_title: str,
     chapter: str | None = None
     expecting_chapter_title = False
     last_key: tuple[int, str] | None = None
+    in_state_amendment = False
+    amended_in: dict[int, list[str]] = {}  # index in `sections` -> States that amended it
 
     for index, line in enumerate(lines):
         # Page markers: remember the page, but do not put them in the text.
@@ -207,6 +236,28 @@ def split_sections(body: str, source_id: str, act_title: str,
         if page_marker:
             page = int(page_marker.group(1))
             continue
+
+        if strip_state_amendments:
+            if STATE_AMENDMENT_START.match(line):
+                in_state_amendment = True
+                continue
+            if in_state_amendment:
+                # The block ends where the next real section (one listed in the table of contents,
+                # numbered higher than the last) or a new chapter begins.
+                start = match_section_start(lines, index)
+                if start is not None:
+                    start = _fix_merged_footnote_number(start, known_numbers)
+                ends_block = CHAPTER_START.match(line) or (
+                    start is not None and (not known_numbers or start[0] in known_numbers)
+                    and (last_key is None or _sort_key(start[0]) > last_key))
+                if not ends_block:
+                    state = line.strip().rstrip(".").strip()
+                    if state in STATES and sections:
+                        names = amended_in.setdefault(len(sections) - 1, [])
+                        if state not in names:
+                            names.append(state)
+                    continue
+                in_state_amendment = False
 
         # Chapter headings: "CHAPTER XI" followed by a title line.
         chapter_match = CHAPTER_START.match(line)
@@ -250,6 +301,10 @@ def split_sections(body: str, source_id: str, act_title: str,
             sections[-1].page_end = page
             sections[-1].text = "\n".join(current_lines).strip()
 
+    for position, states in amended_in.items():
+        sections[position].text += (
+            f"\n[NOTE ADDED BY NYAYAAI: this section has been amended for {', '.join(states)} by State law. "
+            "Those State amendments are not included here; in those States the rule may be different.]")
     return sections
 
 

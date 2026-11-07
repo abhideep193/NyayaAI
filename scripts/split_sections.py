@@ -8,6 +8,7 @@ Run from the project root (after scripts.extract_sources):
 """
 
 import json
+import re
 from dataclasses import asdict
 from pathlib import Path
 
@@ -31,8 +32,13 @@ def main() -> None:
 
         toc, body = split_toc_and_body(document)
         toc_numbers = parse_toc_numbers(toc)
-        sections = split_sections(body, source_id=source["id"], act_title=source["title"], toc_numbers=toc_numbers)
+        sections = split_sections(body, source_id=source["id"], act_title=source["title"], toc_numbers=toc_numbers,
+                                  strip_state_amendments=source.get("strip_state_amendments", False))
         report = compare_with_toc(toc_numbers, sections)
+        # Older Acts list long-repealed sections in the table of contents ("75. [Repealed.].") without
+        # printing them in the text; those are not missing law.
+        repealed_in_toc = set(re.findall(r"^\s*(\d+[A-Z]*)\.\s*\[Repealed", toc, re.MULTILINE))
+        report["missing"] = [n for n in report["missing"] if n not in repealed_in_toc]
         # Sections the official table of contents leaves out, checked by hand (see known_issues)
         report["unexpected"] = [n for n in report["unexpected"] if n not in source.get("sections_missing_from_toc", [])]
 

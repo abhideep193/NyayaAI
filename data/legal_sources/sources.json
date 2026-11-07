@@ -180,6 +180,83 @@
       "downloaded_on": "2026-11-06",
       "sha256": "ee5a4fc8c8f5afbd0c514a7ed87ed050ba635edf54f7b5b8ad3f48ac6ec90ea4",
       "known_issues": []
+    },
+    {
+      "id": "transfer_of_property_act_1882",
+      "title": "The Transfer of Property Act, 1882",
+      "act_number": "4 of 1882",
+      "domain": "property",
+      "topic": "leases_and_transfers",
+      "file": "property/transfer_of_property_act_1882.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "a1882-04.pdf",
+      "source_url": "https://www.indiacode.nic.in",
+      "downloaded_by": "project owner",
+      "version_as_on": null,
+      "downloaded_on": "2026-11-08",
+      "sha256": "28f73f2e4ab32913b7bd2c1d46fba41f4dd86ba845502823cc47d77cace3b623",
+      "known_issues": [
+        "The India Code PDF has no 'As on' date on its cover. Its text includes later amendments (references up to 2019), so it is a consolidated version, but the exact date is unknown.",
+        "The India Code PDF prints some State amendments inside this Central Act. NyayaAI removes their text and adds a note naming the States, so State-only rules are never presented as law for all of India."
+      ],
+      "strip_state_amendments": true
+    },
+    {
+      "id": "specific_relief_act_1963",
+      "title": "The Specific Relief Act, 1963",
+      "act_number": "47 of 1963",
+      "domain": "property",
+      "topic": "specific_performance_and_possession",
+      "file": "property/specific_relief_act_1963.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "A1963-47.pdf",
+      "source_url": "https://www.indiacode.nic.in",
+      "downloaded_by": "project owner",
+      "version_as_on": "2026-08-30",
+      "downloaded_on": "2026-11-08",
+      "sha256": "03660ec172658bab824d345dd7342572589da97315bc5ae560b4c09992849fd6",
+      "known_issues": [],
+      "strip_state_amendments": true
+    },
+    {
+      "id": "registration_act_1908",
+      "title": "The Registration Act, 1908",
+      "act_number": "16 of 1908",
+      "domain": "property",
+      "topic": "registration_of_documents",
+      "file": "property/registration_act_1908.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "a1908-16.pdf",
+      "source_url": "https://www.indiacode.nic.in",
+      "downloaded_by": "project owner",
+      "version_as_on": null,
+      "downloaded_on": "2026-11-08",
+      "sha256": "736a9560fb7c323874e79d3a4a884f36ca979a30dab73110cdabe2662ae35a22",
+      "known_issues": [
+        "The India Code PDF has no 'As on' date on its cover. Its text includes later amendments (references up to 2020), so it is a consolidated version, but the exact date is unknown.",
+        "Registration fees, stamp duty and some registration rules are set by each State; they are not in this Act's text.",
+        "The India Code PDF prints some State amendments inside this Central Act. NyayaAI removes their text and adds a note naming the States, so State-only rules are never presented as law for all of India."
+      ],
+      "strip_state_amendments": true
+    },
+    {
+      "id": "delhi_rent_control_act_1958",
+      "title": "The Delhi Rent Control Act, 1958",
+      "act_number": "59 of 1958",
+      "domain": "property",
+      "topic": "rent_control_delhi",
+      "file": "property/delhi_rent_control_act_1958.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "A1958-59.pdf",
+      "source_url": "https://www.indiacode.nic.in",
+      "downloaded_by": "project owner",
+      "version_as_on": "2026-06-01",
+      "downloaded_on": "2026-11-08",
+      "sha256": "598fce39cf12e10a01567777b99c013df3e69d7c7ce0594e29cce29363802c8f",
+      "known_issues": [
+        "Applies only in the areas of Delhi it covers (see its section 1), and section 3 excludes some premises from the Act; other States have their own rent laws, which NyayaAI does not have."
+      ],
+      "strip_state_amendments": true
     }
   ]
 }

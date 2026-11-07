@@ -1,0 +1,94 @@
+{
+  "description": "Property / landlord evaluation set, written on 2026-11-08 BEFORE property law was connected to answering. 'property_owner' = the project owner's questions, copied verbatim from property_owner_questions.json. 'property' = questions written by the assistant to cover other common situations. A case passes retrieval if ANY expected section is found. Expected sections were checked against the India Code text (quoted in 'why') and must not be changed to improve scores. Set 'scenario' = shown and checked by hand, not scored automatically (no section in NyayaAI's Acts answers it directly). 'also_check' = behaviour to review by hand.",
+  "written_on": "2026-11-08",
+  "cases": [
+    {
+      "question": "I've rented a commercial shop in Bengaluru under a written lease for five years. After just one year, the landlord sent me a notice asking me to leave, even though I haven't violated any terms. Can he terminate my lease before the agreed period?",
+      "expected": ["transfer_of_property_act_1882:111", "transfer_of_property_act_1882:107", "transfer_of_property_act_1882:108"],
+      "why": "TPA s.111 'A lease of immoveable property determines—(a) by efflux of the time limited thereby' (and forfeiture only on breach, (g)); s.107 a lease 'for any term exceeding one year ... can be made only by a registered instrument' (matters for a 5-year lease); s.108 rights and liabilities of lessor and lessee.",
+      "also_check": "Must say Karnataka's own rent law is not in NyayaAI (State-law note shown). Should mention that whether the 5-year lease was registered matters (s.107), without inventing Karnataka rules. No promise that the tenant will win.",
+      "set": "property_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "I paid the full amount for a property in Kolkata and signed an agreement with the seller. Now the seller is refusing to complete the sale and says he wants to sell the property to somebody else for a higher price. What legal options do I have?",
+      "expected": ["specific_relief_act_1963:10", "specific_relief_act_1963:19", "transfer_of_property_act_1882:54"],
+      "why": "SRA s.10 'The specific performance of a contract shall be enforced by the court' (as substituted in 2018); s.19(b) specific performance against a later buyer 'except a transferee for value who has paid his money in good faith and without notice of the original contract'; TPA s.54 a contract for sale 'does not, of itself, create any interest in or charge on such property'.",
+      "also_check": "Should not invent limitation periods or court fees (not in the Acts). May mention registration of the agreement (Registration Act s.17(1A)) only from the text. Suggest a lawyer quickly because of the threatened second sale.",
+      "set": "property_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "I rented a flat in Mumbai for three years, but my landlord and I only signed a normal agreement on stamp paper. We never registered it. Is this agreement legally valid, and can either of us rely on it in court?",
+      "expected": ["registration_act_1908:17", "registration_act_1908:49", "transfer_of_property_act_1882:107"],
+      "why": "Registration Act s.17(1)(d) compulsory registration of 'leases of immovable property from year to year, or for any term exceeding one year'; s.49 an unregistered document shall not 'affect any immovable property' or 'be received as evidence', with the proviso for 'evidence of a contract in a suit for specific performance' or 'any collateral transaction'; TPA s.107 such a lease 'can be made only by a registered instrument'.",
+      "also_check": "Must show the State-law note (Maharashtra has its own rent and stamp laws, not in NyayaAI). Must not state stamp duty amounts or Maharashtra rules.",
+      "set": "property_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "I'm living in a rented house in Delhi. My landlord suddenly told me to leave within three days because he wants to rent the property to someone else at a higher price. Can he force me to vacate like this?",
+      "expected": ["transfer_of_property_act_1882:106", "specific_relief_act_1963:6", "delhi_rent_control_act_1958:14", "delhi_rent_control_act_1958:3"],
+      "why": "TPA s.106(1) a lease for other than agricultural/manufacturing purposes, absent a contract, is 'from month to month, terminable ... by fifteen days' notice'; SRA s.6 a person 'dispossessed without his consent ... otherwise than in due course of law' may sue to recover possession; DRCA s.14 'Protection of tenant against eviction'; DRCA s.3(c) the Act does not apply to premises 'whose monthly rent exceeds three thousand and five hundred rupees'.",
+      "also_check": "Should mention that the Delhi Rent Control Act applies only if the conditions in s.3 are met (rent limit), if DRCA is used at all. Should not say the landlord can never evict; explain the law's process. Calm tone.",
+      "set": "property_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "I rented a flat in Delhi and paid my landlord ₹50,000 as a security deposit. I've vacated the flat, cleared all my bills and returned the keys, but he keeps making excuses and isn't returning my deposit. What can I legally do?",
+      "expected": [],
+      "why": "No section of the four property Acts deals with refunding a security deposit (checked: DRCA s.5 limits advance rent to one month's rent where the Act applies; s.14A's refund applies only to a special class of landlords). Recovering a deposit is a contract/civil-recovery matter (Indian Contract Act, Code of Civil Procedure), which NyayaAI does not have.",
+      "also_check": "Correct = says honestly that its laws do not contain a rule on refunding security deposits and suggests the practical steps (written demand, records, lawyer) WITHOUT citing the Contract Act or inventing procedures; may mention DRCA s.5 only from its text and only if relevant. A partial answer is acceptable; inventing law is a fail.",
+      "set": "scenario",
+      "author": "project owner"
+    },
+    {
+      "question": "My landlord in Delhi cut off my water and electricity to force me to leave the flat. Is he allowed to do that?",
+      "expected": ["delhi_rent_control_act_1958:45", "specific_relief_act_1963:6"],
+      "why": "DRCA s.45(1) 'No landlord ... shall without just and sufficient cause cut off or withhold any essential supply or service enjoyed by the tenant'.",
+      "also_check": "Should mention the DRCA applies only to premises within s.3 (rent limit). No helpline numbers invented.",
+      "set": "property",
+      "author": "assistant"
+    },
+    {
+      "question": "I rent a room month to month with no written agreement. How much notice does my landlord have to give me before asking me to leave?",
+      "expected": ["transfer_of_property_act_1882:106"],
+      "why": "TPA s.106(1) month-to-month lease 'terminable, on the part of either lessor or lessee, by fifteen days' notice'; s.106(2) the period 'shall commence from the date of receipt of notice'.",
+      "also_check": "Must show the State-law note (State rent laws may differ). Must say '15 days' only from s.106 text.",
+      "set": "property",
+      "author": "assistant"
+    },
+    {
+      "question": "The owner of the house I am renting has sold it to someone else. Does my rental agreement continue with the new owner?",
+      "expected": ["transfer_of_property_act_1882:109"],
+      "why": "TPA s.109 'If the lessor transfers the property leased ... the transferee, in the absence of a contract to the contrary, shall possess all the rights and, if the lessee so elects, be subject to all the liabilities of the lessor'.",
+      "also_check": "Plain explanation; no invented procedure.",
+      "set": "property",
+      "author": "assistant"
+    },
+    {
+      "question": "My lease ended last year but I kept living in the flat and the landlord kept accepting my rent every month. Am I still a legal tenant?",
+      "expected": ["transfer_of_property_act_1882:116"],
+      "why": "TPA s.116 if the lessee 'remains in possession thereof after the determination of the lease' and the lessor 'accepts rent ... the lease is, in the absence of an agreement to the contrary, renewed from year to year, or from month to month'.",
+      "also_check": "Should explain year-to-year vs month-to-month depends on the purpose (s.106).",
+      "set": "property",
+      "author": "assistant"
+    },
+    {
+      "question": "I bought a flat and paid in full, but the seller still has not handed over the original title documents. What is the seller legally required to do?",
+      "expected": ["transfer_of_property_act_1882:55"],
+      "why": "TPA s.55(1) the seller is bound '(d) on payment or tender of the amount due in respect of the price, to execute a proper conveyance' and '(f) to give ... possession' and to deliver 'all documents of title relating to the property which are in the seller's possession or power'.",
+      "also_check": "Quotes must come from s.55; no invented consumer/RERA law.",
+      "set": "property",
+      "author": "assistant"
+    },
+    {
+      "question": "Mere landlord ne bina court order ke mujhe ghar se nikal diya aur taala laga diya. Ab main kya kar sakta hoon?",
+      "expected": ["specific_relief_act_1963:6"],
+      "why": "SRA s.6(1) a person 'dispossessed without his consent of immovable property otherwise than in due course of law' may 'by suit, recover possession thereof'.",
+      "also_check": "Answer in Hinglish; quotes in English exactly. Should not invent the time limit unless quoted from s.6 (s.6(2)(a) 'after the expiry of six months from the date of dispossession').",
+      "set": "property",
+      "author": "assistant"
+    }
+  ]
+}

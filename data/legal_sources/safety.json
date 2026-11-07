@@ -5,34 +5,99 @@
       "id": "emergency",
       "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
       "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)",
-      "show_for_sources": ["bns_2023", "bnss_2023", "pocso_act_2012", "domestic_violence_act_2005", "dowry_prohibition_act_1961", "sc_st_atrocities_act_1989"]
+      "show_for_sources": [
+        "bns_2023",
+        "bnss_2023",
+        "pocso_act_2012",
+        "domestic_violence_act_2005",
+        "dowry_prohibition_act_1961",
+        "sc_st_atrocities_act_1989"
+      ]
     },
     {
       "id": "women",
       "text": "Women Helpline 181 (24x7) gives emergency and non-emergency support to women facing violence.",
       "source": "https://missionshakti.wcd.gov.in (Mission Shakti, Ministry of Women and Child Development)",
-      "show_for_sources": ["posh_act_2013", "domestic_violence_act_2005", "dowry_prohibition_act_1961"],
-      "show_for_sections": {"bns_2023": ["63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "74", "75", "76", "77", "78", "79", "80", "84", "85", "86"]}
+      "show_for_sources": [
+        "posh_act_2013",
+        "domestic_violence_act_2005",
+        "dowry_prohibition_act_1961"
+      ],
+      "show_for_sections": {
+        "bns_2023": [
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78",
+          "79",
+          "80",
+          "84",
+          "85",
+          "86"
+        ]
+      }
     },
     {
       "id": "child",
       "text": "Child Helpline 1098 (24x7) helps children in need of care and protection.",
       "source": "https://wcd.gov.in/child/child-helpline (Ministry of Women and Child Development)",
-      "show_for_sources": ["pocso_act_2012"]
+      "show_for_sources": [
+        "pocso_act_2012"
+      ]
     },
     {
       "id": "cyber",
       "text": "For online fraud or cyber crime, call 1930 or report at https://cybercrime.gov.in as soon as possible.",
       "source": "https://cybercrime.gov.in (National Cyber Crime Reporting Portal, Ministry of Home Affairs)",
-      "show_for_sources": ["it_act_2000"],
-      "show_for_sections": {"bns_2023": ["308", "318", "319", "351"]},
-      "show_for_keywords": ["otp", "upi", "phishing", "hacked", "hacking", "cyber", "online fraud", "bank fraud", "sextortion", "morphed"]
+      "show_for_sources": [
+        "it_act_2000"
+      ],
+      "show_for_sections": {
+        "bns_2023": [
+          "308",
+          "318",
+          "319",
+          "351"
+        ]
+      },
+      "show_for_keywords": [
+        "otp",
+        "upi",
+        "phishing",
+        "hacked",
+        "hacking",
+        "cyber",
+        "online fraud",
+        "bank fraud",
+        "sextortion",
+        "morphed"
+      ]
     }
   ],
   "old_criminal_law": {
     "new_laws_in_force_from": "2024-07-01",
     "text": "Your question mentions a date before 1 July 2024. The Bharatiya Nyaya Sanhita and the Bharatiya Nagarik Suraksha Sanhita came into force on 1 July 2024. For offences committed before that date, the old Indian Penal Code, 1860 may still apply, and cases already pending then continue under the old Code of Criminal Procedure, 1973. NyayaAI does not contain the text of those old laws, so please check the old section numbers with a lawyer.",
     "source": "Commencement notifications dated 23 February 2024: S.O. 850(E) for the Bharatiya Nyaya Sanhita and S.O. 848(E) for the Bharatiya Nagarik Suraksha Sanhita (footnotes to section 1 of each, India Code)",
-    "applies_to_domains": ["criminal"]
+    "applies_to_domains": [
+      "criminal"
+    ]
+  },
+  "state_law": {
+    "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+    "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included",
+    "applies_to_domains": [
+      "property"
+    ]
   }
 }

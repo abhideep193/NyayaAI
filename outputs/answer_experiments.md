@@ -157,3 +157,43 @@ Rule 5 (photo): SIMULATED phone photo of the police notice (printed text, 2.2 de
 outputs/document_eval/simulated_photo_police_notice.jpg). Read with 0 word differences out of 185, and rules 1-3
 pass. Honest limit: an easy photo (flat, sharp, typed). Real phone photos with folds, stamps, handwriting or
 Hindi text have NOT been tested yet.
+
+## 2026-11-08: Adding property / landlord law - rules fixed BEFORE building
+
+Acts (downloaded by the owner from India Code): Transfer of Property Act 1882, Specific Relief Act 1963,
+Registration Act 1908, Delhi Rent Control Act 1958. All four match their tables of contents after splitter fixes
+(older preamble, "1 [" marks, repealed sections, an applicability footnote taken as section 5, State amendments
+printed inside the Registration Act / TPA: their text removed and replaced by a note naming the States).
+The 11 existing Acts' section files are byte-identical after these changes.
+Test set: outputs/test_cases/property_eval.json (5 owner questions verbatim + 6 assistant questions), written before
+any property answering. Owner's deposit question is "scenario" (no section answers it; hand check).
+
+Accept property law (ENABLED_DOMAINS=ipr,criminal,property) only if ALL hold; otherwise it stays switched off:
+1. Retrieval: an expected section in the top 15 for >= 80% of scored property questions (>= 8/10), routed search.
+2. Answers: a verified citation of an expected section in >= 70% of scored property questions (>= 7/10).
+3. IPR and criminal not harmed: routed retrieval, 3 runs: mean IPR @15 >= 35.0 and mean criminal @15 >= 12.7.
+4. All 6 out-of-scope questions still declined in the answer run (incl. "my uncle is claiming my father's land
+   after his death" and "can i own land in northeast").
+5. The code-added State-law note appears on 100% of answers that used property law.
+6. Hand check of also_check: no invented State rules, notice periods, deadlines, fees or stamp duty.
+Cut-off: 11:00 on 2026-11-08.
+
+### Result: property law ACCEPTED (2026-11-08, ~01:00)
+
+| rule | result |
+|---|---|
+| 1. retrieval, property @15 (routed, 3 runs) | 9/10, 9/10, 9/10 (>= 8) - met |
+| 2. answers cite an expected section | 9/10 (>= 7) - met |
+| 3. IPR / criminal not harmed (3 runs) | IPR mean 35.33 (>= 35.0), criminal mean 13.33 (>= 12.7) - met |
+| 4. out-of-scope declined | 6/6, incl. both land questions - met |
+| 5. State-law note on property answers | 11/11 - met |
+| 6. hand check | met: no invented State rules, notice periods, fees or stamp duty |
+
+Unedited answers: outputs/answer_eval/2026-11-08_003737_gpt-6.1-terra_ctx15_ipr+criminal+property.json
+Failures/weaknesses: Hinglish "landlord locked me out without a court order" - SRA s.6 never retrieved (3/3 runs),
+answer declined. Delhi 3-day notice answer used DRCA s.14/s.3 correctly but did not use TPA s.106 (15 days) or
+SRA s.6. Owner's deposit question declined honestly (no section covers deposit refunds). Answers often repeat that the
+TPA/Registration Act text has no 'as on' date (from known_issues) - honest but repetitive.
+Known inconsistency not changed (would alter the evaluated prompt): rule 3 of the system prompt still gives
+"property, tenancy" as EXAMPLES of other areas; it did not cause wrong declines in this run.
+Decision: ENABLED_DOMAINS default -> ipr,criminal,property.
