@@ -197,3 +197,36 @@ TPA/Registration Act text has no 'as on' date (from known_issues) - honest but r
 Known inconsistency not changed (would alter the evaluated prompt): rule 3 of the system prompt still gives
 "property, tenancy" as EXAMPLES of other areas; it did not cause wrong declines in this run.
 Decision: ENABLED_DOMAINS default -> ipr,criminal,property.
+
+## 2026-11-08: Adding consumer law - rules fixed BEFORE building
+
+Acts (downloaded by the owner): Consumer Protection Act 2019 (as on 2026-09-01), Sale of Goods Act 1930 (no 'as on'
+date). Both match their tables of contents with no further splitter changes; the 15 existing Acts are unchanged.
+Known issue recorded: Commission money limits (ss.34/47/58) were changed by Rules NyayaAI lacks -> never state them.
+Test set: outputs/test_cases/consumer_eval.json (5 owner questions verbatim + owner's earlier Hinglish headphones
+question + 5 assistant questions = 11 scored), written before any consumer answering.
+
+Accept consumer law (ENABLED_DOMAINS=ipr,criminal,property,consumer) only if ALL hold; otherwise it stays off:
+1. Retrieval: expected section in top 15 for >= 9/11 consumer questions in each of 3 routed runs.
+2. Answers: verified citation of an expected section in >= 8/11.
+3. Other areas not harmed (3 routed runs): mean IPR >= 35.0/39, criminal >= 12.7/15, property >= 8.0/10.
+4. All 6 out-of-scope questions still declined.
+5. Hand check: no complaint fees, no Commission money limits, no invented Rules (e-commerce rules etc.), no promised refunds.
+Cut-off: 11:00 on 2026-11-08.
+
+### Result: consumer law ACCEPTED (2026-11-08, ~01:15)
+
+| rule | result |
+|---|---|
+| 1. retrieval, consumer @15 (routed, 3 runs) | 11/11, 11/11, 11/11 (>= 9) - met |
+| 2. answers cite an expected section | 11/11 (>= 8); 61/61 citations verified - met |
+| 3. other areas (3 runs) | IPR mean 35.67 (>= 35.0), criminal 14.33 (>= 12.7), property 9.0 (>= 8.0) - met |
+| 4. out-of-scope declined | 6/6 - met |
+| 5. hand check | met: no fees or Commission money limits stated (answers say the limits are set by Rules NyayaAI lacks), no invented Rules, every refund answer says it is not guaranteed |
+
+Unedited answers: outputs/answer_eval/2026-11-08_010738_gpt-6.1-terra_ctx15_ipr+criminal+property+consumer.json
+The owner's Hinglish headphones question (declined on 2026-11-06 because consumer law was missing) now cites CPA s.35/s.39.
+Caveat: CPA s.2 (definitions, 25,000 characters) matches most consumer questions, so "correct law cited" is easier to
+meet in this area than in others. Same known prompt inconsistency as property: rule 3's examples of OTHER areas still
+include "consumer problems"; it caused no wrong declines here.
+Decision: ENABLED_DOMAINS default -> ipr,criminal,property,consumer.

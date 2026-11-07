@@ -408,7 +408,7 @@ with st.container(key="topbar"):
                                       else "(consolidated text; India Code prints no 'as on' date)")
                 for s in ENABLED_SOURCES))
             st.markdown("**Not covered yet:** rules, fees, court judgments, State laws (except Delhi's rent law), "
-                        "inheritance, land records, stamp duty, and other areas of law (family, consumer, employment...).")
+                        "inheritance, land records, stamp duty, and other areas of law (family, employment, tax...).")
             st.markdown("**Privacy:** your questions are sent to OpenAI to write the answer. Do not include names, "
                         "phone numbers, addresses or other details that could identify you or anyone else. "
                         "NyayaAI does not save your conversation.")

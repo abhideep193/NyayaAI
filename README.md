@@ -22,17 +22,25 @@ question is paid for by the developer; the code is shared with reviewers).
 
 ## What it covers
 
-11 Central Acts, downloaded from [India Code](https://www.indiacode.nic.in), each with its "as on" date and SHA-256
-fingerprint recorded in [`data/legal_sources/sources.json`](data/legal_sources/sources.json):
+Acts downloaded from [India Code](https://www.indiacode.nic.in), each with its "as on" date (where India Code prints
+one) and SHA-256 fingerprint recorded in [`data/legal_sources/sources.json`](data/legal_sources/sources.json):
 
 | Area | Acts |
 |---|---|
 | Intellectual property | Copyright Act 1957, Trade Marks Act 1999, Patents Act 1970 |
 | Criminal law | Bharatiya Nyaya Sanhita 2023 (BNS), Bharatiya Nagarik Suraksha Sanhita 2023 (BNSS), Information Technology Act 2000, POCSO Act 2012, POSH Act 2013, Protection of Women from Domestic Violence Act 2005, Dowry Prohibition Act 1961, SC/ST (Prevention of Atrocities) Act 1989 |
+| Property and tenancy | Transfer of Property Act 1882, Specific Relief Act 1963, Registration Act 1908, Delhi Rent Control Act 1958 |
+| Consumer | Consumer Protection Act 2019, Sale of Goods Act 1930 |
 
-**Not covered:** Rules and notifications, court judgments, State laws (rent, land, stamp duty), the old IPC/CrPC,
-and other areas such as consumer, property, family and employment law. For these NyayaAI says it cannot answer
-and suggests a lawyer, instead of guessing.
+**Every State has its own rent law.** NyayaAI answers property questions from the Central Acts that apply everywhere,
+plus Delhi's rent law as the first State-level one. Whenever property law is used, code adds a fixed note saying the
+user's own State law may change the answer. State amendments that India Code prints *inside* the Central Acts
+(41 blocks in the Registration Act) are removed from the text and replaced by a note naming those States, so a
+State-only rule is never quoted as law for all of India.
+
+**Not covered:** Rules and notifications, court judgments, State laws (other than Delhi rent control), inheritance,
+land records, stamp duty, the old IPC/CrPC, and other areas such as family and employment law. For these NyayaAI
+says it cannot answer and suggests a lawyer, instead of guessing.
 
 ## How it avoids inventing laws
 
@@ -84,6 +92,12 @@ Final run with the submitted version (all 63 answers, unedited:
 | IPR questions (39: tuning, held-out, fresh, owner-written, Hindi/Hinglish) | correct law cited in **36/39** |
 | Criminal-law questions (15: 7 owner-written, 8 assistant-written) | correct law cited in **13/15** |
 | Out-of-scope questions (6) | correctly declined **6/6** |
+| Property questions (10 scored: 4 owner-written, 6 assistant-written), separate run 2026-11-08 | correct law cited in **9/10**; State-law note on 11/11 |
+| Consumer questions (11: 6 owner-written, 5 assistant-written), separate run 2026-11-08 | correct law cited in **11/11**; 61/61 quotes verified |
+
+Property and consumer law were each accepted only after search for the existing areas stayed within the limits set
+in advance (3 runs each). Consumer answers never state complaint fees or which Commission hears a case by value:
+those limits were changed by Rules that NyayaAI does not have, so answers say they must be checked.
 | Real-life questions typed by the owner while testing (3) | shown, not scored |
 | Citations checked word for word | **310/312** verified (the 2 rejected quotes were too short to prove anything, and were flagged) |
 

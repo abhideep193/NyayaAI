@@ -257,6 +257,45 @@
         "Applies only in the areas of Delhi it covers (see its section 1), and section 3 excludes some premises from the Act; other States have their own rent laws, which NyayaAI does not have."
       ],
       "strip_state_amendments": true
+    },
+    {
+      "id": "consumer_protection_act_2019",
+      "title": "The Consumer Protection Act, 2019",
+      "act_number": "35 of 2019",
+      "domain": "consumer",
+      "topic": "consumer_rights_and_complaints",
+      "file": "consumer/consumer_protection_act_2019.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "A2019-35.pdf",
+      "source_url": "https://www.indiacode.nic.in",
+      "downloaded_by": "project owner",
+      "version_as_on": "2026-09-01",
+      "downloaded_on": "2026-11-08",
+      "sha256": "07b12658d5927324b472c3f20034b204950471c362b2cd0453427b174f17da7a",
+      "known_issues": [
+        "Fees for filing complaints, e-commerce rules and other Rules made under this Act are not part of the Act's text and are not in NyayaAI.",
+        "The money limits that decide which Commission (District, State or National) hears a complaint are written in sections 34, 47 and 58, but the Central Government can prescribe different limits under their provisos and has done so by Rules, which NyayaAI does not have. Do not tell the user which Commission to approach based on the value; say the current limits must be checked."
+      ],
+      "strip_state_amendments": true
+    },
+    {
+      "id": "sale_of_goods_act_1930",
+      "title": "The Sale of Goods Act, 1930",
+      "act_number": "3 of 1930",
+      "domain": "consumer",
+      "topic": "sale_of_goods",
+      "file": "consumer/sale_of_goods_act_1930.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "a1930-03.pdf",
+      "source_url": "https://www.indiacode.nic.in",
+      "downloaded_by": "project owner",
+      "version_as_on": null,
+      "downloaded_on": "2026-11-08",
+      "sha256": "a5d06a90b62b7d947ed3b0a328b0680ce8eed320ddc53f8a55e792a33113c5a1",
+      "known_issues": [
+        "The India Code PDF has no 'As on' date on its cover; it is a consolidated text, but the exact date is unknown."
+      ],
+      "strip_state_amendments": true
     }
   ]
 }

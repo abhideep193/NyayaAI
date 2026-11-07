@@ -58,6 +58,27 @@
         "Never promise an outcome (for example that a landlord can or cannot evict someone, or that a court will order a sale). Explain what the Acts say and that a court or the Rent Controller decides.",
         "Inheritance and succession, land records, land ceiling and agricultural land rules are NOT in the SOURCES; for those, say NyayaAI cannot answer and suggest a lawyer."
       ]
+    },
+    "consumer": {
+      "label": "consumer law",
+      "covers": "defective goods, poor or incomplete services, refunds and replacements, misleading advertisements, unfair trade practices, online shopping, product liability, consumer complaints",
+      "scope": "consumer law (defective goods, deficient services, refunds, misleading advertisements, online shopping, product liability and consumer complaints)",
+      "rewrite_scope": "consumer law or buying goods and services",
+      "search_words": [
+        "consumer",
+        "defect",
+        "deficiency",
+        "unfair trade practice",
+        "complaint",
+        "District Commission",
+        "misleading advertisement",
+        "warranty"
+      ],
+      "extra_rules": [
+        "Never state complaint fees, or which Consumer Commission (District, State or National) hears a complaint based on its value: those limits are set by Rules that are not in the SOURCES. Say the current limits should be checked.",
+        "Never promise a refund, replacement or compensation. Explain what the Act allows a Consumer Commission or authority to order, and that it decides.",
+        "E-commerce rules and other Rules made under the Consumer Protection Act are NOT in the SOURCES; do not describe them."
+      ]
     }
   }
 }

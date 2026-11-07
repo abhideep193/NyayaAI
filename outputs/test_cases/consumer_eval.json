@@ -1,0 +1,94 @@
+{
+  "description": "Consumer-law evaluation set, written on 2026-11-08 BEFORE consumer law was connected to answering. 'consumer_owner' = the project owner's questions, copied verbatim from consumer_owner_questions.json, plus the owner's earlier Hinglish headphones question (verbatim from scenario_questions.json). 'consumer' = questions written by the assistant. A case passes if ANY expected section is found/cited. Note: CPA s.2 (definitions) is a very large section that matches many consumer questions, so it is accepted only where the definition is the core of the answer. Expected sections were checked against the India Code text (quoted in 'why') and must not be changed to improve scores.",
+  "written_on": "2026-11-08",
+  "cases": [
+    {
+      "question": "I ordered an iPhone from an online shopping website for ₹65,000, but the package contained a cheap dummy phone. I've contacted customer support several times, but they keep rejecting my refund request. What are my consumer rights?",
+      "expected": ["consumer_protection_act_2019:2", "consumer_protection_act_2019:35", "consumer_protection_act_2019:39", "consumer_protection_act_2019:94", "bns_2023:318"],
+      "why": "CPA s.2(47)(viii) unfair trade practice: 'refusing, after selling goods ... to take back or withdraw defective goods ... and to refund the consideration thereof'; s.2(16) 'e-commerce'; s.35 'Manner in which complaint shall be made'; s.39(1) the District Commission may order the opposite party 'to replace the goods' or return the price; s.94 'Measures to prevent unfair trade practices in e-commerce'. Cheating (BNS s.318) is also a reasonable answer for a swapped product.",
+      "also_check": "Must not state complaint fees or which Commission hears it by value (limits are set by Rules NyayaAI lacks). No promise of refund. May mention the cyber helpline only via code.",
+      "set": "consumer_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "I purchased a weight-loss product after seeing an advertisement claiming that it would show results in 15 days. It didn't work at all, and now the company is refusing to refund me. Can I take action against the company for misleading advertising?",
+      "expected": ["consumer_protection_act_2019:21", "consumer_protection_act_2019:17", "consumer_protection_act_2019:89", "consumer_protection_act_2019:2"],
+      "why": "CPA s.2(28) 'misleading advertisement' ... '(ii) gives a false guarantee to, or is likely to mislead the consumers as to the nature, substance, quantity or quality of such product'; s.17 'Complaints to authorities'; s.21 'Power of Central Authority to issue directions and penalties against false or misleading advertisement'; s.89 'Punishment for false or misleading advertisement'.",
+      "also_check": "Should not say the advertisement IS misleading (that is decided by the authority/commission). No invented penalty amounts (only from s.21/s.89 text).",
+      "set": "consumer_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "I bought a new washing machine for ₹35,000 from a shop in Guwahati. Within two weeks it stopped working. The seller keeps sending technicians but refuses to replace it or refund my money. What can I do legally?",
+      "expected": ["consumer_protection_act_2019:35", "consumer_protection_act_2019:39", "consumer_protection_act_2019:2", "consumer_protection_act_2019:86"],
+      "why": "CPA s.2(10) 'defect' ('any fault, imperfection or shortcoming in the quality'); s.2(47)(viii) refusing to take back defective goods and refund 'within a period of thirty days' where the bill states no period; s.35 complaint; s.39(1)(b) 'to replace the goods with new goods of similar description'; s.86 'Liability of product sellers'.",
+      "also_check": "No Assam-specific rules invented. No fees or Commission value limits stated.",
+      "set": "consumer_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "I bought a second-hand car from a dealer in Delhi. He assured me that the car was in perfect condition, but within a week the engine developed a serious problem. The dealer says he is not responsible because I bought a used car. Do I have any legal protection?",
+      "expected": ["sale_of_goods_act_1930:12", "sale_of_goods_act_1930:59", "sale_of_goods_act_1930:16", "consumer_protection_act_2019:2"],
+      "why": "SGA s.12 'A stipulation in a contract of sale ... may be a condition or a warranty'; s.59 'Remedy for breach of warranty'; s.16 'there is no implied warranty or condition as to the quality or fitness' except as stated (buyer-beware rule and its exceptions); CPA s.2(10) a defect includes a shortcoming in quality 'as is claimed by the trader in any manner whatsoever'; s.2(47)(i)(a) 'falsely represents that the goods are of a particular standard, quality'.",
+      "also_check": "Should explain that an oral assurance may matter (express warranty) without promising the buyer wins; should not invent Delhi motor-vehicle rules or the Motor Vehicles Act.",
+      "set": "consumer_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "I paid a private hospital in Kolkata for a medical package, but several tests included in the package were never conducted. The hospital is refusing to refund the amount for those tests. Can I file a consumer complaint?",
+      "expected": ["consumer_protection_act_2019:2", "consumer_protection_act_2019:35", "consumer_protection_act_2019:39"],
+      "why": "CPA s.2(42) 'service' means service of any description made available to potential users; s.2(11) 'deficiency' includes a shortcoming in performance 'undertaken to be performed by a person in pursuance of a contract'; s.2(7)(ii) a consumer 'hires or avails of any service for a consideration'; s.35 complaint; s.39 orders including return of the charges paid.",
+      "also_check": "Should not say medical services are always covered or never covered beyond the text; no invented court cases about hospitals.",
+      "set": "consumer_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "maine ekk heaphones order kiye the but wo deffective nikle and company refund bhi nhi de rahi hai mujhe kya karna chahiye",
+      "expected": ["consumer_protection_act_2019:2", "consumer_protection_act_2019:35", "consumer_protection_act_2019:39", "consumer_protection_act_2019:94"],
+      "why": "Owner's real Hinglish question from testing (scenario_questions.json), declined before consumer law existed. CPA s.2(47)(viii) refusing to take back defective goods and refund; s.35 complaint; s.39 replace/refund orders; s.94 e-commerce.",
+      "also_check": "Answer in Hinglish; quotes in English exactly.",
+      "set": "consumer_owner",
+      "author": "project owner"
+    },
+    {
+      "question": "How much time do I have to file a consumer complaint after the problem happened?",
+      "expected": ["consumer_protection_act_2019:69"],
+      "why": "CPA s.69(1) a Commission 'shall not admit a complaint unless it is filed within two years from the date on which the cause of action has arisen'; s.69(2) delay may be condoned for 'sufficient cause'.",
+      "also_check": "'two years' only from s.69 text.",
+      "set": "consumer",
+      "author": "assistant"
+    },
+    {
+      "question": "The company I want to complain against is in another city. Can I file my consumer complaint where I live?",
+      "expected": ["consumer_protection_act_2019:34"],
+      "why": "CPA s.34(2) a complaint may be instituted in a District Commission within whose limits '(d) the complainant resides or personally works for gain'.",
+      "also_check": "Should not state which Commission by value (limits changed by Rules).",
+      "set": "consumer",
+      "author": "assistant"
+    },
+    {
+      "question": "My new pressure cooker exploded because of a manufacturing defect and I was injured. Can I claim compensation from the manufacturer?",
+      "expected": ["consumer_protection_act_2019:84", "consumer_protection_act_2019:83", "consumer_protection_act_2019:2"],
+      "why": "CPA s.84(1) 'A product manufacturer shall be liable in a product liability action, if— (a) the product contains a manufacturing defect'; s.83 product liability action; s.2(34) 'product liability'.",
+      "also_check": "No promise of compensation; suggests keeping the product and medical records.",
+      "set": "consumer",
+      "author": "assistant"
+    },
+    {
+      "question": "The shop bill says 'goods once sold will not be taken back'. Can the shop refuse to take back a defective product because of this?",
+      "expected": ["consumer_protection_act_2019:2"],
+      "why": "CPA s.2(47)(viii) unfair trade practice: 'refusing, after selling goods ... to take back or withdraw defective goods ... and to refund the consideration thereof, if paid, within the period stipulated in the bill or cash memo or receipt or in the absence of such stipulation, within a period of thirty days'.",
+      "also_check": "Should explain the 'thirty days' default only from the text and note it depends on the bill's own period.",
+      "set": "consumer",
+      "author": "assistant"
+    },
+    {
+      "question": "Online order kiya tha, paise kat gaye lekin delivery nahi hui aur seller refund nahi de raha. Main kya kar sakta hoon?",
+      "expected": ["consumer_protection_act_2019:94", "consumer_protection_act_2019:2", "consumer_protection_act_2019:35"],
+      "why": "CPA s.2(16) 'e-commerce'; s.2(11) deficiency; s.94 'Measures to prevent unfair trade practices in e-commerce'; s.35 complaint.",
+      "also_check": "Answer in Hinglish; no invented e-commerce Rules (not in NyayaAI).",
+      "set": "consumer",
+      "author": "assistant"
+    }
+  ]
+}
