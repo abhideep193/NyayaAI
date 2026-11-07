@@ -134,6 +134,26 @@ def build_assistant():
     )
 
 
+def build_document_explainer(retriever=None, client=None):
+    """'Explain my document': all enabled Acts (to look up the sections a document names) + search.
+
+    Pass the chat assistant's retriever to share it; otherwise the same routed search is built.
+    """
+    import openai
+
+    from app import config
+    from app.services.document_explainer import DocumentExplainer
+
+    client = client or openai.OpenAI(api_key=config.OPENAI_API_KEY)
+    sources = json.loads(SOURCES_FILE.read_text(encoding="utf-8"))["sources"]
+    enabled = [s for s in sources if s["domain"] in config.ENABLED_DOMAINS]
+    sections = load_sections(PROCESSED_DIR, [s["id"] for s in enabled])
+    if retriever is None:
+        retriever = build_assistant().retriever
+    return DocumentExplainer(client, config.OPENAI_MODEL, enabled, sections, retriever=retriever,
+                             vision_model=config.VISION_MODEL)
+
+
 def main() -> None:
     if len(sys.argv) < 2:
         print('Usage: python -m scripts.search "your question"')

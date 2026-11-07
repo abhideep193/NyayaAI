@@ -117,3 +117,36 @@ Finding: the same IPR-only setup varies 34-37/39 between runs (LLM rewrite), so 
 cannot detect a 1-2 question change. Without routing, criminal search falls below 14/15 in 2 of 3 runs.
 Known weak questions: owner's "neighbour punched me" (BNS s.115 missed in 1-2 of 3 runs);
 Hindi dowry question and OTP fraud question sometimes near rank 15.
+
+## 2026-11-07: Fusion depth 30 -> 60 (owner's YouTube re-upload regression)
+
+Diagnosis: for "Someone uploaded my entire YouTube video ... monetised it ... legal action ... removed?",
+the rewrite ranks Copyright s.55 (civil remedies) #1, but s.55 is not in the ORIGINAL question's top 30,
+so RRF gives it one vote and it lands at #17 (outside the 15 sections given to the model).
+Change tested: DomainRoutedRetriever candidates 30 -> 60 (each list searched to depth 60 before fusing).
+Simulated on 4 logged rewrites before this test: s.55 moves to #8-12.
+
+Method (fixed BEFORE running): paired test. In each run, every question is rewritten/routed ONCE
+and both depths are scored on that same rewrite, so LLM rewrite noise affects both equally. 3 runs.
+Question sets: retrieval_eval.json + criminal_eval.json (the regression question is NOT counted here).
+Accept depth 60 only if ALL hold:
+1. tests/test_regression_youtube_reupload.py passes at depth 60.
+2. Mean IPR total @15 at depth 60 >= 35.0 AND >= mean at depth 30.
+3. Mean criminal total @15 at depth 60 >= mean at depth 30.
+Otherwise keep 30 and revert.
+
+### Result: depth 60 REJECTED (2026-11-07)
+
+| run | depth 30: IPR @15 | depth 60: IPR @15 | depth 30: criminal @15 | depth 60: criminal @15 |
+|---|---|---|---|---|
+| 1 | 35/39 | 34/39 | 13/15 | 12/15 |
+| 2 | 35/39 | 35/39 | 13/15 | 12/15 |
+| 3 | 38/39 | 36/39 | 15/15 | 12/15 |
+| mean | 36.0 | 35.0 | 13.67 | 12.0 |
+
+Rule 2 (IPR mean >= 35.0 AND >= depth 30): 35.0 < 36.0 -> FAILED. Rule 3 (criminal not lower): 12.0 < 13.67 -> FAILED.
+Deeper lists let more weakly-matching sections collect a second vote. Lost in every run: held-out "A company copied
+my patented invention. What can a court order..." and criminal "cheated me of Rs 2 lakh in March 2023".
+Gained once: "Is software patentable in India?". Not applied; the app keeps depth 30.
+The YouTube regression test stays marked as an expected failure (known limitation). Ideas not yet tested:
+search with the rewrite alone when it is available, or a fixed number of guaranteed places for each list's top results.

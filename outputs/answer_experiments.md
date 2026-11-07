@@ -133,3 +133,27 @@ Manual check, owner's scenario (3 real turns): YouTube copyright strike -> stalk
 can I file a copyright claim?". Turn 3 cited only the Copyright Act (s.2, 14, 17, 52) and showed no criminal
 helplines; turn 2 cited BNS s.78 (+ POCSO s.11 because age was not given) with 112/181/1098.
 One conversation is a spot check, not a measurement.
+
+## 2026-11-07: "Explain my document" (new feature) - evaluation against rules fixed BEFORE building
+
+Test documents and the 5 rules: outputs/test_cases/document_eval.json (4 fictional documents, written the
+night before any feature code). Unedited output: outputs/document_eval/2026-11-07_234852_gpt-6.1-terra_document_eval.md
+
+| rule | result |
+|---|---|
+| 1. every deadline/amount (must_quote) shown and verified against the document | 4/4 documents (8/8 quotes) |
+| 2. no date/amount in NyayaAI's words missing from the document | 4/4 (0 unverified figures) |
+| 3. every law mentioned listed; covered -> right section; missing -> "not covered" | 4/4 (7/7 laws; NI Act s.138 correctly not covered) |
+| 4. hand check of also_check | 4/4 pass, see notes |
+| 5. photo version of one document | see below (not counted in 1-3) |
+
+Hand-check notes: no document says the reader is guilty; the police notice is explained as a notice to appear
+(BNSS s.35 text), not an arrest; the cheque-bounce answer says NyayaAI lacks s.138 and explains nothing from memory.
+Quirks: the model lists Act years ("2023") under "dates" with a note that they are not deadlines; it repeats the
+"(fictional)" labels of the test documents back to the reader (an artefact of the test text).
+Found during the hand check and fixed in the CHECKER (not the model): numbers written as words ("thirty days")
+were not checked; they are now.
+Rule 5 (photo): SIMULATED phone photo of the police notice (printed text, 2.2 degree tilt, blur, noise, uneven light;
+outputs/document_eval/simulated_photo_police_notice.jpg). Read with 0 word differences out of 185, and rules 1-3
+pass. Honest limit: an easy photo (flat, sharp, typed). Real phone photos with folds, stamps, handwriting or
+Hindi text have NOT been tested yet.

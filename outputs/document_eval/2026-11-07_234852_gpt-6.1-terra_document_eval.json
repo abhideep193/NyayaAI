@@ -1,0 +1,69 @@
+[
+ {
+  "id": "tm_cease_and_desist",
+  "seconds": 23.7,
+  "rule1_quotes": {
+   "within 15 days of receipt of this notice": true,
+   "Rs. 2,00,000": true
+  },
+  "rule2_unverified_figures": [],
+  "rule3_laws": {
+   "section 29 of the Trade Marks Act, 1999": true
+  },
+  "passed": true,
+  "confidence": "high",
+  "input_tokens": 7525,
+  "output_tokens": 1640
+ },
+ {
+  "id": "police_notice_to_appear",
+  "seconds": 22.6,
+  "rule1_quotes": {
+   "at 11:00 AM on 14 November 2026": true,
+   "liable for arrest": true
+  },
+  "rule2_unverified_figures": [],
+  "rule3_laws": {
+   "section 35(3) of the Bharatiya Nagarik Suraksha Sanhita, 2023": true,
+   "section 318(4) of the Bharatiya Nyaya Sanhita, 2023": true
+  },
+  "passed": true,
+  "confidence": "high",
+  "input_tokens": 5752,
+  "output_tokens": 1624
+ },
+ {
+  "id": "posh_ic_notice",
+  "seconds": 22.6,
+  "rule1_quotes": {
+   "within 10 working days from the date of receipt of this notice": true,
+   "20 November 2026 at 3:00 PM": true
+  },
+  "rule2_unverified_figures": [],
+  "rule3_laws": {
+   "section 9 of the ... Act, 2013 (POSH)": true,
+   "section 11 of the said Act": true,
+   "section 16 of the Act": true
+  },
+  "passed": true,
+  "confidence": "high",
+  "input_tokens": 3995,
+  "output_tokens": 1600
+ },
+ {
+  "id": "cheque_bounce_notice",
+  "seconds": 13.3,
+  "rule1_quotes": {
+   "Rs. 75,000": true,
+   "within 15 days of receipt of this notice": true
+  },
+  "rule2_unverified_figures": [],
+  "rule3_laws": {
+   "section 138 of the Negotiable Instruments Act, 1881": true
+  },
+  "passed": true,
+  "confidence": "high",
+  "input_tokens": 6115,
+  "output_tokens": 675
+ }
+]

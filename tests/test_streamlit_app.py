@@ -192,3 +192,87 @@ def test_access_code_is_required_when_set(fake, monkeypatch):
     at.text_input(key="access_code").set_value("lex-2026").run()
     at.chat_input[0].set_value("How long does a patent last?").run()
     assert "A patent lasts twenty years" in all_text(at)
+
+
+# --- Explain my document + voice (2026-11-07) ---------------------------------------------
+
+from app.services.document_explainer import DocumentResponse, DocumentUnreadable, LawMention, QuoteCheck  # noqa: E402
+
+
+class FakeExplainer:
+    def __init__(self, from_photo=False, unreadable=False):
+        self.calls, self.from_photo, self.unreadable = [], from_photo, unreadable
+
+    def explain_file(self, data, mime_type, file_name, note=""):
+        self.calls.append((file_name, mime_type, note))
+        if self.unreadable:
+            raise DocumentUnreadable("NyayaAI could not read any document text in this photo.")
+        return DocumentResponse(
+            document_type="Demand notice", summary="The sender asks you to pay the amount in the notice.",
+            deadlines_and_amounts=[QuoteCheck("within 15 days of receipt of this notice", "Counted from receipt.", True)],
+            key_points=[QuoteCheck("you owe me money", "Invented quote", False)],
+            laws=[LawMention("section 138 of the Negotiable Instruments Act, 1881", "Negotiable Instruments Act, 1881",
+                             "138", None, None)],
+            law_explanation="NyayaAI does not have this law.", citations=[], next_steps=["Consult a lawyer."],
+            figures=[], confidence="medium", model_confidence="medium", document_text="DEMAND NOTICE ...",
+            truncated=False, sources_considered=[], from_photo=self.from_photo, file_name=file_name)
+
+
+@pytest.fixture
+def fake_explainer(fake, monkeypatch):
+    fake.retriever = fake.client = None  # the page shares these with the explainer
+    explainer = FakeExplainer()
+    monkeypatch.setattr(scripts.search, "build_document_explainer", lambda **kwargs: explainer)
+    return explainer
+
+
+def test_attached_document_is_explained(fake_explainer):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].upload("notice.pdf", b"%PDF-1.4 fake", "application/pdf").run()
+
+    text = all_text(at)
+    assert fake_explainer.calls == [("notice.pdf", "application/pdf", "")]
+    assert "Attached: notice.pdf" in text
+    assert "Dates, deadlines and amounts" in text and "within 15 days of receipt of this notice" in text
+    assert "not found in your document" in text  # the unverified quote is marked
+    assert "does not have this law" in text  # NI Act s.138 is not covered
+    assert not [b for b in at.button if b.key == "edit"]  # editing would only re-send text
+    assert not at.warning  # a PDF, not a photo: no photo warning
+
+
+def test_photo_gets_reading_warning(fake, monkeypatch):
+    explainer = FakeExplainer(from_photo=True)
+    fake.retriever = fake.client = None
+    monkeypatch.setattr(scripts.search, "build_document_explainer", lambda **kwargs: explainer)
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].upload("notice.jpg", b"jpeg", "image/jpeg").run()
+    assert "Read from a photo" in at.warning[0].value
+
+
+def test_unreadable_photo_gives_friendly_message(fake, monkeypatch):
+    explainer = FakeExplainer(unreadable=True)
+    fake.retriever = fake.client = None
+    monkeypatch.setattr(scripts.search, "build_document_explainer", lambda **kwargs: explainer)
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].upload("blurry.jpg", b"jpeg", "image/jpeg").run()
+    assert "could not read" in at.warning[0].value
+    assert not at.exception
+
+
+def test_follow_up_after_document_knows_the_document(fake, fake_explainer):
+    at = AppTest.from_file(APP_FILE, default_timeout=30).run()
+    at.chat_input[0].upload("notice.pdf", b"%PDF-1.4 fake", "application/pdf").run()
+    at.chat_input[0].set_value("What should I reply?").run()
+    assert "I attached a document (Demand notice)" in fake.questions[-1]
+
+
+def test_voice_text_is_checked_before_sending(fake):
+    at = AppTest.from_file(APP_FILE, default_timeout=30)
+    at.session_state["heard"] = at.session_state["heard_box"] = "How long does a patent last?"
+    at.run()
+    assert at.text_area(key="heard_box").value == "How long does a patent last?"
+    assert not fake.questions  # nothing is sent until the person presses Send
+
+    at.text_area(key="heard_box").set_value("How long does a patent last in India?")
+    at.button(key="send_heard").click().run()
+    assert fake.questions == ["How long does a patent last in India?"]

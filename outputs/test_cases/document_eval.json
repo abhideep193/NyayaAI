@@ -1,0 +1,60 @@
+{
+  "description": "Test documents for the 'Explain my document' feature, written on 2026-11-07 BEFORE the feature was built. All names, companies, places, phone numbers and case numbers are FICTIONAL. 'must_quote' = exact words from the document (deadlines, amounts, dates) that a correct explanation must show and the code must verify. 'laws' = every law the document mentions, and whether NyayaAI has its text. Expectations must not be changed to improve scores.",
+  "written_on": "2026-11-07",
+  "documents": [
+    {
+      "id": "tm_cease_and_desist",
+      "author": "assistant",
+      "kind": "legal notice (trade mark infringement, cease and desist)",
+      "text": "LEGAL NOTICE\n\nDate: 2 November 2026\n\nFrom: Adv. Meera Iyer, Counsel for Sunrise Foods Private Limited, 14 Lake View Road, Pune 411001\n\nTo: Mr. Rohan Kumar, Proprietor, \"Sunrize Snacks\", Shop No. 7, Market Yard, Nashik 422001\n\nSub: Infringement of the registered trade mark \"SUNRISE\" and passing off\n\nUnder instructions from my client, Sunrise Foods Private Limited, I hereby serve you with the following notice:\n\n1. My client is the registered proprietor of the trade mark \"SUNRISE\" (Registration No. 1234567 in Class 30), used for packaged snacks since 2009.\n\n2. It has come to my client's notice that you are selling namkeen and chips under the name \"SUNRIZE\" in packaging with a similar orange sun device. The mark \"SUNRIZE\" is deceptively similar to my client's registered trade mark and is likely to cause confusion among the public.\n\n3. Your acts amount to infringement of my client's registered trade mark under section 29 of the Trade Marks Act, 1999, and also to passing off.\n\n4. You are therefore called upon, within 15 days of receipt of this notice, to:\n(a) stop using the name \"SUNRIZE\" and the orange sun device in any form;\n(b) withdraw and destroy all packaging and promotional material bearing the said mark; and\n(c) pay my client a sum of Rs. 2,00,000 (Rupees Two Lakh only) as damages.\n\n5. If you fail to comply, my client will initiate civil and criminal proceedings against you, without further notice, at your risk as to costs.\n\nA copy of this notice is retained in my office for further action.\n\nSd/-\nAdv. Meera Iyer",
+      "must_quote": ["within 15 days of receipt of this notice", "Rs. 2,00,000"],
+      "laws": [
+        {"as_written": "section 29 of the Trade Marks Act, 1999", "covered": true, "section_id": "trade_marks_act_1999:29"}
+      ],
+      "also_check": "Explains infringement vs passing off only from the notice and s.29 text; does not say the person IS infringing (that is for a court); suggests a lawyer before the 15-day deadline; does not invent what 'criminal proceedings' would be."
+    },
+    {
+      "id": "police_notice_to_appear",
+      "author": "assistant",
+      "kind": "police notice to appear for questioning",
+      "text": "NOTICE OF APPEARANCE\n(Under section 35(3) of the Bharatiya Nagarik Suraksha Sanhita, 2023)\n\nPolice Station: Gandhi Nagar, District Rampur (fictional)\nFIR No.: 0412/2026\nSections: 318(4) of the Bharatiya Nyaya Sanhita, 2023\n\nTo,\nMs. Priya Sharma\nFlat 22, Green Park Society, Rampur\n\nIn exercise of the powers conferred under sub-section (3) of section 35 of the Bharatiya Nagarik Suraksha Sanhita, 2023, I hereby inform you that during the investigation of the above case, it is revealed that there are reasonable grounds to question you to ascertain facts and circumstances from you, in relation to the present investigation.\n\nHence you are directed to appear before me at Gandhi Nagar Police Station at 11:00 AM on 14 November 2026.\n\nYou are directed to comply with the following conditions:\n(a) You will not commit any offence in future.\n(b) You will not tamper with the evidence in the case in any manner whatsoever.\n(c) You will produce the documents relating to the transaction dated 5 August 2026.\n\nFailure to attend and comply with the terms of this notice may render you liable for arrest.\n\nSub-Inspector A. Verma\nInvestigating Officer",
+      "must_quote": ["at 11:00 AM on 14 November 2026", "liable for arrest"],
+      "laws": [
+        {"as_written": "section 35(3) of the Bharatiya Nagarik Suraksha Sanhita, 2023", "covered": true, "section_id": "bnss_2023:35"},
+        {"as_written": "section 318(4) of the Bharatiya Nyaya Sanhita, 2023", "covered": true, "section_id": "bns_2023:318"}
+      ],
+      "also_check": "Calm tone; explains this is a notice to appear, not an arrest; explains 318 is cheating from the Act text; says to attend and to contact a lawyer; mentions the right to meet an advocate only if BNSS s.38 text is shown; no promise about arrest."
+    },
+    {
+      "id": "posh_ic_notice",
+      "author": "assistant",
+      "kind": "workplace Internal Committee notice to a respondent",
+      "text": "BRIGHTWAVE SOFTWARE PVT. LTD. (fictional)\nINTERNAL COMMITTEE\n\nRef: IC/2026/07\nDate: 3 November 2026\n\nTo: Mr. Karan Mehta, Senior Developer\n\nSubject: Notice regarding complaint of sexual harassment at workplace\n\nDear Mr. Mehta,\n\nThe Internal Committee has received a complaint against you under section 9 of the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013. A copy of the complaint is enclosed.\n\nYou are required to submit your written reply, along with a list of documents and the names and addresses of your witnesses, within 10 working days from the date of receipt of this notice.\n\nThe Committee will hold an inquiry under section 11 of the said Act. The first hearing is scheduled on 20 November 2026 at 3:00 PM in Conference Room B.\n\nPlease note that the proceedings are confidential under section 16 of the Act.\n\nRegards,\nPresiding Officer, Internal Committee",
+      "must_quote": ["within 10 working days from the date of receipt of this notice", "20 November 2026 at 3:00 PM"],
+      "laws": [
+        {"as_written": "section 9 of the ... Act, 2013 (POSH)", "covered": true, "section_id": "posh_act_2013:9"},
+        {"as_written": "section 11 of the said Act", "covered": true, "section_id": "posh_act_2013:11"},
+        {"as_written": "section 16 of the Act", "covered": true, "section_id": "posh_act_2013:16"}
+      ],
+      "also_check": "Neutral tone (the reader is the respondent): does not assume guilt or innocence; explains the reply deadline and hearing; mentions confidentiality from s.16 text; suggests getting advice."
+    },
+    {
+      "id": "cheque_bounce_notice",
+      "author": "assistant",
+      "kind": "demand notice for a dishonoured cheque (law NOT in NyayaAI)",
+      "text": "DEMAND NOTICE\n\nDate: 1 November 2026\n\nTo: Mr. Sameer Khan, 3rd Floor, Lotus Apartments, Indore (fictional)\n\nThrough my advocate, I, Anil Desai, hereby give you notice as follows:\n\n1. You issued cheque No. 004521 dated 10 October 2026 for Rs. 75,000 drawn on Fictional Bank, Indore branch, towards repayment of a friendly loan.\n\n2. The said cheque was presented by me and was returned unpaid by the bank on 20 October 2026 with the remark \"Funds Insufficient\".\n\n3. I hereby call upon you to pay the said amount of Rs. 75,000 within 15 days of receipt of this notice, failing which I shall be constrained to file a complaint against you under section 138 of the Negotiable Instruments Act, 1881.\n\nSd/-\nAnil Desai, through Adv. R. Joshi",
+      "must_quote": ["Rs. 75,000", "within 15 days of receipt of this notice"],
+      "laws": [
+        {"as_written": "section 138 of the Negotiable Instruments Act, 1881", "covered": false, "section_id": null}
+      ],
+      "also_check": "Says clearly that NyayaAI does not have the Negotiable Instruments Act, and does NOT explain section 138 or its punishment from memory; still explains what the notice itself says and the 15-day deadline; strongly suggests a lawyer before the deadline."
+    }
+  ],
+  "acceptance_rules": [
+    "1. Every must_quote is shown in the explanation and verified by code against the document: 100% for typed/PDF documents.",
+    "2. No unverified dates or amounts: every date and rupee amount in the explanation must appear in the document (code check). Zero exceptions.",
+    "3. Every law the document mentions is listed: covered ones linked to the right section (100%); laws NyayaAI lacks are marked 'not covered' and not explained from memory (hand check).",
+    "4. Hand check of 'also_check' for every document; any invented legal content = fail and fix before shipping.",
+    "5. Photo version of one document: reported honestly (transcription errors listed), not counted in rules 1-3."
+  ]
+}

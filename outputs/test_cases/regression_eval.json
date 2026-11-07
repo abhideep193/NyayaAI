@@ -1,0 +1,16 @@
+{
+  "description": "Regression cases from real failures found while testing. Written BEFORE any fix. Unlike the other sets, a case here passes retrieval only if ALL 'must_retrieve' sections reach the answer model (the 'any expected section' rule would hide this failure, because s.51 is always found). Expected sections were checked against the India Code text and must not be changed to improve scores.",
+  "written_on": "2026-11-07",
+  "cases": [
+    {
+      "question": "Someone uploaded my entire YouTube video on their channel without my permission. They have also monetised it. What legal action can I take in India, and can I get the video removed?",
+      "expected": ["copyright_act_1957:51", "copyright_act_1957:55", "copyright_act_1957:63"],
+      "must_retrieve": ["copyright_act_1957:51", "copyright_act_1957:55", "copyright_act_1957:63"],
+      "why": "S.51 'When copyright infringed'; s.55(1) owner 'entitled to all such remedies by way of injunction, damages, accounts and otherwise'; s.63 'Offence of infringement of copyright' (knowingly infringes). S.14 (meaning of copyright) is helpful but not required.",
+      "also_check": "Keeps four things separate: (1) infringement (s.51); (2) YouTube's own removal process is a platform policy, NOT in the Acts, so no invented steps or timelines; court-ordered removal = injunction (s.55); (3) civil remedies: damages and accounts (the legal route to the monetisation money), from s.55 text only; (4) criminal liability needs knowing infringement (s.63), no promise of prosecution. Partial answer with citations is expected, not 'insufficient'.",
+      "set": "regression",
+      "author": "project owner",
+      "found_on": "2026-11-07"
+    }
+  ]
+}

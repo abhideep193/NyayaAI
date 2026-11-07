@@ -14,6 +14,7 @@ import base64
 import hmac
 import html
 import json
+import logging
 import os
 import re
 import time
@@ -38,6 +39,8 @@ from app import config  # noqa: E402  (must come after the secrets are copied)
 from app.conversation import question_with_context
 from app.domains import load_domains
 from app.services.answer_generator import ModelRefusedError
+from app.services.document_explainer import DocumentUnreadable
+from app.services.voice import transcribe
 
 ROOT = Path(__file__).parent
 SOURCES = json.loads((ROOT / "data/legal_sources/sources.json").read_text(encoding="utf-8"))["sources"]
@@ -63,6 +66,9 @@ CONFIDENCE_LABELS = {
     "insufficient": "Not covered by the laws NyayaAI has",
 }
 THINKING_TEXT = f"Searching {len(ENABLED_SOURCES)} Acts and checking every quote…"
+DOCUMENT_THINKING_TEXT = "Reading your document and checking every date, amount and quote…"
+DOCUMENT_TYPES = ["pdf", "png", "jpg", "jpeg", "webp"]
+MAX_UPLOAD_MB = 10
 
 # Internal citation IDs in the answer text, e.g. "[copyright_act_1957:13]" or "[patents_act_1970:117A]"
 CITATION_ID = re.compile(r"\[([a-z_]+_\d{4}):(\w+)\]")
@@ -191,6 +197,7 @@ iframe { border: none; }
 .step { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: .7rem 1rem;
         margin: .45rem 0; color: var(--text); }
 .step::before { content: "•"; color: var(--accent); margin-right: .6rem; }
+.unverified { color: #fbbf24; font-size: .85em; }
 .disclaimer { margin-top: 1rem; padding: .8rem 1rem; border-radius: 14px; background: var(--panel);
               border: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
 [data-testid="stExpander"] { border: 1px solid var(--line) !important; border-radius: 14px !important; background: var(--panel); }
@@ -231,6 +238,15 @@ def load_assistant():
     from scripts.search import build_assistant
 
     return build_assistant()
+
+
+@st.cache_resource(show_spinner="Preparing the document reader...")
+def load_explainer():
+    """'Explain my document', sharing the chat pipeline's search and OpenAI client."""
+    from scripts.search import build_document_explainer
+
+    assistant = load_assistant()
+    return build_document_explainer(retriever=assistant.retriever, client=assistant.client)
 
 
 def readable_citations(text: str) -> str:
@@ -275,18 +291,93 @@ def show_answer(response, animate: bool = False) -> None:
         st.markdown(f'<div class="section-title">What you can do next</div>{steps}',
                     unsafe_allow_html=True)
 
-    if response.citations:
-        verified = sum(c.verified for c in response.citations)
-        with st.expander(f"Sources: {verified} of {len(response.citations)} citations verified in the official text"):
-            for c in response.citations:
-                where = f"{c.citation}, page {c.page} of the India Code PDF" if c.citation else c.section_id
-                if c.verified:
-                    st.markdown(f"**Verified:** {where}  \n> {c.quote}  \n*Supports:* {readable_citations(c.supports)}")
-                else:
-                    st.markdown(f"**Could not verify** ({where}): {c.reason}  \n"
-                                f"*Claim:* {readable_citations(c.supports)}")
-
+    show_sources(response.citations)
     st.markdown(f'<div class="disclaimer">{html.escape(response.disclaimer)}</div>', unsafe_allow_html=True)
+
+
+def show_sources(citations) -> None:
+    """The 'Sources' box: every quote from the Acts, verified (or not) by code."""
+    if not citations:
+        return
+    verified = sum(c.verified for c in citations)
+    with st.expander(f"Sources: {verified} of {len(citations)} citations verified in the official text"):
+        for c in citations:
+            where = f"{c.citation}, page {c.page} of the India Code PDF" if c.citation else c.section_id
+            if c.verified:
+                st.markdown(f"**Verified:** {where}  \n> {c.quote}  \n*Supports:* {readable_citations(c.supports)}")
+            else:
+                st.markdown(f"**Could not verify** ({where}): {c.reason}  \n"
+                            f"*Claim:* {readable_citations(c.supports)}")
+
+
+def quote_cards(items) -> str:
+    """Quotes from the user's document, each with its meaning. Unverified ones are marked."""
+    cards = []
+    for q in items:
+        mark = "" if q.verified else ' <span class="unverified">(these exact words were not found in your document)</span>'
+        cards.append(f'<div class="step"><b>"{html.escape(q.quote)}"</b>{mark}<br>{html.escape(q.meaning)}</div>')
+    return "".join(cards)
+
+
+def law_line(m) -> str:
+    if m.section_id:
+        return f"{m.as_written}: NyayaAI has this section; what it says is explained below."
+    if m.covered:
+        return f"{m.as_written}: NyayaAI has this Act."
+    if m.source_id:
+        return f"{m.as_written}: NyayaAI has this Act, but no section with this number. Please check the number."
+    return f"{m.as_written}: NyayaAI does not have this law, so it cannot explain it. Please ask a lawyer about it."
+
+
+def show_document_answer(response, animate: bool = False) -> None:
+    """Display an explained document: summary, dates/amounts, key points, laws, next steps, checks."""
+    if response.from_photo:
+        st.warning("**Read from a photo.** Reading mistakes are possible: check names, dates and amounts "
+                   "against your paper. (Quotes below were checked against the text read from the photo.)")
+    if response.truncated:
+        st.warning("Your document is long; only its first part was read and explained.")
+    if response.unverified_figures:
+        listed = ", ".join(f'"{f.text}"' for f in response.unverified_figures)
+        st.warning(f"**Check this:** NyayaAI wrote {listed}, but could not find it in your document or in the "
+                   "law it used. Do not rely on it.")
+
+    st.markdown(f'<div class="section-title">{html.escape(response.document_type)}</div>', unsafe_allow_html=True)
+    summary = readable_citations(response.summary)
+    if animate and TYPEWRITER_DELAY > 0:
+        st.write_stream(typewriter(summary))
+    else:
+        st.markdown(summary)
+    st.markdown(f'<span class="pill {html.escape(response.confidence)}">'
+                f'{CONFIDENCE_LABELS.get(response.confidence, response.confidence)}</span>', unsafe_allow_html=True)
+
+    if response.deadlines_and_amounts:
+        st.markdown('<div class="section-title">Dates, deadlines and amounts</div>'
+                    + quote_cards(response.deadlines_and_amounts), unsafe_allow_html=True)
+    if response.key_points:
+        st.markdown('<div class="section-title">What it says</div>' + quote_cards(response.key_points),
+                    unsafe_allow_html=True)
+    if response.laws:
+        st.markdown('<div class="section-title">Laws your document mentions</div>'
+                    + "".join(f'<div class="step">{html.escape(law_line(m))}</div>' for m in response.laws),
+                    unsafe_allow_html=True)
+    if response.law_explanation.strip():
+        st.markdown('<div class="section-title">What the law says</div>', unsafe_allow_html=True)
+        st.markdown(readable_citations(response.law_explanation))
+    if response.next_steps:
+        steps = "".join(f'<div class="step">{html.escape(readable_citations(s))}</div>' for s in response.next_steps)
+        st.markdown(f'<div class="section-title">What you can do next</div>{steps}', unsafe_allow_html=True)
+
+    show_sources(response.citations)
+    with st.expander("What NyayaAI read from your document"):
+        st.text(response.document_text)
+    st.markdown(f'<div class="disclaimer">{html.escape(response.disclaimer)}</div>', unsafe_allow_html=True)
+
+
+def show_any_answer(response, animate: bool = False) -> None:
+    if getattr(response, "kind", "") == "document":
+        show_document_answer(response, animate)
+    else:
+        show_answer(response, animate)
 
 
 # ---------------------------------------------------------------------------
@@ -316,7 +407,11 @@ with st.container(key="topbar"):
             st.markdown("**Privacy:** your questions are sent to OpenAI to write the answer. Do not include names, "
                         "phone numbers, addresses or other details that could identify you or anyone else. "
                         "NyayaAI does not save your conversation.")
-            st.markdown("You can write in English, Hindi or Hinglish.")
+            st.markdown("You can write in English, Hindi or Hinglish, speak your question (microphone), or attach "
+                        "a notice or letter (PDF or photo) to have it explained.")
+            st.markdown("**Documents and voice:** attached documents and recordings are also sent to OpenAI. "
+                        "Documents often contain names and addresses; cover them if you can. "
+                        "Nothing is saved by NyayaAI.")
     with brand_col:
         if st.button("NyayaAI", key="brand", help="Start a new conversation"):
             st.session_state.messages = []
@@ -351,10 +446,38 @@ def start_editing() -> None:
 
 
 # The question box (Streamlit pins it to the bottom of the page wherever it is created).
-typed = st.chat_input("Describe your problem, e.g. 'Someone copied my song on Instagram'")
+# It also takes one file (a PDF or photo of a notice) and a voice recording.
+raw = st.chat_input("Describe your problem, or attach a notice to explain", accept_file=True,
+                    file_type=DOCUMENT_TYPES, accept_audio=True, max_upload_size=MAX_UPLOAD_MB)
+typed, upload, recording = "", None, None
+if isinstance(raw, str):
+    typed = raw
+elif raw is not None:
+    typed = (raw.text or "").strip()
+    upload = raw.files[0] if raw.get("files") else None
+    recording = raw.get("audio")
+
+# Voice: turn the recording into text, then let the person CHECK it before it is sent.
+if recording is not None and not typed and upload is None:
+    try:
+        heard = transcribe(recording.getvalue(), recording.name, load_assistant().client, config.TRANSCRIBE_MODEL)
+    except openai.APIError:
+        heard = None
+        st.error("Sorry, the voice service could not be reached. Please type your question instead.")
+    if heard:
+        st.session_state.heard = st.session_state.heard_box = heard
+    elif heard == "":
+        st.warning("NyayaAI could not hear any words. Please try again, or type your question.")
+
+document = None
+if upload is not None:
+    document = {"name": upload.name, "type": upload.type, "data": upload.getvalue(), "note": typed}
 question = typed or st.session_state.pop("pending_question", None)
+if document and not question:
+    question = "Please explain this document."
 if question:
     st.session_state.editing = False
+    st.session_state.pop("heard", None)
 
 # Earlier messages of this conversation (no animation when shown again).
 messages = st.session_state.messages
@@ -362,7 +485,7 @@ last_user = max((i for i, m in enumerate(messages) if m["role"] == "user"), defa
 for index, message in enumerate(messages):
     if message["role"] == "assistant":
         with st.chat_message("assistant", avatar=SPHERE_ICON):
-            show_answer(message["response"])
+            show_any_answer(message["response"])
     elif message["role"] == "stopped":
         with st.chat_message("assistant", avatar=SPHERE_ICON):
             st.caption("Stopped. No answer was given to this question.")
@@ -383,13 +506,29 @@ for index, message in enumerate(messages):
                     st.rerun()
             else:
                 st.markdown(message["content"])
-                if index == last_user and not question:  # a new question gets its own Edit button
+                if message.get("attachment"):
+                    st.caption(f"Attached: {message['attachment']}")
+                elif index == last_user and not question:  # a new question gets its own Edit button
                     st.button("Edit", key="edit", on_click=start_editing)
+
+# What NyayaAI heard from a voice recording: checked (and corrected) by the person before sending.
+if st.session_state.get("heard") and not question:
+    with st.container(key="heard_panel"):
+        st.caption("NyayaAI heard this. Please check it and correct any mistakes, then send.")
+        checked = st.text_area("What NyayaAI heard", key="heard_box", label_visibility="collapsed")
+        send_col, cancel_col, _ = st.columns([1, 1, 4])
+        if send_col.button("Send", key="send_heard", type="primary") and checked.strip():
+            st.session_state.pop("heard", None)
+            st.session_state.pending_question = checked.strip()
+            st.rerun()
+        if cancel_col.button("Cancel", key="cancel_heard"):
+            st.session_state.pop("heard", None)
+            st.rerun()
 
 first_question = not st.session_state.messages
 
 # Start screen: only the big interactive sphere (owner's choice: no headline, no example buttons).
-if first_question and not question:
+if first_question and not question and not st.session_state.get("heard"):
     with st.container(key="start_screen"):
         show_sphere("idle", size=380)
 
@@ -400,8 +539,8 @@ def background_workers() -> ThreadPoolExecutor:
     return ThreadPoolExecutor(max_workers=4)
 
 
-def status_pill(seconds: int) -> str:
-    return (f'<div class="hero"><div class="status"><span class="dot"></span>{THINKING_TEXT}'
+def status_pill(seconds: int, text: str = THINKING_TEXT) -> str:
+    return (f'<div class="hero"><div class="status"><span class="dot"></span>{text}'
             f'<span class="secs">{seconds}s</span></div></div>')
 
 
@@ -417,6 +556,8 @@ if question:
 
     with st.chat_message("user"):
         st.markdown(question)
+        if document:
+            st.caption(f"Attached: {document['name']}")
         edit_slot = st.empty()  # gets this question's Edit button once the answer is shown
 
     if not first_question:
@@ -429,18 +570,36 @@ if question:
     # Remember the question until its answer is shown: if the page reloads first, it is marked "stopped".
     st.session_state.in_progress = question
     try:
-        assistant = load_assistant()
-        job = background_workers().submit(assistant.ask, question_with_context(messages, question))
+        if document:
+            explainer = load_explainer()
+            job = background_workers().submit(explainer.explain_file, document["data"], document["type"],
+                                              document["name"], document["note"])
+            thinking_text = DOCUMENT_THINKING_TEXT
+        else:
+            assistant = load_assistant()
+            job = background_workers().submit(assistant.ask, question_with_context(messages, question))
+            thinking_text = THINKING_TEXT
         started = time.monotonic()
         while not job.done():
             # Updating the page here also lets Streamlit notice a Stop click and end this run.
-            status.markdown(status_pill(int(time.monotonic() - started)), unsafe_allow_html=True)
+            status.markdown(status_pill(int(time.monotonic() - started), thinking_text), unsafe_allow_html=True)
             time.sleep(0.5)
         response = job.result()
+    except DocumentUnreadable as problem:
+        st.session_state.pop("in_progress", None)
+        thinking.empty()
+        st.warning(str(problem))
+        st.stop()
     except (openai.APIError, ModelRefusedError):
         st.session_state.pop("in_progress", None)
         thinking.empty()
         st.error("Sorry, the AI service could not answer right now. Please try again in a moment.")
+        st.stop()
+    except Exception:  # e.g. a damaged PDF; the full error goes to the server log, not the page
+        logging.getLogger("nyayaai").exception("Could not process the attached document")
+        st.session_state.pop("in_progress", None)
+        thinking.empty()
+        st.error("Sorry, NyayaAI could not read this file. Please try a PDF or a clear photo of the page.")
         st.stop()
     st.session_state.pop("in_progress", None)
 
@@ -452,8 +611,14 @@ if question:
     thinking.empty()
 
     with st.chat_message("assistant", avatar=SPHERE_ICON):
-        show_answer(response, animate=True)
+        show_any_answer(response, animate=True)
 
-    messages.append({"role": "user", "content": question})
+    if document:
+        # Follow-up questions ("what should I reply?") get a short description of the document as context.
+        messages.append({"role": "user", "content": question, "attachment": document["name"],
+                         "context": f"I attached a document ({response.document_type}): {response.summary} "
+                                    f"{document['note']}".strip()})
+    else:
+        messages.append({"role": "user", "content": question})
+        edit_slot.button("Edit", key="edit", on_click=start_editing)
     messages.append({"role": "assistant", "response": response})
-    edit_slot.button("Edit", key="edit", on_click=start_editing)

@@ -28,6 +28,12 @@ QUERY_REWRITE_MODEL = os.getenv("QUERY_REWRITE_MODEL", "gpt-6-luna")
 # Comma-separated, e.g. "ipr". Criminal law switched on 2026-11-06 after evaluation (outputs/answer_experiments.md).
 ENABLED_DOMAINS = [d.strip() for d in os.getenv("ENABLED_DOMAINS", "ipr,criminal").split(",") if d.strip()]
 
+# --- Documents and voice (added 2026-11-07) ---
+# Model that reads the text in a PHOTO of a document (must accept images).
+VISION_MODEL = os.getenv("VISION_MODEL") or OPENAI_MODEL  # an empty line in .env also means "default"
+# Speech-to-text for voice questions (the text is shown to the user to check before sending).
+TRANSCRIBE_MODEL = os.getenv("TRANSCRIBE_MODEL") or "gpt-4o-transcribe"
+
 # --- Public demo ---
 # If set (e.g. as a secret on Hugging Face), the chat page asks for this code before answering,
 # so a public link cannot spend the owner's OpenAI credit. Empty = no code needed (local use).

@@ -6,6 +6,11 @@ Ask a question in English, Hindi or Hinglish, for example *"Someone is using my 
 register my FIR"*. NyayaAI finds the relevant sections of the Acts, writes a short answer with practical next steps,
 and shows every quote it relied on. Each quote is checked word for word against the official text before you see it.
 
+You can also **attach a legal notice or letter (PDF or a phone photo)** and NyayaAI explains it: what it says,
+every deadline and amount (quoted word for word and checked against the document by code), which laws it mentions
+and whether NyayaAI has them, and what to do next. Questions can be **spoken** (microphone); the words NyayaAI heard
+are shown for checking before anything is sent.
+
 NyayaAI gives legal information, not legal advice. It says so, and it says when a question is outside what it covers.
 
 Built for the Kuku *AI Generalist* assignment, Problem 2 ("Build an AI Lawyer").
@@ -55,6 +60,11 @@ question ─► rewrite into legal terms + choose area of law (small LLM)
 ```
 
 - **Chat page:** `streamlit_app.py` (Streamlit), with follow-up questions, Stop and Edit.
+- **Explain my document:** `app/services/document_explainer.py`. PDF text via pypdf, photos read by a vision model.
+  Our code (not the model) finds every "section X of the Y Act" in the document and looks it up; laws NyayaAI does
+  not have are marked "not covered" and the model is told not to explain them. Code then checks every quote from
+  the document, every date/amount/duration the explanation writes, and every legal citation.
+- **Voice:** `app/services/voice.py` (OpenAI speech-to-text); the text is shown for correction before sending.
 - **API:** `app/main.py` (FastAPI, `POST /ask`).
 - **Areas of law are data, not code:** `data/legal_sources/domains.json`. Adding an area means adding its Acts and
   test questions; the prompts are built from the data.
@@ -77,6 +87,13 @@ Final run with the submitted version (all 63 answers, unedited:
 | Real-life questions typed by the owner while testing (3) | shown, not scored |
 | Citations checked word for word | **310/312** verified (the 2 rejected quotes were too short to prove anything, and were flagged) |
 
+**Explain my document** (4 fictional notices written before the feature was built, rules fixed in advance:
+[`document_eval.json`](outputs/test_cases/document_eval.json); unedited output in [`outputs/document_eval/`](outputs/document_eval/)):
+every deadline and amount shown and verified 8/8; no unverified date or amount 4/4; laws mentioned correctly linked
+or marked "not covered" 7/7 (including a cheque-bounce notice under the Negotiable Instruments Act, which NyayaAI
+does not have and did not explain from memory); hand check 4/4. A simulated phone photo was read with 0 errors in
+185 words, but it was an easy photo: real photos with folds, stamps or handwriting are not yet tested.
+
 Cost about **$0.015 per question**; median answer time about **15 s**. Results vary slightly between runs because
 the search-rewrite step uses an LLM (the previous full run scored 37/39 on IPR).
 
@@ -85,6 +102,13 @@ questions (Trade Marks s.27 not cited); "neighbour punched me" (BNS s.115 not fo
 in 3 criminal answers: for the POCSO teacher and sexual-assault questions the model cited the right sections but
 labelled its answer "not covered", and for the 2023 case it was given the right transition sections (BNS s.358,
 BNSS s.531) but still declined. The code-added old-law warning was shown in that case anyway.
+
+**Open regression (found by the owner while testing):** *"Someone uploaded my entire YouTube video ... monetised it.
+What legal action can I take, and can I get the video removed?"* The rewritten search query ranks Copyright Act s.55
+(civil remedies: injunction, damages, accounts) first, but merging it with the original question's ranking pushes it
+to 17th, outside the 15 sections the model reads, so the answer says it cannot explain the remedies. A fix (searching
+deeper) was tested and **rejected** because it lowered other results (IPR 36.0 -> 35.0, criminal 13.7 -> 12.0 over
+3 runs). The case is kept as a test marked "expected to fail": `tests/test_regression_youtube_reupload.py`.
 
 ## Run it yourself
 
@@ -109,6 +133,7 @@ The first start downloads the embedding model (~130 MB). Search indexes are incl
 python -m pytest                                     # unit tests (no API calls)
 python -m scripts.evaluate_retrieval                 # search quality (no API calls)
 python -m scripts.evaluate_answers --cases outputs/test_cases/criminal_eval.json   # full answers (uses the API)
+python -m scripts.evaluate_documents                 # explain-my-document test notices (uses the API)
 ```
 
 To rebuild the law data from the PDFs: `python -m scripts.extract_sources` then `python -m scripts.split_sections`
@@ -117,7 +142,9 @@ To rebuild the law data from the PDFs: `python -m scripts.extract_sources` then 
 ## Privacy
 
 Questions are sent to OpenAI to write the answer (with `store=False`). NyayaAI does not save conversations or log
-question text. Please do not include names or other personal details. The public demo asks for an access code
+question text. Please do not include names or other personal details. Attached documents and voice recordings
+are also sent to OpenAI (to read and transcribe them) and are not saved by NyayaAI; documents often contain names
+and addresses, so cover them if you can. The public demo asks for an access code
 because every question is paid for by the developer.
 
 ## Project layout
@@ -128,6 +155,6 @@ data/legal_sources/   the Acts (PDFs), sources.json, domains.json, safety.json
 data/processed/       extracted text, sections, search indexes
 scripts/              ingestion, evaluation, deployment
 outputs/              test questions, experiment logs, raw evaluation answers
-tests/                110 unit tests
+tests/                126 tests (+1 known regression marked expected-to-fail)
 streamlit_app.py      chat page
 ```
