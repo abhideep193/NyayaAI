@@ -401,7 +401,7 @@ def test_not_now_and_new_chat_end_the_flow(fake_drafter):
 # ---------------------------------------------------------------------------
 
 
-def test_answer_is_saved_to_history_and_can_be_reopened(fake):
+def test_answer_is_saved_to_history(fake):
     at = AppTest.from_file(APP_FILE, default_timeout=30)
     at.session_state["chat_id"] = "chat1"
     at.session_state["history"] = []
@@ -418,26 +418,26 @@ def test_answer_is_saved_to_history_and_can_be_reopened(fake):
 
     at.button(key="brand").click().run()  # new chat: the old one stays in history
     assert at.session_state.messages == [] and len(at.session_state.history) == 1
+    assert at.session_state.chat_id != "chat1"
 
-    at.button(key="open_chat1").click().run()  # reopen it
-    assert "A patent lasts twenty years" in all_text(at)
+    # The three-lines button opens the history panel, which lists the chat with Open and Delete.
+    # (Clicks INSIDE the panel are tested in a real browser: AppTest does not replay panel reruns.)
+    at.button(key="menu").click().run()
+    assert at.button(key="open_chat1") and at.button(key="delete_chat1") and at.button(key="delete_all_history")
+
+
+def test_reopened_chat_shows_saved_copy_and_keeps_context(fake):
+    saved = [{"role": "user", "content": "How long does a patent last?"},
+             {"role": "assistant_text", "text": "A patent lasts twenty years."}]
+    at = AppTest.from_file(APP_FILE, default_timeout=30)
+    at.session_state["chat_id"] = "chat1"
+    at.session_state["history"] = [{"id": "chat1", "title": "t", "updated": "", "messages": saved}]
+    at.session_state["history_loaded"] = True
+    at.session_state["messages"] = [dict(m) for m in saved]  # what open_chat() does
+    at.run()
+    assert "A patent lasts twenty years." in all_text(at)
     assert "Saved copy from this browser's history." in all_text(at)
-    at.chat_input[0].set_value("Can it be renewed?").run()  # follow-up keeps the earlier question as context
+    at.chat_input[0].set_value("Can it be renewed?").run()
     assert "How long does a patent last?" in fake.questions[-1]
     assert len(at.session_state.history) == 1 and len(at.session_state.history[0]["messages"]) == 4
 
-
-def test_delete_chat_and_delete_all(fake):
-    chats = [{"id": i, "title": f"Q{i}", "updated": "", "messages": [{"role": "user", "content": f"Q{i}"}]}
-             for i in ("a", "b")]
-    at = AppTest.from_file(APP_FILE, default_timeout=30)
-    at.session_state["chat_id"] = "a"
-    at.session_state["history"] = chats
-    at.session_state["history_loaded"] = True
-    at.session_state["messages"] = list(chats[0]["messages"])
-    at.run()
-    at.button(key="delete_a").click().run()
-    assert [c["id"] for c in at.session_state.history] == ["b"]
-    assert at.session_state.messages == []  # the open chat was deleted -> new chat
-    at.button(key="delete_all_history").click().run()
-    assert at.session_state.history == []

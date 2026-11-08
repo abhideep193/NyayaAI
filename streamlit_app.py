@@ -121,7 +121,7 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
    vertically, which made the pinned bar very tall and covered the page.) */
 .st-key-topbar [data-testid="stHorizontalBlock"] { flex-wrap: nowrap !important; gap: .6rem !important; }
 .st-key-topbar [data-testid="stColumn"] { width: auto !important; flex: 0 0 auto !important; min-width: 0 !important; }
-.st-key-topbar [data-testid="stColumn"]:nth-child(2) { flex: 1 1 auto !important; }  /* NyayaAI fills the middle */
+.st-key-topbar [data-testid="stColumn"]:nth-child(3) { flex: 1 1 auto !important; }  /* NyayaAI fills the middle */
 @media (max-width: 640px) {
   .st-key-topbar { padding: .5rem 1rem 1.2rem; }
   .logo { height: 34px; }
@@ -158,11 +158,18 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
   width: 100%; display: flex; align-items: center; justify-content: center; margin: 0 !important;
 }
 .info-muted { color: var(--muted); font-size: .88em; }
-.st-key-history button { background: transparent !important; border: 1px solid var(--line) !important;
-                         border-radius: 999px !important; padding: .15rem .8rem !important; min-height: 0 !important; }
-.st-key-history button:hover { border-color: var(--accent) !important; }
-.st-key-history button span:has(> [data-testid="stIconMaterial"]) { display: none !important; }
-.st-key-history button p { font-size: .85rem !important; color: var(--text) !important; }
+/* three lines (history) button, left of the logo */
+.st-key-menu button { background: transparent !important; border: none !important; box-shadow: none !important;
+                      padding: 0 .2rem !important; min-height: 0 !important; }
+.st-key-menu button p { font-size: 1.6rem !important; line-height: 1; color: var(--text) !important; }
+.st-key-menu button:hover p { color: var(--accent) !important; }
+/* side panels (history on the left, information on the right) */
+[role="dialog"] { background: var(--panel) !important; border-color: var(--line) !important; }
+[role="dialog"] h4 { font-size: 1rem; margin: .9rem 0 .3rem; color: var(--accent); }
+[role="dialog"] [data-testid="stHeaderActionElements"] { display: none; }
+[role="dialog"] [class*="st-key-open_"] button { justify-content: flex-start !important; text-align: left !important; }
+[role="dialog"] [class*="st-key-open_"] button > div { justify-content: flex-start !important; width: 100%; }
+[role="dialog"] [class*="st-key-open_"] button p { text-align: left !important; overflow: hidden; text-overflow: ellipsis; }
 .st-key-history_bridge { display: none; }
 [data-testid="stPopoverBody"] h4 { font-size: 1rem; margin: .9rem 0 .3rem; color: var(--accent); }
 [data-testid="stPopoverBody"] h4:first-child { margin-top: 0; }
@@ -642,7 +649,6 @@ def delete_all_history() -> None:
 
 def show_info() -> None:
     """Contents of the "i" (information) panel in the top bar."""
-    st.markdown("#### About NyayaAI")
     st.markdown("Plain-language legal information for India, answered **only** from the official text of the "
                 "Acts (India Code). Every quote is checked word for word before you see it.")
 
@@ -678,9 +684,18 @@ def show_info() -> None:
     st.caption("Legal information, not legal advice. For decisions, consult a qualified lawyer.")
 
 
+@st.dialog("Your past chats", position="left", width="small")
+def history_panel() -> None:
+    show_history()
+
+
+@st.dialog("About NyayaAI", position="right", width="small")
+def info_panel() -> None:
+    show_info()
+
+
 def show_history() -> None:
     """Contents of the History panel: past chats saved in this browser, with Open and Delete."""
-    st.markdown("#### Your past chats")
     st.caption("Saved only in this browser on this device: not on NyayaAI's server and not visible to anyone else. "
                "Anyone using this browser can see them, so delete them on a shared computer.")
     if not st.session_state.history_loaded:
@@ -690,12 +705,18 @@ def show_history() -> None:
         st.caption("No saved chats yet. Your chats appear here after NyayaAI answers.")
         return
     for chat in st.session_state.history:
-        open_col, delete_col = st.columns([5, 1.4], vertical_alignment="center")
+        open_col, delete_col = st.columns([5, 1.6], vertical_alignment="center")
         current = " (open now)" if chat["id"] == st.session_state.chat_id else ""
-        open_col.button(f"{chat['title']}{current}", key=f"open_{chat['id']}", on_click=open_chat,
-                        args=(chat["id"],), help=f"Last message: {chat.get('updated', '')}", use_container_width=True)
-        delete_col.button("Delete", key=f"delete_{chat['id']}", on_click=delete_chat, args=(chat["id"],))
-    st.button("Delete all history", key="delete_all_history", on_click=delete_all_history)
+        if open_col.button(f"{chat['title']}{current}", key=f"open_{chat['id']}",
+                           help=f"Last message: {chat.get('updated', '')}", use_container_width=True):
+            open_chat(chat["id"])
+            st.rerun()  # closes the panel and shows the chat
+        if delete_col.button("Delete", key=f"delete_{chat['id']}"):
+            delete_chat(chat["id"])
+            st.rerun()  # full rerun, so the browser's copy is updated too
+    if st.button("Delete all history", key="delete_all_history"):
+        delete_all_history()
+        st.rerun()
 
 
 def response_to_text(r) -> str:
@@ -754,7 +775,10 @@ def save_current_chat() -> None:
 # Top bar: logo, NyayaAI (click = new chat) and an "i" button on the right that opens the information panel.
 # Wrapped in a container that CSS pins to the top of the window (stays visible when scrolling).
 with st.container(key="topbar"):
-    logo_col, brand_col, history_col, info_col = st.columns([0.6, 9.6, 1.6, 0.9], vertical_alignment="center")
+    menu_col, logo_col, brand_col, info_col = st.columns([0.6, 0.6, 9.6, 0.9], vertical_alignment="center")
+    with menu_col:
+        if st.button("\u2630", key="menu", help="Your past chats (saved only in this browser)"):
+            history_panel()
     with logo_col:
         st.markdown(f'<img class="logo" src="data:image/png;base64,{LADY_ICON}" alt="Lady Justice">',
                     unsafe_allow_html=True)
@@ -762,12 +786,9 @@ with st.container(key="topbar"):
         if st.button("NyayaAI", key="brand", help="Start a new conversation"):
             start_new_chat()
             st.rerun()
-    with history_col:
-        with st.popover("History", key="history", help="Your past chats, saved only in this browser"):
-            show_history()
     with info_col:
-        with st.popover("i", key="info", help="About NyayaAI: what it covers, how to ask, privacy"):
-            show_info()
+        if st.button("i", key="info", help="About NyayaAI: what it covers, how to ask, privacy"):
+            info_panel()
     st.markdown('<div class="tagline">Legal information, not legal advice. For decisions, consult a qualified lawyer.</div>',
                 unsafe_allow_html=True)
 
