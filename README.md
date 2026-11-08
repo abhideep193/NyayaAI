@@ -80,7 +80,7 @@ question ─► rewrite into legal terms + choose area of law (small LLM)
          ─► citation verifier ─► safety notes ─► chat page (or JSON API)
 ```
 
-- **Chat page:** `streamlit_app.py` (Streamlit), with follow-up questions, Stop and Edit.
+- **Chat page:** `streamlit_app.py` (Streamlit), with follow-up questions, Stop, Edit and chat history (kept only in the browser).
 - **Explain my document:** `app/services/document_explainer.py`. PDF text via pypdf, photos read by a vision model.
   Our code (not the model) finds every "section X of the Y Act" in the document and looks it up; laws NyayaAI does
   not have are marked "not covered" and the model is told not to explain them. Code then checks every quote from
@@ -175,8 +175,11 @@ To rebuild the law data from the PDFs: `python -m scripts.extract_sources` then 
 
 ## Privacy
 
-Questions are sent to OpenAI to write the answer (with `store=False`). NyayaAI does not save conversations or log
-question text. Please do not include names or other personal details. Attached documents and voice recordings
+Questions are sent to OpenAI to write the answer (with `store=False`). NyayaAI's server does not store
+conversations or log question text. **Chat history** (the History button) is kept only in the user's own browser
+(`localStorage` on that device, at most 30 chats): it is never sent to the server or shown to anyone else, and each
+chat or the whole history can be deleted. On a shared computer, delete it after use. Please do not include names or
+other personal details. Attached documents and voice recordings
 are also sent to OpenAI (to read and transcribe them) and are not saved by NyayaAI; documents often contain names
 and addresses, so cover them if you can. The public demo has a monthly spending limit on the developer's
 OpenAI account; an optional access code (`APP_ACCESS_CODE`) can be switched on if needed.
@@ -189,7 +192,7 @@ data/legal_sources/   the Acts (PDFs), sources.json, domains.json, safety.json
 data/processed/       extracted text, sections, search indexes
 scripts/              ingestion, evaluation, deployment
 outputs/              test questions, experiment logs, raw evaluation answers
-tests/                149 tests (+1 known regression marked expected-to-fail)
+tests/                152 tests (+1 known regression marked expected-to-fail)
 streamlit_app.py      chat page
 ```
 
@@ -205,7 +208,7 @@ streamlit_app.py      chat page
 | Search | keyword search (our own BM25, with `snowballstemmer` stemming and legal synonyms) + meaning search (`bge-small` embeddings via `sentence-transformers`, CPU-only PyTorch), fused with Reciprocal Rank Fusion; one index per area of law |
 | Reading PDFs | `pypdf` |
 | Checks | our own code: citation verifier, figure checker, law-mention finder, safety notes |
-| Tests | `pytest` (149 tests, including headless tests of the chat page) |
+| Tests | `pytest` (152 tests, including headless tests of the chat page) |
 
 ## AI tools used to build it
 

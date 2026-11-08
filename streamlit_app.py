@@ -20,7 +20,10 @@ import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+import uuid
+from datetime import datetime
 from types import SimpleNamespace
+from zoneinfo import ZoneInfo
 
 import openai
 import streamlit as st
@@ -155,6 +158,12 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
   width: 100%; display: flex; align-items: center; justify-content: center; margin: 0 !important;
 }
 .info-muted { color: var(--muted); font-size: .88em; }
+.st-key-history button { background: transparent !important; border: 1px solid var(--line) !important;
+                         border-radius: 999px !important; padding: .15rem .8rem !important; min-height: 0 !important; }
+.st-key-history button:hover { border-color: var(--accent) !important; }
+.st-key-history button span:has(> [data-testid="stIconMaterial"]) { display: none !important; }
+.st-key-history button p { font-size: .85rem !important; color: var(--text) !important; }
+.st-key-history_bridge { display: none; }
 [data-testid="stPopoverBody"] h4 { font-size: 1rem; margin: .9rem 0 .3rem; color: var(--accent); }
 [data-testid="stPopoverBody"] h4:first-child { margin-top: 0; }
 [data-testid="stPopoverBody"] [data-testid="stHeaderActionElements"] { display: none; }  /* no link icon on headings */
@@ -547,6 +556,89 @@ st.markdown(STYLE, unsafe_allow_html=True)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
+if "chat_id" not in st.session_state:
+    st.session_state.chat_id = uuid.uuid4().hex
+    st.session_state.history = []  # past chats, kept ONLY in this browser (localStorage), see sync_history()
+    st.session_state.history_loaded = False
+
+
+# ---------------------------------------------------------------------------
+# Chat history, saved only in the user's own browser (localStorage). Nothing is stored on the server.
+# A tiny JavaScript bridge reads the saved chats once when the page opens and writes them back after each answer.
+# ---------------------------------------------------------------------------
+HISTORY_MAX_CHATS = 30
+HISTORY_JS = """
+export default function(component) {
+  const { data, setStateValue } = component;
+  const KEY = "nyayaai_history_v1";
+  if (!data || !data.loaded) {
+    let saved = "[]";
+    try { saved = window.localStorage.getItem(KEY) || "[]"; } catch (e) { saved = "[]"; }
+    setStateValue("saved", saved);
+    return;
+  }
+  try {
+    if (window.localStorage.getItem(KEY) !== data.history) { window.localStorage.setItem(KEY, data.history); }
+  } catch (e) {}
+}
+"""
+history_bridge = st.components.v2.component("nyayaai_history", js=HISTORY_JS)
+
+
+def load_history() -> None:
+    """Called once, when the browser has sent its saved chats."""
+    state = st.session_state.get("history_bridge") or {}
+    try:
+        chats = json.loads(state.get("saved") or "[]")
+    except (TypeError, ValueError, AttributeError):
+        chats = []
+    if not isinstance(chats, list):
+        chats = []
+    valid = [c for c in chats if isinstance(c, dict) and c.get("id") and isinstance(c.get("messages"), list)]
+    current = [c for c in st.session_state.history if c["id"] not in {v["id"] for v in valid}]
+    st.session_state.history = (current + valid)[:HISTORY_MAX_CHATS]
+    st.session_state.history_loaded = True
+
+
+def sync_history() -> None:
+    """Mount the bridge (end of every run): first read the browser's chats, afterwards write them back."""
+    loaded = st.session_state.history_loaded
+    data = {"loaded": loaded,
+            "history": json.dumps(st.session_state.history, ensure_ascii=False) if loaded else None}
+    history_bridge(data=data, key="history_bridge", on_saved_change=load_history)
+
+
+def local_time() -> str:
+    try:
+        return datetime.now(ZoneInfo(st.context.timezone)).strftime("%d %b %Y, %H:%M")
+    except Exception:
+        return datetime.now().strftime("%d %b %Y, %H:%M")
+
+
+def start_new_chat() -> None:
+    st.session_state.messages = []
+    st.session_state.flow = None
+    st.session_state.editing = False
+    st.session_state.chat_id = uuid.uuid4().hex
+
+
+def open_chat(chat_id: str) -> None:
+    chat = next((c for c in st.session_state.history if c["id"] == chat_id), None)
+    if chat:
+        start_new_chat()
+        st.session_state.messages = [dict(m) for m in chat["messages"]]
+        st.session_state.chat_id = chat_id
+
+
+def delete_chat(chat_id: str) -> None:
+    st.session_state.history = [c for c in st.session_state.history if c["id"] != chat_id]
+    if st.session_state.chat_id == chat_id:
+        start_new_chat()
+
+
+def delete_all_history() -> None:
+    st.session_state.history = []
+    start_new_chat()
 
 def show_info() -> None:
     """Contents of the "i" (information) panel in the top bar."""
@@ -578,24 +670,101 @@ def show_info() -> None:
                 "stamp duty, and other areas (family, employment, tax...). For these NyayaAI says so instead of guessing.")
 
     st.markdown("#### Privacy")
-    st.markdown("Questions, documents and recordings are sent to OpenAI to write the answer. NyayaAI does not "
-                "save them. Please leave out names, phone numbers and addresses; cover them on documents if you can.")
+    st.markdown("Questions, documents and recordings are sent to OpenAI to write the answer; NyayaAI's server "
+                "does not store them. Your chat history is saved only in this browser (History, top right), "
+                "and you can delete it at any time. Please leave out names, phone numbers and addresses; "
+                "cover them on documents if you can.")
 
     st.caption("Legal information, not legal advice. For decisions, consult a qualified lawyer.")
+
+
+def show_history() -> None:
+    """Contents of the History panel: past chats saved in this browser, with Open and Delete."""
+    st.markdown("#### Your past chats")
+    st.caption("Saved only in this browser on this device: not on NyayaAI's server and not visible to anyone else. "
+               "Anyone using this browser can see them, so delete them on a shared computer.")
+    if not st.session_state.history_loaded:
+        st.caption("Loading...")
+        return
+    if not st.session_state.history:
+        st.caption("No saved chats yet. Your chats appear here after NyayaAI answers.")
+        return
+    for chat in st.session_state.history:
+        open_col, delete_col = st.columns([5, 1.4], vertical_alignment="center")
+        current = " (open now)" if chat["id"] == st.session_state.chat_id else ""
+        open_col.button(f"{chat['title']}{current}", key=f"open_{chat['id']}", on_click=open_chat,
+                        args=(chat["id"],), help=f"Last message: {chat.get('updated', '')}", use_container_width=True)
+        delete_col.button("Delete", key=f"delete_{chat['id']}", on_click=delete_chat, args=(chat["id"],))
+    st.button("Delete all history", key="delete_all_history", on_click=delete_all_history)
+
+
+def response_to_text(r) -> str:
+    """A plain copy of one NyayaAI reply, for the browser history (re-shown read-only when a chat is reopened)."""
+    kind = getattr(r, "kind", "")
+    if kind == "document":
+        parts = [f"**{r.document_type}**", readable_citations(r.summary)]
+        parts += [f'- "{q.quote}": {q.meaning}' for q in r.deadlines_and_amounts + r.key_points]
+        steps = r.next_steps
+    elif kind == "draft_questions":
+        parts = [f"To prepare a **{r.label.lower()}**, I need a few details:"]
+        parts += [f"{i}. {q}" for i, q in enumerate(r.plan.questions, start=1)]
+        steps = []
+    elif kind == "draft":
+        parts = [f"**{r.label}** (DRAFT: review and complete it before use)", "```\n" + r.full_text() + "\n```"]
+        steps = []
+    elif kind == "guide":
+        guide = guide_for(FILING_GUIDES, r.guide)
+        parts = [f"**{guide['title']}**"] if guide else []
+        for s in (guide["steps"] if guide else []):
+            parts.append(f"- **{s['heading']}** {s['text']}" + (f" Official site: {s['link']}" if s.get("link") else ""))
+        parts.append(FILING_GUIDES["legal_aid"]["text"])
+        steps = []
+    else:
+        parts = [readable_citations(r.answer), f"*{CONFIDENCE_LABELS.get(r.confidence, r.confidence)}*"]
+        parts += [f"> {n.text}" for n in getattr(r, "safety_notes", [])]
+        steps = r.next_steps
+    if steps:
+        parts += ["**What you can do next**"] + [f"- {readable_citations(s)}" for s in steps]
+    verified = [c for c in (getattr(r, "citations", None) or getattr(r, "law", None) or []) if c.verified]
+    if verified:
+        parts += ["**Sources (verified in the official text)**"] + [f'- {c.citation}: "{c.quote}"' for c in verified]
+    return "\n\n".join(parts)
+
+
+def saved_message(m: dict) -> dict | None:
+    if m["role"] == "assistant":
+        return {"role": "assistant_text", "text": response_to_text(m["response"])}
+    if m["role"] in ("assistant_text", "stopped"):
+        return dict(m)
+    return {k: m[k] for k in ("role", "content", "flow", "attachment", "context") if k in m}
+
+
+def save_current_chat() -> None:
+    """Put the current conversation at the top of the history (written to the browser at the end of the run)."""
+    msgs = [s for s in (saved_message(m) for m in st.session_state.messages) if s]
+    if not msgs:
+        return
+    title = next((m["content"] for m in msgs if m["role"] == "user"), "Conversation")
+    chat = {"id": st.session_state.chat_id, "title": title[:70] + ("..." if len(title) > 70 else ""),
+            "updated": local_time(), "messages": msgs}
+    others = [c for c in st.session_state.history if c["id"] != chat["id"]]
+    st.session_state.history = [chat] + others[:HISTORY_MAX_CHATS - 1]
 
 
 # Top bar: logo, NyayaAI (click = new chat) and an "i" button on the right that opens the information panel.
 # Wrapped in a container that CSS pins to the top of the window (stays visible when scrolling).
 with st.container(key="topbar"):
-    logo_col, brand_col, info_col = st.columns([0.6, 10.5, 0.9], vertical_alignment="center")
+    logo_col, brand_col, history_col, info_col = st.columns([0.6, 9.6, 1.6, 0.9], vertical_alignment="center")
     with logo_col:
         st.markdown(f'<img class="logo" src="data:image/png;base64,{LADY_ICON}" alt="Lady Justice">',
                     unsafe_allow_html=True)
     with brand_col:
         if st.button("NyayaAI", key="brand", help="Start a new conversation"):
-            st.session_state.messages = []
-            st.session_state.flow = None
+            start_new_chat()
             st.rerun()
+    with history_col:
+        with st.popover("History", key="history", help="Your past chats, saved only in this browser"):
+            show_history()
     with info_col:
         with st.popover("i", key="info", help="About NyayaAI: what it covers, how to ask, privacy"):
             show_info()
@@ -685,6 +854,10 @@ for index, message in enumerate(messages):
             show_any_answer(message["response"], key=f"draft_{index}")
             if index == len(messages) - 1 and not question:
                 show_offer(flow)
+    elif message["role"] == "assistant_text":  # a reply from a chat reopened from the browser history
+        with st.chat_message("assistant", avatar=SPHERE_ICON):
+            st.markdown(message["text"])
+            st.caption("Saved copy from this browser's history.")
     elif message["role"] == "stopped":
         with st.chat_message("assistant", avatar=SPHERE_ICON):
             st.caption("Stopped. No answer was given to this question.")
@@ -858,3 +1031,7 @@ if question:
     else:  # a reply inside the drafting flow: no Edit button, not used as context for later questions
         messages.append({"role": "user", "content": question, "flow": True})
     messages.append({"role": "assistant", "response": response})
+    save_current_chat()
+
+# Chat history: read from / write to this browser's storage (must be the last thing on the page).
+sync_history()

@@ -393,3 +393,51 @@ def test_not_now_and_new_chat_end_the_flow(fake_drafter):
 
     at.button(key="brand").click().run()
     assert at.session_state.flow is None and at.session_state.messages == []
+
+
+# ---------------------------------------------------------------------------
+# Chat history (kept only in the browser; the JavaScript bridge does not run in AppTest,
+# so these tests set history_loaded themselves, as the bridge would)
+# ---------------------------------------------------------------------------
+
+
+def test_answer_is_saved_to_history_and_can_be_reopened(fake):
+    at = AppTest.from_file(APP_FILE, default_timeout=30)
+    at.session_state["chat_id"] = "chat1"
+    at.session_state["history"] = []
+    at.session_state["history_loaded"] = True
+    at.run()
+    at.chat_input[0].set_value("How long does a patent last?").run()
+
+    [chat] = at.session_state.history
+    assert chat["id"] == "chat1" and chat["title"] == "How long does a patent last?"
+    saved = chat["messages"]
+    assert saved[0] == {"role": "user", "content": "How long does a patent last?"}
+    assert saved[1]["role"] == "assistant_text" and "A patent lasts twenty years" in saved[1]["text"]
+    assert "Section 53, The Patents Act, 1970" in saved[1]["text"]  # verified source kept
+
+    at.button(key="brand").click().run()  # new chat: the old one stays in history
+    assert at.session_state.messages == [] and len(at.session_state.history) == 1
+
+    at.button(key="open_chat1").click().run()  # reopen it
+    assert "A patent lasts twenty years" in all_text(at)
+    assert "Saved copy from this browser's history." in all_text(at)
+    at.chat_input[0].set_value("Can it be renewed?").run()  # follow-up keeps the earlier question as context
+    assert "How long does a patent last?" in fake.questions[-1]
+    assert len(at.session_state.history) == 1 and len(at.session_state.history[0]["messages"]) == 4
+
+
+def test_delete_chat_and_delete_all(fake):
+    chats = [{"id": i, "title": f"Q{i}", "updated": "", "messages": [{"role": "user", "content": f"Q{i}"}]}
+             for i in ("a", "b")]
+    at = AppTest.from_file(APP_FILE, default_timeout=30)
+    at.session_state["chat_id"] = "a"
+    at.session_state["history"] = chats
+    at.session_state["history_loaded"] = True
+    at.session_state["messages"] = list(chats[0]["messages"])
+    at.run()
+    at.button(key="delete_a").click().run()
+    assert [c["id"] for c in at.session_state.history] == ["b"]
+    assert at.session_state.messages == []  # the open chat was deleted -> new chat
+    at.button(key="delete_all_history").click().run()
+    assert at.session_state.history == []
