@@ -190,3 +190,8 @@ outputs/              test questions, experiment logs, raw evaluation answers
 tests/                149 tests (+1 known regression marked expected-to-fail)
 streamlit_app.py      chat page
 ```
+
+## License
+
+NyayaAI's code is released under the [MIT License](LICENSE). The text of the Acts comes from India Code
+(Government of India) and is not covered by this license.
