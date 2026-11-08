@@ -125,44 +125,44 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
 @media (max-width: 640px) {
   .st-key-topbar { padding: .5rem 1rem 1.2rem; }
   .logo { height: 34px; }
-  .st-key-brand button, .st-key-brand button p { font-size: 1.6rem !important; }
+  [class*="st-key-brand"] button, [class*="st-key-brand"] button p { font-size: 1.6rem !important; }
   .tagline { font-size: .72rem; margin-top: -.2rem; }
   .block-container { padding-top: 7.2rem; }  /* the tagline wraps to 2 lines on phones */
 }
 .block-container { padding-bottom: 7rem; max-width: 820px; }
 
 /* --- top bar: NyayaAI (click = new chat) + info button --- */
-.st-key-brand button {
+[class*="st-key-brand"] button {
   background: transparent !important; border: none !important; box-shadow: none !important;
   font-family: 'Cormorant Garamond', serif !important; font-size: 2rem !important;
   letter-spacing: 0.06em; color: var(--text) !important; padding: 0 !important;
 }
-.st-key-brand button p { font-family: 'Cormorant Garamond', serif !important; font-size: 2rem !important; }
-.st-key-brand button:hover { color: var(--accent) !important; }
+[class*="st-key-brand"] button p { font-family: 'Cormorant Garamond', serif !important; font-size: 2rem !important; }
+[class*="st-key-brand"] button:hover { color: var(--accent) !important; }
 /* "i" button: a small round outlined circle at the right of the top bar */
-.st-key-info button {
+[class*="st-key-info"] button {
   width: 2.1rem; height: 2.1rem; min-height: 0 !important; padding: 0 !important; border-radius: 50% !important;
   background: transparent !important; border: 1.5px solid var(--muted) !important; box-shadow: none !important;
   display: flex; align-items: center; justify-content: center;
 }
-.st-key-info button:hover { border-color: var(--accent) !important; }
-.st-key-info button:hover p { color: var(--accent) !important; }
+[class*="st-key-info"] button:hover { border-color: var(--accent) !important; }
+[class*="st-key-info"] button:hover p { color: var(--accent) !important; }
 /* Remove the small "⌄" arrow Streamlit adds to popovers (hiding it alone still reserves space). */
-.st-key-info button span:has(> [data-testid="stIconMaterial"]) { display: none !important; }
-.st-key-info button p {
+[class*="st-key-info"] button span:has(> [data-testid="stIconMaterial"]) { display: none !important; }
+[class*="st-key-info"] button p {
   font-family: 'Cormorant Garamond', serif !important; font-size: 1.3rem !important; font-weight: 700;
   font-style: normal; line-height: 1; color: var(--text) !important; margin: 0; text-align: center;
 }
 /* Centre the "i" exactly inside its circle (Streamlit wraps the label in several boxes) */
-.st-key-info button > div, .st-key-info button [data-testid="stMarkdownContainer"] {
+[class*="st-key-info"] button > div, [class*="st-key-info"] button [data-testid="stMarkdownContainer"] {
   width: 100%; display: flex; align-items: center; justify-content: center; margin: 0 !important;
 }
 .info-muted { color: var(--muted); font-size: .88em; }
 /* three lines (history) button, left of the logo */
-.st-key-menu button { background: transparent !important; border: none !important; box-shadow: none !important;
+[class*="st-key-menu"] button { background: transparent !important; border: none !important; box-shadow: none !important;
                       padding: 0 .2rem !important; min-height: 0 !important; }
-.st-key-menu button p { font-size: 1.6rem !important; line-height: 1; color: var(--text) !important; }
-.st-key-menu button:hover p { color: var(--accent) !important; }
+[class*="st-key-menu"] button p { font-size: 1.6rem !important; line-height: 1; color: var(--text) !important; }
+[class*="st-key-menu"] button:hover p { color: var(--accent) !important; }
 /* side panels (history on the left, information on the right) */
 [role="dialog"] { background: var(--panel) !important; border-color: var(--line) !important; }
 [role="dialog"] h4 { font-size: 1rem; margin: .9rem 0 .3rem; color: var(--accent); }
@@ -178,6 +178,7 @@ iframe { border: none; }
 /* Streamlit fades the page while it is working ("stale" elements). An answer takes 10-25 s, so on phones the
    whole screen looked like it was losing brightness (reported by a tester). Keep everything fully visible. */
 [data-stale="true"], [data-stale="true"] * { opacity: 1 !important; transition: none !important; }
+.st-key-topbar button:disabled { opacity: .45 !important; cursor: wait !important; }
 .tagline { color: var(--muted); font-size: 0.82rem; margin: -0.4rem 0 1.2rem 0; letter-spacing: 0.02em; }
 
 /* --- the sphere --- */
@@ -778,30 +779,48 @@ def save_current_chat() -> None:
 # Top bar: logo, NyayaAI (click = new chat) and an "i" button on the right that opens the information panel.
 # Wrapped in a container that CSS pins to the top of the window (stays visible when scrolling).
 with st.container(key="topbar"):
-    menu_col, logo_col, brand_col, info_col = st.columns([0.6, 0.6, 9.6, 0.9], vertical_alignment="center")
-    with menu_col:
-        if st.button("\u2630", key="menu", help="Your past chats (saved only in this browser)"):
-            history_panel()
-    with logo_col:
-        st.markdown(f'<img class="logo" src="data:image/png;base64,{LADY_ICON}" alt="Lady Justice">',
-                    unsafe_allow_html=True)
-    with brand_col:
-        if st.button("NyayaAI", key="brand", help="Start a new conversation"):
-            start_new_chat()
-            st.rerun()
-    with info_col:
-        if st.button("i", key="info", help="About NyayaAI: what it covers, how to ask, privacy"):
-            info_panel()
-    st.markdown('<div class="tagline">Legal information, not legal advice. For decisions, consult a qualified lawyer.</div>',
-                unsafe_allow_html=True)
+    topbar_slot = st.empty()  # filled by draw_topbar() once we know whether an answer is being prepared
+
+
+def draw_topbar(busy: bool) -> None:
+    """Three lines (chat history), logo, NyayaAI (new chat) and i (information).
+
+    While NyayaAI is preparing an answer the buttons are greyed out: any click restarts the page, which would
+    abandon the answer (only the Stop button should do that). Busy and normal versions use different keys, so the
+    bar can be drawn twice in one run (busy first, then normal again when the answer is shown).
+    """
+    suffix = "_busy" if busy else ""
+    wait = "Available when the answer is ready" if busy else None
+    with topbar_slot.container():
+        menu_col, logo_col, brand_col, info_col = st.columns([0.6, 0.6, 9.6, 0.9], vertical_alignment="center")
+        with menu_col:
+            if st.button("\u2630", key=f"menu{suffix}", disabled=busy,
+                         help=wait or "Your past chats (saved only in this browser)"):
+                history_panel()
+        with logo_col:
+            st.markdown(f'<img class="logo" src="data:image/png;base64,{LADY_ICON}" alt="Lady Justice">',
+                        unsafe_allow_html=True)
+        with brand_col:
+            if st.button("NyayaAI", key=f"brand{suffix}", disabled=busy, help=wait or "Start a new conversation"):
+                start_new_chat()
+                st.rerun()
+        with info_col:
+            if st.button("i", key=f"info{suffix}", disabled=busy,
+                         help=wait or "About NyayaAI: what it covers, how to ask, privacy"):
+                info_panel()
+        st.markdown('<div class="tagline">Legal information, not legal advice. For decisions, consult a qualified '
+                    'lawyer.</div>', unsafe_allow_html=True)
+
 
 if not config.OPENAI_API_KEY:
+    draw_topbar(busy=False)
     st.error("OPENAI_API_KEY is not set. Copy .env.example to .env and add your key, then restart.")
     st.stop()
 
 # Optional access code for the public demo (set APP_ACCESS_CODE as a secret on the host):
 # the page is public, but every question is paid from the owner's OpenAI account.
 if config.APP_ACCESS_CODE and not st.session_state.get("access_ok"):
+    draw_topbar(busy=False)
     code = st.text_input("This demo needs an access code", type="password", key="access_code")
     if code and hmac.compare_digest(code.strip(), config.APP_ACCESS_CODE):
         st.session_state.access_ok = True
@@ -854,6 +873,7 @@ if document and not question:
 if question:
     st.session_state.editing = False
     st.session_state.pop("heard", None)
+draw_topbar(busy=bool(question))
 
 # What this message does. Drafting happens ONLY after the person agreed (button or a typed "yes"/"haan");
 # anything else is answered as a normal question and the offer is dropped.
@@ -1005,11 +1025,13 @@ if question:
         st.session_state.pop("in_progress", None)
         thinking.empty()
         st.warning(str(problem))
+        draw_topbar(busy=False)
         st.stop()
     except (openai.APIError, ModelRefusedError):
         st.session_state.pop("in_progress", None)
         thinking.empty()
         st.error("Sorry, the AI service could not answer right now. Please try again in a moment.")
+        draw_topbar(busy=False)
         st.stop()
     except Exception:  # e.g. a damaged PDF; the full error goes to the server log, not the page
         logging.getLogger("nyayaai").exception("Could not complete the request (%s)", action)
@@ -1019,6 +1041,7 @@ if question:
             st.error("Sorry, NyayaAI could not read this file. Please try a PDF or a clear photo of the page.")
         else:
             st.error("Sorry, something went wrong. Please try again in a moment.")
+        draw_topbar(busy=False)
         st.stop()
     st.session_state.pop("in_progress", None)
 
@@ -1056,6 +1079,7 @@ if question:
         messages.append({"role": "user", "content": question, "flow": True})
     messages.append({"role": "assistant", "response": response})
     save_current_chat()
+    draw_topbar(busy=False)
 
 # Chat history: read from / write to this browser's storage (must be the last thing on the page).
 sync_history()
