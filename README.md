@@ -23,7 +23,8 @@ NyayaAI gives legal information, not legal advice. It says so, and it says when 
 
 Built for the Kuku *AI Generalist* assignment, Problem 2 ("Build an AI Lawyer").
 
-**Live demo:** https://nyayaai-j6jrrcqxexfz2umjqgdodp.streamlit.app/ (open to try; if it is asleep, click the
+**Live demo:** https://nyayaai-j6jrrcqxexfz2umjqgdodp.streamlit.app/ (asks for an access code, because every
+question is paid for by the developer; the code is given in the submission. If the app is asleep, click the
 button to wake it and wait about a minute).
 
 ---
@@ -181,8 +182,8 @@ conversations or log question text. **Chat history** (the History button) is kep
 chat or the whole history can be deleted. On a shared computer, delete it after use. Please do not include names or
 other personal details. Attached documents and voice recordings
 are also sent to OpenAI (to read and transcribe them) and are not saved by NyayaAI; documents often contain names
-and addresses, so cover them if you can. The public demo has a monthly spending limit on the developer's
-OpenAI account; an optional access code (`APP_ACCESS_CODE`) can be switched on if needed.
+and addresses, so cover them if you can. The public demo asks for an access code (`APP_ACCESS_CODE`), because every
+question is paid for by the developer.
 
 ## Project layout
 
