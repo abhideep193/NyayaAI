@@ -175,6 +175,9 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
 [data-testid="stPopoverBody"] h4:first-child { margin-top: 0; }
 [data-testid="stPopoverBody"] [data-testid="stHeaderActionElements"] { display: none; }  /* no link icon on headings */
 iframe { border: none; }
+/* Streamlit fades the page while it is working ("stale" elements). An answer takes 10-25 s, so on phones the
+   whole screen looked like it was losing brightness (reported by a tester). Keep everything fully visible. */
+[data-stale="true"], [data-stale="true"] * { opacity: 1 !important; transition: none !important; }
 .tagline { color: var(--muted); font-size: 0.82rem; margin: -0.4rem 0 1.2rem 0; letter-spacing: 0.02em; }
 
 /* --- the sphere --- */
