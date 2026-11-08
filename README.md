@@ -191,6 +191,47 @@ tests/                149 tests (+1 known regression marked expected-to-fail)
 streamlit_app.py      chat page
 ```
 
+## Technology stack
+
+| Part | Technology |
+|---|---|
+| Language | Python 3.14 |
+| Chat page / API | Streamlit 1.67 (hosted on Streamlit Community Cloud) / FastAPI |
+| Answer model, document photos | OpenAI `gpt-6.1-terra` (Responses API, Structured Outputs, `store=False`) |
+| Question rewriting and choosing the area of law | OpenAI `gpt-6-luna` |
+| Voice to text | OpenAI `gpt-4o-transcribe` |
+| Search | keyword search (our own BM25, with `snowballstemmer` stemming and legal synonyms) + meaning search (`bge-small` embeddings via `sentence-transformers`, CPU-only PyTorch), fused with Reciprocal Rank Fusion; one index per area of law |
+| Reading PDFs | `pypdf` |
+| Checks | our own code: citation verifier, figure checker, law-mention finder, safety notes |
+| Tests | `pytest` (149 tests, including headless tests of the chat page) |
+
+## AI tools used to build it
+
+- **Claude Code** (Anthropic): pair programming, code review, evaluation scripts.
+- **OpenAI models**: the answer, rewrite and voice models above; `gpt-6.1-sol` only as an evaluation judge.
+- **ChatGPT image generation**: the sphere and the Lady Justice icon. **Google Stitch**: early UI mock-ups
+  (their invented claims, such as "440 TFLOPS" and "end-to-end encrypted", were removed).
+
+**Where the AI got it wrong:** the section splitter written with AI help did not stop at "THE FIRST SCHEDULE",
+so the BNSS offence table (199,000 characters) was stored as "Section 531". The first criminal-law run scored
+15/15, but five answers quoted real schedule text labelled "Section 531", and the citation check passed them,
+because the words really were in that stored text. It was found only by reading the answers by hand; after the fix
+the honest score was 13/15. Lesson: automatic verification proves a quote exists, not that it is labelled or used
+correctly, so answers are also read by hand.
+
+## Known limitations
+
+- Only Central Acts (plus Delhi's rent law): no other State laws, Rules, notifications or court judgments;
+  no family, employment, tax or inheritance law; drink-driving (Motor Vehicles Act) not yet included.
+- Search misses: the YouTube re-upload question (Copyright Act s.55 ranks 17th, just outside the 15 sections
+  the model reads); "Is software patentable?" (Patents s.3(k)); "neighbour punched me" (BNS s.115).
+- Over-caution: some correctly cited answers are labelled "not covered" (POCSO teacher question; first-offender
+  probation under NDPS s.39 not mentioned).
+- Results vary slightly between runs because the rewrite step uses an LLM (IPR 35-37 of 39).
+- Photos of documents were tested only on an easy simulated photo, not real folded or stamped paper.
+- Citation checks prove a quote is real, not that the legal reasoning is right.
+- Answers take about 10-25 seconds; everything runs in memory on one machine (fine for 19 Acts, not thousands).
+
 ## License
 
 NyayaAI's code is released under the [MIT License](LICENSE). The text of the Acts comes from India Code
