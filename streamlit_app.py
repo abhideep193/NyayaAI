@@ -147,8 +147,12 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
 /* Remove the small "⌄" arrow Streamlit adds to popovers (hiding it alone still reserves space). */
 .st-key-info button span:has(> [data-testid="stIconMaterial"]) { display: none !important; }
 .st-key-info button p {
-  font-family: 'Cormorant Garamond', serif !important; font-size: 1.35rem !important; font-weight: 700;
-  font-style: italic; line-height: 1; color: var(--text) !important; margin: 0;
+  font-family: 'Cormorant Garamond', serif !important; font-size: 1.3rem !important; font-weight: 700;
+  font-style: normal; line-height: 1; color: var(--text) !important; margin: 0; text-align: center;
+}
+/* Centre the "i" exactly inside its circle (Streamlit wraps the label in several boxes) */
+.st-key-info button > div, .st-key-info button [data-testid="stMarkdownContainer"] {
+  width: 100%; display: flex; align-items: center; justify-content: center; margin: 0 !important;
 }
 .info-muted { color: var(--muted); font-size: .88em; }
 [data-testid="stPopoverBody"] h4 { font-size: 1rem; margin: .9rem 0 .3rem; color: var(--accent); }
@@ -224,6 +228,12 @@ iframe { border: none; }
         margin: .45rem 0; color: var(--text); }
 .step::before { content: "•"; color: var(--accent); margin-right: .6rem; }
 .unverified { color: #fbbf24; font-size: .85em; }
+/* Quotes from an attached document: one panel, thin lines between rows (not a box per line) */
+.qpanel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: .2rem 1rem; margin: .4rem 0; }
+.qrow { padding: .65rem 0; border-bottom: 1px solid var(--line); }
+.qrow:last-child { border-bottom: none; }
+.qquote { color: var(--accent); font-weight: 600; font-size: .95rem; }
+.qmeaning { color: var(--text); font-size: .93rem; margin-top: .15rem; line-height: 1.5; }
 .disclaimer { margin-top: 1rem; padding: .8rem 1rem; border-radius: 14px; background: var(--panel);
               border: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
 [data-testid="stExpander"] { border: 1px solid var(--line) !important; border-radius: 14px !important; background: var(--panel); }
@@ -346,13 +356,25 @@ def show_sources(citations) -> None:
                             f"*Claim:* {readable_citations(c.supports)}")
 
 
-def quote_cards(items) -> str:
-    """Quotes from the user's document, each with its meaning. Unverified ones are marked."""
-    cards = []
+QUOTES_SHOWN_FIRST = 6  # longer lists: the rest is behind "Show more"
+
+
+def quote_rows(items) -> str:
+    """Quotes from the user's document with their meaning, as rows of ONE panel. Unverified ones are marked."""
+    rows = []
     for q in items:
         mark = "" if q.verified else ' <span class="unverified">(these exact words were not found in your document)</span>'
-        cards.append(f'<div class="step"><b>"{html.escape(q.quote)}"</b>{mark}<br>{html.escape(q.meaning)}</div>')
-    return "".join(cards)
+        rows.append(f'<div class="qrow"><div class="qquote">&ldquo;{html.escape(q.quote)}&rdquo;{mark}</div>'
+                    f'<div class="qmeaning">{html.escape(q.meaning)}</div></div>')
+    return f'<div class="qpanel">{"".join(rows)}</div>'
+
+
+def show_quotes(title: str, items) -> None:
+    st.markdown(f'<div class="section-title">{title}</div>' + quote_rows(items[:QUOTES_SHOWN_FIRST]),
+                unsafe_allow_html=True)
+    if len(items) > QUOTES_SHOWN_FIRST:
+        with st.expander(f"Show {len(items) - QUOTES_SHOWN_FIRST} more"):
+            st.markdown(quote_rows(items[QUOTES_SHOWN_FIRST:]), unsafe_allow_html=True)
 
 
 def law_line(m) -> str:
@@ -387,11 +409,9 @@ def show_document_answer(response, animate: bool = False) -> None:
                 f'{CONFIDENCE_LABELS.get(response.confidence, response.confidence)}</span>', unsafe_allow_html=True)
 
     if response.deadlines_and_amounts:
-        st.markdown('<div class="section-title">Dates, deadlines and amounts</div>'
-                    + quote_cards(response.deadlines_and_amounts), unsafe_allow_html=True)
+        show_quotes("Dates, deadlines and amounts", response.deadlines_and_amounts)
     if response.key_points:
-        st.markdown('<div class="section-title">What it says</div>' + quote_cards(response.key_points),
-                    unsafe_allow_html=True)
+        show_quotes("What it says", response.key_points)
     if response.laws:
         st.markdown('<div class="section-title">Laws your document mentions</div>'
                     + "".join(f'<div class="step">{html.escape(law_line(m))}</div>' for m in response.laws),
@@ -733,8 +753,9 @@ def status_pill(seconds: int, text: str = THINKING_TEXT) -> str:
 
 
 if question:
-    # Thinking: on the first question the big sphere pulses ABOVE the question;
-    # on follow-ups the small sphere pulses below it. Both show a Stop button.
+    # Thinking: on the first question the big sphere pulses ABOVE the question; on follow-ups the same big
+    # sphere pulses in the middle BELOW the new question (earlier messages stay above, to scroll back and read).
+    # Both show a Stop button.
     thinking = st.empty()
     if first_question:
         with thinking.container():
@@ -751,7 +772,7 @@ if question:
     if not first_question:
         thinking = st.empty()
         with thinking.container():
-            st.markdown(f'<div class="thinking-row">{sphere_html("small")}</div>', unsafe_allow_html=True)
+            show_sphere("thinking", size=280)
             status = st.empty()
             st.button("Stop", key="stop")
 
@@ -805,9 +826,9 @@ if question:
     st.session_state.pop("in_progress", None)
 
     # Answer ready: the big sphere shrinks away and reappears as the small icon beside the answer.
-    if first_question and TYPEWRITER_DELAY > 0:
+    if TYPEWRITER_DELAY > 0:
         with thinking.container():
-            show_sphere("collapse", size=340)
+            show_sphere("collapse", size=340 if first_question else 280)
         time.sleep(0.8)
     thinking.empty()
 
