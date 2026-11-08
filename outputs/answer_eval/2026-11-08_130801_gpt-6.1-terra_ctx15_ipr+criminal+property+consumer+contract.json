@@ -1,0 +1,736 @@
+{
+  "model": "gpt-6.1-terra",
+  "context_sections": 15,
+  "areas_of_law": [
+    "ipr",
+    "criminal",
+    "property",
+    "consumer",
+    "contract"
+  ],
+  "results": [
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 5.6,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "What is the capital of France?",
+        "answer": "I cannot answer this geography question from the laws available. NyayaAI covers Indian intellectual property, criminal, property and tenancy, consumer, and contract law.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Check a reliable atlas or geography reference.",
+          "For a legal question outside NyayaAI’s coverage, consult a qualified lawyer in that area."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 84, The Patents Act, 1970",
+          "Section 2, The Narcotic Drugs and Psychotropic Substances Act, 1985",
+          "Section 57, The Transfer of Property Act, 1882",
+          "Section 53, The Consumer Protection Act, 2019",
+          "Section 172, The Indian Contract Act, 1872",
+          "Section 35, The Trade Marks Act, 1999",
+          "Section 230, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 105, The Transfer of Property Act, 1882",
+          "Section 42, The Consumer Protection Act, 2019",
+          "Section 27, The Indian Contract Act, 1872",
+          "Section 36B, The Trade Marks Act, 1999",
+          "Section 68F, The Narcotic Drugs and Psychotropic Substances Act, 1985",
+          "Section 94, The Transfer of Property Act, 1882",
+          "Section 93, The Consumer Protection Act, 2019",
+          "Section 26, The Indian Contract Act, 1872"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9866,
+        "output_tokens": 164,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 4.8,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "How do I file for divorce in India?",
+        "answer": "I cannot explain how to file for divorce from the laws available to me. Divorce is a family law matter outside NyayaAI’s current coverage.\n\nNyayaAI covers copyright, trade marks and patents; criminal law, including police complaints, arrest and protection from abuse; property and tenancy under Central Acts and Delhi rent control; consumer law; and contract law.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Speak to a qualified family lawyer about your situation. Ask what documents you should gather and how and where to file."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 138, The Patents Act, 1970",
+          "Section 290, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 89, The Registration Act, 1908",
+          "Section 1, The Consumer Protection Act, 2019",
+          "Section 74, The Indian Contract Act, 1872",
+          "Section 8, The Patents Act, 1970",
+          "Section 113, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 26, The Registration Act, 1908",
+          "Section 26, The Consumer Protection Act, 2019",
+          "Section 2, The Indian Contract Act, 1872",
+          "Section 18, The Trade Marks Act, 1999",
+          "Section 64, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 33, The Registration Act, 1908",
+          "Section 35, The Consumer Protection Act, 2019",
+          "Section 28, The Indian Contract Act, 1872"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9745,
+        "output_tokens": 175,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 5.4,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "How much GST do I have to pay on a restaurant bill?",
+        "answer": "I cannot tell you the GST amount from the laws available to me. GST is outside NyayaAI’s current coverage, which includes intellectual property, criminal law, property and tenancy law under Central Acts and Delhi rent control law, consumer law, and contract law.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Check the tax breakdown on your restaurant bill and ask the restaurant how it calculated the GST.",
+          "For an independent check, consult a qualified tax lawyer or tax professional."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 150, The Trade Marks Act, 1999",
+          "Section 335, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 26, The Delhi Rent Control Act, 1958",
+          "Section 64A, The Sale of Goods Act, 1930",
+          "Section 130, The Indian Contract Act, 1872",
+          "Section 103, The Trade Marks Act, 1999",
+          "Section 8, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 63, The Transfer of Property Act, 1882",
+          "Section 101, The Consumer Protection Act, 2019",
+          "Section 145, The Indian Contract Act, 1872",
+          "Section 55, The Patents Act, 1970",
+          "Section 400, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 15, The Delhi Rent Control Act, 1958",
+          "Section 39, The Consumer Protection Act, 2019",
+          "Section 74, The Indian Contract Act, 1872"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 11407,
+        "output_tokens": 157,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 6.1,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "my uncle is claiming my father's land after his death",
+        "answer": "I’m sorry for your loss. I cannot determine from the laws available whether your uncle has a claim to your father’s land. The inheritance and succession laws needed to answer this question are not in the sources available to NyayaAI.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Gather any property documents, your father’s death certificate, and any will or other papers relating to the land.",
+          "Keep copies of messages or documents in which your uncle makes his claim.",
+          "Speak to a qualified lawyer who handles inheritance and property disputes. Take the documents with you and explain the basis of your uncle’s claim, if you know it."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 73, The Transfer of Property Act, 1882",
+          "Section 3, The Transfer of Property Act, 1882",
+          "Section 72, The Transfer of Property Act, 1882",
+          "Section 2, The Delhi Rent Control Act, 1958",
+          "Section 55, The Transfer of Property Act, 1882",
+          "Section 60, The Transfer of Property Act, 1882",
+          "Section 108, The Transfer of Property Act, 1882",
+          "Section 83, The Transfer of Property Act, 1882",
+          "Section 76, The Transfer of Property Act, 1882",
+          "Section 62, The Transfer of Property Act, 1882",
+          "Section 27, The Transfer of Property Act, 1882",
+          "Section 13, The Transfer of Property Act, 1882",
+          "Section 67, The Transfer of Property Act, 1882",
+          "Section 5, The Delhi Rent Control Act, 1958",
+          "Section 6, The Transfer of Property Act, 1882"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 14098,
+        "output_tokens": 158,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 7.5,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "can i own land in northeast",
+        "answer": "I cannot tell from the laws available whether you can own a particular piece of land in Northeast India. The relevant local land-ownership rules are not included in the available sources.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Identify the state and district where the land is located, the type of land, and whether you are planning to buy or inherit it.",
+          "Speak to a qualified local property lawyer about your citizenship and other relevant circumstances before paying or signing anything."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 40, The Transfer of Property Act, 1882",
+          "Section 6, The Transfer of Property Act, 1882",
+          "Section 21, The Registration Act, 1908",
+          "Section 57, The Transfer of Property Act, 1882",
+          "Section 89, The Registration Act, 1908",
+          "Section 22, The Registration Act, 1908",
+          "Section 28, The Registration Act, 1908",
+          "Section 55, The Transfer of Property Act, 1882",
+          "Section 64, The Registration Act, 1908",
+          "Section 43, The Transfer of Property Act, 1882",
+          "Section 3, The Transfer of Property Act, 1882",
+          "Section 73, The Transfer of Property Act, 1882",
+          "Section 11, The Transfer of Property Act, 1882",
+          "Section 70, The Transfer of Property Act, 1882",
+          "Section 54, The Transfer of Property Act, 1882"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9976,
+        "output_tokens": 233,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "out_of_scope",
+      "expected": [],
+      "seconds": 5.3,
+      "also_check": null,
+      "score": {
+        "passed": true,
+        "verified": 0,
+        "rejected": 0,
+        "abstained": true
+      },
+      "response": {
+        "question": "what is molecular formula of water",
+        "answer": "This is a chemistry question, and I cannot answer it from the laws available. NyayaAI covers Indian intellectual property, criminal, property and tenancy, consumer, and contract law. For a question in another area of law, consider speaking to a qualified lawyer.",
+        "confidence": "insufficient",
+        "model_confidence": "insufficient",
+        "citations": [],
+        "next_steps": [
+          "Consult a chemistry textbook or a science reference."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 49, The Patents Act, 1970",
+          "Section 166, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 45, The Delhi Rent Control Act, 1958",
+          "Section 2, The Consumer Protection Act, 2019",
+          "Section 134, The Indian Contract Act, 1872",
+          "Section 13, The Trade Marks Act, 1999",
+          "Section 129, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 7, The Delhi Rent Control Act, 1958",
+          "Section 96, The Consumer Protection Act, 2019",
+          "Section 135, The Indian Contract Act, 1872",
+          "Section 3, The Patents Act, 1970",
+          "Section 279, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 58, The Transfer of Property Act, 1882",
+          "Section 17, The Sale of Goods Act, 1930",
+          "Section 157, The Indian Contract Act, 1872"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 14082,
+        "output_tokens": 135,
+        "safety_notes": [
+          {
+            "kind": "state_law",
+            "text": "Property and rent law differs from State to State. NyayaAI uses India-wide Central Acts (Transfer of Property, Specific Relief and Registration Acts) and, for Delhi only, the Delhi Rent Control Act, 1958. Your State's own rent law, stamp duty and registration rules may change this answer; NyayaAI does not have them. Please check with a local lawyer.",
+            "source": "NyayaAI's list of Acts (data/legal_sources/sources.json); State laws are not included"
+          }
+        ]
+      }
+    },
+    {
+      "set": "jj_owner",
+      "expected": [
+        "jj_act_2015:10",
+        "jj_act_2015:12",
+        "jj_act_2015:14",
+        "jj_act_2015:18",
+        "pocso_act_2012:34"
+      ],
+      "seconds": 16.5,
+      "also_check": null,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 4,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "main ekk 16 years ke larki ke saath ger sambandh karte huye pakra gaya main 15 saal ka hoon toh kya karu main",
+        "answer": "Mujhe samajh hai ki aap ghabraye hue honge. Aap 15 saal ke hain aur ladki 16 saal ki hai—dono bachche hain. Abhi kisi bharosemand bade vyakti aur bachchon ke mamle dekhne wale vakil se baat karein.\n\nDi gayi jankari se yeh tay nahi kiya ja sakta ki kaunsa apradh bana hai. Agar POCSO ke tahat kisi bachche par apradh ka mamla banta hai, to usse bachchon ke liye bane Juvenile Justice Act ke tahat dekha jata hai [pocso_act_2012:34]. Juvenile Justice Board (bachchon ke mamle dekhne wala board) bachche ke liye legal aid, yani kanooni madad, ki uplabdhata sunishchit karta hai [jj_act_2015:8].\n\nAgar police aapko pakadti hai, to kanoon ke mutabik aapko police lockup ya jail mein nahi rakha jana chahiye. Aapko bina deri ke, yatra ka samay chhodkar 24 ghante ke andar Board ke saamne pesh kiya jana chahiye [jj_act_2015:10].\n\nKya aapko police ne pakda hai, ya ghar walon ya kisi aur ne dekha tha? Graphic details batane ki zarurat nahi hai.",
+        "confidence": "medium",
+        "model_confidence": "medium",
+        "citations": [
+          {
+            "section_id": "pocso_act_2012:34",
+            "quote": "Where any  offence under this Act is committed by a child, such child shall be dealt with\nunder the provisions of 1[the Juvenile Justice (Care and Protection of Children) Act, 2015 (2 of 2016)].",
+            "supports": "Agar POCSO ke tahat kisi bachche par apradh ka mamla banta hai, to usse Juvenile Justice Act ke tahat dekha jata hai.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 34, The Protection of Children from Sexual Offences Act, 2012",
+            "page": 16
+          },
+          {
+            "section_id": "jj_act_2015:8",
+            "quote": "ensuring availability of legal aid for the child through the legal services institutions",
+            "supports": "Juvenile Justice Board bachche ke liye kanooni madad ki uplabdhata sunishchit karta hai.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 8, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 16
+          },
+          {
+            "section_id": "jj_act_2015:10",
+            "quote": "in no case, a child alleged to be in conflict with law shall be placed in a police lockup or\nlodged in a jail",
+            "supports": "Police dwara pakde jaane par bachche ko police lockup ya jail mein nahi rakha jana chahiye.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 10, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:10",
+            "quote": "who shall produce the child\nbefore the Board without any loss of time but within a period of twenty -four hours of apprehending the\nchild excluding the time necessary for the journey",
+            "supports": "Police dwara pakde jaane par bachche ko bina deri ke, yatra ka samay chhodkar 24 ghante ke andar Board ke saamne pesh kiya jana chahiye.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 10, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          }
+        ],
+        "next_steps": [
+          "Jaldi kisi bharosemand parent, guardian, teacher ya doosre surakshit bade vyakti ko batayein. Agar ghar mein batana surakshit na lage, kisi aur bharosemand bade vyakti ko batayein.",
+          "Bachchon ke mamle dekhne wale vakil ya legal services authority se kanooni madad maangein. Agar police aapse baat kar rahi hai, unhe apni umar batayein aur vakil aur bharosemand bade vyakti ki madad maangein.",
+          "Apni umar ka koi dastavez, jaise school record ya birth certificate, sambhal kar rakhein. Messages ya doosre record delete na karein.",
+          "Ladki ya kisi gawah par baat chhupane ya bayan badalne ka dabav na daalein. Agar kisi ko chot, pregnancy ya infection ki chinta ho, to doctor ki madad lein."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 34, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 4, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 16, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 15, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 30, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 15A, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 8, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 2, The Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+          "Section 14, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 39, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 10, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 7A, The Information Technology Act, 2000",
+          "Section 32, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 1, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 17, The Protection of Children from Sexual Offences Act, 2012"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 8393,
+        "output_tokens": 1077,
+        "safety_notes": [
+          {
+            "kind": "helpline",
+            "text": "In immediate danger, call 112 (national emergency number: police, fire, ambulance).",
+            "source": "https://112.gov.in (Emergency Response Support System, Ministry of Home Affairs)"
+          },
+          {
+            "kind": "helpline",
+            "text": "Child Helpline 1098 (24x7) helps children in need of care and protection.",
+            "source": "https://wcd.gov.in/child/child-helpline (Ministry of Women and Child Development)"
+          }
+        ]
+      }
+    },
+    {
+      "set": "jj",
+      "expected": [
+        "jj_act_2015:10"
+      ],
+      "seconds": 17.3,
+      "also_check": null,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 7,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "My 14-year-old son was picked up by the police for stealing a phone. Can they keep him in the police lock-up?",
+        "answer": "No. Your son is a child, and the police must not place him in a police lock-up or jail, even though he is accused of stealing a phone. [jj_act_2015:10]\n\nHe must be placed under the charge of the special juvenile police unit or a designated child welfare police officer. They must bring him before the Juvenile Justice Board without delay, within 24 hours of apprehension, excluding necessary travel time. [jj_act_2015:10]\n\nThe law generally provides for a child to be released on bail or placed under supervision or suitable care. There are exceptions, including where release would expose the child to danger or defeat the ends of justice. The Board must record its reasons if it denies bail. [jj_act_2015:12]\n\nIf the police do not release him on bail before he is brought before the Board, he must be kept only in an observation home or a place of safety, as applicable—not a police lock-up. [jj_act_2015:12] The Board is also responsible for ensuring that he has legal aid and that you can participate in the process. [jj_act_2015:8]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "jj_act_2015:10",
+            "quote": "in no case, a child alleged to be in conflict with law shall be placed in a police lockup or\nlodged in a jail.",
+            "supports": "A child accused of an offence must not be placed in a police lock-up or jail.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 10, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:10",
+            "quote": "such child shall be placed under the charge of the\nspecial juvenile police unit or the designated child welfare police officer, who shall produce the child\nbefore the Board without any loss of time but within a period of twenty -four hours of apprehending the\nchild excluding the time necessary for the journey",
+            "supports": "The special juvenile police unit or designated child welfare police officer must take charge and bring the child before the Board within the stated time.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 10, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:12",
+            "quote": "be released on bail with or without surety or placed under the supervision\nof a probation officer or under the care of any fit person",
+            "supports": "The law generally provides for release on bail or placement under supervision or suitable care.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:12",
+            "quote": "expose the said\nperson to moral, physical or psychological danger or the person’s release would defeat the ends of justice,\nand the Board shall record the reasons for denying the bail and circumstances that led to such a decision.",
+            "supports": "There are exceptions to release, and the Board must record its reasons for denying bail.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:12",
+            "quote": "such officer shall cause the person to be kept only in an observation\nhome 1[or a place of safety, as the case may be]",
+            "supports": "If police do not release the child on bail before bringing him before the Board, he must be kept only in an observation home or place of safety, as applicable.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:8",
+            "quote": "ensuring the informed participation of the child and the parent or guardian, in every step of the\nprocess",
+            "supports": "The Board is responsible for ensuring informed participation by the child and parent or guardian.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 8, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 16
+          },
+          {
+            "section_id": "jj_act_2015:8",
+            "quote": "ensuring availability of legal aid for the child through the legal services institutions",
+            "supports": "The Board is responsible for ensuring legal aid is available for the child.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 8, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 16
+          }
+        ],
+        "next_steps": [
+          "Immediately ask the police where your son is and ask to speak to the designated child welfare police officer or special juvenile police unit.",
+          "If he is in a lock-up, tell the officer that he is 14 and ask that he be moved out of the lock-up. Keep any proof of his age handy.",
+          "Ask when and where he will be brought before the Juvenile Justice Board. Contact a lawyer or ask the Board for legal aid as soon as possible.",
+          "Note when and where he was picked up, the officers’ names if available, and what you are told about his whereabouts."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 19, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 10, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 9, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 20, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 97, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 35, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 55, The Narcotic Drugs and Psychotropic Substances Act, 1985",
+          "Section 8, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 43, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 1, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 9, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 31, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 303, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 26, The Juvenile Justice (Care and Protection of Children) Act, 2015"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9010,
+        "output_tokens": 1187,
+        "safety_notes": []
+      }
+    },
+    {
+      "set": "jj",
+      "expected": [
+        "jj_act_2015:74"
+      ],
+      "seconds": 13.1,
+      "also_check": null,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Can a newspaper print the name and photo of a 17-year-old boy accused of a crime?",
+        "answer": "Generally, no. A 17-year-old is a child. A child accused of an offence is covered by the protections for a child in conflict with law, if he was under 18 when the alleged offence took place. [jj_act_2015:2]\n\nA newspaper reporting on an inquiry, investigation or court proceedings must not publish his name, photo or other details that could identify him. [jj_act_2015:74]\n\nThere is an exception: the Juvenile Justice Board or Child Welfare Committee holding the inquiry may permit disclosure if it considers this to be in the child’s best interest and records its reasons in writing. [jj_act_2015:74]\n\nA person who breaks this prohibition can face up to six months’ imprisonment, a fine of up to ₹2 lakh, or both. [jj_act_2015:74]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "jj_act_2015:2",
+            "quote": "“child in conflict with law ” means a child who is alleged or found to have committed an\noffence and who has not completed eighteen years of age on the date of commission of such offence",
+            "supports": "A child accused of an offence is covered if he was under 18 when the alleged offence took place.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 2, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 8
+          },
+          {
+            "section_id": "jj_act_2015:74",
+            "quote": "shall disclose the name, address or school or any other particular, which may lead to\nthe identification of a child in conflict with law",
+            "supports": "A newspaper report on the inquiry, investigation or court proceedings must not disclose his name or other identifying details.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 74, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 38
+          },
+          {
+            "section_id": "jj_act_2015:74",
+            "quote": "nor shall\nthe picture of any such child be published",
+            "supports": "His photo must not be published.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 74, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 38
+          },
+          {
+            "section_id": "jj_act_2015:74",
+            "quote": "for reasons to be recorded in writing, the Board or Committee, as the case may be,\nholding the inquiry may permit such disclosure, if in its opinion such disclosure is in the best interest of\nthe child",
+            "supports": "The Board or Committee holding the inquiry may permit disclosure in the child’s best interest, with written reasons.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 74, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 38
+          },
+          {
+            "section_id": "jj_act_2015:74",
+            "quote": "imprisonment\nfor a term which may extend to six months or fine which may extend to two lakh rupees or both",
+            "supports": "A person who breaks the prohibition can face up to six months’ imprisonment, a fine of up to ₹2 lakh, or both.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 74, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 38
+          }
+        ],
+        "next_steps": [
+          "If the information has already been published, keep a copy or screenshot and note the publication date and website link.",
+          "Ask the newspaper to remove the identifying details. Avoid sharing the report further.",
+          "Consider raising the matter with the police or the Juvenile Justice Board handling the case, and speak to a lawyer."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 74, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 23, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 1, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 20, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 17, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 73, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 2, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 72, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 18, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 366, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 10, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 328, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 34, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 141, The Bharatiya Nyaya Sanhita, 2023",
+          "Section 14, The Juvenile Justice (Care and Protection of Children) Act, 2015"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 9951,
+        "output_tokens": 828,
+        "safety_notes": []
+      }
+    },
+    {
+      "set": "jj",
+      "expected": [
+        "jj_act_2015:12"
+      ],
+      "seconds": 15.3,
+      "also_check": null,
+      "score": {
+        "retrieved_correct": true,
+        "grounded": true,
+        "correct_law": true,
+        "passed": true,
+        "verified": 5,
+        "rejected": 0,
+        "abstained": false,
+        "abstained_despite_source": false
+      },
+      "response": {
+        "question": "Can a child who is accused of an offence get bail in India?",
+        "answer": "Yes. A child accused of an offence can get bail in India. When a person who is apparently a child is detained by police or brought before the Juvenile Justice Board, the law says they shall generally be released on bail, whether the alleged offence is bailable or non-bailable. Bail may be granted with or without a surety—a person who gives an assurance for the child's appearance. The child may instead be placed under the supervision of a probation officer or in the care of a suitable person. [jj_act_2015:12]\n\nRelease is not automatic in every case. It can be denied if there are reasonable grounds to believe that release is likely to bring the child into association with a known criminal, expose the child to moral, physical or psychological danger, or defeat the ends of justice. The Board must record its reasons and the circumstances for denying bail. [jj_act_2015:12]\n\nIf the police do not release the child, the child must be kept in an observation home or a place of safety until they can be brought before the Board. If the Board does not release the child, it must order placement in an observation home or a place of safety during the inquiry. [jj_act_2015:12]\n\nIf the child cannot meet the bail conditions within seven days of the bail order, the child must be brought before the Board so that the conditions can be modified. [jj_act_2015:12]",
+        "confidence": "high",
+        "model_confidence": "high",
+        "citations": [
+          {
+            "section_id": "jj_act_2015:12",
+            "quote": "such person shall,\nnotwithstanding anything contained in the Code of Criminal Procedure, 1973 (2 of 1974) or in any other\nlaw for the time being in force, be released on bail with or without surety or placed under the supervision\nof a probation officer or under the care of any fit person",
+            "supports": "A person who is apparently a child and is accused of a bailable or non-bailable offence is generally to be released on bail, with or without a surety, or placed under supervision or suitable care.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:12",
+            "quote": "Provided that such person shall not be so released if there appears reasonable grounds for believing\nthat the release is likely to bring that person into association with any known criminal or expose the said\nperson to moral, physical or psychological danger or the person’s release would defeat the ends of justice,\nand the Board shall record the reasons for denying the bail and circumstances that led to such a decision.",
+            "supports": "Release can be denied on the specified grounds, and the Board must record its reasons and the circumstances.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:12",
+            "quote": "such officer shall cause the person to be kept only in an observation\nhome 1[or a place of safety, as the case may be] in such manner as may be prescribed until the person can\nbe brought before a Board.",
+            "supports": "If police do not release the child, the child must be kept in an observation home or place of safety until brought before the Board.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:12",
+            "quote": "When such person is not released on bail under sub -section (1) by the Board, it shall make an\norder sending him to an observation home or a place of safety, as the case may be, for such period during\nthe pendency of the inquiry regarding the person, as may be specified in the order.",
+            "supports": "If the Board does not release the child, it must order placement in an observation home or place of safety during the inquiry.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          },
+          {
+            "section_id": "jj_act_2015:12",
+            "quote": "When a child in conflict with law is unable to fulfil the conditions of bail order within seven days\nof the bail order, such child shall be produced before the Board for modification of the conditions of bail.",
+            "supports": "A child unable to meet bail conditions within seven days must be brought before the Board for modification of those conditions.",
+            "verified": true,
+            "reason": "Quote found in the section text.",
+            "citation": "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+            "page": 17
+          }
+        ],
+        "next_steps": [
+          "Contact a lawyer experienced in juvenile justice and share the child's age, the allegation and any police or Board documents.",
+          "If bail has been denied, ask for a copy of the Board's order and its recorded reasons.",
+          "If the child cannot meet the bail conditions, tell the lawyer and bring this to the Board's attention."
+        ],
+        "disclaimer": "NyayaAI provides general legal information based on the text of Indian Acts, not legal advice. Laws change and every situation is different; please consult a qualified lawyer before acting.",
+        "sources_considered": [
+          "Section 12, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 480, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 482, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 483, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 430, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 6, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 485, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 86, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 1, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 97, The Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "Section 478, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 34, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 187, The Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "Section 19, The Protection of Children from Sexual Offences Act, 2012",
+          "Section 481, The Bharatiya Nagarik Suraksha Sanhita, 2023"
+        ],
+        "model": "gpt-6.1-terra",
+        "input_tokens": 8569,
+        "output_tokens": 1071,
+        "safety_notes": []
+      }
+    }
+  ]
+}

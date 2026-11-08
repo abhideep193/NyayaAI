@@ -335,6 +335,23 @@
         "'Small quantity' and 'commercial quantity' of each drug are fixed by a Central Government notification, NOT in this Act's text. Never state gram or kilogram limits; say they are set by a government notification that must be checked."
       ],
       "strip_state_amendments": true
+    },
+    {
+      "id": "jj_act_2015",
+      "title": "The Juvenile Justice (Care and Protection of Children) Act, 2015",
+      "act_number": "2 of 2016",
+      "domain": "criminal",
+      "topic": "children",
+      "file": "criminal/jj_act_2015.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "A2016-2.pdf",
+      "source_url": "https://www.indiacode.nic.in",
+      "downloaded_by": "project owner",
+      "version_as_on": "2026-07-01",
+      "downloaded_on": "2026-11-08",
+      "sha256": "a119f66f7d05bf14b36759e19e4f3881fe68b0ea53b139b1aaf99e9f39e844c9",
+      "known_issues": [],
+      "strip_state_amendments": true
     }
   ]
 }

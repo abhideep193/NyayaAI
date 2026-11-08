@@ -11,6 +11,7 @@ Each file lists, per question: the answer, confidence, safety notes added by cod
 | [2026-11-08_010738 … consumer](2026-11-08_010738_gpt-6.1-terra_ctx15_ipr+criminal+property+consumer.md) | Consumer law | 17 |
 | [2026-11-08_033553 … contract](2026-11-08_033553_gpt-6.1-terra_ctx15_ipr+criminal+property+consumer+contract.md) | Contract law (owner's deposit question, now answered) + out of scope | 14 |
 | [2026-11-08_114826 … contract](2026-11-08_114826_gpt-6.1-terra_ctx15_ipr+criminal+property+consumer+contract.md) | Drug law (NDPS Act, inside criminal law) + out of scope | 11 |
+| [2026-11-08_130801 … contract](2026-11-08_130801_gpt-6.1-terra_ctx15_ipr+criminal+property+consumer+contract.md) | Juvenile Justice Act (inside criminal law; incl. owner's real question) + out of scope | 10 |
 
 Other unedited outputs:
 - Drafted letters and complaints (8 scripted conversations, two runs): [`../draft_eval/`](../draft_eval/)

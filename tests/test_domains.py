@@ -25,7 +25,7 @@ def test_criminal_enabled_prompts_name_criminal_law_and_its_acts():
     assert "Use ONLY the SOURCES" in system  # the rules are unchanged
 
     rewrite = build_rewrite_prompt(DOMAINS, ["ipr", "criminal"], SOURCES)
-    assert "twelve Indian Acts" in rewrite  # 3 IPR + 9 criminal (NDPS added 2026-11-08)
+    assert "13 Indian Acts" in rewrite  # 3 IPR + 10 criminal (NDPS and JJ added 2026-11-08)
     assert "the Bharatiya Nyaya Sanhita, 2023" in rewrite
     assert '"offence"' in rewrite
 

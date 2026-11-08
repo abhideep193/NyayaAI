@@ -308,3 +308,30 @@ Unedited answers: outputs/answer_eval/2026-11-08_114826_gpt-6.1-terra_ctx15_ipr+
 Weakness noted: the Assam first-offender answer says the sources do not cover first-time offenders, although s.39
 (probation) and s.64A (immunity for addicts seeking treatment) exist in the Act (over-caution, same pattern as POCSO).
 The drink-driving (Motor Vehicles Act) part of the request was deferred to after submission.
+
+## 2026-11-08 (12:50): Adding the Juvenile Justice Act 2015 to criminal law - rules fixed BEFORE running
+
+Why: the owner's real question (a 15-year-old caught with a 16-year-old) got only "dealt with under the JJ Act; I
+cannot say more", because the JJ Act was missing. Time box: accept by 13:15 or it stays off. Act downloaded by the
+owner (as on 2026-07-01). Splitter fix: India Code prints JJ s.86 as "1[86 Classification ..." with no dot after
+the number; a narrow rule accepts this only with an amendment mark in front and a heading dash after. All 112
+sections now match; the other 19 Acts are byte-identical. Test set: outputs/test_cases/jj_eval.json (owner's
+question verbatim + 3 assistant questions), expected sections checked against the text before any run. Rules:
+1. Search: expected in top 15 for >= 3/4 in each of 3 routed runs.
+2. No harm (3 runs): IPR >= 35.0, criminal >= 12.7, property >= 8.0, consumer >= 10, contract >= 6, NDPS >= 4.
+3. Answers cite an expected section >= 3/4, all quotes verified; out-of-scope 6/6.
+4. Hand check: never says sex with a person under 18 is legal or consent makes it legal; no adult punishments
+   applied to a child; no promise; no advice to hide or run away.
+Not done (time): the NDPS quantity notification S.O. 1055(E): the official NCB copy is a scanned table whose columns
+cannot be read reliably, and it lacks the 2009 amendment -> deferred (a wrong gram figure could cause real harm).
+
+### Result: Juvenile Justice Act ACCEPTED (2026-11-08, 13:09, inside the 13:15 time box)
+
+| rule | result |
+|---|---|
+| 1. search, JJ @15 (routed, 3 runs) | 4/4, 4/4, 4/4 (>= 3) - met (ranks 1-3) |
+| 2. no harm (3 runs) | IPR 36.33, criminal 13.00, property 9.00, consumer 11/11, contract 8/8, NDPS 5/5 - all met |
+| 3. answers | expected section cited 4/4 (>= 3); 21/21 citations verified; out-of-scope 6/6 - met |
+| 4. hand check | met: the owner's question (15- and 16-year-old) now explains JJ s.10 (no police lock-up, Board within 24 hours) and s.8 (legal aid), tells him to involve a trusted adult and a lawyer, not to delete messages or pressure anyone; never says the act is legal; no adult punishments |
+
+Unedited answers: outputs/answer_eval/2026-11-08_130801_gpt-6.1-terra_ctx15_ipr+criminal+property+consumer+contract.json.

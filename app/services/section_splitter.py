@@ -20,6 +20,9 @@ PAGE_MARKER = re.compile(r"^\[\[PAGE (\d+)\]\]$")
 # Captures: (1) the section number such as "52" or "52A", (2) the rest of the line.
 # "1[53A." and, in the older PDFs (Transfer of Property Act), "1 [53A." and "3[119 ." with spaces.
 SECTION_START = re.compile(r"^\s*(?:\d+\s?\[)?(\d+[A-Z]*)\s?\.\s*(.*)$")
+# India Code typo (JJ Act s.86): "1[86 Classification of offences ... .—(1)" has no dot after the number.
+# Accepted only with the amendment mark "1[" in front, and (below) only if a heading dash follows.
+MISSING_DOT_START = re.compile(r"^\s*\d+\s?\[(\d+[A-Z]*)\s+([A-Z].*)$")
 
 # State amendments printed inside a Central Act (e.g. 41 blocks in the Registration Act, 1908):
 #   STATE AMENDMENT / Karnataka / Insertion of new section 18A ... / [Vide Karnataka Act 55 of 1976, s. 16]
@@ -155,7 +158,7 @@ def _sort_key(number: str) -> tuple[int, str]:
 
 def match_section_start(lines: list[str], index: int) -> tuple[str, str, str] | None:
     """If lines[index] starts a section, return (number, heading, status); else None."""
-    match = SECTION_START.match(lines[index])
+    match = SECTION_START.match(lines[index]) or MISSING_DOT_START.match(lines[index])
     if match is None:
         return None
 

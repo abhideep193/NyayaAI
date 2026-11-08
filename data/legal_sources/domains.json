@@ -35,7 +35,7 @@
         "If the events happened before 1 July 2024, do not quote or guess section numbers of the old Indian Penal Code or Code of Criminal Procedure; they are not in the SOURCES. NyayaAI adds a notice about the old laws automatically.",
         "If the situation involves a child (under 18), say so and use the child-protection SOURCES where they apply."
       ],
-      "display_also": "drug offences (NDPS Act)"
+      "display_also": "drug offences (NDPS Act), children accused of offences (Juvenile Justice Act)"
     },
     "property": {
       "label": "property and tenancy law",

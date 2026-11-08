@@ -151,3 +151,13 @@ def test_numbered_schedules_are_not_part_of_the_last_section():
         body = body_of(f"531. Repeal and savings.—The Code is repealed.\n{heading}\nClassification of offences.\n")
         sections = split_sections(body, "x", "X Act")
         assert "Classification" not in sections[-1].text, heading
+
+
+def test_amended_section_with_missing_dot_after_number():
+    # India Code prints JJ Act s.86 as "1[86 Classification ... .—(1)" (no dot after 86).
+    from app.services.section_splitter import match_section_start
+
+    lines = ["1[86 Classification of offences and designated court .—(1) Where an offence under this Act is"]
+    assert match_section_start(lines, 0) == ("86", "Classification of offences and designated court", "in_force")
+    # Without a heading dash it is not a section (e.g. an amendment footnote line).
+    assert match_section_start(["2[86 Subs. by Act 33 of 2021, for the words"], 0) is None

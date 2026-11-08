@@ -36,7 +36,7 @@ one) and SHA-256 fingerprint recorded in [`data/legal_sources/sources.json`](dat
 | Area | Acts |
 |---|---|
 | Intellectual property | Copyright Act 1957, Trade Marks Act 1999, Patents Act 1970 |
-| Criminal law | Bharatiya Nyaya Sanhita 2023 (BNS), Bharatiya Nagarik Suraksha Sanhita 2023 (BNSS), Information Technology Act 2000, POCSO Act 2012, POSH Act 2013, Protection of Women from Domestic Violence Act 2005, Dowry Prohibition Act 1961, SC/ST (Prevention of Atrocities) Act 1989, NDPS Act 1985 (drugs) |
+| Criminal law | Bharatiya Nyaya Sanhita 2023 (BNS), Bharatiya Nagarik Suraksha Sanhita 2023 (BNSS), Information Technology Act 2000, POCSO Act 2012, POSH Act 2013, Protection of Women from Domestic Violence Act 2005, Dowry Prohibition Act 1961, SC/ST (Prevention of Atrocities) Act 1989, NDPS Act 1985 (drugs), Juvenile Justice Act 2015 (children accused of offences) |
 | Property and tenancy | Transfer of Property Act 1882, Specific Relief Act 1963, Registration Act 1908, Delhi Rent Control Act 1958 |
 | Consumer | Consumer Protection Act 2019, Sale of Goods Act 1930 |
 | Contracts | Indian Contract Act 1872 (agreements, money owed, deposits and advances not returned, penalty clauses) |
@@ -58,7 +58,7 @@ says it cannot answer and suggests a lawyer, instead of guessing.
 ## How it avoids inventing laws
 
 1. **Only real text goes in.** The Acts are split into sections and checked against each Act's own table of
-   contents (all 19 match). The model is given only the sections that search found, never "general knowledge".
+   contents (all 20 match). The model is given only the sections that search found, never "general knowledge".
 2. **Every legal claim needs a quote.** The model must return each claim with a section ID and words copied
    exactly from that section (OpenAI Structured Outputs enforce the format).
 3. **Code checks every quote.** `app/services/citation_verifier.py` confirms the section was really retrieved and the
@@ -108,6 +108,8 @@ Final run with the submitted version (all 63 answers, unedited:
 | Property questions (10 scored: 4 owner-written, 6 assistant-written), separate run 2026-11-08 | correct law cited in **9/10**; State-law note on 11/11 |
 | Consumer questions (11: 6 owner-written, 5 assistant-written), separate run 2026-11-08 | correct law cited in **11/11**; 61/61 quotes verified |
 | Contract questions (8: 1 owner-written, 7 assistant-written), separate run 2026-11-08 | correct law cited in **8/8**; 23/23 quotes verified |
+| Drug-law questions, NDPS Act (5, all owner-written), separate run 2026-11-08 | correct law cited in **5/5**; 43/43 quotes verified; no gram limits stated (set by notification, not in the Act) |
+| Juvenile Justice questions (4: 1 owner-written, 3 assistant-written), separate run 2026-11-08 | correct law cited in **4/4**; 21/21 quotes verified |
 | Drafting conversations (8, rules fixed before building: [`drafting_eval.json`](outputs/test_cases/drafting_eval.json)) | no unverified law **8/8**, no invented date or amount **8/8**, names left blank **8/8**, right document and filing guide **8/8**; out-of-scope question gets no draft offer |
 | Real-life questions typed by the owner while testing (3) | shown, not scored |
 | Citations checked word for word (the 63-answer run) | **310/312** verified (the 2 rejected quotes were too short to prove anything, and were flagged) |
@@ -230,7 +232,7 @@ correctly, so answers are also read by hand.
 - Results vary slightly between runs because the rewrite step uses an LLM (IPR 35-37 of 39).
 - Photos of documents were tested only on an easy simulated photo, not real folded or stamped paper.
 - Citation checks prove a quote is real, not that the legal reasoning is right.
-- Answers take about 10-25 seconds; everything runs in memory on one machine (fine for 19 Acts, not thousands).
+- Answers take about 10-25 seconds; everything runs in memory on one machine (fine for 20 Acts, not thousands).
 
 ## License
 
