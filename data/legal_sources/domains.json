@@ -1,5 +1,5 @@
 {
-  "description": "Areas of law NyayaAI can cover. Each Act in sources.json names its domain. The answer and search prompts are built from the ENABLED domains (ENABLED_DOMAINS in .env), so adding an area of law means adding data here, not editing prompts. 'extra_rules' are added to the answer instructions only when that area is enabled.",
+  "description": "Areas of law NyayaAI can cover. Each Act in sources.json names its domain. The answer and search prompts are built from the ENABLED domains (ENABLED_DOMAINS in .env), so adding an area of law means adding data here, not editing prompts. 'extra_rules' are added to the answer instructions only when that area is enabled. 'display_also' is shown only in the app's information panel (never in prompts).",
   "domains": {
     "ipr": {
       "label": "intellectual property law",
@@ -34,7 +34,8 @@
         "Do not write helpline or emergency numbers yourself; NyayaAI adds checked helplines to the answer automatically.",
         "If the events happened before 1 July 2024, do not quote or guess section numbers of the old Indian Penal Code or Code of Criminal Procedure; they are not in the SOURCES. NyayaAI adds a notice about the old laws automatically.",
         "If the situation involves a child (under 18), say so and use the child-protection SOURCES where they apply."
-      ]
+      ],
+      "display_also": "drug offences (NDPS Act)"
     },
     "property": {
       "label": "property and tenancy law",

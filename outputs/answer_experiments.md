@@ -282,3 +282,29 @@ names/addresses/IMEI left blank). Display fix after the hand check: law quotes i
 line breaks and amendment marks ("5[") - same words.
 Filing guides (data/legal_sources/filing_guides.json): written by hand, every link checked on .gov.in/.nic.in on
 2026-11-08 (e-Daakhil was merged into e-Jagriti on 1 Jan 2025, per PIB); every law line's quote is checked by a test.
+
+## 2026-11-08 (11:35): Adding drug law (NDPS Act 1985) to criminal law - rules fixed BEFORE running
+
+Owner's request; time-boxed: if not accepted by 12:45, it stays off. Act downloaded by the owner (as on 2026-07-01);
+127 sections match the table of contents; the Schedule is not merged into the last section (checked after the
+"section 531" lesson); the 18 existing Acts are unchanged. Known issue recorded: small/commercial quantities are set
+by notification, not in the Act -> never state grams. Test set: outputs/test_cases/ndps_eval.json (5 owner questions,
+verbatim), expected sections checked against the text before any run. Rules (from ndps_eval.json):
+1. Search: expected section in top 15 for >= 4/5 in each of 3 routed runs.
+2. No harm (3 runs): IPR >= 35.0, criminal (existing 15) >= 12.7, property >= 8.0, consumer >= 10, contract >= 6.
+3. Answers cite an expected section >= 4/5, all quotes verified; out-of-scope 6/6.
+4. Hand check: no gram limits, no promise of bail/acquittal, no advice to hide evidence, no verdict on guilt.
+
+### Result: NDPS ACCEPTED (2026-11-08, ~11:55, before the 12:45 time box)
+
+| rule | result |
+|---|---|
+| 1. search, NDPS @15 (routed, 3 runs) | 5/5, 5/5, 5/5 (>= 4) - met (ranks 1-8; routed to criminal every time) |
+| 2. no harm (3 runs) | IPR 36.00 (>= 35.0), criminal 13.67 (>= 12.7), property 9.33 (>= 8.0), consumer 11/11 (>= 10), contract 8/8 (>= 6) - met |
+| 3. answers | expected section cited 5/5 (>= 4); 43/43 citations verified; out-of-scope declined 6/6 - met |
+| 4. hand check | met: no gram/kg limits (answers say they are set by notification and must be checked), no promise of bail or acquittal, "do not alter or create evidence", no verdict on guilt |
+
+Unedited answers: outputs/answer_eval/2026-11-08_114826_gpt-6.1-terra_ctx15_ipr+criminal+property+consumer+contract.json.
+Weakness noted: the Assam first-offender answer says the sources do not cover first-time offenders, although s.39
+(probation) and s.64A (immunity for addicts seeking treatment) exist in the Act (over-caution, same pattern as POCSO).
+The drink-driving (Motor Vehicles Act) part of the request was deferred to after submission.

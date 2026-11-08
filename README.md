@@ -23,8 +23,8 @@ NyayaAI gives legal information, not legal advice. It says so, and it says when 
 
 Built for the Kuku *AI Generalist* assignment, Problem 2 ("Build an AI Lawyer").
 
-**Live demo:** https://nyayaai-j6jrrcqxexfz2umjqgdodp.streamlit.app/ (asks for an access code, because every
-question is paid for by the developer; the code is shared with reviewers).
+**Live demo:** https://nyayaai-j6jrrcqxexfz2umjqgdodp.streamlit.app/ (open to try; if it is asleep, click the
+button to wake it and wait about a minute).
 
 ---
 
@@ -36,7 +36,7 @@ one) and SHA-256 fingerprint recorded in [`data/legal_sources/sources.json`](dat
 | Area | Acts |
 |---|---|
 | Intellectual property | Copyright Act 1957, Trade Marks Act 1999, Patents Act 1970 |
-| Criminal law | Bharatiya Nyaya Sanhita 2023 (BNS), Bharatiya Nagarik Suraksha Sanhita 2023 (BNSS), Information Technology Act 2000, POCSO Act 2012, POSH Act 2013, Protection of Women from Domestic Violence Act 2005, Dowry Prohibition Act 1961, SC/ST (Prevention of Atrocities) Act 1989 |
+| Criminal law | Bharatiya Nyaya Sanhita 2023 (BNS), Bharatiya Nagarik Suraksha Sanhita 2023 (BNSS), Information Technology Act 2000, POCSO Act 2012, POSH Act 2013, Protection of Women from Domestic Violence Act 2005, Dowry Prohibition Act 1961, SC/ST (Prevention of Atrocities) Act 1989, NDPS Act 1985 (drugs) |
 | Property and tenancy | Transfer of Property Act 1882, Specific Relief Act 1963, Registration Act 1908, Delhi Rent Control Act 1958 |
 | Consumer | Consumer Protection Act 2019, Sale of Goods Act 1930 |
 | Contracts | Indian Contract Act 1872 (agreements, money owed, deposits and advances not returned, penalty clauses) |
@@ -58,7 +58,7 @@ says it cannot answer and suggests a lawyer, instead of guessing.
 ## How it avoids inventing laws
 
 1. **Only real text goes in.** The Acts are split into sections and checked against each Act's own table of
-   contents (all 18 match). The model is given only the sections that search found, never "general knowledge".
+   contents (all 19 match). The model is given only the sections that search found, never "general knowledge".
 2. **Every legal claim needs a quote.** The model must return each claim with a section ID and words copied
    exactly from that section (OpenAI Structured Outputs enforce the format).
 3. **Code checks every quote.** `app/services/citation_verifier.py` confirms the section was really retrieved and the
@@ -176,8 +176,8 @@ To rebuild the law data from the PDFs: `python -m scripts.extract_sources` then 
 Questions are sent to OpenAI to write the answer (with `store=False`). NyayaAI does not save conversations or log
 question text. Please do not include names or other personal details. Attached documents and voice recordings
 are also sent to OpenAI (to read and transcribe them) and are not saved by NyayaAI; documents often contain names
-and addresses, so cover them if you can. The public demo asks for an access code
-because every question is paid for by the developer.
+and addresses, so cover them if you can. The public demo has a monthly spending limit on the developer's
+OpenAI account; an optional access code (`APP_ACCESS_CODE`) can be switched on if needed.
 
 ## Project layout
 

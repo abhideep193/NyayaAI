@@ -316,6 +316,25 @@
         "India has no Central law written specifically about returning rent security deposits; the deposit is returned under the rent agreement, and this Act governs agreements in general."
       ],
       "strip_state_amendments": true
+    },
+    {
+      "id": "ndps_act_1985",
+      "title": "The Narcotic Drugs and Psychotropic Substances Act, 1985",
+      "act_number": "61 of 1985",
+      "domain": "criminal",
+      "topic": "drugs",
+      "file": "criminal/ndps_act_1985.pdf",
+      "publisher": "India Code (Legislative Department, Government of India)",
+      "original_filename": "A1985-61.pdf",
+      "source_url": "https://www.indiacode.nic.in",
+      "downloaded_by": "project owner",
+      "version_as_on": "2026-07-01",
+      "downloaded_on": "2026-11-08",
+      "sha256": "5d934c660fd082853d58e4814867a910456f3b86cd6e4f2c5c44e4f515604f30",
+      "known_issues": [
+        "'Small quantity' and 'commercial quantity' of each drug are fixed by a Central Government notification, NOT in this Act's text. Never state gram or kilogram limits; say they are set by a government notification that must be checked."
+      ],
+      "strip_state_amendments": true
     }
   ]
 }

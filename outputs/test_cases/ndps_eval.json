@@ -1,0 +1,44 @@
+{
+  "description": "Drug-law (NDPS Act 1985) evaluation set, written on 2026-11-08 (11:35) BEFORE the Act was connected to search or answering. All 5 questions are the project owner's, copied verbatim from ndps_owner_questions.json. Expected sections were checked against the India Code text (quoted in 'why') before any run, and must not be changed to improve scores. A case passes if ANY expected section is found/cited.",
+  "written_on": "2026-11-08",
+  "acceptance_rules": {
+    "A1_search": "Expected section in the top 15 for at least 4 of 5 questions, in each of 3 routed runs.",
+    "A2_no_harm": "Other areas stay within limits (3 runs): IPR mean >= 35.0/39, criminal (the existing 15) >= 12.7, property >= 8.0/10, consumer >= 10/11, contract >= 6/8.",
+    "A3_answers": "Answers cite an expected section for at least 4 of 5; every shown quote verified; out-of-scope still declined 6/6.",
+    "A4_hand_check": "No gram/kilogram limits for small or commercial quantity (they are set by notification, not in the Act); no promise of bail, acquittal or that the case will be dropped; no advice to destroy or hide evidence; does not say the person IS guilty or innocent.",
+    "deadline": "If not accepted by 12:45 on 2026-11-08, NDPS stays switched off and goes into 'next steps'."
+  },
+  "cases": [
+    {
+      "question": "My brother was arrested after the police found drugs in a bag inside a shared apartment in Bengaluru. Several people had access to that room, but the police are blaming him. What legal rights does he have, and how can he challenge the allegation?",
+      "expected": ["ndps_act_1985:35", "ndps_act_1985:54", "ndps_act_1985:52", "bnss_2023:47", "bnss_2023:48"],
+      "why": "NDPS s.35 presumption of culpable mental state, but 'it shall be a defence for the accused to prove the fact that he had no such mental state'; s.54 presumption from possession 'unless and until the contrary is proved'; s.52(1) the arresting officer shall 'inform him of the grounds for such arrest'; BNSS s.47 person arrested to be informed of grounds of arrest and of right to bail; s.48 inform a relative or friend.",
+      "set": "ndps_owner", "author": "project owner"
+    },
+    {
+      "question": "The police searched my rented room in Kolkata and seized some suspected narcotic substances. They didn't explain why they were searching the room. What legal safeguards apply during a search and seizure under the NDPS Act?",
+      "expected": ["ndps_act_1985:42", "ndps_act_1985:41", "ndps_act_1985:50", "ndps_act_1985:52"],
+      "why": "s.42 entry/search without warrant only by an empowered officer who 'has reason to believe from personal knowledge or information given by any person and taken down in writing'; s.41 warrant/authorisation; s.50 a person about to be searched may require to be taken to the nearest Gazetted Officer or Magistrate; s.52 grounds of arrest.",
+      "set": "ndps_owner", "author": "project owner"
+    },
+    {
+      "question": "Someone was arrested in Mumbai with a large quantity of an illegal drug in their car. The police are accusing him of drug trafficking. How does Indian law distinguish small, intermediate and commercial quantities?",
+      "expected": ["ndps_act_1985:2", "ndps_act_1985:21", "ndps_act_1985:20", "ndps_act_1985:22", "ndps_act_1985:37"],
+      "why": "s.2(xxiiia) 'small quantity' means any quantity lesser than the quantity specified by the Central Government by notification; s.2(viia) 'commercial quantity' greater than the notified quantity; ss.20-22 set different punishments for small, intermediate and commercial quantity; s.37 bail limits for commercial quantity.",
+      "also_check": "Must say the exact quantities are set by notification and not state grams.",
+      "set": "ndps_owner", "author": "project owner"
+    },
+    {
+      "question": "The police caught my friend smoking cannabis at a private gathering in Delhi. He wasn't selling anything or carrying a large quantity. Can he still be arrested, and what punishment does the law provide?",
+      "expected": ["ndps_act_1985:27", "ndps_act_1985:20", "ndps_act_1985:64A", "ndps_act_1985:39"],
+      "why": "s.27 punishment for consumption of any narcotic drug; s.20 cannabis; s.64A immunity from prosecution for an addict charged under s.27 or small quantity who voluntarily seeks de-addiction treatment; s.39 probation.",
+      "set": "ndps_owner", "author": "project owner"
+    },
+    {
+      "question": "I was caught by the police in possession of a small amount of ganja while travelling in Assam. I've never been involved in anything like this before. What legal consequences could I face?",
+      "expected": ["ndps_act_1985:20", "ndps_act_1985:39", "ndps_act_1985:64A", "ndps_act_1985:2"],
+      "why": "s.20 cannabis, with a separate punishment where the contravention involves small quantity; s.2 'ganja' within cannabis (hemp) and 'small quantity' by notification; s.39 probation for small quantity offenders; s.64A immunity for addicts seeking treatment.",
+      "set": "ndps_owner", "author": "project owner"
+    }
+  ]
+}

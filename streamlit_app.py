@@ -153,6 +153,7 @@ header[data-testid="stHeader"] { display: none; }  /* Streamlit's own (empty) he
 .info-muted { color: var(--muted); font-size: .88em; }
 [data-testid="stPopoverBody"] h4 { font-size: 1rem; margin: .9rem 0 .3rem; color: var(--accent); }
 [data-testid="stPopoverBody"] h4:first-child { margin-top: 0; }
+[data-testid="stPopoverBody"] [data-testid="stHeaderActionElements"] { display: none; }  /* no link icon on headings */
 iframe { border: none; }
 .tagline { color: var(--muted); font-size: 0.82rem; margin: -0.4rem 0 1.2rem 0; letter-spacing: 0.02em; }
 
@@ -541,8 +542,11 @@ def show_info() -> None:
     st.markdown("#### What it covers")
     for domain in config.ENABLED_DOMAINS:
         acts = [s for s in ENABLED_SOURCES if s["domain"] == domain]
-        st.markdown(f"**{DOMAINS[domain]['label']}** ({len(acts)} Acts)  \n"
-                    f"<span class='info-muted'>{DOMAINS[domain]['covers']}</span>", unsafe_allow_html=True)
+        info = DOMAINS[domain]
+        covers = info["covers"] + (f", {info['display_also']}" if info.get("display_also") else "")
+        label = info["label"][0].upper() + info["label"][1:]
+        st.markdown(f"**{label}** ({len(acts)} {'Act' if len(acts) == 1 else 'Acts'})  \n"
+                    f"<span class='info-muted'>{covers}</span>", unsafe_allow_html=True)
     with st.expander(f"All {len(ENABLED_SOURCES)} Acts and their dates"):
         st.markdown("\n".join(
             f"- {s['title']} " + (f"(as on {s['version_as_on']})" if s.get("version_as_on")
